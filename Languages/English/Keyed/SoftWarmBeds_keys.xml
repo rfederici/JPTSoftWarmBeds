@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <TabBedding>Make Bed</TabBedding>
+  <BedMade>This bed is made in {1_label}.</BedMade>
+  <BedNotMade>This bed isn't made.</BedNotMade>
+  <NoBeddings>No Beddings</NoBeddings>
+  <CommandUnmakeBed>Unmake</CommandUnmakeBed>
+  <CommandUnmakeBedDesc>Take current bedding off so it can be replaced by another one.</CommandUnmakeBedDesc>
+  <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort} found no nearby unreserved beddings for {BED_label}.</MessageOutOfNearbyBeddingsFor>
+</LanguageData>

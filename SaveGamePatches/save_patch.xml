@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+  <Operation Class="PatchOperationAttributeSet">
+    <xpath>//*[@Class="Building_Bed"]</xpath>
+    <attribute>Class</attribute>
+    <thingClass>SoftWarmBeds.Building_SoftWarmBed</thingClass>
+  </Operation>
+
+<!--  <Operation Class="PatchOperationAttributeSet">
+  	<xpath>//innerList/li[@Class="Building_Bed"]</xpath>
+  	<attribute>Class</attribute>
+    <thingClass>SoftWarmBeds.Building_SoftWarmBed</thingClass>
+  </Operation>-->
+</Patch>
