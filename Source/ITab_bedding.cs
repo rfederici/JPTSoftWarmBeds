@@ -12,7 +12,7 @@ namespace SoftWarmBeds
     {
         public ITab_Bedding()
         {
-            this.labelKey = "TabBedding";
+            labelKey = "TabBedding";
         }
 
         protected override IStoreSettingsParent SelStoreSettingsParent

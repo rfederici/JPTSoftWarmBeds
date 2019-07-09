@@ -62,14 +62,14 @@ namespace SoftWarmBeds
                 {
                     material = req.StuffDef.label;
                 }
-                string number = this.Addend.ToStringByStyle(this.parentStat.ToStringStyleUnfinalized, ToStringNumberSense.Absolute);
+                string number = Addend.ToStringByStyle(parentStat.ToStringStyleUnfinalized, ToStringNumberSense.Absolute);
                 if (additiveStat != null)
                 {
                 stringBuilder.AppendLine("StatsReport_Material".Translate() + " (" + material + "): +" + number);
                 }
                 if (multiplierStat != null)
                 {
-                    stringBuilder.AppendLine("StatsReport_StuffEffectMultiplier".Translate() + ": x" + this.Factor.ToStringPercent("F0"));
+                    stringBuilder.AppendLine("StatsReport_StuffEffectMultiplier".Translate() + ": x" + Factor.ToStringPercent("F0"));
                 }
                 return stringBuilder.ToString().TrimEndNewlines();
             }

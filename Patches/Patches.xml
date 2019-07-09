@@ -6,7 +6,7 @@
     <xpath>*/StatDef[defName = "ComfyTemperatureMin"]/parts</xpath>
     <value>
       <li Class="SoftWarmBeds.StatPart_BedStatOffset">
-        <stat>Bed_Insulation_Cold</stat>
+        <stat>Bed_Insulation_Cold</stat> 
         <subtract>true</subtract>
       </li>
     </value>
@@ -67,7 +67,7 @@
         </value>
       </li>    
       <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[@Name="BedBase"]</xpath>
+        <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "HospitalBed" or defName = "RoyalBed"]</xpath>
         <value>
           <inspectorTabs>
             <li>SoftWarmBeds.ITab_Bedding</li>
@@ -75,9 +75,8 @@
         </value>
       </li>
       <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[@Name="BedBase"]</xpath>
+        <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "HospitalBed" or defName = "RoyalBed"]/building</xpath>
         <value>
-          <building>
             <fixedStorageSettings>
               <filter>
                 <categories>
@@ -92,47 +91,45 @@
                 </categories>
               </filter>
             </defaultStorageSettings>
-          </building>
         </value>
       </li>
       <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[@Name="BedBase"]</xpath>
+        <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "HospitalBed" or defName = "RoyalBed"]</xpath>
         <value>
           <tickerType>Normal</tickerType>
         </value>
       </li>
 
   <!--Graphic Modifications-->
-      <li Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[defName = "Bed"]/graphicData/texPath</xpath>
-        <value>
-          <texPath>Things/Building/Bed</texPath>
-        </value>
-      </li>
-      <li Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[defName = "DoubleBed"]/graphicData/texPath</xpath>
-        <value>
-          <texPath>Things/Building/DoubleBed</texPath>
-        </value>
-      </li>
-      <li Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[defName = "HospitalBed"]/graphicData/texPath</xpath>
-        <value>
-          <texPath>Things/Building/HospitalBed</texPath>
-        </value>
-      </li>
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/ThingDef[defName = "Bed"]/graphicData/texPath</xpath>
+              <value>
+                <texPath>Things/Building/Bed</texPath>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/ThingDef[defName = "DoubleBed"]/graphicData/texPath</xpath>
+              <value>
+                <texPath>Things/Building/DoubleBed</texPath>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>/Defs/ThingDef[defName = "HospitalBed"]/graphicData/texPath</xpath>
+              <value>
+                <texPath>Things/Building/HospitalBed</texPath>
+              </value>
+            </li>
       <li Class="PatchOperationReplace">
         <xpath>/Defs/ThingDef[defName = "RoyalBed"]/graphicData/texPath</xpath>
         <value>
           <texPath>Things/Building/RoyalBed</texPath>
         </value>
       </li>
-
-  <!--ShowSleeperBody Settings-->
-      <li Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[@ParentName="BedWithQualityBase" or @ParentName="ArtableBedBase"]/building/bed_showSleeperBody</xpath>
+	  
+	<li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName = "Bed"]/description</xpath>
         <value>
-          <bed_showSleeperBody>True</bed_showSleeperBody>
+			<description>A bed for resting, but just its frame. Needs a mattress and sheets to be complete.</description>
         </value>
       </li>
       
@@ -173,8 +170,8 @@
           </li>
         </value>
       </li>
-
-      <!--BedRestEffectiveness Settings--> 
+            
+<!--BedRestEffectiveness Settings--> 
       <li Class="PatchOperationReplace">
         <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "HospitalBed"]/statBases/BedRestEffectiveness</xpath>
         <value>
@@ -227,12 +224,6 @@
       </li>
 
 <!--Insulation Settings-->
-<!--      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[@ParentName="BedWithQualityBase" or @ParentName="ArtableBedBase"]/statBases</xpath>
-        <value>
-          <BedStuffEffectMultiplierInsulation_Heat>0.2</BedStuffEffectMultiplierInsulation_Heat>
-        </value>
-      </li>-->
       <li Class="PatchOperationAdd">
         <xpath>/Defs/ThingDef[defName = "Bedroll" or defName = "BedrollDouble"]/statBases</xpath>
         <value>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <TabBedding>Fazer Cama</TabBedding>
+  <BedMade>Esta cama está feita em {1_label}.</BedMade>
+  <BedNotMade>Esta cama está desfeita.</BedNotMade>
+  <NoBeddings>Sem roupa de cama.</NoBeddings>
+  <CommandUnmakeBed>Desfazer</CommandUnmakeBed>
+  <CommandUnmakeBedDesc>Remover a roupa de cama atual para que ela seja substituída por outra.</CommandUnmakeBedDesc>
+  <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort} não encontrou nenhuma roupa de cama livre por perto para {BED_label}.</MessageOutOfNearbyBeddingsFor>
+</LanguageData>

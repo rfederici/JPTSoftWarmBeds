@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Gloomy Vanilla</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+
+			  <!--Graphic Modifications-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Bed"]/graphicData/texPath</xpath>
+					<value>
+						<texPath>Things/Building/RGK_bedSingle</texPath>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="DoubleBed"]/graphicData/texPath</xpath>
+					<value>
+						<texPath>Things/Building/RGK_bedDouble</texPath>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="RoyalBed"]/graphicData/texPath</xpath>
+					<value>
+						<texPath>Things/Building/GL_ClassyDoubleBed</texPath>
+					</value>
+				</li>
+
+			  <!--Beddings Settings-->
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="Bed"]/comps/li/blanketDef</xpath>
+					<value>
+						<blanketDef>RGK_SingleBlanket</blanketDef>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="DoubleBed"]/comps/li/blanketDef</xpath>
+					<value>
+						<blanketDef>RGK_DoubleBlanket</blanketDef>
+					</value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="RoyalBed"]/comps/li/blanketDef</xpath>
+					<value>
+						<blanketDef>GL_ClassyDoubleBlanket</blanketDef>
+					</value>
+				</li>
+			</operations>
+		</match>   
+	</Operation>
+
+</Patch>

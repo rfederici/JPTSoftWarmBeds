@@ -15,7 +15,7 @@ namespace SoftWarmBeds
 		{
 			get
 			{
-				return this.job.GetTarget(TargetIndex.A).Thing;
+				return job.GetTarget(TargetIndex.A).Thing;
 			}
 		}
 
@@ -23,7 +23,7 @@ namespace SoftWarmBeds
 		{
 			get
 			{
-				return this.Bed.TryGetComp<CompMakeableBed>();
+				return Bed.TryGetComp<CompMakeableBed>();
 			}
 		}
 
@@ -31,20 +31,20 @@ namespace SoftWarmBeds
         {
             get
             {
-                return this.job.GetTarget(TargetIndex.B).Thing;
+                return job.GetTarget(TargetIndex.B).Thing;
             }
         }
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{
 			Pawn pawn = this.pawn;
-			LocalTargetInfo target = this.Bed;
+			LocalTargetInfo target = Bed;
 			Job job = this.job;
 			bool result;
 			if (pawn.Reserve(target, job, 1, -1, null, errorOnFailed))
 			{
 				pawn = this.pawn;
-				target = this.Bedding;
+				target = Bedding;
 				job = this.job;
 				result = pawn.Reserve(target, job, 1, -1, null, errorOnFailed);
 			}
@@ -57,10 +57,10 @@ namespace SoftWarmBeds
 
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
-            Log.Message("Toil start:" + this.pawn +" is taking " + Bedding + " to " + Bed);
+            //Log.Message("Toil start:" + this.pawn +" is taking " + Bedding + " to " + Bed);
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-			base.AddEndCondition(() => (!this.BedComp.Loaded) ? JobCondition.Ongoing : JobCondition.Succeeded);
-            this.job.count = 1;
+			base.AddEndCondition(() => (!BedComp.Loaded) ? JobCondition.Ongoing : JobCondition.Succeeded);
+            job.count = 1;
 			Toil reserveBedding = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
 			yield return reserveBedding;
 			yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
@@ -73,7 +73,7 @@ namespace SoftWarmBeds
             {
                 Pawn actor = makeTheBed.actor;
                 BedComp.LoadBedding(actor.CurJob.targetB.Thing.def, actor.CurJob.targetB.Thing);//, 1);
-                Building_SoftWarmBed SoftWarmBed = Bed as Building_SoftWarmBed;
+                //Building_SoftWarmBed SoftWarmBed = Bed as Building_SoftWarmBed;
                 actor.carryTracker.innerContainer.ClearAndDestroyContents(DestroyMode.Vanish);
             };
             makeTheBed.defaultCompleteMode = ToilCompleteMode.Instant;
@@ -86,7 +86,7 @@ namespace SoftWarmBeds
 
 		private const TargetIndex BeddingInd = TargetIndex.B;
 
-		private const int MakingDuration = 200;
+		private const int MakingDuration = 180;
 
     }
 }

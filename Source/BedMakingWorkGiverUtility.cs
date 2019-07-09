@@ -47,33 +47,22 @@ namespace SoftWarmBeds
             return new Job(customJob ?? SoftWarmBeds_JobDefOf.MakeBed, t, t2);
         }
 
-        //private static Thing FindBestBedding(Pawn pawn, Thing bed)
-        //{
-        //    ThingFilter filter = bed.TryGetComp<CompMakeableBed>().allowedBedding.filter;
-        //    Predicate<Thing> predicate = (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false) && filter.Allows(x);
-        //    IntVec3 position = pawn.Position;
-        //    Map map = pawn.Map;
-        //    ThingRequest bestThingRequest = filter.BestThingRequest;
-        //    PathEndMode peMode = PathEndMode.ClosestTouch;
-        //    TraverseParms traverseParams = TraverseParms.For(pawn, Danger.Deadly, TraverseMode.ByPawn, false);
-        //    Predicate<Thing> validator = predicate;
-        //    return GenClosest.ClosestThingReachable(position, map, bestThingRequest, peMode, traverseParams, 9999f, validator, null, 0, -1, false, RegionType.Set_Passable, false);
-        //}
-
-        //TESTE FILTRO
-
         private static Thing FindBestBedding(Pawn pawn, Thing bed)
         {
+            //Log.Message(pawn + " is looking for a bedding type " + bed.TryGetComp<CompMakeableBed>().blanketDef + " for " + bed);
             ThingFilter beddingFilter = new ThingFilter();
             beddingFilter.SetAllow(bed.TryGetComp<CompMakeableBed>().allowedBedding, true);
-            Building_SoftWarmBed softWarmBed = bed as Building_SoftWarmBed;
-            ThingFilter stuffFilter = softWarmBed.settings.filter;
-            //ThingFilter x = new ThingFilter
-            //{
-            //foreach (ThingDef thingDef in stuffFilter)
-            //{
-            //    if (thingDef.stuffProps != null && thingDef.stuffProps.categories.Contains(stuffToFilter))
-            //}
+            ThingFilter stuffFilter = new ThingFilter();
+            if (bed is Building_SoftWarmBed)
+            {
+                Building_SoftWarmBed softWarmBed = bed as Building_SoftWarmBed;
+                stuffFilter = softWarmBed.settings.filter;
+            }
+            if (bed is Building_SoftWarmGuestBed)
+            {
+                Building_SoftWarmGuestBed softWarmBed = bed as Building_SoftWarmGuestBed;
+                stuffFilter = softWarmBed.settings.filter;
+            }
             Predicate<Thing> predicate = (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x, 1, -1, null, false) && beddingFilter.Allows(x) && stuffFilter.Allows(x.Stuff);
             IntVec3 position = pawn.Position;
             Map map = pawn.Map;

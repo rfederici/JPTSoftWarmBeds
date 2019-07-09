@@ -22,8 +22,8 @@ namespace SoftWarmBeds
                 Thing insulation = pawn.CurrentBed();
                 if (pawn != null && insulation != null)
                 {
-                    float statValue = insulation.GetStatValue(this.stat, true);
-                    if (this.subtract)
+                    float statValue = insulation.GetStatValue(stat, true);
+                    if (subtract)
                     {
                         val -= statValue;
                     }
@@ -41,15 +41,15 @@ namespace SoftWarmBeds
             {
                 Pawn pawn = req.Thing as Pawn;
                 if (pawn != null)
-                    if (this.subtract)
+                    if (subtract)
                     {
                         return "StatsReport_InBed".Translate() + ": -" +
-                        this.BedOffset(pawn).ToStringTemperature();
+                        BedOffset(pawn).ToStringTemperature();
                     }
                     else
                     {
                         return "StatsReport_InBed".Translate() + ": +" +
-                        this.BedOffset(pawn).ToStringTemperature();
+                        BedOffset(pawn).ToStringTemperature();
                     }
             }
             return (string)null;
@@ -61,7 +61,7 @@ namespace SoftWarmBeds
             float result;
             if (pawn.InBed())
             {
-                result = insulation.GetStatValue(this.stat, true);
+                result = insulation.GetStatValue(stat, true);
             }
             else
             {

@@ -28,14 +28,10 @@ namespace SoftWarmBeds
                 {
                     return base.DrawColorTwo;
                 }
-                this.sheetColor = Color.Lerp(colorTwo, linenDelta, deltaFactor);
-                return this.sheetColor;
+                sheetColor = Color.Lerp(colorTwo, linenDelta, deltaFactor);
+                return sheetColor;
             }
         }
 
-        public override void ExposeData()
-        {
-            Scribe_Values.Look<bool>(ref this.hasColor, "hasColor", false, false);
-        }
     }
 }

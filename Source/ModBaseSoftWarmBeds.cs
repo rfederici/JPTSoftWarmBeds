@@ -12,6 +12,8 @@ namespace SoftWarmBeds
         {
             SoftWarmBeds_SpecialInjector softWarmBeds_SpecialInjector = new SoftWarmBeds_SpecialInjector();
             softWarmBeds_SpecialInjector.Inject();
+            //Test test = new Test();
+            //test.Inject();
         }
 
         public override string ModIdentifier

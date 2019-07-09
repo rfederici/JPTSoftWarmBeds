@@ -7,9 +7,14 @@
     <value>Building_Bed</value>
   </Operation>
 
-<!--  <Operation Class="PatchOperationRemove">
-    <xpath>//curJob[def = "OverlayThing" or def = "CombineThings"]</xpath>
-  </Operation>-->
+  <Operation Class="PatchOperationRemove">
+    <xpath>//curJob[def = "MakeBed"]</xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationRemove">
+    <xpath>//thing/billStack/bills/li[recipe="Make_SingleBedding" OR recipe="Make_DoubleBedding"]</xpath>
+  </Operation>
+
 </Patch>
 
   

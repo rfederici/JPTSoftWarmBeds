@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -22,11 +21,11 @@ namespace SoftWarmBeds
 			}
 		}
         
-        private bool IsMade
+        public bool IsMade
         {
             get
             {
-                return this.BedComp != null && this.BedComp.Loaded;
+                return BedComp != null && BedComp.Loaded;
             }
         }
 
@@ -34,7 +33,7 @@ namespace SoftWarmBeds
         {
             get
             {
-                return this.CurOccupants != null;
+                return CurOccupants != null;
             }
         }
 
@@ -46,31 +45,36 @@ namespace SoftWarmBeds
         public override void PostMake()
         {
             base.PostMake();
-    		this.settings = new StorageSettings(this);
-            if (this.def.building.defaultStorageSettings != null)
-            {
-               this.settings.CopyFrom(this.def.building.defaultStorageSettings);
-            }
-
+            SetUpStorageSettings();
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.Look<StorageSettings>(ref this.settings, "settings", new object[]
-			{
-				this
-			});
+            Scribe_Deep.Look<StorageSettings>(ref settings, "settings", new object[] { this });
+            if (settings == null)
+            {
+                SetUpStorageSettings();
+            }
+        }
+
+        public void SetUpStorageSettings()
+        {
+            if (GetParentStoreSettings() != null)
+            {
+                settings = new StorageSettings(this);
+                settings.CopyFrom(GetParentStoreSettings());
+            }
         }
 
         public override void Tick()
         {
             base.Tick();
-            if (this.IsMade)// && !this.Occupied)
+            if (IsMade)// && !this.Occupied)
             {
-                if (!this.settings.filter.Allows(this.BedComp.blanketStuff))
+                if (!settings.filter.Allows(BedComp.blanketStuff))
                 {
-                   this.Unmake();
+                   Unmake();
                 } 
             }
         }
@@ -83,11 +87,11 @@ namespace SoftWarmBeds
             {
                 stringBuilder.AppendLine(inspectString);
             }
-            if (this.BedComp != null)
+            if (BedComp != null)
             {
-                if (this.BedComp.Loaded)
+                if (BedComp.Loaded)
                 {
-                    stringBuilder.AppendLine("BedMade".Translate(this.BedComp.bedding.Stuff.LabelCap, this.BedComp.bedding.Stuff));
+                    stringBuilder.AppendLine("BedMade".Translate(BedComp.bedding.Stuff.LabelCap, BedComp.bedding.Stuff));
                 }
                 else
                 {
@@ -101,27 +105,27 @@ namespace SoftWarmBeds
         {
             get
             {
-                return this.curRotationInt;
+                return curRotationInt;
             }
             set
             {
-                this.curRotationInt = value;
-                if (this.curRotationInt > 360f)
+                curRotationInt = value;
+                if (curRotationInt > 360f)
                 {
-                    this.curRotationInt -= 360f;
+                    curRotationInt -= 360f;
                 }
-                if (this.curRotationInt < 0f)
+                if (curRotationInt < 0f)
                 {
-                    this.curRotationInt += 360f;
+                    curRotationInt += 360f;
                 }
             }
         }
 
         public override void Draw()
         {
-            if (this.IsMade)
+            if (IsMade)
             {
-                this.BedComp.DrawBed();
+                BedComp.DrawBed();
             }
         }
 
@@ -131,19 +135,19 @@ namespace SoftWarmBeds
             {
                 yield return c;
             }
-            if (this.IsMade)
+            if (IsMade)
             {
                 yield return new Command_Action
                 {
                     defaultLabel = "CommandUnmakeBed".Translate(),
                     defaultDesc = "CommandUnmakeBedDesc".Translate(),
-                    icon = this.BedComp.LoadedBedding.uiIcon,
-                    iconAngle = this.BedComp.LoadedBedding.uiIconAngle,
-                    iconOffset = this.BedComp.LoadedBedding.uiIconOffset,
-                    iconDrawScale = GenUI.IconDrawScale(this.BedComp.LoadedBedding),
+                    icon = BedComp.LoadedBedding.uiIcon,
+                    iconAngle = BedComp.LoadedBedding.uiIconAngle,
+                    iconOffset = BedComp.LoadedBedding.uiIconOffset,
+                    iconDrawScale = GenUI.IconDrawScale(BedComp.LoadedBedding),
                     action = delegate ()
                     {
-                        this.Unmake();
+                        Unmake();
                     }
                 };
             }
@@ -152,16 +156,18 @@ namespace SoftWarmBeds
 
         public void Unmake()
         {
-            ThingDef stuff = this.BedComp.blanketStuff;
-            GenPlace.TryPlaceThing(this.BedComp.RemoveBedding(stuff), base.Position, base.Map, ThingPlaceMode.Near, null, null);
-            this.Notify_ColorChanged();
+            ThingDef stuff = BedComp.blanketStuff;
+            GenPlace.TryPlaceThing(BedComp.RemoveBedding(stuff), base.Position, base.Map, ThingPlaceMode.Near, null, null);
+            Notify_ColorChanged();
         }
+
+        public bool NotTheBlanket = true;
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
-            if (this.IsMade)
+            if (IsMade && NotTheBlanket)
             {
-                this.Unmake();
+                Unmake();
             }
             base.DeSpawn(mode);
         }
@@ -176,29 +182,34 @@ namespace SoftWarmBeds
 
         public StorageSettings GetStoreSettings()
 		{
-			return this.settings;
+			return settings;
 		}
 
         public StorageSettings GetParentStoreSettings()
 	    {
-			return this.def.building.defaultStorageSettings;
-		}
+            return def.building.defaultStorageSettings;
+        }
 
         public StorageSettings settings;
 
-        private static Color SheetColorNormal = new Color(1f, 1f, 1f);
+        //private static Color SheetColorNormal = new Color(1f, 1f, 1f);
               
         public override Color DrawColorTwo
 		{
 			get
 			{
-                bool forPrisoners = this.ForPrisoners;
-                bool medical = this.Medical;
+                bool forPrisoners = ForPrisoners;
+                bool medical = Medical;
                 if (!forPrisoners && !medical)
                 {
-                    if (this.IsMade)
+                    if (IsMade)
                     {
-                        return SheetColorNormal;
+                        if (BedComp.blanketDef == null)
+                        {
+                            //return BedComp.blanketColor;
+                            return BedComp.blanketStuff.stuffProps.color;
+                        }
+                        //return SheetColorNormal;
                     }
                     return base.DrawColor;
                 }
@@ -209,9 +220,9 @@ namespace SoftWarmBeds
 
         public override void Notify_ColorChanged()
 		{   
-            if (this.IsMade)
+            if (IsMade && BedComp.blanketDef != null)
             {
-               this.BedComp.bedding.Notify_ColorChanged();
+               BedComp.bedding.Notify_ColorChanged();
             }
             base.Notify_ColorChanged();
 

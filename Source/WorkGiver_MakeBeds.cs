@@ -1,8 +1,4 @@
-﻿//using System;
-using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using UnityEngine;
+﻿using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 using RimWorld;
@@ -14,9 +10,14 @@ namespace SoftWarmBeds
 
         public override IEnumerable<Thing> PotentialWorkThingsGlobal(Pawn pawn)
         {
-            foreach (Building_SoftWarmBed softWarmBed in pawn.Map.listerBuildings.AllBuildingsColonistOfClass<Building_SoftWarmBed>())
+            foreach (Building_Bed bed in pawn.Map.listerBuildings.AllBuildingsColonistOfClass<Building_Bed>())
             {
-                yield return softWarmBed as Thing;
+                if (bed.TryGetComp<CompMakeableBed>() != null)
+                //if (bed is Building_SoftWarmBed || bed is Building_SoftWarmGuestBed) 
+                {
+                    yield return bed as Thing;
+                }
+
             }
             yield break;
         }
@@ -39,17 +40,17 @@ namespace SoftWarmBeds
 
         public virtual bool CanMakeBedThing(Thing t)
         {
-            return (t is Building_SoftWarmBed);
+            return (t is Building_Bed);//Building_SoftWarmBed);
         }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            return this.CanMakeBedThing(t) && BedMakingWorkGiverUtility.CanMakeBed(pawn, t, forced);
+            return CanMakeBedThing(t) && BedMakingWorkGiverUtility.CanMakeBed(pawn, t, forced);
         }
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            return BedMakingWorkGiverUtility.BedMakingJob(pawn, t, forced, this.JobStandard);
+            return BedMakingWorkGiverUtility.BedMakingJob(pawn, t, forced, JobStandard);
         }
 
     }

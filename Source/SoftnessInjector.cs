@@ -15,7 +15,7 @@ namespace SoftWarmBeds
             ThingDef[] texDefs = (from def in DefDatabase<ThingDef>.AllDefsListForReading
                                   where def.stuffProps != null && (def.stuffProps.categories.Contains(StuffCategoryDefOf.Leathery) || def.stuffProps.categories.Contains(StuffCategoryDefOf.Fabric))
                                   select def).ToArray<ThingDef>();
-            this.InjectStatBase(texDefs);
+            InjectStatBase(texDefs);
         }
 
         private void InjectStatBase(ThingDef[] list)
