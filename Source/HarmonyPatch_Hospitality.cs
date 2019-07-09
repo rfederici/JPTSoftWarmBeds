@@ -88,22 +88,9 @@ namespace SoftWarmBeds
         }
 
         //replaces Hospitality Gizmo
-        //[HarmonyAfter(new string[] { "HugsLib.Hospitality" })]
         public static void Building_Bed_GetGizmos_Postfix(Building_Bed __instance, ref IEnumerable<Gizmo> __result)
         {
-            //if (__instance.TryGetComp<CompMakeableBed>() != null)
-            //if (__instance is Building_SoftWarmGuestBed || __instance is Building_SoftWarmBed)
-            //{
-                __result = Process(__instance, __result);
-            //}
-            //else
-            //{
-            //    //start reflection info
-            //    var type = AccessTools.TypeByName("Hospitality.Harmony.Building_Bed_Patch+GetGizmos");
-            //    MethodInfo process = AccessTools.Method(type, "Process", new[] { typeof(Building_Bed), typeof(IEnumerable<Gizmo>)});
-            //    //end reflection info
-            //    __result = (IEnumerable<Gizmo>)process.Invoke(__instance, new object[] { __instance, __result });
-            //}
+            __result = Process(__instance, __result);
         }
 
         private static IEnumerable<Gizmo> Process(Building_Bed __instance, IEnumerable<Gizmo> __result)
@@ -114,7 +101,7 @@ namespace SoftWarmBeds
                 yield return new Command_Toggle
                 {
                     defaultLabel = "CommandBedSetAsGuestLabel".Translate(),
-                    defaultDesc = "JP Esteve Aqui",//"CommandBedSetAsGuestDesc".Translate(),
+                    defaultDesc = "CommandBedSetAsGuestDesc".Translate(),
                     icon = ContentFinder<Texture2D>.Get("UI/Commands/AsGuest"),
                     isActive = () => false,
                     toggleAction = () => Building_SoftWarmGuestBed.Swap(__instance),
@@ -128,7 +115,7 @@ namespace SoftWarmBeds
         }
 
         //Cancels Hospitality Gizmo postfix:
-        public static bool Building_Bed_GetGizmos_Postfix_Prefix(Building_Bed __instance)//, ref IEnumerable<Gizmo> __result)
+        public static bool Building_Bed_GetGizmos_Postfix_Prefix(Building_Bed __instance)
         {
             return false;
         }
@@ -422,7 +409,7 @@ namespace SoftWarmBeds
                                select p).ToArray<Faction>();
             bool flag2 = map.GameConditionManager.ConditionIsActive(GameConditionDefOf.VolcanicWinter);
             bool flag3 = faction.def.allowedArrivalTemperatureRange.Includes(map.mapTemperature.OutdoorTemp) && faction.def.allowedArrivalTemperatureRange.Includes(map.mapTemperature.SeasonalTemp);
-            bool flag4 = map.listerBuildings.AllBuildingsColonistOfClass<Building_SoftWarmGuestBed>().Any<Building_SoftWarmGuestBed>();
+            bool flag4 = map.listerBuildings.AllBuildingsColonistOfClass<Building_SoftWarmGuestBed>().Any();
             reasons = null;
             bool flag5 = flag3 && !flag && !flag2 && !array.Any<Faction>() && flag4;
             bool result;
@@ -481,7 +468,7 @@ namespace SoftWarmBeds
             diaOption2.action = refuse;
             diaOption2.resolveTree = true;
             diaNode.options.Add(diaOption2);
-            bool flag = !map.listerBuildings.AllBuildingsColonistOfClass<Building_SoftWarmGuestBed>().Any<Building_SoftWarmGuestBed>();
+            bool flag = !map.listerBuildings.AllBuildingsColonistOfClass<Building_SoftWarmGuestBed>().Any();
             if (flag)
             {
                 DiaOption diaOption3 = new DiaOption("VisitorsArrivedRefuseUntilBeds".Translate());

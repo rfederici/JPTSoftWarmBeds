@@ -65,7 +65,13 @@
         <value>
           <thingClass>SoftWarmBeds.Building_SoftWarmBed</thingClass>
         </value>
-      </li>    
+      </li>
+      <!--<li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName = "SleepingSpot" or defName = "DoubleSleepingSpot"]/thingClass</xpath>
+        <value>
+          <thingClass>SoftWarmBeds.Building_SoftWarmBed</thingClass>
+        </value>
+      </li>-->
       <li Class="PatchOperationAdd">
         <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "HospitalBed" or defName = "RoyalBed"]</xpath>
         <value>

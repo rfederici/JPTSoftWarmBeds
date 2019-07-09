@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using RimWorld;
+using Harmony;
 
 namespace SoftWarmBeds
 {
@@ -109,31 +110,27 @@ namespace SoftWarmBeds
             return ThingMaker.MakeThing(named, bed.Stuff);
         }
 
-        //public static void Swap(Building_SoftWarmBed bedA)
-        //{
-        //    bedA.NotTheBlanket = false;
-        //    Building_Bed bedCast = bedA as Building_Bed;
-        //    Swap(bedCast, bedA.settings, bedA.TryGetComp<CompMakeableBed>());
-        //}
-
-        //public static void Swap(Building_SoftWarmGuestBed bed)
-        //{
-        //    bed.NotTheBlanket = false;
-        //    Building_Bed bedCast = bed as Building_Bed;
-        //    Swap(bedCast, bed.settings, bed.TryGetComp<CompMakeableBed>());
-        //}
-
         public static void Swap(Building_Bed bed)
         {
+            //Log.Message(bed + " is " + bed.GetType());
             StorageSettings settings = null;
-            if (bed is Building_SoftWarmBed bed1)
+            int bedclass = 0;
+            bool exception = bed.def.defName.Contains("SleepingSpot");
+            if (bed is Building_SoftWarmGuestBed bed2 && !exception) //all guest beds but sleeping spots (those revert to default)
             {
-                settings = bed1.settings;
-            }
-            else if (bed is Building_SoftWarmGuestBed bed2)
-            {
+                bedclass = 2; //transform to regular soft beds
                 settings = bed2.settings;
             }
+            else if (bed is Building_Bed && !(bed is Building_SoftWarmGuestBed)) //all regular beds & sleeping spots
+            {
+                bedclass = 1; //transform to guest variants (SoftWarmGuestBed)
+                if (!exception)
+                {
+                    Building_SoftWarmBed bed1 = bed as Building_SoftWarmBed;
+                    settings = bed1.settings;
+                }
+            }
+            //Log.Message("Bedclass is " + bedclass);
             CompMakeableBed compMakeable = bed.TryGetComp<CompMakeableBed>();
             ThingDef bedLoadedBedding = null;
             Thing bedBedding = null;
@@ -146,13 +143,20 @@ namespace SoftWarmBeds
                 }
             }
             Building_Bed newBed = null;
-            if (bed is Building_SoftWarmGuestBed)
+            switch (bedclass)
             {
-                newBed = (Building_SoftWarmBed)BuildBed(bed, bed.def.defName.Split(new[] { "Guest" }, StringSplitOptions.RemoveEmptyEntries)[0]);
-            }
-            else
-            {
-                newBed = (Building_SoftWarmGuestBed)BuildBed(bed, bed.def.defName + "Guest");
+                case 1:
+                    newBed = (Building_SoftWarmGuestBed)BuildBed(bed, bed.def.defName + "Guest");
+                    //Log.Message("Swapping to Building_SoftWarmGuestBed");
+                    break;
+                case 2:
+                    newBed = (Building_SoftWarmBed)BuildBed(bed, bed.def.defName.Split(new[] { "Guest" }, StringSplitOptions.RemoveEmptyEntries)[0]);
+                    //Log.Message("Swapping to Building_SoftWarmBed");
+                    break;
+                default:
+                    newBed = (Building_Bed)BuildBed(bed, bed.def.defName.Split(new[] { "Guest" }, StringSplitOptions.RemoveEmptyEntries)[0]);
+                    //Log.Message("Swapping to Building_Bed");
+                    break;
             }
             newBed.SetFactionDirect(bed.Faction);
             var spawnedBed = (Building_Bed)GenSpawn.Spawn(newBed, bed.Position, bed.Map, bed.Rotation);
@@ -162,12 +166,10 @@ namespace SoftWarmBeds
             {
                 if (spawnedBed is Building_SoftWarmBed spawnedBed_base)
                 {
-                    //Building_SoftWarmBed spawnedBed_base = spawnedBed as Building_SoftWarmBed;
                     spawnedBed_base.settings = settings;
                 }
                 if (spawnedBed is Building_SoftWarmGuestBed spawnedBed_guest)
                 {
-                    //Building_SoftWarmGuestBed spawnedBed_guest = spawnedBed as Building_SoftWarmGuestBed;
                     spawnedBed_guest.settings = settings;
                 }
             }
@@ -197,7 +199,6 @@ namespace SoftWarmBeds
             {
                 yield return gizmo;
             }
-            //IEnumerator<Gizmo> enumerator = null;
             if (def.building.bed_humanlike)
             {
                 Command_Toggle command_Toggle = new Command_Toggle
