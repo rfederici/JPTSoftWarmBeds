@@ -22,7 +22,7 @@ namespace SoftWarmBeds
 
         public ThingDef blanketDef = null;
         
-        //public Color blanketColor;
+        public Color BlanketColor = new Color(1f, 1f, 1f);
         
 		public override void PostExposeData()
 		{
@@ -115,7 +115,14 @@ namespace SoftWarmBeds
             if (blanketDef != null)
             {
                 Building_Blanket blanket = bedding as Building_Blanket;
-                blanket.colorTwo = parent.Graphic.colorTwo;
+                if (parent.DrawColorTwo == parent.DrawColor)
+                {
+                    blanket.colorTwo = BlanketColor;
+                }
+                else
+                {
+                    blanket.colorTwo = parent.Graphic.colorTwo;
+                }
                 bedding.Graphic.Draw(parent.DrawPos + Altitudes.AltIncVect, parent.Rotation, bedding);
             }
         }
