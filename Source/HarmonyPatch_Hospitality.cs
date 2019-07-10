@@ -31,7 +31,7 @@ namespace SoftWarmBeds
 
                     if (LoadedModManager.RunningModsListForReading.Any(x => x.Name == "Hospitality"))
                     {
-                        HarmonyInstance.DEBUG = true;
+                        //HarmonyInstance.DEBUG = true;
                         HarmonyInstance harmonyInstance = HarmonyInstance.Create("JPT_SoftWarmBeds.Hospitality");
                         Log.Message("[SoftWarmBeds] Hospitality detected! Adapting...");
 

@@ -72,12 +72,8 @@ namespace SoftWarmBeds
         {
             base.GetInspectString();
             var stringBuilder = new StringBuilder();
-            //stringBuilder.Append(base.GetInspectString());
-            stringBuilder.Append(InspectStringPartsFromComps());
-            stringBuilder.AppendLine();
-            stringBuilder.Append("ForGuestUse".Translate());
-
-            stringBuilder.AppendLine();
+            stringBuilder.AppendLine(InspectStringPartsFromComps());
+            stringBuilder.AppendLine("ForGuestUse".Translate());
             if (owners.Count == 0)
             {
                 stringBuilder.Append("Owner".Translate() + ": " + "Nobody".Translate());
@@ -99,9 +95,20 @@ namespace SoftWarmBeds
                     notFirst = true;
                     stringBuilder.Append(owner.Label);
                 }
-                //if(notFirst) stringBuilder.AppendLine();
             }
-            return stringBuilder.ToString();
+            stringBuilder.AppendLine();
+            if (BedComp != null)
+            {
+                if (BedComp.Loaded)
+                {
+                    stringBuilder.AppendLine("BedMade".Translate(BedComp.bedding.Stuff.LabelCap, BedComp.bedding.Stuff));
+                }
+                else
+                {
+                    stringBuilder.AppendLine("BedNotMade".Translate());
+                }
+            }
+            return stringBuilder.ToString().TrimEndNewlines();
         }
 
         private static Thing BuildBed(Building_Bed bed, string defName)
@@ -120,6 +127,7 @@ namespace SoftWarmBeds
             {
                 bedclass = 2; //transform to regular soft beds
                 settings = bed2.settings;
+                bed2.NotTheBlanket = false;
             }
             else if (bed is Building_Bed && !(bed is Building_SoftWarmGuestBed)) //all regular beds & sleeping spots
             {
@@ -128,6 +136,7 @@ namespace SoftWarmBeds
                 {
                     Building_SoftWarmBed bed1 = bed as Building_SoftWarmBed;
                     settings = bed1.settings;
+                    bed1.NotTheBlanket = false;
                 }
             }
             //Log.Message("Bedclass is " + bedclass);

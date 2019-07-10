@@ -81,7 +81,7 @@ namespace SoftWarmBeds
             if (stat != null)
             {
                 CompMakeableBed BedComp = req.Thing.TryGetComp<CompMakeableBed>();
-                ThingDef stuff = null;//new ThingDef();
+                ThingDef stuff = null;
                 if (BedComp != null)
                 {
                     if (BedComp.Loaded)

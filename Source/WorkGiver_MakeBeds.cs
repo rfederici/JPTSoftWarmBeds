@@ -13,7 +13,6 @@ namespace SoftWarmBeds
             foreach (Building_Bed bed in pawn.Map.listerBuildings.AllBuildingsColonistOfClass<Building_Bed>())
             {
                 if (bed.TryGetComp<CompMakeableBed>() != null)
-                //if (bed is Building_SoftWarmBed || bed is Building_SoftWarmGuestBed) 
                 {
                     yield return bed as Thing;
                 }
@@ -40,7 +39,7 @@ namespace SoftWarmBeds
 
         public virtual bool CanMakeBedThing(Thing t)
         {
-            return (t is Building_Bed);//Building_SoftWarmBed);
+            return (t is Building_Bed);
         }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)

@@ -129,7 +129,7 @@
   </ThingDef>
 
   <ThingDef Name="BeddingBase" Abstract="True">
-    <thingClass>Apparel</thingClass>
+    <thingClass>SoftWarmBeds.Bedding</thingClass>
     <category>Item</category>
     <selectable>True</selectable>
     <pathCost>10</pathCost>
@@ -148,7 +148,7 @@
     <comps>
       <li Class="CompProperties_Forbiddable"/>
       <li>
-        <compClass>CompColorable</compClass>
+        <compClass>CompColorable</compClass> 
       </li>
     </comps>
   </ThingDef>

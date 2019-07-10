@@ -29,7 +29,6 @@ namespace SoftWarmBeds
                     }
                     if (BedMakingWorkGiverUtility.FindBestBedding(pawn, t) == null)
                     {
-                        //ThingFilter beddingFilter = t.TryGetComp<CompMakeableBed>().allowedBedding.filter;
                         ThingFilter beddingFilter = new ThingFilter();
                         beddingFilter.SetAllow(t.TryGetComp<CompMakeableBed>().allowedBedding, true);
                         JobFailReason.Is("NoSuitableBedding".Translate(beddingFilter.Summary), null);

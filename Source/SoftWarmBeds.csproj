@@ -99,6 +99,7 @@
     <None Include="..\Languages\Portuguese\Languages\DefInjected\WorkGiverDef\TranslateWorkGivers.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bedding.cs" />
     <Compile Include="BedMakingWorkGiverUtility.cs" />
     <Compile Include="Building_Blanket.cs" />
     <Compile Include="Building_SoftWarmBed.cs" />
