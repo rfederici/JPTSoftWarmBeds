@@ -10,33 +10,33 @@
       <operations>
         <!--BedRestEffectiveness Settings-->
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="Bed_CryptoBed"]/statBases/BedRestEffectiveness</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_CryptoBed"]/statBases/BedRestEffectiveness</xpath>
           <value>
             <BedRestEffectiveness>0.9</BedRestEffectiveness>
           </value>
         </li>
         <!--Comfort Settings-->
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="Bed_OperatingTable"]/statBases/Comfort</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_OperatingTable"]/statBases/Comfort</xpath>
           <value>
             <Comfort>0.3</Comfort>
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="Bed_CryptoBed"]/statBases/Comfort</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_CryptoBed"]/statBases/Comfort</xpath>
           <value>
             <Comfort>0.75</Comfort>
           </value>
         </li>
         <!--Insulation Settings-->
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName="Bed_OperatingTable"]/statBases</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_OperatingTable"]/statBases</xpath>
           <value>
             <BedStuffEffectMultiplierInsulation_Cold>0.1</BedStuffEffectMultiplierInsulation_Cold>
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName="Bed_CryptoBed"]/statBases</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_CryptoBed"]/statBases</xpath>
           <value>
             <BedStuffEffectMultiplierInsulation_Cold>0.5</BedStuffEffectMultiplierInsulation_Cold>
           </value>

@@ -124,7 +124,7 @@
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="PILFURBed"]/statBases/BedRestEffectiveness</xpath>
+          <xpath>Defs/ThingDef[defName="PILFURBed"]/statBases/BedRestEffectiveness</xpath>
           <value>
             <BedRestEffectiveness>0.4</BedRestEffectiveness>
           </value>
@@ -143,7 +143,7 @@
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="PILFURBed"]/statBases/Comfort</xpath>
+          <xpath>Defs/ThingDef[defName="PILFURBed"]/statBases/Comfort</xpath>
           <value>
             <Comfort>0.1</Comfort>
           </value>
@@ -162,7 +162,7 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName="PILFURBed"]/statBases</xpath>
+          <xpath>Defs/ThingDef[defName="PILFURBed"]/statBases</xpath>
           <value>
             <BedStuffEffectMultiplierInsulation_Cold>0.15</BedStuffEffectMultiplierInsulation_Cold>
           </value>

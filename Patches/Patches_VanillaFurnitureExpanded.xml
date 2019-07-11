@@ -103,19 +103,19 @@
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName = "Bed_Kingsize"]/statBases/BedRestEffectiveness</xpath>
+          <xpath>Defs/ThingDef[defName = "Bed_Kingsize"]/statBases/BedRestEffectiveness</xpath>
           <value>
             <BedRestEffectiveness>0.6</BedRestEffectiveness>
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="Bed_Simple"]/statBases/BedRestEffectiveness</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Simple"]/statBases/BedRestEffectiveness</xpath>
           <value>
             <BedRestEffectiveness>0.45</BedRestEffectiveness>
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="Bed_StoneSlab"]/statBases/BedRestEffectiveness</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_StoneSlab"]/statBases/BedRestEffectiveness</xpath>
           <value>
             <BedRestEffectiveness>0.4</BedRestEffectiveness>
           </value>
@@ -128,19 +128,19 @@
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="Bed_Kingsize"]/statBases/Comfort</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Kingsize"]/statBases/Comfort</xpath>
           <value>
             <Comfort>0.45</Comfort>
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="Bed_Simple"]/statBases/Comfort</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Simple"]/statBases/Comfort</xpath>
           <value>
             <Comfort>0.15</Comfort>
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName="Bed_StoneSlab"]/statBases/Comfort</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_StoneSlab"]/statBases/Comfort</xpath>
           <value>
             <Comfort>0.1</Comfort>
           </value>
@@ -153,13 +153,13 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName="Bed_Kingsize"]/statBases</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Kingsize"]/statBases</xpath>
           <value>
             <BedStuffEffectMultiplierInsulation_Cold>0.55</BedStuffEffectMultiplierInsulation_Cold>
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName="Bed_Simple" or defName="Bed_StoneSlab"]/statBases</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Simple" or defName="Bed_StoneSlab"]/statBases</xpath>
           <value>
             <BedStuffEffectMultiplierInsulation_Cold>0.1</BedStuffEffectMultiplierInsulation_Cold>
           </value>
