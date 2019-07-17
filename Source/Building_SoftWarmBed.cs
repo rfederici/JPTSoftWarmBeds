@@ -70,7 +70,7 @@ namespace SoftWarmBeds
         public override void Tick()
         {
             base.Tick();
-            if (IsMade)// && !this.Occupied)
+            if (IsMade)
             {
                 if (!settings.filter.Allows(BedComp.blanketStuff))
                 {
@@ -123,6 +123,7 @@ namespace SoftWarmBeds
 
         public override void Draw()
         {
+            base.Draw();
             if (IsMade)
             {
                 BedComp.DrawBed();
@@ -192,41 +193,32 @@ namespace SoftWarmBeds
 
         public StorageSettings settings;
 
-        //private static Color SheetColorNormal = new Color(1f, 1f, 1f);
-              
         public override Color DrawColorTwo
 		{
 			get
 			{
                 bool forPrisoners = ForPrisoners;
                 bool medical = Medical;
-                if (!forPrisoners && !medical)
+                bool invertedColorDisplay = (SoftWarmBedsSettings.colorDisplayOption == ColorDisplayOption.Blanket);
+                if (!forPrisoners && !medical && !invertedColorDisplay)
                 {
-                    if (IsMade)
+                    if (IsMade && BedComp.blanketDef == null)
                     {
-                        if (BedComp.blanketDef == null)
-                        {
-                            //return BedComp.blanketColor;
-                            return BedComp.blanketStuff.stuffProps.color;
-                        }
-                        //return SheetColorNormal;
+                        return BedComp.blanketStuff.stuffProps.color;
                     }
                     return base.DrawColor;
                 }
                 return base.DrawColorTwo;
-                
             }
 		}
 
         public override void Notify_ColorChanged()
-		{   
+		{
+            base.Notify_ColorChanged();
             if (IsMade && BedComp.blanketDef != null)
             {
-               BedComp.bedding.Notify_ColorChanged();
+                BedComp.bedding.Notify_ColorChanged();
             }
-            base.Notify_ColorChanged();
-
 		}
-
     }
 }

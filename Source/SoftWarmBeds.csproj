@@ -32,11 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="%24HugsLibChecker">
+      <HintPath>..\Assemblies\$HugsLibChecker.dll</HintPath>
+    </Reference>
     <Reference Include="0Harmony">
       <HintPath>..\Assemblies\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Hospitality">
+      <HintPath>..\..\__LocalCopy_Hospitality_(16-7)\Assemblies\Hospitality.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="HugsLib">
@@ -45,6 +52,7 @@
     </Reference>
     <Reference Include="SaveGamePatching">
       <HintPath>C:\Users\JP\source\repos\SaveGamePatches\Assemblies\SaveGamePatching.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -79,12 +87,16 @@
     <None Include="..\Patches\Patches.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="..\Patches\Patches_BabyAndChildren.xml" />
+    <None Include="..\Patches\Patches_BabyAndChildren.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\Patches\Patches_GloomyFurniture.xml" />
     <None Include="..\Patches\Patches_GloomyVanilla.xml" />
     <None Include="notPresent_patch.xml" />
     <None Include="save_patch.xml" />
-    <None Include="..\Languages\English\Keyed\SoftWarmBeds_keys.xml" />
+    <None Include="..\Languages\English\Keyed\SoftWarmBeds_keys.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\Languages\PortugueseBrazilian\Keyed\SoftWarmBeds_keys.xml" />
     <None Include="..\Languages\PortugueseBrazilian\Languages\DefInjected\JobDef\TranslateJobs.xml" />
     <None Include="..\Languages\PortugueseBrazilian\Languages\DefInjected\StatDef\TranslateStats.xml" />
@@ -112,11 +124,11 @@
     <Compile Include="ITab_bedding.cs" />
     <Compile Include="JobDriver_MakeBed.cs" />
     <Compile Include="ModBaseSoftWarmBeds.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="SoftnessInjector.cs" />
     <Compile Include="StatPart_BedStatOffset.cs" />
     <Compile Include="StatPart_BedStuff.cs" />
     <Compile Include="WorkGiver_MakeBeds.cs" />
-    <!--<Compile Include="WorkGiver_MakeGuestBeds.cs" />-->
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

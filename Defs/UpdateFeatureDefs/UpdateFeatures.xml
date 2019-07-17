@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+    <modNameReadable>Soft Warm Beds</modNameReadable>
+    <modIdentifier>JPT_SoftWarmBeds</modIdentifier>
+    <linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1713295858</linkUrl>
+  </HugsLib.UpdateFeatureDef>
+
+  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+    <defName>ModName_1_0_6</defName>
+    <assemblyVersion>1.0.6</assemblyVersion>
+    <content>Check out the new options panel (Options > Mod Settings), where you can customize the beds' color scheme to your liking!|Also, notice the beddings' category has been changed to &lt;i&gt;Apparel&lt;/i&gt;, for compatibility purposes.|The full change log is on our Steam Workshop page.</content>
+  </HugsLib.UpdateFeatureDef>
+</Defs>

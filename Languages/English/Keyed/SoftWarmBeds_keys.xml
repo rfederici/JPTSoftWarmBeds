@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+  <!--settings-->
+  <SoftWarmBeds>Soft Warm Beds</SoftWarmBeds>
+  <RoleColorHeader>Bed Color Scheme Options:</RoleColorHeader>
+  <ColorDisplayOptionPillowLabel>Assignment color on pillows &amp; sheets, bedding material color on blankets</ColorDisplayOptionPillowLabel>
+  <ColorDisplayOptionPillowTooltip>Emphasizes the bedding material used.</ColorDisplayOptionPillowTooltip>
+  <ColorDisplayOptionBlanketLabel>Assignment color on blankets, bedding material color on pillows &amp; sheets</ColorDisplayOptionBlanketLabel>
+  <ColorDisplayOptionBlanketTooltip>Emphasizes the role assigned to beds. Uses base game color for colonist beds. </ColorDisplayOptionBlanketTooltip>
+  <ColorWashLevel>Color wash on pillows &amp; sheets</ColorWashLevel>
+  <ColorWashNone>Fully tinted fabrics</ColorWashNone>
+  <ColorWashNormal>Best contrast with the blankets</ColorWashNormal>
+  <ColorWashTotal>Pure white linen. Who needs color clues?</ColorWashTotal>
+  <!--ui-->
   <TabBedding>Make Bed</TabBedding>
   <BedMade>This bed is made in {1_label}.</BedMade>
   <BedNotMade>This bed isn't made.</BedNotMade>

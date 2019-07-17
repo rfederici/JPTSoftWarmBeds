@@ -1,125 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
 using RimWorld;
-using Harmony;
+using Hospitality;
 
 namespace SoftWarmBeds
 {
     [StaticConstructorOnStartup]
-    public class Building_SoftWarmGuestBed : Building_SoftWarmBed, IStoreSettingsParent, IExposable
+    public class Building_SoftWarmGuestBed : Hospitality.Building_GuestBed, IStoreSettingsParent, IExposable
     {
-        private static readonly Color guestFieldColor = new Color(170 / 255f, 79 / 255f, 255 / 255f);
-
-        private static readonly Color sheetColorForGuests = new Color(89 / 255f, 55 / 255f, 121 / 255f);
-
-        private static readonly List<IntVec3> guestField = new List<IntVec3>();
-
-        public Pawn CurOccupant
+       
+        private float curRotationInt;
+        
+        protected CompMakeableBed BedComp
+		{
+			get
+			{
+				return this.TryGetComp<CompMakeableBed>();
+			}
+		}
+        
+        private bool IsMade
         {
             get
             {
-                var list = Map.thingGrid.ThingsListAt(Position);
-                return list.OfType<Pawn>()
-                    .Where(pawn => pawn.jobs.curJob != null)
-                    .FirstOrDefault(pawn => pawn.jobs.curJob.def == JobDefOf.LayDown && pawn.jobs.curJob.targetA.Thing == this);
+                return BedComp != null && BedComp.Loaded;
             }
         }
 
-        public override Color DrawColor
+        private bool Occupied
         {
             get
             {
-                if (def.MadeFromStuff)
-                {
-                    return base.DrawColor;
-                }
-                return DrawColorTwo;
+                return CurOccupants != null;
             }
         }
 
-        public override void Draw()
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            if (IsMade)
-            {
-                BedComp.DrawBed();
-            }
-            if (Medical) Medical = false;
-            if (ForPrisoners) ForPrisoners = false;
+        	base.SpawnSetup(map, respawningAfterLoad);
         }
 
-        public override Color DrawColorTwo { get { return sheetColorForGuests; } }
-
-        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        public override void PostMake()
         {
-            foreach (var owner in owners.ToArray())
+            base.PostMake();
+            SetUpStorageSettings();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Deep.Look<StorageSettings>(ref settings, "settings", new object[] { this });
+            if (settings == null)
             {
-                owner.ownership.UnclaimBed();
-            }
-            var room = Position.GetRoom(Map);
-            base.DeSpawn(mode);
-            if (room != null)
-            {
-                room.Notify_RoomShapeOrContainedBedsChanged();
+                SetUpStorageSettings();
             }
         }
 
-        public override string GetInspectString()
+        public void SetUpStorageSettings()
         {
-            base.GetInspectString();
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(InspectStringPartsFromComps());
-            stringBuilder.AppendLine("ForGuestUse".Translate());
-            if (owners.Count == 0)
+            if (GetParentStoreSettings() != null)
             {
-                stringBuilder.Append("Owner".Translate() + ": " + "Nobody".Translate());
+                settings = new StorageSettings(this);
+                settings.CopyFrom(GetParentStoreSettings());
             }
-            else if (owners.Count == 1)
-            {
-                stringBuilder.Append("Owner".Translate() + ": " + owners[0].LabelCap);
-            }
-            else
-            {
-                stringBuilder.Append("Owners".Translate() + ": ");
-                bool notFirst = false;
-                foreach (Pawn owner in owners)
-                {
-                    if (notFirst)
-                    {
-                        stringBuilder.Append(", ");
-                    }
-                    notFirst = true;
-                    stringBuilder.Append(owner.Label);
-                }
-            }
-            stringBuilder.AppendLine();
-            if (BedComp != null)
-            {
-                if (BedComp.Loaded)
-                {
-                    stringBuilder.AppendLine("BedMade".Translate(BedComp.bedding.Stuff.LabelCap, BedComp.bedding.Stuff));
-                }
-                else
-                {
-                    stringBuilder.AppendLine("BedNotMade".Translate());
-                }
-            }
-            return stringBuilder.ToString().TrimEndNewlines();
         }
-
-        private static Thing BuildBed(Building_Bed bed, string defName)
+        
+        public new static void Swap(Building_Bed bed)
         {
-            ThingDef named = DefDatabase<ThingDef>.GetNamed(defName, true);
-            return ThingMaker.MakeThing(named, bed.Stuff);
-        }
-
-        public static void Swap(Building_Bed bed)
-        {
-            //Log.Message(bed + " is " + bed.GetType());
+            Log.Message(bed + " is " + bed.GetType());
             StorageSettings settings = null;
             int bedclass = 0;
             bool exception = bed.def.defName.Contains("SleepingSpot");
@@ -139,7 +91,6 @@ namespace SoftWarmBeds
                     bed1.NotTheBlanket = false;
                 }
             }
-            //Log.Message("Bedclass is " + bedclass);
             CompMakeableBed compMakeable = bed.TryGetComp<CompMakeableBed>();
             ThingDef bedLoadedBedding = null;
             Thing bedBedding = null;
@@ -156,15 +107,15 @@ namespace SoftWarmBeds
             {
                 case 1:
                     newBed = (Building_SoftWarmGuestBed)BuildBed(bed, bed.def.defName + "Guest");
-                    //Log.Message("Swapping to Building_SoftWarmGuestBed");
+                    Log.Message("Swapping to Building_SoftWarmGuestBed");
                     break;
                 case 2:
                     newBed = (Building_SoftWarmBed)BuildBed(bed, bed.def.defName.Split(new[] { "Guest" }, StringSplitOptions.RemoveEmptyEntries)[0]);
-                    //Log.Message("Swapping to Building_SoftWarmBed");
+                    Log.Message("Swapping to Building_SoftWarmBed");
                     break;
                 default:
                     newBed = (Building_Bed)BuildBed(bed, bed.def.defName.Split(new[] { "Guest" }, StringSplitOptions.RemoveEmptyEntries)[0]);
-                    //Log.Message("Swapping to Building_Bed");
+                    Log.Message("Swapping to Building_Bed");
                     break;
             }
             newBed.SetFactionDirect(bed.Faction);
@@ -198,6 +149,76 @@ namespace SoftWarmBeds
             Find.Selector.Select(spawnedBed, false, true);
         }
 
+        private static Thing BuildBed(Building_Bed bed, string defName)
+        {
+            ThingDef named = DefDatabase<ThingDef>.GetNamed(defName, true);
+            return ThingMaker.MakeThing(named, bed.Stuff);
+        }
+
+        public override void Tick()
+        {
+            base.Tick();
+            if (IsMade)// && !this.Occupied)
+            {
+                if (!settings.filter.Allows(BedComp.blanketStuff))
+                {
+                   Unmake();
+                } 
+            }
+        }
+
+        public override string GetInspectString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            string inspectString = base.GetInspectString();
+            if (!inspectString.NullOrEmpty())
+            {
+                stringBuilder.AppendLine(inspectString);
+            }
+            if (BedComp != null)
+            {
+                if (BedComp.Loaded)
+                {
+                    stringBuilder.AppendLine("BedMade".Translate(BedComp.bedding.Stuff.LabelCap, BedComp.bedding.Stuff));
+                }
+                else
+                {
+                    stringBuilder.AppendLine("BedNotMade".Translate());
+                }
+            }
+            base.GetInspectString();
+            return stringBuilder.ToString().TrimEndNewlines();
+        }
+
+        private float CurRotation
+        {
+            get
+            {
+                return curRotationInt;
+            }
+            set
+            {
+                curRotationInt = value;
+                if (curRotationInt > 360f)
+                {
+                    curRotationInt -= 360f;
+                }
+                if (curRotationInt < 0f)
+                {
+                    curRotationInt += 360f;
+                }
+            }
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
+            if (IsMade)
+            {
+                BedComp.DrawBed();
+            }
+        }
+
         //ADAPTED FROM HOSPITALITY
         public override IEnumerable<Gizmo> GetGizmos()
         {
@@ -208,20 +229,19 @@ namespace SoftWarmBeds
             {
                 yield return gizmo;
             }
+            //IEnumerator<Gizmo> enumerator = null;
             if (def.building.bed_humanlike)
             {
-                Command_Toggle command_Toggle = new Command_Toggle
+                Command_Toggle command_Toggle = new Command_Toggle();
+                command_Toggle.defaultLabel = "CommandBedSetAsGuestLabel".Translate();
+                command_Toggle.defaultDesc = "CommandBedSetAsGuestDesc".Translate();
+                command_Toggle.icon = ContentFinder<Texture2D>.Get("UI/Commands/AsGuest", true);
+                command_Toggle.isActive = (() => true);
+                command_Toggle.toggleAction = delegate ()
                 {
-                    defaultLabel = "CommandBedSetAsGuestLabel".Translate(),
-                    defaultDesc = "CommandBedSetAsGuestDesc".Translate(),
-                    icon = ContentFinder<Texture2D>.Get("UI/Commands/AsGuest", true),
-                    isActive = (() => true),
-                    toggleAction = delegate ()
-                    {
-                        Swap(this);
-                    },
-                    hotKey = KeyBindingDefOf.Misc4
+                    Swap(this);
                 };
+                command_Toggle.hotKey = KeyBindingDefOf.Misc4;
                 yield return command_Toggle;
             
                 if (IsMade)
@@ -244,10 +264,69 @@ namespace SoftWarmBeds
             yield break;
         }
 
-        public override void PostMake()
+        public void Unmake()
         {
-            base.PostMake();
-            PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDef.Named("GuestBeds"), KnowledgeAmount.Total);
+            ThingDef stuff = BedComp.blanketStuff;
+            GenPlace.TryPlaceThing(BedComp.RemoveBedding(stuff), base.Position, base.Map, ThingPlaceMode.Near, null, null);
+            Notify_ColorChanged();
+        }
+
+        public bool NotTheBlanket = true;
+
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        {
+            if (IsMade && NotTheBlanket)
+            {
+                Unmake();
+            }
+            base.DeSpawn(mode);
+        }
+
+        public bool StorageTabVisible
+		{
+		    get
+			{
+				return true;
+			}
+		}
+
+        public StorageSettings GetStoreSettings()
+		{
+			return settings;
+		}
+
+        public StorageSettings GetParentStoreSettings()
+	    {
+            return def.building.defaultStorageSettings;
+        }
+
+        public StorageSettings settings;
+
+        public override Color DrawColorTwo
+        {
+            get
+            {
+                bool forPrisoners = ForPrisoners;
+                bool medical = Medical;
+                bool invertedColorDisplay = (SoftWarmBedsSettings.colorDisplayOption == ColorDisplayOption.Blanket);
+                if (!forPrisoners && !medical && !invertedColorDisplay)
+                {
+                    if (IsMade && BedComp.blanketDef == null)
+                    {
+                        return BedComp.blanketStuff.stuffProps.color;
+                    }
+                }
+                return base.DrawColorTwo;
+            }
+        }
+
+        public override void Notify_ColorChanged()
+        {
+            base.Notify_ColorChanged();
+            if (IsMade && BedComp.blanketDef != null)
+            {
+                BedComp.bedding.Notify_ColorChanged();
+            }
         }
 
     }

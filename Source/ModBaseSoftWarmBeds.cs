@@ -23,7 +23,7 @@ namespace SoftWarmBeds
 
         public override void Initialize()
         {
-            ModBaseSoftWarmBeds.Inject();
+            Inject();
         }
     }
 }

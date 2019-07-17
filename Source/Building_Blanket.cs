@@ -10,23 +10,23 @@ namespace SoftWarmBeds
 
         private Color linenDelta = new Color(1f, 1f, 1f);
 
-        private float deltaFactor = 0.4f;
+        public float deltaFactor; //0.4f
 
         public Color sheetColor;
-
-        public bool hasColor = false;
 
         public override Color DrawColorTwo
         {
             get
             {
-                if (!hasColor)
-                {
-                    return base.DrawColorTwo;
-                }
                 sheetColor = Color.Lerp(colorTwo, linenDelta, deltaFactor);
                 return sheetColor;
             }
+        }
+
+        public override void Notify_ColorChanged()
+        {
+            base.Notify_ColorChanged();
+            deltaFactor = Mathf.Round(SoftWarmBedsSettings.colorWash * 10) / 10;
         }
 
     }

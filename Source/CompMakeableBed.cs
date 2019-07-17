@@ -22,7 +22,7 @@ namespace SoftWarmBeds
 
         public ThingDef blanketDef = null;
         
-        public Color BlanketColor = new Color(1f, 1f, 1f);
+        public Color BlanketDefaultColor = new Color(1f, 1f, 1f);
         
 		public override void PostExposeData()
 		{
@@ -33,7 +33,7 @@ namespace SoftWarmBeds
             if (loaded && blanketDef != null)
             {
                 Building_Blanket blanket = bedding as Building_Blanket;
-                Scribe_Values.Look<bool>(ref blanket.hasColor, "hasColor", false, false);
+                //Scribe_Values.Look<bool>(ref blanket.hasColor, "hasColor", false, false);
             }
         }
 
@@ -42,11 +42,11 @@ namespace SoftWarmBeds
             if (blanketDef != null)
             {
                 Building_Blanket blanket = this.bedding as Building_Blanket;
-                if (blanket.hasColor)
-                {
+                //if (blanket.hasColor)
+                //{
                     blanket.colorTwo = parent.Graphic.colorTwo;
                     parent.Notify_ColorChanged();
-                }
+                //}
             }
         }
 
@@ -102,11 +102,10 @@ namespace SoftWarmBeds
                 this.bedding = ThingMaker.MakeThing(blanketDef, blanketStuff);
                 Building_Blanket blanket = this.bedding as Building_Blanket;
                 //blanket.TryGetComp<CompColorable>().Color = blanketColor;
-                blanket.hasColor = true;
+                //blanket.hasColor = true;
                 DrawBed();
             }
             parent.Notify_ColorChanged();
-            //this.parent.def.building.bed_showSleeperBody = false;
         }
 
         //not present in CompChangeableProjectiles
@@ -115,13 +114,23 @@ namespace SoftWarmBeds
             if (blanketDef != null)
             {
                 Building_Blanket blanket = bedding as Building_Blanket;
-                if (parent.DrawColorTwo == parent.DrawColor)
+                bool invertedColorDisplay = (SoftWarmBedsSettings.colorDisplayOption == ColorDisplayOption.Blanket);
+                if (invertedColorDisplay)
                 {
-                    blanket.colorTwo = BlanketColor;
+                    blanket.DrawColor = parent.Graphic.colorTwo;
+                    blanket.colorTwo = blanketStuff.stuffProps.color;
                 }
                 else
                 {
-                    blanket.colorTwo = parent.Graphic.colorTwo;
+                    blanket.DrawColor = blanketStuff.stuffProps.color;
+                    if (parent.DrawColorTwo == parent.DrawColor)
+                    {
+                        blanket.colorTwo = BlanketDefaultColor;
+                    }
+                    else
+                    {
+                        blanket.colorTwo = parent.Graphic.colorTwo;
+                    }
                 }
                 bedding.Graphic.Draw(parent.DrawPos + Altitudes.AltIncVect, parent.Rotation, bedding);
             }
