@@ -71,7 +71,7 @@ namespace SoftWarmBeds
         
         public new static void Swap(Building_Bed bed)
         {
-            Log.Message(bed + " is " + bed.GetType());
+            //Log.Message(bed + " is " + bed.GetType());
             StorageSettings settings = null;
             int bedclass = 0;
             bool exception = bed.def.defName.Contains("SleepingSpot");
@@ -106,20 +106,21 @@ namespace SoftWarmBeds
             switch (bedclass)
             {
                 case 1:
+                    //Log.Message("Swapping to Building_SoftWarmGuestBed");
                     newBed = (Building_SoftWarmGuestBed)BuildBed(bed, bed.def.defName + "Guest");
-                    Log.Message("Swapping to Building_SoftWarmGuestBed");
                     break;
                 case 2:
+                    //Log.Message("Swapping to Building_SoftWarmBed");
                     newBed = (Building_SoftWarmBed)BuildBed(bed, bed.def.defName.Split(new[] { "Guest" }, StringSplitOptions.RemoveEmptyEntries)[0]);
-                    Log.Message("Swapping to Building_SoftWarmBed");
                     break;
                 default:
+                    //Log.Message("Swapping to Building_Bed");
                     newBed = (Building_Bed)BuildBed(bed, bed.def.defName.Split(new[] { "Guest" }, StringSplitOptions.RemoveEmptyEntries)[0]);
-                    Log.Message("Swapping to Building_Bed");
                     break;
             }
             newBed.SetFactionDirect(bed.Faction);
-            var spawnedBed = (Building_Bed)GenSpawn.Spawn(newBed, bed.Position, bed.Map, bed.Rotation);
+            //var spawnedBed = (Building_Bed)GenSpawn.Spawn(newBed, bed.Position, bed.Map, bed.Rotation);
+            var spawnedBed = GenSpawn.Spawn(newBed, bed.Position, bed.Map, bed.Rotation) as Building_Bed;
             spawnedBed.HitPoints = bed.HitPoints;
             spawnedBed.ForPrisoners = bed.ForPrisoners;
             if (settings != null)

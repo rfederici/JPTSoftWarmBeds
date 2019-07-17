@@ -11,6 +11,7 @@
   <ColorWashNone>Fully tinted fabrics</ColorWashNone>
   <ColorWashNormal>Best contrast with the blankets</ColorWashNormal>
   <ColorWashTotal>Pure white linen. Who needs color clues?</ColorWashTotal>
+  <PleaseReload>Please reload.</PleaseReload>
   <!--ui-->
   <TabBedding>Make Bed</TabBedding>
   <BedMade>This bed is made in {1_label}.</BedMade>

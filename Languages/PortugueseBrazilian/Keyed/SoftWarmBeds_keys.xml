@@ -10,6 +10,7 @@
   <ColorWashNone>Tecido perfeitamente tingido.</ColorWashNone>
   <ColorWashNormal>Contraste ideal com a colcha.</ColorWashNormal>
   <ColorWashTotal>Lençóis branquinhos. Quem precisa de indicações coloridas?</ColorWashTotal>
+  <PleaseReload>Favor recarregar.</PleaseReload>
   <!--ui-->
   <TabBedding>Fazer Cama</TabBedding>
   <BedMade>Esta cama está feita em {1_label}.</BedMade>

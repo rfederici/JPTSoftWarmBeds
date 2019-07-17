@@ -18,6 +18,8 @@ namespace SoftWarmBeds
 
         public static float colorWash = 0.4f;
 
+        //public static float colorWashNow = colorWash;
+
         public override void ExposeData()
         {
             Scribe_Values.Look(ref colorDisplayOption, "colorDisplayOption", ColorDisplayOption.Pillow);
@@ -62,6 +64,11 @@ namespace SoftWarmBeds
                 colorDisplayOption = ColorDisplayOption.Pillow;
                 colorWash = 0.4f;
             }
+            //listing.Gap(12f);
+            //if (colorWash != colorWashNow) 
+            //{
+            //    listing.Label("("+"PleaseReload"+")", -1f, null);
+            //}
             listing.End();
         }
     }
@@ -90,6 +97,7 @@ namespace SoftWarmBeds
             base.WriteSettings();
             if (Current.Game != null && Current.ProgramState == ProgramState.Playing)
             {
+                //SoftWarmBedsSettings.colorWashNow = SoftWarmBedsSettings.colorWash;
                 foreach (Building_SoftWarmBed bed in Find.Maps.SelectMany((Map map) => map.listerBuildings.AllBuildingsColonistOfClass<Building_SoftWarmBed>()))
                 {
                     bed.Notify_ColorChanged();
