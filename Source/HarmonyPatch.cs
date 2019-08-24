@@ -79,23 +79,15 @@ namespace SoftWarmBeds
             }
             else
             {
-                Building_Bed building_Bed = new Building_Bed();
+                //Log.Message("ApplyBedThoughts is relevant for " + actor);
+                Building_Bed bed = new Building_Bed();
+                bed = actor.CurrentBed();
                 bool hospitalityIsGuest = false;
                 if (LoadedModManager.RunningModsListForReading.Any(x => x.Name == "Hospitality"))
                 {
-                    //reflection info
-                    MethodInfo isGuest = AccessTools.Method("Hospitality.GuestUtility:IsGuest", new[] { typeof(Pawn) });
-                    MethodInfo getGuestBeds = AccessTools.Method("Hospitality.GuestUtility:GetGuestBeds", new[] { typeof(Map), typeof(Area) });
-                    MethodInfo getGuestArea = AccessTools.Method("Hospitality.GuestUtility:GetGuestArea", new[] { typeof(Pawn) });
-                    hospitalityIsGuest = (bool)isGuest.Invoke(__instance, new object[] { actor });
-                    Area hospitalityGetGuestArea = (Area)getGuestArea.Invoke(__instance, new object[] { actor });
-                    IEnumerable hospitalityGetGuestBeds = (IEnumerable)getGuestBeds.Invoke(__instance, new object[] { actor.MapHeld, hospitalityGetGuestArea });
+                    //Correcting for Hospitality 1.0.25
+                    hospitalityIsGuest = AddedBedIsOwned(__instance, actor, bed);
                     //
-                    building_Bed = hospitalityIsGuest ? hospitalityGetGuestBeds.Cast<Building_Bed>().FirstOrDefault() : actor.CurrentBed();
-                }
-                else
-                {
-                    building_Bed = actor.CurrentBed();
                 }
                 actor.needs.mood.thoughts.memories.RemoveMemoriesOfDef(ThoughtDefOf.SleptInBedroom);
                 actor.needs.mood.thoughts.memories.RemoveMemoriesOfDef(ThoughtDefOf.SleptInBarracks);
@@ -107,14 +99,14 @@ namespace SoftWarmBeds
                 {
                     actor.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleptOutside, null);
                 }
-                if (building_Bed == null || building_Bed.CostListAdjusted().Count == 0)
+                if (bed == null || bed.CostListAdjusted().Count == 0)
                 {
                     actor.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleptOnGround, null);
                 }
                 //taking bed insulation into consideration:
-                //Log.Message("bedStat: " + building_Bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true));
-                float minTempInBed = actor.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMin, null) - building_Bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true);
-                float maxTempInBed = actor.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMax, null) + building_Bed.GetStatValue(BedInsulationHeat.Bed_Insulation_Heat, true);
+                //Log.Message("bedStat: " + bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true));
+                float minTempInBed = actor.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMin, null) - bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true);
+                float maxTempInBed = actor.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMax, null) + bed.GetStatValue(BedInsulationHeat.Bed_Insulation_Heat, true);
                 if (actor.AmbientTemperature < minTempInBed)
                 {
                     actor.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleptInCold, null);
@@ -125,24 +117,37 @@ namespace SoftWarmBeds
                     actor.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleptInHeat, null);
                     //Log.Message("Temperature is " + actor.AmbientTemperature + " and bed insulation is " + maxTempInBed + ",  so " + actor + " gains heat memory");
                 }
-                //adapted from hospitality:
-                if (building_Bed != null && (hospitalityIsGuest || building_Bed == actor.ownership.OwnedBed) && !building_Bed.ForPrisoners && !actor.story.traits.HasTrait(TraitDefOf.Ascetic))
+                //adapted for hospitality:
+                if (bed != null && (hospitalityIsGuest || bed == actor.ownership.OwnedBed) && !bed.ForPrisoners && !actor.story.traits.HasTrait(TraitDefOf.Ascetic))
                 {
                     ThoughtDef thoughtDef = null;
-                    if (building_Bed.GetRoom(RegionType.Set_Passable).Role == RoomRoleDefOf.Bedroom)
+
+                    //Correcting for Hospitality 1.0.25
+                    if (hospitalityIsGuest)
+                    {
+                        MethodInfo hospitalityOnlyOneBedInfo = AccessTools.Method("Hospitality.GenericUtility:OnlyOneBed");
+                        bool hospitalityOnlyOneBed = (bool)hospitalityOnlyOneBedInfo.Invoke(__instance, new object[] { bed.GetRoom() });
+                        if (bed.GetRoom(RegionType.Set_Passable).Role == DefDatabase<RoomRoleDef>.GetNamed("GuestRoom", true))// easier to replicate GuestUtility.roleDefGuestRoom than reflecting it!
+                        {
+                            thoughtDef = hospitalityOnlyOneBed ? ThoughtDefOf.SleptInBedroom : ThoughtDefOf.SleptInBarracks;
+                        }
+                    }
+                    //
+
+                    if (bed.GetRoom(RegionType.Set_Passable).Role == RoomRoleDefOf.Bedroom)
                     {
                         thoughtDef = ThoughtDefOf.SleptInBedroom;
                     }
                     else
                     {
-                        if (building_Bed.GetRoom(RegionType.Set_Passable).Role == RoomRoleDefOf.Barracks)
+                        if (bed.GetRoom(RegionType.Set_Passable).Role == RoomRoleDefOf.Barracks)
                         {
                             thoughtDef = ThoughtDefOf.SleptInBarracks;
                         }
                     }
                     if (thoughtDef != null)
                     {
-                        int scoreStageIndex = RoomStatDefOf.Impressiveness.GetScoreStageIndex(building_Bed.GetRoom(RegionType.Set_Passable).GetStat(RoomStatDefOf.Impressiveness));
+                        int scoreStageIndex = RoomStatDefOf.Impressiveness.GetScoreStageIndex(bed.GetRoom(RegionType.Set_Passable).GetStat(RoomStatDefOf.Impressiveness));
                         if (thoughtDef.stages[scoreStageIndex] != null)
                         {
                             actor.needs.mood.thoughts.memories.TryGainMemory(ThoughtMaker.MakeThought(thoughtDef, scoreStageIndex), null);
@@ -152,6 +157,24 @@ namespace SoftWarmBeds
                 result = false;
             }
             return result;
+        }
+
+        private static bool AddedBedIsOwned(object __instance, Pawn pawn, Building_Bed building_Bed)
+        {
+            MethodInfo isGuestinfo = AccessTools.Method("Hospitality.GuestUtility:IsGuest", new[] { typeof(Pawn) });
+            bool isGuest = (bool)isGuestinfo.Invoke(__instance, new object[] { pawn });
+            return isGuest ? (GetGuestBed(__instance, pawn) == building_Bed) : (building_Bed == pawn.ownership.OwnedBed);
+        }
+
+        private static Building_Bed GetGuestBed(object __instance, Pawn pawn)
+        {
+            Type compGuest = AccessTools.TypeByName("Hospitality.CompGuest");
+            MethodInfo getComp = AccessTools.Method(typeof(ThingWithComps), "GetComp").MakeGenericMethod(compGuest);
+            object comp = getComp.Invoke(pawn, new object[] { });
+            FieldInfo bedinfo = AccessTools.Field(compGuest, "bed");
+            Building_Bed bed = (Building_Bed)bedinfo.GetValue(comp);
+            //Log.Message("Calculated GetGuestBed is " + bed.ToString());
+            return (comp != null) ? bed : null;
         }
     }
 
