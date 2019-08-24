@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
+
   <ThingDef ParentName="BlanketBase">
     <defName>RGK_SingleBlanket</defName>
     <label>gloomy single blanket</label>
@@ -77,5 +77,4 @@
     </graphicData>
     <size>(2,2)</size>
   </ThingDef>
-  
 </Defs>

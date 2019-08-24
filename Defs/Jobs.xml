@@ -6,5 +6,5 @@
     <reportString>making TargetA.</reportString>
     <casualInterruptible>false</casualInterruptible>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-  </JobDef>    
+  </JobDef>
 </Defs>

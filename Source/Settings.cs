@@ -1,8 +1,7 @@
-﻿using System;
+﻿using RimWorld;
 using System.Linq;
-using Verse;
 using UnityEngine;
-
+using Verse;
 
 namespace SoftWarmBeds
 {
@@ -12,20 +11,43 @@ namespace SoftWarmBeds
         Blanket = 1,
     }
 
+    public class SoftWarmBedsMod : Mod
+    {
+        private SoftWarmBedsSettings settings;
+
+        public SoftWarmBedsMod(ModContentPack content) : base(content)
+        {
+            settings = GetSettings<SoftWarmBedsSettings>();
+        }
+
+        public override void DoSettingsWindowContents(Rect inRect)
+        {
+            SoftWarmBedsSettings.DoWindowContents(inRect);
+        }
+
+        public override string SettingsCategory()
+        {
+            return "SoftWarmBeds".Translate();
+        }
+
+        public override void WriteSettings()
+        {
+            base.WriteSettings();
+            if (Current.Game != null && Current.ProgramState == ProgramState.Playing)
+            {
+                foreach (Building_Bed bed in Find.Maps.SelectMany((Map map) => map.listerBuildings.AllBuildingsColonistOfClass<Building_Bed>()))
+                {
+                    bed.Notify_ColorChanged();
+                }
+            }
+        }
+    }
+
     public class SoftWarmBedsSettings : ModSettings
     {
         public static ColorDisplayOption colorDisplayOption = ColorDisplayOption.Pillow;
 
         public static float colorWash = 0.4f;
-
-        //public static float colorWashNow = colorWash;
-
-        public override void ExposeData()
-        {
-            Scribe_Values.Look(ref colorDisplayOption, "colorDisplayOption", ColorDisplayOption.Pillow);
-            Scribe_Values.Look(ref colorWash, "colorWash", 0.4f);
-            base.ExposeData();
-        }
 
         public static void DoWindowContents(Rect inRect)
         {
@@ -40,7 +62,7 @@ namespace SoftWarmBeds
                 colorDisplayOption = ColorDisplayOption.Blanket;
             }
             listing.Gap(12f);
-            int colorWashPercent = (int)(Mathf.Round(colorWash*10) * 10);
+            int colorWashPercent = (int)(Mathf.Round(colorWash * 10) * 10);
             if (colorWash < 0.05f)
             {
                 listing.Label("ColorWashLevel".Translate() + ": " + colorWashPercent + "% (" + "ColorWashNone".Translate() + ")", -1f, null);
@@ -64,45 +86,14 @@ namespace SoftWarmBeds
                 colorDisplayOption = ColorDisplayOption.Pillow;
                 colorWash = 0.4f;
             }
-            //listing.Gap(12f);
-            //if (colorWash != colorWashNow) 
-            //{
-            //    listing.Label("("+"PleaseReload"+")", -1f, null);
-            //}
             listing.End();
         }
-    }
 
-    public class SoftWarmBedsMod : Mod
-    {
-        SoftWarmBedsSettings settings;
-
-        public SoftWarmBedsMod(ModContentPack content) : base(content)
+        public override void ExposeData()
         {
-            this.settings = GetSettings<SoftWarmBedsSettings>();
-        }
-
-        public override void DoSettingsWindowContents(Rect inRect)
-        {
-            SoftWarmBedsSettings.DoWindowContents(inRect);
-        }
-
-        public override string SettingsCategory()
-        {
-            return "SoftWarmBeds".Translate();
-        }
-
-        public override void WriteSettings()
-        {
-            base.WriteSettings();
-            if (Current.Game != null && Current.ProgramState == ProgramState.Playing)
-            {
-                //SoftWarmBedsSettings.colorWashNow = SoftWarmBedsSettings.colorWash;
-                foreach (Building_SoftWarmBed bed in Find.Maps.SelectMany((Map map) => map.listerBuildings.AllBuildingsColonistOfClass<Building_SoftWarmBed>()))
-                {
-                    bed.Notify_ColorChanged();
-                }
-            }
+            Scribe_Values.Look(ref colorDisplayOption, "colorDisplayOption", ColorDisplayOption.Pillow);
+            Scribe_Values.Look(ref colorWash, "colorWash", 0.4f);
+            base.ExposeData();
         }
     }
 }

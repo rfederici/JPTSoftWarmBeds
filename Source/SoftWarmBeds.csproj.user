@@ -3,4 +3,7 @@
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug -quicktest|AnyCPU'">
+    <StartProgram>B:\Games\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64.exe</StartProgram>
+  </PropertyGroup>
 </Project>

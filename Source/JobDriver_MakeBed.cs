@@ -1,27 +1,32 @@
 ﻿using System.Collections.Generic;
 using Verse;
 using Verse.AI;
-using RimWorld;
 
 namespace SoftWarmBeds
 {
     public class JobDriver_MakeBed : JobDriver
     {
-		protected Thing Bed
-		{
-			get
-			{
-				return job.GetTarget(TargetIndex.A).Thing;
-			}
-		}
+        private const TargetIndex BeddingInd = TargetIndex.B;
 
-		protected CompMakeableBed BedComp
-		{
-			get
-			{
-				return Bed.TryGetComp<CompMakeableBed>();
-			}
-		}
+        private const TargetIndex MakeableInd = TargetIndex.A;
+
+        private const int MakingDuration = 180;
+
+        protected Thing Bed
+        {
+            get
+            {
+                return job.GetTarget(TargetIndex.A).Thing;
+            }
+        }
+
+        protected CompMakeableBed bedComp
+        {
+            get
+            {
+                return Bed.TryGetComp<CompMakeableBed>();
+            }
+        }
 
         protected Thing Bedding
         {
@@ -32,34 +37,34 @@ namespace SoftWarmBeds
         }
 
         public override bool TryMakePreToilReservations(bool errorOnFailed)
-		{
-			Pawn pawn = this.pawn;
-			LocalTargetInfo target = Bed;
-			Job job = this.job;
-			bool result;
-			if (pawn.Reserve(target, job, 1, -1, null, errorOnFailed))
-			{
-				pawn = this.pawn;
-				target = Bedding;
-				job = this.job;
-				result = pawn.Reserve(target, job, 1, -1, null, errorOnFailed);
-			}
-			else
-			{
-				result = false;
-			}
-			return result;
-		}
+        {
+            Pawn pawn = this.pawn;
+            LocalTargetInfo target = Bed;
+            Job job = this.job;
+            bool result;
+            if (pawn.Reserve(target, job, 1, -1, null, errorOnFailed))
+            {
+                pawn = this.pawn;
+                target = Bedding;
+                job = this.job;
+                result = pawn.Reserve(target, job, 1, -1, null, errorOnFailed);
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
+        }
 
-		protected override IEnumerable<Toil> MakeNewToils()
-		{
+        protected override IEnumerable<Toil> MakeNewToils()
+        {
             //Log.Message("Toil start:" + this.pawn +" is taking " + Bedding + " to " + Bed);
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-			base.AddEndCondition(() => (!BedComp.Loaded) ? JobCondition.Ongoing : JobCondition.Succeeded);
+            base.AddEndCondition(() => (!bedComp.Loaded) ? JobCondition.Ongoing : JobCondition.Succeeded);
             job.count = 1;
-			Toil reserveBedding = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
-			yield return reserveBedding;
-			yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
+            Toil reserveBedding = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
+            yield return reserveBedding;
+            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
             yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, true, false).FailOnDestroyedNullOrForbidden(TargetIndex.B);
             yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveBedding, TargetIndex.B, TargetIndex.None, true, null);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
@@ -68,7 +73,7 @@ namespace SoftWarmBeds
             makeTheBed.initAction = delegate
             {
                 Pawn actor = makeTheBed.actor;
-                BedComp.LoadBedding(actor.CurJob.targetB.Thing.def, actor.CurJob.targetB.Thing);//, 1);
+                bedComp.LoadBedding(actor.CurJob.targetB.Thing.def, actor.CurJob.targetB.Thing);//, 1);
                 //Building_SoftWarmBed SoftWarmBed = Bed as Building_SoftWarmBed;
                 actor.carryTracker.innerContainer.ClearAndDestroyContents(DestroyMode.Vanish);
             };
@@ -76,13 +81,6 @@ namespace SoftWarmBeds
             makeTheBed.FailOnDespawnedOrNull(TargetIndex.A);
             yield return makeTheBed;
             yield break;
-		}
-
-		private const TargetIndex MakeableInd = TargetIndex.A;
-
-		private const TargetIndex BeddingInd = TargetIndex.B;
-
-		private const int MakingDuration = 180;
-
+        }
     }
 }

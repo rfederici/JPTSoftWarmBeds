@@ -7,5 +7,5 @@
     <parent>Apparel</parent>
    <iconPath>UI/beddingSingle</iconPath>
     <resourceReadoutRoot>true</resourceReadoutRoot>
-  </ThingCategoryDef> 
+  </ThingCategoryDef>
 </Defs>

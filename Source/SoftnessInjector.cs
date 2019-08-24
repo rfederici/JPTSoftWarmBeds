@@ -1,8 +1,8 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Linq;
 using System.Text;
 using Verse;
-using RimWorld;
 
 namespace SoftWarmBeds
 {
@@ -10,32 +10,17 @@ namespace SoftWarmBeds
     {
         public double adjust = 0.25;
 
+        public float CalculateSoftness(ThingDef def)
+        {
+            return 1 - (ArmorGrade(def) / ((1 + (FurFactor(def) * 2) + (ValueFactor(def) / 2)) / 2)) - (float)adjust;
+        }
+
         public void Inject()
         {
             ThingDef[] texDefs = (from def in DefDatabase<ThingDef>.AllDefsListForReading
                                   where def.stuffProps != null && (def.stuffProps.categories.Contains(StuffCategoryDefOf.Leathery) || def.stuffProps.categories.Contains(StuffCategoryDefOf.Fabric))
                                   select def).ToArray<ThingDef>();
             InjectStatBase(texDefs);
-        }
-
-        private void InjectStatBase(ThingDef[] list)
-        {
-            StringBuilder stringBuilder = new StringBuilder("[SoftWarmBeds] Added softness stat to: ");
-            foreach (ThingDef thingDef in list)
-            {
-                StatModifier statModifier = new StatModifier();
-                statModifier.stat = (StatDef)Softness.Textile_Softness;
-                statModifier.value = CalculateSoftness(thingDef);
-                thingDef.statBases.Add(statModifier);
-                //stringBuilder.Append(thingDef.defName + ","+ ArmorGrade(thingDef) + "," + FurFactor(thingDef) + "," + ValueFactor(thingDef) + "," + statModifier.value+ ",");
-                stringBuilder.Append(thingDef.defName + " ("+ statModifier.value.ToStringPercent() +"), ");
-            }
-            Log.Message(stringBuilder.ToString().TrimEnd(new char[]{' ',','}), false);
-        }
-
-        public float CalculateSoftness(ThingDef def)
-        {
-            return 1  - (ArmorGrade(def) / ((1 + (FurFactor(def) * 2) + (ValueFactor(def) / 2)) / 2)) - (float)adjust;
         }
 
         private float ArmorGrade(ThingDef def)
@@ -63,6 +48,21 @@ namespace SoftWarmBeds
             float val;
             val = def.statBases.GetStatValueFromList(StatDefOf.MarketValue, 0f);
             return (float)Math.Pow(val, (1.0 / 3.0));
+        }
+
+        private void InjectStatBase(ThingDef[] list)
+        {
+            StringBuilder stringBuilder = new StringBuilder("[SoftWarmBeds] Added softness stat to: ");
+            foreach (ThingDef thingDef in list)
+            {
+                StatModifier statModifier = new StatModifier();
+                statModifier.stat = (StatDef)Softness.Textile_Softness;
+                statModifier.value = CalculateSoftness(thingDef);
+                thingDef.statBases.Add(statModifier);
+                //stringBuilder.Append(thingDef.defName + ","+ ArmorGrade(thingDef) + "," + FurFactor(thingDef) + "," + ValueFactor(thingDef) + "," + statModifier.value+ ",");
+                stringBuilder.Append(thingDef.defName + " (" + statModifier.value.ToStringPercent() + "), ");
+            }
+            Log.Message(stringBuilder.ToString().TrimEnd(new char[] { ' ', ',' }), false);
         }
     }
 }

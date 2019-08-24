@@ -12,12 +12,6 @@
         <li Class="PatchOperationAdd">
           <xpath>Defs/ThingDef[defName="Bed_Kingsize" or defName="Bed_Ergonomic" or defName="Bed_DoubleErgonomic"]</xpath>
           <value>
-            <thingClass>SoftWarmBeds.Building_SoftWarmBed</thingClass>
-          </value>
-        </li>
-        <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Bed_Kingsize" or defName="Bed_Ergonomic" or defName="Bed_DoubleErgonomic"]</xpath>
-          <value>
             <inspectorTabs>
               <li>SoftWarmBeds.ITab_Bedding</li>
             </inspectorTabs>

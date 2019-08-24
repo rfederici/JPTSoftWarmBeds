@@ -19,4 +19,5 @@
   <CommandUnmakeBed>Desfazer</CommandUnmakeBed>
   <CommandUnmakeBedDesc>Remover a roupa de cama atual para que ela seja substituída por outra.</CommandUnmakeBedDesc>
   <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort} não encontrou nenhuma roupa de cama livre por perto para {BED_label}.</MessageOutOfNearbyBeddingsFor>
+  <StatsReport_BedInsulation>Enquanto na cama actual</StatsReport_BedInsulation>
 </LanguageData>

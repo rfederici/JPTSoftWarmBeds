@@ -35,24 +35,17 @@
     <Reference Include="%24HugsLibChecker">
       <HintPath>..\Assemblies\$HugsLibChecker.dll</HintPath>
     </Reference>
-    <Reference Include="0Harmony">
+    <Reference Include="0Harmony, Version=1.2.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Hospitality">
-      <HintPath>..\..\__LocalCopy_Hospitality_(16-7)\Assemblies\Hospitality.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="HugsLib">
       <HintPath>..\..\..\..\..\workshop\content\294100\818773962\Assemblies\HugsLib.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="SaveGamePatching">
-      <HintPath>C:\Users\JP\source\repos\SaveGamePatches\Assemblies\SaveGamePatching.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -70,20 +63,22 @@
     <None Include="..\About\Preview.png" />
     <None Include="..\About\UpdateFeatureDefs\UpdateFeatures.xml" />
     <None Include="..\Defs\Stats.xml" />
-    <None Include="..\Defs\Things.xml" />
+    <None Include="..\Defs\Things.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\Defs\ThingCategories.xml" />
     <None Include="..\Defs\Jobs.xml" />
     <None Include="..\Defs\WorkGiver.xml" />
     <None Include="..\Defs\Defs_GloomyFurniture.xml" />
-    <None Include="..\Patches\Patches.xml" />
+    <None Include="..\Patches\Patches.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\Patches\Patches_BabyAndChildren.xml" />
     <None Include="..\Patches\Patches_GloomyFurniture.xml" />
     <None Include="..\Patches\Patches_GloomyVanilla.xml" />
     <None Include="..\Patches\Patches_Patches_RIMkea.xml" />
     <None Include="..\Patches\Patches_VanillaFurnitureExpanded.xml" />
     <None Include="..\Patches\Patches_VanillaFurnitureExpanded-MM.xml" />
-    <None Include="notPresent_patch.xml" />
-    <None Include="save_patch.xml" />
     <None Include="..\Languages\English\Keyed\SoftWarmBeds_keys.xml" />
     <None Include="..\Languages\PortugueseBrazilian\Keyed\SoftWarmBeds_keys.xml" />
     <None Include="..\Languages\PortugueseBrazilian\Languages\DefInjected\JobDef\TranslateJobs.xml" />
@@ -102,22 +97,21 @@
     <Compile Include="Bedding.cs" />
     <Compile Include="BedMakingWorkGiverUtility.cs" />
     <Compile Include="Building_Blanket.cs" />
-    <Compile Include="Building_SoftWarmBed.cs" />
-    <Compile Include="Building_SoftWarmGuestBed.cs" />
     <Compile Include="CompMakeableBed.cs" />
     <Compile Include="CompProperties_MakeableBed.cs" />
     <Compile Include="DefOfs.cs" />
     <Compile Include="HarmonyPatch.cs" />
-    <Compile Include="HarmonyPatch_Hospitality.cs" />
     <Compile Include="ITab_bedding.cs" />
     <Compile Include="JobDriver_MakeBed.cs" />
     <Compile Include="ModBaseSoftWarmBeds.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SoftnessInjector.cs" />
-    <Compile Include="StatPart_BedStatOffset.cs" />
     <Compile Include="StatPart_BedStuff.cs" />
     <Compile Include="WorkGiver_MakeBeds.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Version.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -136,14 +130,16 @@
     <StartArguments>-quicktest</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>echo F|xcopy "$(ProjectDir)..\About\About-$(ConfigurationName).xml" "$(TargetDir)..\About\About.xml" /C /Y /K /Q /D
-IF /I "$(ConfigurationName)" == "Release"; echo F|xcopy "$(ProjectDir)..\About\Preview.png" "$(TargetDir)..\About\Preview.png" /S /C /Y /K /Q /D
-IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Assemblies" "$(TargetDir)..\Assemblies" /S /C /Y /K /I /Q /D
-IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Defs" "$(TargetDir)..\Defs" /S /C /Y /K  /I /Q /D
-IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Patches" "$(TargetDir)..\Patches" /S /C /Y /K  /I /Q /D
-IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Languages" "$(TargetDir)..\Languages" /S /C /Y /K  /I /Q /D
-IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Sounds" "$(TargetDir)..\Sounds" /S /C /Y /K  /I /Q /D
-IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Textures" "$(TargetDir)..\Textures" /S /C /Y /K /I /Q /D
-IF /I "$(ConfigurationName)" == "Release"; IF EXIST "$(ProjectDir)..\LICENSE"; copy "$(ProjectDir)..\LICENSE" "$(TargetDir)..\LICENSE" /Y</PostBuildEvent>
+    <PostBuildEvent>
+      echo F|xcopy "$(ProjectDir)..\About\About-$(ConfigurationName).xml" "$(TargetDir)..\About\About.xml" /C /Y /K /Q /D
+      IF /I "$(ConfigurationName)" == "Release"; echo F|xcopy "$(ProjectDir)..\About\Preview.png" "$(TargetDir)..\About\Preview.png" /S /C /Y /K /Q /D
+      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Assemblies" "$(TargetDir)..\Assemblies" /S /C /Y /K /I /Q /D
+      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Defs" "$(TargetDir)..\Defs" /S /C /Y /K  /I /Q /D
+      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Patches" "$(TargetDir)..\Patches" /S /C /Y /K  /I /Q /D
+      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Languages" "$(TargetDir)..\Languages" /S /C /Y /K  /I /Q /D
+      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Sounds" "$(TargetDir)..\Sounds" /S /C /Y /K  /I /Q /D
+      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Textures" "$(TargetDir)..\Textures" /S /C /Y /K /I /Q /D
+      IF /I "$(ConfigurationName)" == "Release"; IF EXIST "$(ProjectDir)..\LICENSE"; copy "$(ProjectDir)..\LICENSE" "$(TargetDir)..\LICENSE" /Y
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -3,13 +3,14 @@
 
   <Operation Class="PatchOperationFindMod">
     <mods>
-      <li>Baby and Children</li>
+      <li>Sparkling Worlds - Full Mod</li>
+      <li>Sparkling Worlds - Core Mod</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName = "Crib"]</xpath>
+          <xpath>/Defs/ThingDef[defName = "GlitterworldHospitalBedSW"]</xpath>
           <value>
             <inspectorTabs>
               <li>SoftWarmBeds.ITab_Bedding</li>
@@ -17,7 +18,7 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName = "Crib"]/building</xpath>
+          <xpath>/Defs/ThingDef[defName = "GlitterworldHospitalBedSW"]/building</xpath>
           <value>
             <fixedStorageSettings>
               <filter>
@@ -36,13 +37,13 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName = "Crib"]</xpath>
+          <xpath>/Defs/ThingDef[defName = "GlitterworldHospitalBedSW"]</xpath>
           <value>
             <tickerType>Normal</tickerType>
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName = "Crib"]/comps</xpath>
+          <xpath>/Defs/ThingDef[defName = "GlitterworldHospitalBedSW"]/comps</xpath>
           <value>
             <li Class="SoftWarmBeds.CompProperties_MakeableBed">
               <!--<blanketDef>SingleBlanket</blanketDef>-->
@@ -51,19 +52,19 @@
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName = "Crib"]/statBases/BedRestEffectiveness</xpath>
+          <xpath>/Defs/ThingDef[defName = "GlitterworldHospitalBedSW"]/statBases/BedRestEffectiveness</xpath>
           <value>
-            <BedRestEffectiveness>0.7</BedRestEffectiveness>
+            <BedRestEffectiveness>0.55</BedRestEffectiveness>
           </value>
         </li>
         <li Class="PatchOperationReplace">
-          <xpath>/Defs/ThingDef[defName = "Crib"]/statBases/Comfort</xpath>
+          <xpath>/Defs/ThingDef[defName = "GlitterworldHospitalBedSW"]/statBases/Comfort</xpath>
           <value>
-            <Comfort>0.3</Comfort>
+            <Comfort>0.35</Comfort>
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName = "Crib"]/statBases</xpath>
+          <xpath>/Defs/ThingDef[defName = "GlitterworldHospitalBedSW"]/statBases</xpath>
           <value>
             <BedStuffEffectMultiplierInsulation_Cold>0.5</BedStuffEffectMultiplierInsulation_Cold>
           </value>

@@ -1,20 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using RimWorld;
 using System.Text;
 using Verse;
-using RimWorld;
 
 namespace SoftWarmBeds
 {
     public class StatPart_BedStuff : StatPart
     {
+        private float Addend;
+
+        private StatDef additiveStat = null;
+
+        private float Factor;
+
+        private StatDef multiplierStat = null;
+
+        public override string ExplanationPart(StatRequest req)
+        {
+            Building_Bed bed = req.Thing as Building_Bed;
+            if (req.HasThing && bed != null)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                CompMakeableBed bedComp = req.Thing.TryGetComp<CompMakeableBed>();
+                string material;
+                if (bedComp != null)
+                {
+                    if (bedComp.Loaded)
+                    {
+                        ThingDef BedStuff = bedComp.blanketStuff;
+                        material = BedStuff.label;
+                    }
+                    else
+                    {
+                        material = "NoBeddings".Translate();
+                    }
+                }
+                else
+                {
+                    material = req.StuffDef.label;
+                }
+                string number = Addend.ToStringByStyle(parentStat.ToStringStyleUnfinalized, ToStringNumberSense.Absolute);
+                if (additiveStat != null)
+                {
+                    stringBuilder.AppendLine("StatsReport_Material".Translate() + " (" + material + "): +" + number);
+                }
+                if (multiplierStat != null)
+                {
+                    stringBuilder.AppendLine("StatsReport_StuffEffectMultiplier".Translate() + ": x" + Factor.ToStringPercent("F0"));
+                }
+                return stringBuilder.ToString().TrimEndNewlines();
+            }
+            return null;
+        }
+
         public override void TransformValue(StatRequest req, ref float value)
         {
             Building_Bed bed = req.Thing as Building_Bed;
-            if (req.HasThing && bed !=null)
+            if (req.HasThing && bed != null)
             {
-                //Log.Message(bed+" is calculating stats. (value "+value+")");
+                //Log.Message(bed + " is calculating stats. (value " + value + ")");
                 float addend = (additiveStat != null) ? SelectValue(req, additiveStat) : 0f;
                 float factor = (multiplierStat != null) ? SelectValue(req, multiplierStat) : 0f;
                 //Log.Message("defined: factor: " + (double)factor + " addend: " + (double)addend);
@@ -38,55 +81,17 @@ namespace SoftWarmBeds
             return;
         }
 
-        public override string ExplanationPart(StatRequest req)
-        {
-            Building_Bed bed = req.Thing as Building_Bed;
-            if (req.HasThing && bed != null)
-            {
-                StringBuilder stringBuilder = new StringBuilder();
-                CompMakeableBed BedComp = req.Thing.TryGetComp<CompMakeableBed>();
-                string material;
-                if (BedComp != null)
-                {
-                    if (BedComp.Loaded)
-                    {
-                        ThingDef BedStuff = BedComp.blanketStuff;
-                        material = BedStuff.label;
-                    }
-                    else
-                    {
-                        material = "NoBeddings".Translate();
-                    }
-                }
-                else
-                {
-                    material = req.StuffDef.label;
-                }
-                string number = Addend.ToStringByStyle(parentStat.ToStringStyleUnfinalized, ToStringNumberSense.Absolute);
-                if (additiveStat != null)
-                {
-                stringBuilder.AppendLine("StatsReport_Material".Translate() + " (" + material + "): +" + number);
-                }
-                if (multiplierStat != null)
-                {
-                    stringBuilder.AppendLine("StatsReport_StuffEffectMultiplier".Translate() + ": x" + Factor.ToStringPercent("F0"));
-                }
-                return stringBuilder.ToString().TrimEndNewlines();
-            }
-            return null;
-        }
-
         private float SelectValue(StatRequest req, StatDef stat)
         {
             if (stat != null)
             {
-                CompMakeableBed BedComp = req.Thing.TryGetComp<CompMakeableBed>();
+                CompMakeableBed bedComp = req.Thing.TryGetComp<CompMakeableBed>();
                 ThingDef stuff = null;
-                if (BedComp != null)
+                if (bedComp != null)
                 {
-                    if (BedComp.Loaded)
+                    if (bedComp.Loaded)
                     {
-                        stuff = BedComp.blanketStuff; // comp = stuff from bedding
+                        stuff = bedComp.blanketStuff; // comp = stuff from bedding
                     }
                     else
                     {
@@ -117,31 +122,22 @@ namespace SoftWarmBeds
                 {
                     if (stat == additiveStat)
                     {
-                        //Log.Message(stat+" is "+stuff.GetStatValueAbstract(stat, null)+" on "+stuff+" (case 1)");
+                        //Log.Message(stat + " is " + stuff.GetStatValueAbstract(stat, null) + " on " + stuff + " (case 1)");
                         return stuff.GetStatValueAbstract(stat, null); // if additive = get it from bed/bedding stuff
                     }
-                    //Log.Message(stat+" is "+req.Def.GetStatValueAbstract(stat, null)+" on "+req.Def+" (case 2)");
+                    //Log.Message(stat + " is " + req.Def.GetStatValueAbstract(stat, null) + " on " + req.Def + " (case 2)");
                     return req.Def.GetStatValueAbstract(stat, null); // if multiplier = get it from bed
                 }
                 if (stat == additiveStat)
                 {
-                    //Log.Message(stat+" is "+stuff.GetStatValueAbstract(stat, null)+" on "+stuff+" (case 3)");
+                    //Log.Message(stat + " is " + stuff.GetStatValueAbstract(stat, null) + " on " + stuff + " (case 3)");
                     return stuff.GetStatValueAbstract(stat, null); // just additive = get it from bed/bedding stuff
                 }
-                //Log.Message(stat+" is "+req.Def.GetStatValueAbstract(stat, null)+" on "+req.Def+" (case 4)");
+                //Log.Message(stat + " is " + req.Def.GetStatValueAbstract(stat, null) + " on " + req.Def + " (case 4)");
                 return req.Def.GetStatValueAbstract(stat, null); // just multiplier (just in case) = get from bed
             }
             //Log.Message(stat + " tried selecting without target");
             return 0f;
         }
-
-        private float Factor;
-
-        private float Addend;
-        
-        private StatDef additiveStat = null;
-
-        private StatDef multiplierStat = null;
-
     }
 }

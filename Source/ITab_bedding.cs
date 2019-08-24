@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using RimWorld;
 using Verse;
-using RimWorld;
 
 namespace SoftWarmBeds
-{ 
+{
     public class ITab_Bedding : ITab_Storage
     {
         public ITab_Bedding()
@@ -19,15 +14,11 @@ namespace SoftWarmBeds
         {
             get
             {
-                IStoreSettingsParent selStoreSettingsParent = base.SelStoreSettingsParent;
-                if (selStoreSettingsParent != null)
+                Thing thing = base.SelObject as Thing;
+                CompMakeableBed comp = thing.TryGetComp<CompMakeableBed>();
+                if (comp as IStoreSettingsParent != null)
                 {
-                    return selStoreSettingsParent;
-                }
-                Building_SoftWarmBed building_SoftWarmBed = base.SelObject as Building_SoftWarmBed;
-                if (building_SoftWarmBed != null)
-                {
-                    return base.GetThingOrThingCompStoreSettingsParent(building_SoftWarmBed);
+                    return comp as IStoreSettingsParent;
                 }
                 return null;
             }

@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
+
   <ThingDef ParentName="BedWithQualityBase">
     <defName>Rede</defName>
     <label>Hammock</label>
     <description>The simplest and most practical bed ever invented, made from just some cloth or leather and strings. You can hang it anywhere, even take it with you for a good nap when travelling. Hanging in the air, it keeps you cool, which is perfect for a tropical weather! Not as comfortable as a regular bed, though.</description>
-    <thingClass>SoftWarmBeds.Building_SoftWarmBed</thingClass>
+    <!--<thingClass>SoftWarmBeds.Building_SoftWarmBed</thingClass>-->
     <graphicData>
       <texPath>Things/Building/Rede</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -46,7 +46,7 @@
   </ThingDef>
 
   <ThingDef Name="BlanketBase" ParentName="BuildingBase" Abstract="True">
-    <category>Building</category> 
+    <category>Building</category>
     <selectable>false</selectable>
     <thingClass>SoftWarmBeds.Building_Blanket</thingClass>
     <label>bedding error</label>
@@ -139,20 +139,20 @@
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
-      <DeteriorationRate>2</DeteriorationRate> 
+      <DeteriorationRate>2</DeteriorationRate>
       <Beauty>-3</Beauty>
     </statBases>
     <altitudeLayer>Item</altitudeLayer>
     <alwaysHaulable>True</alwaysHaulable>
     <tickerType>Never</tickerType>
     <comps>
-      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Forbiddable" />
       <li>
-        <compClass>CompColorable</compClass> 
+        <compClass>CompColorable</compClass>
       </li>
     </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="BeddingBase">
     <defName>SingleBedding</defName>
     <label>single bedding set</label>
@@ -216,5 +216,4 @@
       </recipeUsers>
     </recipeMaker>
   </ThingDef>
-  
 </Defs>

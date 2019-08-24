@@ -1,5 +1,4 @@
 ﻿using Verse;
-using RimWorld;
 
 namespace SoftWarmBeds
 {
@@ -9,10 +8,9 @@ namespace SoftWarmBeds
         {
             compClass = typeof(CompMakeableBed);
         }
-    
-    public ThingDef blanketDef;
 
-    public ThingDef beddingDef;
-   
+        public ThingDef blanketDef;
+
+        public ThingDef beddingDef;
     }
 }

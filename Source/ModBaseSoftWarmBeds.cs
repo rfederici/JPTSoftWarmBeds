@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using HugsLib;
-using RimWorld;
-using Verse;
+﻿using HugsLib;
 
 namespace SoftWarmBeds
 {

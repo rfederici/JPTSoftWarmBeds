@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using Verse;
-using RimWorld;
+﻿using Verse;
 
 namespace SoftWarmBeds
 {

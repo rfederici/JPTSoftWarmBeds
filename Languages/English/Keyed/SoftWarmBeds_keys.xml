@@ -20,4 +20,5 @@
   <CommandUnmakeBed>Unmake</CommandUnmakeBed>
   <CommandUnmakeBedDesc>Take current bedding off so it can be replaced by another one.</CommandUnmakeBedDesc>
   <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort} found no nearby unreserved beddings for {BED_label}.</MessageOutOfNearbyBeddingsFor>
+  <StatsReport_BedInsulation>While in current bed</StatsReport_BedInsulation>
 </LanguageData>
