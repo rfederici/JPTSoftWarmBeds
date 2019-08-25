@@ -111,6 +111,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Patches\Patches_RiceCultivatingCivilization.xml">
+      <Link>Patches_RiceCultivatingCivilization.xml</Link>
+    </Content>
     <Content Include="Version.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

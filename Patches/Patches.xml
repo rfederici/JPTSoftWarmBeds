@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-  <!--to Stats_Pawns_General-->
-  <!--<Operation Class="PatchOperationAdd">
-    <xpath>*/StatDef[defName = "ComfyTemperatureMin"]/parts</xpath>
-    <value>
-      <li Class="SoftWarmBeds.StatPart_BedStatOffset">
-        <stat>Bed_Insulation_Cold</stat>
-        <subtract>true</subtract>
-      </li>
-    </value>
-  </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>*/StatDef[defName = "ComfyTemperatureMax"]/parts</xpath>
-    <value>
-      <li Class="SoftWarmBeds.StatPart_BedStatOffset">
-        <stat>Bed_Insulation_Heat</stat>
-        <subtract>false</subtract>
-      </li>
-    </value>
-  </Operation>-->
-
   <!--to Stats_Building_Special-->
   <Operation Class="PatchOperationSequence">
     <success>Always</success>
