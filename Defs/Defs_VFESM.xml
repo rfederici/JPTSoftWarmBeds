@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <ThingDef ParentName="BlanketBase">
+    <defName>AdvBedBlanket</defName>
+    <label>advanced single blanket</label>
+    <description>Keeps you warm</description>
+    <graphicData>
+      <texPath>Things/Building/AdvBedBlanket</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2,2)</drawSize>
+      <damageData>
+        <rect>(0,0.05,1,1.95)</rect>
+      </damageData>
+    </graphicData>
+    <size>(1,2)</size>
+  </ThingDef>
+
+  <ThingDef ParentName="BlanketBase">
+    <defName>AdvDoubleBedBlanket</defName>
+    <label>advanced double blanket</label>
+    <graphicData>
+      <texPath>Things/Building/AdvDoubleBedBlanket</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(2.05,2.05)</drawSize>
+      <damageData>
+        <rect>(0,0.05,1,1.95)</rect>
+      </damageData>
+    </graphicData>
+    <size>(2,2)</size>
+  </ThingDef>
+  
+</Defs>
