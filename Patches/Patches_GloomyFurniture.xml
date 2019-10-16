@@ -48,25 +48,25 @@
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName = "RGK_bedSingle"]/graphicData/texPath</xpath>
           <value>
-            <texPath>Things/Building/RGK_bedSingle</texPath>
+            <texPath>Things/Building/GloomyFurniture/RGK_bedSingle</texPath>
           </value>
         </li>
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName = "RGK_bedSingleB"]/graphicData/texPath</xpath>
           <value>
-            <texPath>Things/Building/RGK_bedSingle2</texPath>
+            <texPath>Things/Building/GloomyFurniture/RGK_bedSingle2</texPath>
           </value>
         </li>
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName = "RGK_bedDouble"]/graphicData/texPath</xpath>
           <value>
-            <texPath>Things/Building/RGK_bedDouble</texPath>
+            <texPath>Things/Building/GloomyFurniture/RGK_bedDouble</texPath>
           </value>
         </li>
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName = "RGK_bedDoubleB"]/graphicData/texPath</xpath>
           <value>
-            <texPath>Things/Building/RGK_bedDouble2</texPath>
+            <texPath>Things/Building/GloomyFurniture/RGK_bedDouble2</texPath>
           </value>
         </li>
         <li Class="PatchOperationReplace">
@@ -78,7 +78,7 @@
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName = "GL_ClassyDoubleBed"]/graphicData/texPath</xpath>
           <value>
-            <texPath>Things/Building/GL_ClassyDoubleBed</texPath>
+            <texPath>Things/Building/GloomyFurniture/GL_ClassyDoubleBed</texPath>
           </value>
         </li>
 

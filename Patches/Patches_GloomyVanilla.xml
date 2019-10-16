@@ -14,19 +14,19 @@
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/ThingDef[defName="Bed"]/graphicData/texPath</xpath>
 					<value>
-						<texPath>Things/Building/RGK_bedSingle</texPath>
+						<texPath>Things/Building/GloomyFurniture/RGK_bedSingle</texPath>
 					</value>
 				</li>
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/ThingDef[defName="DoubleBed"]/graphicData/texPath</xpath>
 					<value>
-						<texPath>Things/Building/RGK_bedDouble</texPath>
+						<texPath>Things/Building/GloomyFurniture/RGK_bedDouble</texPath>
 					</value>
 				</li>
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/ThingDef[defName="RoyalBed"]/graphicData/texPath</xpath>
 					<value>
-						<texPath>Things/Building/GL_ClassyDoubleBed</texPath>
+						<texPath>Things/Building/GloomyFurniture/GL_ClassyDoubleBed</texPath>
 					</value>
 				</li>
 

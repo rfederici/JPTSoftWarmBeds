@@ -310,34 +310,26 @@ namespace SoftWarmBeds
     [HarmonyPatch(typeof(Building_Bed), "DrawColorTwo", MethodType.Getter)]
     public class DrawColorTwo_Patch
     {
-        public static void Prefix(object __instance, bool __state)
-        {
-            __state = false;
-            if (__instance is Building_Bed bed && bed.def.MadeFromStuff) __state = true;
-        }
-
-        public static void Postfix(object __instance, bool __state, ref Color __result)
+        public static void Postfix(object __instance, ref Color __result)
         {
             if (__instance is Building_Bed bed)
             {
-                bool forPrisoners = bed.ForPrisoners;
-                bool medical = bed.Medical;
-                bool invertedColorDisplay = (SoftWarmBedsSettings.colorDisplayOption == ColorDisplayOption.Blanket);
-                if (!forPrisoners && !medical && !invertedColorDisplay)
+                CompMakeableBed bedComp = bed.TryGetComp<CompMakeableBed>();
+                if (bedComp != null || bed.def.MadeFromStuff) // unmakeable non-stuffed beds aren't affected
                 {
-                    CompMakeableBed bedComp = bed.TryGetComp<CompMakeableBed>();
-                    if (bedComp != null && bedComp.loaded && bedComp.blanketDef == null)
+                    bool forPrisoners = bed.ForPrisoners;
+                    bool medical = bed.Medical;
+                    bool invertedColorDisplay = (SoftWarmBedsSettings.colorDisplayOption == ColorDisplayOption.Blanket);
+                    if (!forPrisoners && !medical && !invertedColorDisplay)
                     {
-                        __result = bedComp.blanketStuff.stuffProps.color;
-                    }
-                    else if (bed.def.MadeFromStuff)
-                    {
-                        __result = bed.DrawColor;
-                    }
-                    else
-                    {
-                        FieldInfo defaultColorInfo = AccessTools.Field(typeof(Building_Bed), "SheetColorNormal");
-                        __result = (Color)defaultColorInfo.GetValue(bed);
+                        if (bedComp != null && bedComp.loaded && bedComp.blanketDef == null) // bedding color for beds that are made
+                        {
+                            __result = bedComp.blanketStuff.stuffProps.color;
+                        }
+                        else if (bed.def.MadeFromStuff) // stuff color for umade beds & bedrolls
+                        {
+                            __result = bed.DrawColor;
+                        }
                     }
                 }
             }

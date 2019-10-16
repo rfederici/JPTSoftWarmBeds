@@ -46,25 +46,25 @@
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="SNOREGGSingle"]/graphicData/texPath</xpath>
           <value>
-            <texPath>Things/Building/SNOREGGSingle</texPath>
+            <texPath>Things/Building/RIMkea/SNOREGGSingle</texPath>
           </value>
         </li>
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="SNOREGGDouble"]/graphicData/texPath</xpath>
           <value>
-            <texPath>Things/Building/SNOREGGDouble</texPath>
+            <texPath>Things/Building/RIMkea/SNOREGGDouble</texPath>
           </value>
         </li>
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="KRUDNEPPSingle"]/graphicData/texPath</xpath>
           <value>
-            <texPath>Things/Building/KRUDNEPPSingle</texPath>
+            <texPath>Things/Building/RIMkea/KRUDNEPPSingle</texPath>
           </value>
         </li>
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="SLABNEPPDouble"]/graphicData/texPath</xpath>
           <value>
-            <texPath>Things/Building/SLABNEPPDouble</texPath>
+            <texPath>Things/Building/RIMkea/SLABNEPPDouble</texPath>
           </value>
         </li>
         <!--Beddings Settings-->
