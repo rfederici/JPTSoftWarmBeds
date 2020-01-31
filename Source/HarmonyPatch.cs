@@ -359,10 +359,6 @@ namespace SoftWarmBeds
     {
         static Hospitality_Patch()
         {
-            try
-            {
-                ((Action)(() =>
-                {
                     if (LoadedModManager.RunningModsListForReading.Any(x => x.Name == "Hospitality"))
                     {
                         HarmonyInstance harmonyInstance = HarmonyInstance.Create("JPT_SoftWarmBeds.Hospitality");
@@ -375,9 +371,6 @@ namespace SoftWarmBeds
                         harmonyInstance.Patch(original: AccessTools.Method("Hospitality.Building_GuestBed:GetInspectString"),
                             prefix: null, postfix: new HarmonyMethod(type: typeof(GetInspectString_Patch), name: nameof(GetInspectString_Patch.Postfix)), transpiler: null);
                     }
-                }))();
-            }
-            catch (TypeLoadException ex) { }
         }
 
         public static bool SwapPatch(object __instance, Building_Bed bed)

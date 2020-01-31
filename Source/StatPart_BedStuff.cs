@@ -21,7 +21,7 @@ namespace SoftWarmBeds
             {
                 StringBuilder stringBuilder = new StringBuilder();
                 CompMakeableBed bedComp = req.Thing.TryGetComp<CompMakeableBed>();
-                string material;
+                string material = null;
                 if (bedComp != null)
                 {
                     if (bedComp.Loaded)
@@ -34,20 +34,23 @@ namespace SoftWarmBeds
                         material = "NoBeddings".Translate();
                     }
                 }
-                else
+                else if (req.StuffDef != null)
                 {
                     material = req.StuffDef.label;
                 }
-                string number = Addend.ToStringByStyle(parentStat.ToStringStyleUnfinalized, ToStringNumberSense.Absolute);
-                if (additiveStat != null)
+                if (material != null)
                 {
-                    stringBuilder.AppendLine("StatsReport_Material".Translate() + " (" + material + "): +" + number);
+                    string number = Addend.ToStringByStyle(parentStat.ToStringStyleUnfinalized, ToStringNumberSense.Absolute);
+                    if (additiveStat != null)
+                    {
+                        stringBuilder.AppendLine("StatsReport_Material".Translate() + " (" + material + "): +" + number);
+                    }
+                    if (multiplierStat != null)
+                    {
+                        stringBuilder.AppendLine("StatsReport_StuffEffectMultiplier".Translate() + ": x" + Factor.ToStringPercent("F0"));
+                    }
+                    return stringBuilder.ToString().TrimEndNewlines();
                 }
-                if (multiplierStat != null)
-                {
-                    stringBuilder.AppendLine("StatsReport_StuffEffectMultiplier".Translate() + ": x" + Factor.ToStringPercent("F0"));
-                }
-                return stringBuilder.ToString().TrimEndNewlines();
             }
             return null;
         }

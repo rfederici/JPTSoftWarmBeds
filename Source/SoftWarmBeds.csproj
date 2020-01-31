@@ -78,7 +78,6 @@
     <None Include="..\Patches\Patches_GloomyVanilla.xml" />
     <None Include="..\Patches\Patches_Patches_RIMkea.xml" />
     <None Include="..\Patches\Patches_VanillaFurnitureExpanded.xml" />
-    <None Include="..\Patches\Patches_VanillaFurnitureExpanded-MM.xml" />
     <None Include="..\Languages\English\Keyed\SoftWarmBeds_keys.xml" />
     <None Include="..\Languages\PortugueseBrazilian\Keyed\SoftWarmBeds_keys.xml" />
     <None Include="..\Languages\PortugueseBrazilian\Languages\DefInjected\JobDef\TranslateJobs.xml" />

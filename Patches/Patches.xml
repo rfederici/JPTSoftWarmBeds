@@ -100,6 +100,16 @@
         </value>
       </li>
 
+      <!--<li Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName = "Bed"]/building</xpath>
+        <value>
+          <blueprintClass>Blueprint</blueprintClass>
+          <blueprintGraphicData>
+            <texPath>Things/Building/Bed_Blueprint</texPath>
+          </blueprintGraphicData>
+        </value>
+      </li>-->
+
       <li Class="PatchOperationReplace">
         <xpath>/Defs/ThingDef[defName = "Bed"]/description</xpath>
         <value>
