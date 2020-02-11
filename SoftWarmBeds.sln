@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftWarmBeds", "Source\SoftWarmBeds.csproj", "{D7D21B4A-1DA7-41D8-B202-C58CA8FA62AA}"
 EndProject
@@ -9,6 +9,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		NotPresentPatches\notPresent_patch.xml = NotPresentPatches\notPresent_patch.xml
 		SaveGamePatches\save_patch.xml = SaveGamePatches\save_patch.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{C8DE56EF-E6E2-43E0-80E3-F08FE840FA68}"
+	ProjectSection(SolutionItems) = preProject
+		About\About-Debug.xml = About\About-Debug.xml
+		About\About-Release.xml = About\About-Release.xml
+		About\About.xml = About\About.xml
+		About\Preview.png = About\Preview.png
+		About\PublishedFileId.txt = About\PublishedFileId.txt
+		About\Version.xml = About\Version.xml
 	EndProjectSection
 EndProject
 Global

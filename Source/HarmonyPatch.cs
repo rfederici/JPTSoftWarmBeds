@@ -159,10 +159,11 @@ namespace SoftWarmBeds
             return result;
         }
 
+        //corrected for Hospitality 1.0.34
         private static bool AddedBedIsOwned(object __instance, Pawn pawn, Building_Bed building_Bed)
         {
-            MethodInfo isGuestinfo = AccessTools.Method("Hospitality.GuestUtility:IsGuest", new[] { typeof(Pawn) });
-            bool isGuest = (bool)isGuestinfo.Invoke(__instance, new object[] { pawn });
+            MethodInfo isGuestinfo = AccessTools.Method("Hospitality.GuestUtility:IsGuest", new[] { typeof(Pawn), typeof(bool) });
+            bool isGuest = (bool)isGuestinfo.Invoke(__instance, new object[] { pawn , true });
             return isGuest ? (GetGuestBed(__instance, pawn) == building_Bed) : (building_Bed == pawn.ownership.OwnedBed);
         }
 
