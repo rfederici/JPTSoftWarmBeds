@@ -3,7 +3,12 @@
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug -quicktest|AnyCPU'">
-    <StartProgram>B:\Games\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64.exe</StartProgram>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartProgram>C:\Program Files %28x86%29\Steam\Steam.exe</StartProgram>
+    <StartArguments>-applaunch 294100</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartProgram>C:\Program Files %28x86%29\Steam\Steam.exe</StartProgram>
+    <StartArguments>-applaunch 294100</StartArguments>
   </PropertyGroup>
 </Project>

@@ -16,16 +16,17 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Assemblies\</OutputPath>
-    <DefineConstants>
-    </DefineConstants>
+    <OutputPath>..\1.0\Assemblies\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
+    <NoWarn>
+    </NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\SoftWarmBeds - Release\Assemblies\</OutputPath>
+    <OutputPath>..\1.0\Assemblies\</OutputPath>
     <DefineConstants>
     </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -57,34 +58,7 @@
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <None Include="..\About\About-Debug.xml" />
-    <None Include="..\About\About-Release.xml" />
-    <None Include="..\About\About.xml" />
-    <None Include="..\About\Preview.png" />
-    <None Include="..\About\UpdateFeatureDefs\UpdateFeatures.xml" />
-    <None Include="..\Defs\Stats.xml" />
-    <None Include="..\Defs\Things.xml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="..\Defs\ThingCategories.xml" />
-    <None Include="..\Defs\Jobs.xml" />
-    <None Include="..\Defs\WorkGiver.xml" />
-    <None Include="..\Defs\Defs_GloomyFurniture.xml" />
-    <None Include="..\Patches\Patches.xml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="..\Patches\Patches_BabyAndChildren.xml" />
-    <None Include="..\Patches\Patches_GloomyFurniture.xml" />
-    <None Include="..\Patches\Patches_GloomyVanilla.xml" />
-    <None Include="..\Patches\Patches_Patches_RIMkea.xml" />
-    <None Include="..\Patches\Patches_VanillaFurnitureExpanded.xml" />
-    <None Include="..\Languages\English\Keyed\SoftWarmBeds_keys.xml" />
     <None Include="..\Languages\PortugueseBrazilian\Keyed\SoftWarmBeds_keys.xml" />
-    <None Include="..\Languages\PortugueseBrazilian\Languages\DefInjected\JobDef\TranslateJobs.xml" />
-    <None Include="..\Languages\PortugueseBrazilian\Languages\DefInjected\StatDef\TranslateStats.xml" />
-    <None Include="..\Languages\PortugueseBrazilian\Languages\DefInjected\ThingCategoryDef\TranslateThingCategories.xml" />
-    <None Include="..\Languages\PortugueseBrazilian\Languages\DefInjected\ThingDef\TranslateThings.xml" />
-    <None Include="..\Languages\PortugueseBrazilian\Languages\DefInjected\WorkGiverDef\TranslateWorkGivers.xml" />
     <None Include="..\Languages\Portuguese\Keyed\SoftWarmBeds_keys.xml" />
     <None Include="..\Languages\Portuguese\Languages\DefInjected\JobDef\TranslateJobs.xml" />
     <None Include="..\Languages\Portuguese\Languages\DefInjected\StatDef\TranslateStats.xml" />
@@ -109,15 +83,6 @@
     <Compile Include="WorkGiver_MakeBeds.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Patches\Patches_NanoRepairTech.xml">
-      <Link>Patches_NanoRepairTech.xml</Link>
-    </Content>
-    <Content Include="..\Patches\Patches_RiceCultivatingCivilization.xml">
-      <Link>Patches_RiceCultivatingCivilization.xml</Link>
-    </Content>
-    <Content Include="Version.xml" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
@@ -127,24 +92,8 @@
     <StartAction>Program</StartAction>
     <StartProgram>$(SolutionDir)..\..\RimWorldWin64.exe</StartProgram>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug -quicktest|AnyCPU' ">
-    <StartArguments>-quicktest</StartArguments>
-    <OutputPath>..\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release -quicktest|AnyCPU' ">
-    <StartArguments>-quicktest</StartArguments>
-  </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
-      echo F|xcopy "$(ProjectDir)..\About\About-$(ConfigurationName).xml" "$(TargetDir)..\About\About.xml" /C /Y /K /Q /D
-      IF /I "$(ConfigurationName)" == "Release"; echo F|xcopy "$(ProjectDir)..\About\Preview.png" "$(TargetDir)..\About\Preview.png" /S /C /Y /K /Q /D
-      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Assemblies" "$(TargetDir)..\Assemblies" /S /C /Y /K /I /Q /D
-      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Defs" "$(TargetDir)..\Defs" /S /C /Y /K  /I /Q /D
-      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Patches" "$(TargetDir)..\Patches" /S /C /Y /K  /I /Q /D
-      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Languages" "$(TargetDir)..\Languages" /S /C /Y /K  /I /Q /D
-      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Sounds" "$(TargetDir)..\Sounds" /S /C /Y /K  /I /Q /D
-      IF /I "$(ConfigurationName)" == "Release"; xcopy "$(ProjectDir)..\Textures" "$(TargetDir)..\Textures" /S /C /Y /K /I /Q /D
-      IF /I "$(ConfigurationName)" == "Release"; IF EXIST "$(ProjectDir)..\LICENSE"; copy "$(ProjectDir)..\LICENSE" "$(TargetDir)..\LICENSE" /Y
     </PostBuildEvent>
   </PropertyGroup>
 </Project>
