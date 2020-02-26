@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System;
 using System.Collections;
@@ -11,16 +11,17 @@ using Verse;
 
 namespace SoftWarmBeds
 {
-    [StaticConstructorOnStartup]
-    internal static class HarmonyInit
-    {
-        static HarmonyInit()
-        {
-            //HarmonyInstance.DEBUG = true;
-            HarmonyInstance harmonyInstance = HarmonyInstance.Create("JPT_SoftWarmBeds");
-            harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
-        }
-    }
+    //Letting HugsLib take care of that!
+    //[StaticConstructorOnStartup]
+    //internal static class HarmonyInit
+    //{
+    //    static HarmonyInit()
+    //    {
+    //        Harmony.DEBUG = true;
+    //        var harmonyInstance = new Harmony("JPT_SoftWarmBeds");
+    //        harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
+    //    }
+    //}
 
     //Instruction to draw pawn body when on a bed that's unmade
     [HarmonyPatch(typeof(PawnRenderer), "RenderPawnAt", new Type[] { typeof(Vector3) })]
@@ -240,7 +241,9 @@ namespace SoftWarmBeds
                     //alteredText.AppendLine();
                     //alteredText.Append("DEBUG: subtract: " + subtract + " modifier: " + modifier.ToString() + " bedStatValue: " + bedStatValue + " bedOffset: " + bedOffset + " signal: " + signal);
                 }
-                target.overrideReportText = alteredText.ToString().TrimEndNewlines();
+                //target.overrideReportText = alteredText.ToString().TrimEndNewlines(); //became private, had to reflect:
+                FieldInfo overrideReportTextInfo = AccessTools.Field(typeof(StatDrawEntry), "overrideReportText");
+                overrideReportTextInfo.SetValue(target, alteredText.ToString().TrimEndNewlines());
             }
             return true;
         }
@@ -274,7 +277,7 @@ namespace SoftWarmBeds
     }
 
     //Command to draw the blanket
-    [HarmonyPatch(typeof(Building_Bed), "Draw")]
+    [HarmonyPatch(typeof(Building), "Draw")]
     public class Draw_Patch
     {
         public static void Postfix(object __instance)
@@ -308,7 +311,7 @@ namespace SoftWarmBeds
     }
 
     //Tweak to the bed's secondary color
-    [HarmonyPatch(typeof(Building_Bed), "DrawColorTwo", MethodType.Getter)]
+    [HarmonyPatch(typeof(Building_Bed), "DrawColorTwo", MethodType.Getter)] // Wait for a Harmony fix!
     public class DrawColorTwo_Patch
     {
         public static void Postfix(object __instance, ref Color __result)
@@ -338,7 +341,7 @@ namespace SoftWarmBeds
     }
 
     //Command to update the blanket color when needed
-    [HarmonyPatch(typeof(Building_Bed), "Notify_ColorChanged")]
+    [HarmonyPatch(typeof(Thing), "Notify_ColorChanged")]
     public class Notify_ColorChanged_Patch
     {
         public static void Postfix(object __instance)
@@ -360,18 +363,18 @@ namespace SoftWarmBeds
     {
         static Hospitality_Patch()
         {
-                    if (LoadedModManager.RunningModsListForReading.Any(x => x.Name == "Hospitality"))
-                    {
-                        HarmonyInstance harmonyInstance = HarmonyInstance.Create("JPT_SoftWarmBeds.Hospitality");
+            if (LoadedModManager.RunningModsListForReading.Any(x => x.Name == "Hospitality"))
+            {
+                var harmonyInstance = new Harmony("JPT_SoftWarmBeds.Hospitality");
 
-                        Log.Message("[SoftWarmBeds] Hospitality detected! Adapting...");
+                Log.Message("[SoftWarmBeds] Hospitality detected! Adapting...");
 
-                        harmonyInstance.Patch(original: AccessTools.Method("Hospitality.Building_GuestBed:Swap", new[] { typeof(Building_Bed) }),
-                            prefix: new HarmonyMethod(type: typeof(Hospitality_Patch), name: nameof(SwapPatch)), postfix: null, transpiler: null);
+                harmonyInstance.Patch(original: AccessTools.Method("Hospitality.Building_GuestBed:Swap", new[] { typeof(Building_Bed) }),
+                    prefix: new HarmonyMethod(typeof(Hospitality_Patch), nameof(SwapPatch)), postfix: null, transpiler: null);
 
-                        harmonyInstance.Patch(original: AccessTools.Method("Hospitality.Building_GuestBed:GetInspectString"),
-                            prefix: null, postfix: new HarmonyMethod(type: typeof(GetInspectString_Patch), name: nameof(GetInspectString_Patch.Postfix)), transpiler: null);
-                    }
+                harmonyInstance.Patch(original: AccessTools.Method("Hospitality.Building_GuestBed:GetInspectString"),
+                    prefix: null, postfix: new HarmonyMethod(typeof(GetInspectString_Patch), nameof(GetInspectString_Patch.Postfix)), transpiler: null);
+            }
         }
 
         public static bool SwapPatch(object __instance, Building_Bed bed)

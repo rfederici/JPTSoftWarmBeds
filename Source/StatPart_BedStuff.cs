@@ -129,7 +129,8 @@ namespace SoftWarmBeds
                         return stuff.GetStatValueAbstract(stat, null); // if additive = get it from bed/bedding stuff
                     }
                     //Log.Message(stat + " is " + req.Def.GetStatValueAbstract(stat, null) + " on " + req.Def + " (case 2)");
-                    return req.Def.GetStatValueAbstract(stat, null); // if multiplier = get it from bed
+                    //return req.Def.GetStatValueAbstract(stat, null); // Changed on 1.1: method transfered to a Def child:
+                    return req.BuildableDef.GetStatValueAbstract(stat, null); // if multiplier = get it from bed
                 }
                 if (stat == additiveStat)
                 {
@@ -137,7 +138,8 @@ namespace SoftWarmBeds
                     return stuff.GetStatValueAbstract(stat, null); // just additive = get it from bed/bedding stuff
                 }
                 //Log.Message(stat + " is " + req.Def.GetStatValueAbstract(stat, null) + " on " + req.Def + " (case 4)");
-                return req.Def.GetStatValueAbstract(stat, null); // just multiplier (just in case) = get from bed
+                //return req.Def.GetStatValueAbstract(stat, null); // Changed on 1.1: method transfered to a Def child:
+                return req.BuildableDef.GetStatValueAbstract(stat, null); // just multiplier (just in case) = get from bed
             }
             //Log.Message(stat + " tried selecting without target");
             return 0f;
