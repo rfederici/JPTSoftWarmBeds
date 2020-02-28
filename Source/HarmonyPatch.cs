@@ -33,8 +33,6 @@ namespace SoftWarmBeds
             CompMakeableBed bedComp = softWarmBed.TryGetComp<CompMakeableBed>();
             if (___pawn.RaceProps.Humanlike && bedComp != null)//___pawn.CurrentBed() is Building_SoftWarmBed)
             {
-                //if (bedComp != null)
-                //{
                 if (!bedComp.Loaded)
                 {
                     // Thanks to @Zamu & @Mehni!
@@ -54,10 +52,9 @@ namespace SoftWarmBeds
                     Vector3 a = rotation.FacingCell.ToVector3();
                     rootLoc = vector2 + a * d;
                     rootLoc.y += 0.0078125f;
-                    MethodInfo renderPawnInternal = AccessTools.Method(type: typeof(PawnRenderer), name: "RenderPawnInternal", parameters: new[] { typeof(Vector3), typeof(float), typeof(bool), typeof(Rot4), typeof(Rot4), typeof(RotDrawMode), typeof(bool), typeof(bool) });
-                    renderPawnInternal.Invoke(__instance, new object[] { rootLoc, angle, true, rot, rot, rotDrawMode, false, false });
+                    MethodInfo renderPawnInternal = AccessTools.Method(type: typeof(PawnRenderer), name: "RenderPawnInternal", parameters: new[] { typeof(Vector3), typeof(float), typeof(bool), typeof(Rot4), typeof(Rot4), typeof(RotDrawMode), typeof(bool), typeof(bool), typeof(bool) });
+                    renderPawnInternal.Invoke(__instance, new object[] { rootLoc, angle, true, rot, rot, rotDrawMode, false, false, false });
                 }
-                //}
             }
         }
     }
@@ -316,6 +313,7 @@ namespace SoftWarmBeds
     {
         public static void Postfix(object __instance, ref Color __result)
         {
+            Log.Warning("patching DrawColorTwo...");
             if (__instance is Building_Bed bed)
             {
                 CompMakeableBed bedComp = bed.TryGetComp<CompMakeableBed>();
