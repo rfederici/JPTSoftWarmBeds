@@ -313,7 +313,6 @@ namespace SoftWarmBeds
     {
         public static void Postfix(object __instance, ref Color __result)
         {
-            Log.Warning("patching DrawColorTwo...");
             if (__instance is Building_Bed bed)
             {
                 CompMakeableBed bedComp = bed.TryGetComp<CompMakeableBed>();
