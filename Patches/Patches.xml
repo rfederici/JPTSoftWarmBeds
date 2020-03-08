@@ -20,6 +20,12 @@
           <minValue>0.2</minValue>
         </value>
       </li>
+      <li Class="PatchOperationReplace">
+        <xpath>*/StatDef[defName = "BedRestEffectiveness"]/valueIfMissing</xpath>
+        <value>
+          <valueIfMissing>0.2</valueIfMissing>
+        </value>
+      </li>
     </operations>
   </Operation>
 
