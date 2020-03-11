@@ -17,15 +17,9 @@
       <li Class="PatchOperationReplace">
         <xpath>*/StatDef[defName = "BedRestEffectiveness"]/minValue</xpath>
         <value>
-          <minValue>0.2</minValue>
+          <minValue>0.3</minValue>
         </value>
       </li>
-      <!--<li Class="PatchOperationReplace">
-        <xpath>*/StatDef[defName = "BedRestEffectiveness"]/valueIfMissing</xpath>
-        <value>
-          <valueIfMissing>0.2</valueIfMissing>
-        </value>
-      </li>-->
     </operations>
   </Operation>
 
@@ -183,7 +177,7 @@
       <li Class="PatchOperationAdd">
         <xpath>/Defs/ThingDef[defName = "SleepingSpot" or defName = "DoubleSleepingSpot"]/statBases</xpath>
         <value>
-          <BedRestEffectiveness>0.2</BedRestEffectiveness>
+          <BedRestEffectiveness>0.3</BedRestEffectiveness>
         </value>
       </li>
 
