@@ -102,7 +102,7 @@ namespace SoftWarmBeds
                     actor.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.SleptOnGround, null);
                 }
                 //taking bed insulation into consideration:
-                //Log.Message("bedStat: " + bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true));
+                //Log.Message("bedStats: cold = " + bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true)+", heat ="+ bed.GetStatValue(BedInsulationHeat.Bed_Insulation_Heat));
                 float minTempInBed = actor.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMin, null) - bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true);
                 float maxTempInBed = actor.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMax, null) + bed.GetStatValue(BedInsulationHeat.Bed_Insulation_Heat, true);
                 if (actor.AmbientTemperature < minTempInBed)
@@ -439,7 +439,7 @@ namespace SoftWarmBeds
     {
         public static bool Prefix(float restEffectiveness, Pawn ___pawn)
         {
-            if (___pawn.Faction.IsPlayer && ___pawn.RaceProps.Humanlike && ___pawn.CurrentBed() == null && restEffectiveness == StatDefOf.BedRestEffectiveness.valueIfMissing)
+            if (___pawn.RaceProps.Humanlike && ___pawn.CurrentBed() == null && ___pawn.Faction.IsPlayer && restEffectiveness == StatDefOf.BedRestEffectiveness.valueIfMissing)
             {
                 ___pawn.needs.rest.TickResting(StatDefOf.BedRestEffectiveness.minValue);
                 return false;
