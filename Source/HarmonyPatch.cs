@@ -439,7 +439,7 @@ namespace SoftWarmBeds
     {
         public static bool Prefix(float restEffectiveness, Pawn ___pawn)
         {
-            if (___pawn.RaceProps.Humanlike && ___pawn.CurrentBed() == null && ___pawn.Faction.IsPlayer && restEffectiveness == StatDefOf.BedRestEffectiveness.valueIfMissing)
+            if (___pawn.RaceProps.Humanlike && ___pawn.CurrentBed() == null && ___pawn.Faction != null && ___pawn.Faction.IsPlayer && restEffectiveness == StatDefOf.BedRestEffectiveness.valueIfMissing)
             {
                 ___pawn.needs.rest.TickResting(StatDefOf.BedRestEffectiveness.minValue);
                 return false;
