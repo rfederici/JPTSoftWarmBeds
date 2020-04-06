@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
+using HarmonyLib;
+using System.Reflection;
 
 namespace SoftWarmBeds
 {
-    public class CompMakeableBed : ThingComp, IStoreSettingsParent
+    public class CompMakeableBed : CompFlickable /*: ThingComp*/, IStoreSettingsParent
     {
         public ThingDef allowedBedding;
         public Thing bedding = null;
@@ -19,6 +21,34 @@ namespace SoftWarmBeds
         public StorageSettings settings;
 
         private float curRotationInt;
+
+        private FieldInfo baseWantSwitchInfo = AccessTools.Field(typeof(CompFlickable), "wantSwitchOn");
+        private FieldInfo baseSwitchOnIntInfo = AccessTools.Field(typeof(CompFlickable), "switchOnInt");
+
+        public bool switchOnInt
+        {
+            get
+            {
+                return (bool)baseSwitchOnIntInfo.GetValue(this);
+            }
+            set
+            {
+                baseSwitchOnIntInfo.SetValue(this, value);
+            }
+        }
+
+        public bool wantSwitchOn
+        {
+            get
+            {
+                return (bool)baseWantSwitchInfo.GetValue(this);
+            }
+            set
+            {
+                baseWantSwitchInfo.SetValue(this, value);
+            }
+        }
+
 
         public bool Loaded
         {
@@ -96,32 +126,46 @@ namespace SoftWarmBeds
             }
             if (loaded)
             {
-                Command_Action unmake = new Command_Action
+                if (SoftWarmBedsSettings.manuallyUnmakeBed)
                 {
-                    defaultLabel = "CommandUnmakeBed".Translate(),
-                    defaultDesc = "CommandUnmakeBedDesc".Translate(),
-                    icon = LoadedBedding.uiIcon,
-                    iconAngle = LoadedBedding.uiIconAngle,
-                    iconOffset = LoadedBedding.uiIconOffset,
-                    iconDrawScale = GenUI.IconDrawScale(LoadedBedding),
-                    action = delegate ()
+                    Props.commandTexture = Props.beddingDef.graphicData.texPath;
+                    foreach (Gizmo gizmo in base.CompGetGizmosExtra())
                     {
-                        Unmake();
+                        yield return gizmo;
                     }
-                };
-                yield return unmake;
+                }
+                else
+                {
+                    Command_Action unmake = new Command_Action
+                    {
+                        defaultLabel = Props.commandLabelKey.Translate(),
+                        defaultDesc = Props.commandDescKey.Translate(),
+                        icon = LoadedBedding.uiIcon,
+                        iconAngle = LoadedBedding.uiIconAngle,
+                        iconOffset = LoadedBedding.uiIconOffset,
+                        iconDrawScale = GenUI.IconDrawScale(LoadedBedding),
+                        action = delegate ()
+                        {
+                            Unmake();
+                        }
+                    };
+                    yield return unmake;
+                }
             }
             yield break;
         }
 
         public override void CompTick()
         {
-            if (Loaded)
+            if (Loaded && !settings.filter.Allows(blanketStuff))
             {
-                if (!settings.filter.Allows(blanketStuff))
+                bool act = true;
+                if (SoftWarmBedsSettings.manuallyUnmakeBed)
                 {
-                    Unmake();
+                    Log.Warning("Comptick should act now! switchOnInt is "+switchOnInt+ ", wantSwitchOn"+ wantSwitchOn);
+                    act = switchOnInt && wantSwitchOn;
                 }
+                if (act) Unmake();
             }
         }
 
@@ -196,6 +240,8 @@ namespace SoftWarmBeds
                 DrawBed();
             }
             parent.Notify_ColorChanged();
+            wantSwitchOn = true;
+            switchOnInt = true;
         }
 
         public override void PostExposeData()
@@ -210,7 +256,6 @@ namespace SoftWarmBeds
                 //Scribe_Values.Look<bool>(ref blanket.hasColor, "hasColor", false, false);
             }
 
-            //Attempt to replace the parent custom class!
             Scribe_Deep.Look<StorageSettings>(ref settings, "settings", new object[] { this });
             if (settings == null)
             {
@@ -250,6 +295,21 @@ namespace SoftWarmBeds
         }
 
         public void Unmake()
+        {
+            if (SoftWarmBedsSettings.manuallyUnmakeBed)
+            {
+                wantSwitchOn = !wantSwitchOn;
+                FlickUtility.UpdateFlickDesignation(this.parent);
+            }
+            else DoUnmake();
+        }
+
+        public override void ReceiveCompSignal(string signal)
+        {
+            if (Loaded) DoUnmake();
+        }
+
+        public void DoUnmake()
         {
             ThingDef stuff = blanketStuff;
             GenPlace.TryPlaceThing(RemoveBedding(stuff), BaseBed.Position, BaseBed.Map, ThingPlaceMode.Near, null, null);

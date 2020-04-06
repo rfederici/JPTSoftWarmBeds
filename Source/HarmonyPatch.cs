@@ -220,8 +220,8 @@ namespace SoftWarmBeds
                     alteredText.AppendLine(target.GetExplanationText(StatRequest.ForEmpty()));
                     alteredText.AppendLine();
                     //reflection
-                    MethodInfo baseValueInfo = AccessTools.Method(typeof(StatWorker), "GetBaseValueFor", new[] { typeof(BuildableDef) });
-                    float baseValueFor = (float)baseValueInfo.Invoke(target.stat.Worker, new[] { req.Def });
+                    MethodInfo baseValueInfo = AccessTools.Method(typeof(StatWorker), "GetBaseValueFor", new[] { typeof(StatRequest) });
+                    float baseValueFor = (float)baseValueInfo.Invoke(target.stat.Worker, new object[] { req });
                     FieldInfo numberSenseInfo = AccessTools.Field(typeof(StatDrawEntry), "numberSense");
                     ToStringNumberSense numberSense = (ToStringNumberSense)numberSenseInfo.GetValue(target);
                     //
@@ -236,15 +236,40 @@ namespace SoftWarmBeds
                     alteredText.AppendLine();
                     alteredText.Append("StatsReport_FinalValue".Translate() + ": " + target.stat.ValueToString(baseValueFor + bedOffset, target.stat.toStringNumberSense));
                     //alteredText.AppendLine();
-                    //alteredText.Append("DEBUG: subtract: " + subtract + " modifier: " + modifier.ToString() + " bedStatValue: " + bedStatValue + " bedOffset: " + bedOffset + " signal: " + signal);
+                    alteredText.Append("DEBUG: subtract: " + subtract + " modifier: " + modifier.ToString() + " bedStatValue: " + bedStatValue + " bedOffset: " + bedOffset + " signal: " + signal);
                 }
                 //target.overrideReportText = alteredText.ToString().TrimEndNewlines(); //became private, had to reflect:
                 FieldInfo overrideReportTextInfo = AccessTools.Field(typeof(StatDrawEntry), "overrideReportText");
-                overrideReportTextInfo.SetValue(target, alteredText.ToString().TrimEndNewlines());
+                overrideReportTextInfo.SetValue(target, "blah"/*alteredText.ToString().TrimEndNewlines()*/);
             }
             return true;
         }
     }
+
+    //[HarmonyPatch(typeof(StatDrawEntry), "WriteExplanationTextInt")]
+    //public class WriteExplanationTextInt_Patch
+    //{
+    //    public static void Prefix(StatDrawEntry __instance)
+    //    {
+    //        if (__instance.stat == StatDefOf.ComfyTemperatureMin || __instance.stat == StatDefOf.ComfyTemperatureMax)
+    //        {
+    //            FieldInfo overrideReportTextInfo = AccessTools.Field(typeof(StatDrawEntry), "overrideReportText");
+    //            overrideReportTextInfo.SetValue(__instance, "Blah");
+    //            Log.Message("override text: " + overrideReportTextInfo.GetValue(__instance));
+    //        }
+    //    }
+    //}
+
+    //[HarmonyPatch(typeof(StatWorker), "GetExplanationFinalizePart")]
+    //public class GetExplanationFinalizePart_Patch
+    //{
+    //    public static bool Prefix(string __result)
+    //    {
+    //        Log.Message("GetExplanationFinalizePart_Patch");
+    //        __result = "blah!";
+    //        return false;
+    //    } 
+    //}
 
     //Adds info on used bedding material to the inspector pane
     [HarmonyPatch(typeof(Building_Bed), "GetInspectString")]

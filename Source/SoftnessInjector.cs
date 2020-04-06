@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
@@ -17,9 +18,7 @@ namespace SoftWarmBeds
 
         public void Inject()
         {
-            ThingDef[] texDefs = (from def in DefDatabase<ThingDef>.AllDefsListForReading
-                                  where def.stuffProps != null && (def.stuffProps.categories.Contains(StuffCategoryDefOf.Leathery) || def.stuffProps.categories.Contains(StuffCategoryDefOf.Fabric))
-                                  select def).ToArray<ThingDef>();
+            IEnumerable<ThingDef> texDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where(x => x.stuffProps != null && (x.stuffProps.categories.Contains(StuffCategoryDefOf.Leathery) || x.stuffProps.categories.Contains(StuffCategoryDefOf.Fabric)));
             InjectStatBase(texDefs);
         }
 
@@ -50,7 +49,7 @@ namespace SoftWarmBeds
             return (float)Math.Pow(val, (1.0 / 3.0));
         }
 
-        private void InjectStatBase(ThingDef[] list)
+        private void InjectStatBase(IEnumerable<ThingDef> list)
         {
             StringBuilder stringBuilder = new StringBuilder("[SoftWarmBeds] Added softness stat to: ");
             foreach (ThingDef thingDef in list)
@@ -64,5 +63,6 @@ namespace SoftWarmBeds
             }
             Log.Message(stringBuilder.ToString().TrimEnd(new char[] { ' ', ',' }), false);
         }
+
     }
 }
