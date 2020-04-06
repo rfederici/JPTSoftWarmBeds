@@ -11,18 +11,6 @@ using Verse;
 
 namespace SoftWarmBeds
 {
-    //Letting HugsLib take care of that!
-    //[StaticConstructorOnStartup]
-    //internal static class HarmonyInit
-    //{
-    //    static HarmonyInit()
-    //    {
-    //        Harmony.DEBUG = true;
-    //        var harmonyInstance = new Harmony("JPT_SoftWarmBeds");
-    //        harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
-    //    }
-    //}
-
     //Instruction to draw pawn body when on a bed that's unmade
     [HarmonyPatch(typeof(PawnRenderer), "RenderPawnAt", new Type[] { typeof(Vector3) })]
     public static class PawnOnBedRenderer_Patch
@@ -192,84 +180,77 @@ namespace SoftWarmBeds
                 altResult.max += bed.GetStatValue(BedInsulationHeat.Bed_Insulation_Heat, true);
                 if (__result.min > altResult.min) __result.min = altResult.min;
                 if (__result.max < altResult.max) __result.max = altResult.max;
+                //Log.Message(bed+" insulation cold is "+bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true));
                 //Log.Message("comfortable range modified for " + p + " by bed" + bed + ": " + __result.ToString());
             }
         }
     }
 
-    //Adjusts the info report on comfortable temperatures
-    [HarmonyPatch(typeof(StatsReportUtility), "FinalizeCachedDrawEntries")]
-    public class FinalizeCachedDrawEntries_Patch
+    //Adjusts the info report on comfortable temperatures - explanation part
+    [HarmonyPatch(typeof(StatPart_ApparelStatOffset), "ExplanationPart")]
+    public class ExplanationPart_Patch
     {
-        public static bool Prefix(IEnumerable<StatDrawEntry> original)
+       public static string Postfix(string original, StatRequest req, StatDef ___apparelStat)
         {
-            IEnumerable<StatDrawEntry> affected = (from de in original
-                                                   where de.stat == StatDefOf.ComfyTemperatureMin || de.stat == StatDefOf.ComfyTemperatureMax
-                                                   select de);
-            foreach (StatDrawEntry target in affected)
+            if (req.HasThing && req.Thing != null)
             {
-                StatRequest req = target.optionalReq;
                 Pawn pawn = req.Thing as Pawn;
-                StringBuilder alteredText = new StringBuilder();
-                if (!pawn.InBed())
+                if (pawn != null && pawn.InBed())
                 {
-                    alteredText.AppendLine(target.GetExplanationText(target.optionalReq));
-                }
-                else
-                {
-                    alteredText.AppendLine(target.GetExplanationText(StatRequest.ForEmpty()));
-                    alteredText.AppendLine();
-                    //reflection
-                    MethodInfo baseValueInfo = AccessTools.Method(typeof(StatWorker), "GetBaseValueFor", new[] { typeof(StatRequest) });
-                    float baseValueFor = (float)baseValueInfo.Invoke(target.stat.Worker, new object[] { req });
-                    FieldInfo numberSenseInfo = AccessTools.Field(typeof(StatDrawEntry), "numberSense");
-                    ToStringNumberSense numberSense = (ToStringNumberSense)numberSenseInfo.GetValue(target);
-                    //
-                    alteredText.AppendLine(target.stat.Worker.GetExplanationUnfinalized(req, numberSense));
-                    alteredText.AppendLine();
-                    bool subtract = target.stat == StatDefOf.ComfyTemperatureMin;
+                    StringBuilder alteredText = new StringBuilder();
+                    bool subtract = ___apparelStat == StatDefOf.Insulation_Cold;
                     StatDef modifier = subtract ? BedInsulationCold.Bed_Insulation_Cold : BedInsulationHeat.Bed_Insulation_Heat;
                     float bedStatValue = pawn.CurrentBed().GetStatValue(modifier, true);
                     float bedOffset = subtract ? bedStatValue * -1 : bedStatValue;
                     string signal = subtract ? null : "+";
                     alteredText.AppendLine("StatsReport_BedInsulation".Translate() + ": " + signal + bedOffset.ToStringTemperature());
-                    alteredText.AppendLine();
-                    alteredText.Append("StatsReport_FinalValue".Translate() + ": " + target.stat.ValueToString(baseValueFor + bedOffset, target.stat.toStringNumberSense));
-                    //alteredText.AppendLine();
-                    alteredText.Append("DEBUG: subtract: " + subtract + " modifier: " + modifier.ToString() + " bedStatValue: " + bedStatValue + " bedOffset: " + bedOffset + " signal: " + signal);
+                    return alteredText.ToString();
                 }
-                //target.overrideReportText = alteredText.ToString().TrimEndNewlines(); //became private, had to reflect:
-                FieldInfo overrideReportTextInfo = AccessTools.Field(typeof(StatDrawEntry), "overrideReportText");
-                overrideReportTextInfo.SetValue(target, "blah"/*alteredText.ToString().TrimEndNewlines()*/);
+            }
+            return original;
+        }
+    }
+
+    //Adjusts the info report on comfortable temperatures - final value
+    [HarmonyPatch(typeof(StatPart_ApparelStatOffset), "TransformValue")]
+    public class TransformValue_Patch
+    {
+        public static bool Prefix(StatRequest req, ref float val, StatDef ___apparelStat)
+        {
+            if (req.HasThing && req.Thing != null)
+            {
+                Pawn pawn = req.Thing as Pawn;
+                if (pawn != null && pawn.InBed())
+                {
+                    bool subtract = ___apparelStat == StatDefOf.Insulation_Cold;
+                    StatDef modifier = subtract ? BedInsulationCold.Bed_Insulation_Cold : BedInsulationHeat.Bed_Insulation_Heat;
+                    float bedStatValue = pawn.CurrentBed().GetStatValue(modifier, true);
+                    float bedOffset = subtract ? bedStatValue * -1 : bedStatValue;
+                    val += bedOffset;
+                    return false;
+                }
             }
             return true;
         }
     }
 
-    //[HarmonyPatch(typeof(StatDrawEntry), "WriteExplanationTextInt")]
-    //public class WriteExplanationTextInt_Patch
-    //{
-    //    public static void Prefix(StatDrawEntry __instance)
-    //    {
-    //        if (__instance.stat == StatDefOf.ComfyTemperatureMin || __instance.stat == StatDefOf.ComfyTemperatureMax)
-    //        {
-    //            FieldInfo overrideReportTextInfo = AccessTools.Field(typeof(StatDrawEntry), "overrideReportText");
-    //            overrideReportTextInfo.SetValue(__instance, "Blah");
-    //            Log.Message("override text: " + overrideReportTextInfo.GetValue(__instance));
-    //        }
-    //    }
-    //}
-
-    //[HarmonyPatch(typeof(StatWorker), "GetExplanationFinalizePart")]
-    //public class GetExplanationFinalizePart_Patch
-    //{
-    //    public static bool Prefix(string __result)
-    //    {
-    //        Log.Message("GetExplanationFinalizePart_Patch");
-    //        __result = "blah!";
-    //        return false;
-    //    } 
-    //}
+    //Adjusts the info report on comfortable temperatures - InfoCard
+    [HarmonyPatch(typeof(StatPart_ApparelStatOffset), "GetInfoCardHyperlinks")]
+    public class GetInfoCardHyperlinks_Patch
+    {
+        public static IEnumerable<Dialog_InfoCard.Hyperlink> Postfix(IEnumerable<Dialog_InfoCard.Hyperlink> original, StatRequest req, StatDef ___apparelStat)
+        {
+            if (req.HasThing && req.Thing != null)
+            {
+                Pawn pawn = req.Thing as Pawn;
+                if (pawn != null && pawn.InBed())
+                {
+                    yield return new Dialog_InfoCard.Hyperlink(pawn.CurrentBed(), -1);
+                }
+            }
+            yield break;
+        }
+    }
 
     //Adds info on used bedding material to the inspector pane
     [HarmonyPatch(typeof(Building_Bed), "GetInspectString")]
