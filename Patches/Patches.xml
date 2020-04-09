@@ -157,7 +157,7 @@
 
       <!--BedRestEffectiveness Settings-->
       <li Class="PatchOperationReplace">
-        <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "HospitalBed"]/statBases/BedRestEffectiveness</xpath>
+        <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "HospitalBed" or defName = "AnimalBed"]/statBases/BedRestEffectiveness</xpath>
         <value>
           <BedRestEffectiveness>0.5</BedRestEffectiveness>
         </value>
