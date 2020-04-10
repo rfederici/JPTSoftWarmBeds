@@ -186,13 +186,25 @@ namespace SoftWarmBeds
         }
     }
 
+    //Prepare to adjust the info report on comfortable temperatures
+    [HarmonyPatch(typeof(StatsReportUtility), "DrawStatsReport", new Type[] { typeof(Rect), typeof(Thing) })]
+    public class DrawStatsReport_Patch
+    {
+        public static bool report = false;
+
+        public static void Prefix()
+        {
+            report = true;
+        }
+    }
+
     //Adjusts the info report on comfortable temperatures - explanation part
     [HarmonyPatch(typeof(StatPart_ApparelStatOffset), "ExplanationPart")]
     public class ExplanationPart_Patch
     {
        public static string Postfix(string original, StatRequest req, StatDef ___apparelStat)
-        {
-            if (req.HasThing && req.Thing != null)
+       {
+            if (DrawStatsReport_Patch.report && req.HasThing && req.Thing != null)
             {
                 Pawn pawn = req.Thing as Pawn;
                 if (pawn != null && pawn.InBed())
@@ -206,6 +218,7 @@ namespace SoftWarmBeds
                     alteredText.AppendLine("StatsReport_BedInsulation".Translate() + ": " + signal + bedOffset.ToStringTemperature());
                     return alteredText.ToString();
                 }
+                DrawStatsReport_Patch.report = false;
             }
             return original;
         }
@@ -217,7 +230,8 @@ namespace SoftWarmBeds
     {
         public static bool Prefix(StatRequest req, ref float val, StatDef ___apparelStat)
         {
-            if (req.HasThing && req.Thing != null)
+            //Log.Warning("TransformValue");
+            if (DrawStatsReport_Patch.report && req.HasThing && req.Thing != null)
             {
                 Pawn pawn = req.Thing as Pawn;
                 if (pawn != null && pawn.InBed())
@@ -240,7 +254,7 @@ namespace SoftWarmBeds
     {
         public static IEnumerable<Dialog_InfoCard.Hyperlink> Postfix(IEnumerable<Dialog_InfoCard.Hyperlink> original, StatRequest req, StatDef ___apparelStat)
         {
-            if (req.HasThing && req.Thing != null)
+            if (DrawStatsReport_Patch.report && req.HasThing && req.Thing != null)
             {
                 Pawn pawn = req.Thing as Pawn;
                 if (pawn != null && pawn.InBed())

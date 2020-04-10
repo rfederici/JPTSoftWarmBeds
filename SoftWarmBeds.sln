@@ -376,6 +376,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{4AD8FBE0-E50A-
 		Textures\UI\beddingSingle.png = Textures\UI\beddingSingle.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "News", "News", "{2EF2EBAD-6419-434A-963F-D0EF22EF4164}"
+	ProjectSection(SolutionItems) = preProject
+		News\MiyuriMode.png = News\MiyuriMode.png
+		News\Quarantine.png = News\Quarantine.png
+		News\SoftWarmBeds_UpdateFeatures.xml = News\SoftWarmBeds_UpdateFeatures.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		1.0|Any CPU = 1.0|Any CPU
