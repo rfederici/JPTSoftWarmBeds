@@ -186,25 +186,13 @@ namespace SoftWarmBeds
         }
     }
 
-    //Prepare to adjust the info report on comfortable temperatures
-    [HarmonyPatch(typeof(StatsReportUtility), "DrawStatsReport", new Type[] { typeof(Rect), typeof(Thing) })]
-    public class DrawStatsReport_Patch
-    {
-        public static bool report = false;
-
-        public static void Prefix()
-        {
-            report = true;
-        }
-    }
-
     //Adjusts the info report on comfortable temperatures - explanation part
     [HarmonyPatch(typeof(StatPart_ApparelStatOffset), "ExplanationPart")]
     public class ExplanationPart_Patch
     {
-       public static string Postfix(string original, StatRequest req, StatDef ___apparelStat)
-       {
-            if (DrawStatsReport_Patch.report && req.HasThing && req.Thing != null)
+        public static string Postfix(string original, StatRequest req, StatDef ___apparelStat)
+        {
+            if (req.HasThing && req.Thing != null)
             {
                 Pawn pawn = req.Thing as Pawn;
                 if (pawn != null && pawn.InBed())
@@ -218,33 +206,48 @@ namespace SoftWarmBeds
                     alteredText.AppendLine("StatsReport_BedInsulation".Translate() + ": " + signal + bedOffset.ToStringTemperature());
                     return alteredText.ToString();
                 }
-                DrawStatsReport_Patch.report = false;
             }
             return original;
         }
     }
 
     //Adjusts the info report on comfortable temperatures - final value
-    [HarmonyPatch(typeof(StatPart_ApparelStatOffset), "TransformValue")]
-    public class TransformValue_Patch
+    [HarmonyPatch(typeof(StatsReportUtility), "StatsToDraw", new Type[] { typeof(Thing) })]
+    public class StatsToDraw_Patch
     {
-        public static bool Prefix(StatRequest req, ref float val, StatDef ___apparelStat)
+        public static IEnumerable<StatDrawEntry> Postfix(IEnumerable<StatDrawEntry> original, Thing thing)
         {
-            //Log.Warning("TransformValue");
-            if (DrawStatsReport_Patch.report && req.HasThing && req.Thing != null)
+            foreach (StatDrawEntry entry in original)
             {
-                Pawn pawn = req.Thing as Pawn;
-                if (pawn != null && pawn.InBed())
+                Pawn pawn = thing as Pawn;
+                StatDef statDef = entry.stat;
+                if (pawn != null && pawn.InBed() && (statDef == StatDefOf.ComfyTemperatureMin || statDef == StatDefOf.ComfyTemperatureMax))
                 {
-                    bool subtract = ___apparelStat == StatDefOf.Insulation_Cold;
-                    StatDef modifier = subtract ? BedInsulationCold.Bed_Insulation_Cold : BedInsulationHeat.Bed_Insulation_Heat;
-                    float bedStatValue = pawn.CurrentBed().GetStatValue(modifier, true);
-                    float bedOffset = subtract ? bedStatValue * -1 : bedStatValue;
-                    val += bedOffset;
-                    return false;
+                    if (!statDef.Worker.IsDisabledFor(thing))
+                    {
+                        //sneak transform:
+                        float statValue = statDef.Worker.GetValueUnfinalized(StatRequest.For(thing), true);
+                        bool subtract = statDef == StatDefOf.ComfyTemperatureMin;
+                        StatDef modifier = subtract ? BedInsulationCold.Bed_Insulation_Cold : BedInsulationHeat.Bed_Insulation_Heat;
+                        float bedStatValue = pawn.CurrentBed().GetStatValue(modifier, true);
+                        float bedOffset = subtract ? bedStatValue * -1 : bedStatValue;
+                        statValue += bedOffset;
+                        //
+                        if (statDef.showOnDefaultValue || statValue != statDef.defaultBaseValue)
+                        {
+                            yield return new StatDrawEntry(statDef.category, statDef, statValue, StatRequest.For(thing), ToStringNumberSense.Undefined, null, false);
+                        }
+                    }
+                    else
+                    {
+                        yield return new StatDrawEntry(statDef.category, statDef);
+                    }
+                }
+                else
+                {
+                    yield return entry;
                 }
             }
-            return true;
         }
     }
 
@@ -254,7 +257,7 @@ namespace SoftWarmBeds
     {
         public static IEnumerable<Dialog_InfoCard.Hyperlink> Postfix(IEnumerable<Dialog_InfoCard.Hyperlink> original, StatRequest req, StatDef ___apparelStat)
         {
-            if (DrawStatsReport_Patch.report && req.HasThing && req.Thing != null)
+            if (req.HasThing && req.Thing != null)
             {
                 Pawn pawn = req.Thing as Pawn;
                 if (pawn != null && pawn.InBed())
