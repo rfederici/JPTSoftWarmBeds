@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
@@ -52,6 +53,30 @@ namespace SoftWarmBeds
     [HarmonyBefore(new string[] { "HugsLib.Hospitality" })]
     public class ApplyBedThoughts_Patch
     {
+        static bool isHospitalityLoaded = false;
+        // reflection cache
+        static Type compGuestType;
+        static MethodInfo getCompGuestInfo;
+        static MethodInfo isGuestInfo;
+        static Func<object, object> getCompGuestBed;
+
+        public static void InitializeHospitalityReflections() {
+            if (isHospitalityLoaded) {
+                return;
+            }
+
+            isHospitalityLoaded = true;
+            compGuestType = AccessTools.TypeByName("Hospitality.CompGuest");
+            getCompGuestInfo = AccessTools.Method(typeof(ThingWithComps), "GetComp").MakeGenericMethod(compGuestType);
+            isGuestInfo = AccessTools.Method("Hospitality.GuestUtility:IsGuest", new[] { typeof(Pawn), typeof(bool) });
+
+            var param = Expression.Parameter(typeof(object));
+            var fieldExp = Expression.Field(
+                Expression.Convert(param, compGuestType),
+                compGuestType.GetField("bed", BindingFlags.Public | BindingFlags.Instance));
+            getCompGuestBed = Expression.Lambda<Func<object, object>>(Expression.Convert(fieldExp, typeof(object)), param).Compile();
+        }
+
         public static bool Prefix(object __instance, Pawn actor)
         {
             bool result;
@@ -69,7 +94,7 @@ namespace SoftWarmBeds
                 Building_Bed bed = new Building_Bed();
                 bed = actor.CurrentBed();
                 bool hospitalityIsGuest = false;
-                if (LoadedModManager.RunningModsListForReading.Any(x => x.Name == "Hospitality"))
+                if (isHospitalityLoaded)
                 {
                     //Correcting for Hospitality 1.0.25
                     hospitalityIsGuest = AddedBedIsOwned(__instance, actor, bed);
@@ -107,29 +132,24 @@ namespace SoftWarmBeds
                 if (bed != null && (hospitalityIsGuest || bed == actor.ownership.OwnedBed) && !bed.ForPrisoners && !actor.story.traits.HasTrait(TraitDefOf.Ascetic))
                 {
                     ThoughtDef thoughtDef = null;
+                    Room room = bed.GetRoom();
 
                     //Correcting for Hospitality 1.0.25
                     if (hospitalityIsGuest)
                     {
-                        MethodInfo hospitalityOnlyOneBedInfo = AccessTools.Method("Hospitality.GenericUtility:OnlyOneBed");
-                        bool hospitalityOnlyOneBed = (bool)hospitalityOnlyOneBedInfo.Invoke(__instance, new object[] { bed.GetRoom() });
-                        if (bed.GetRoom(RegionType.Set_Passable).Role == DefDatabase<RoomRoleDef>.GetNamed("GuestRoom", true))// easier to replicate GuestUtility.roleDefGuestRoom than reflecting it!
+                        bool hospitalityOnlyOneBed = room.ContainedBeds.Count() == 1;
+                        if (room.Role == DefDatabase<RoomRoleDef>.GetNamed("GuestRoom", true))// easier to replicate GuestUtility.roleDefGuestRoom than reflecting it!
                         {
                             thoughtDef = hospitalityOnlyOneBed ? ThoughtDefOf.SleptInBedroom : ThoughtDefOf.SleptInBarracks;
                         }
                     }
-                    //
-
-                    if (bed.GetRoom(RegionType.Set_Passable).Role == RoomRoleDefOf.Bedroom)
+                    else if (room.Role == RoomRoleDefOf.Bedroom)
                     {
                         thoughtDef = ThoughtDefOf.SleptInBedroom;
                     }
-                    else
+                    else if (room.Role == RoomRoleDefOf.Barracks)
                     {
-                        if (bed.GetRoom(RegionType.Set_Passable).Role == RoomRoleDefOf.Barracks)
-                        {
-                            thoughtDef = ThoughtDefOf.SleptInBarracks;
-                        }
+                        thoughtDef = ThoughtDefOf.SleptInBarracks;
                     }
                     if (thoughtDef != null)
                     {
@@ -148,18 +168,15 @@ namespace SoftWarmBeds
         //corrected for Hospitality 1.0.34
         private static bool AddedBedIsOwned(object __instance, Pawn pawn, Building_Bed building_Bed)
         {
-            MethodInfo isGuestinfo = AccessTools.Method("Hospitality.GuestUtility:IsGuest", new[] { typeof(Pawn), typeof(bool) });
-            bool isGuest = (bool)isGuestinfo.Invoke(__instance, new object[] { pawn , true });
+            bool isGuest = (bool)isGuestInfo.Invoke(__instance, new object[] { pawn , true });
             return isGuest ? (GetGuestBed(__instance, pawn) == building_Bed) : (building_Bed == pawn.ownership.OwnedBed);
         }
 
         private static Building_Bed GetGuestBed(object __instance, Pawn pawn)
         {
-            Type compGuest = AccessTools.TypeByName("Hospitality.CompGuest");
-            MethodInfo getComp = AccessTools.Method(typeof(ThingWithComps), "GetComp").MakeGenericMethod(compGuest);
-            object comp = getComp.Invoke(pawn, new object[] { });
-            FieldInfo bedinfo = AccessTools.Field(compGuest, "bed");
-            Building_Bed bed = (Building_Bed)bedinfo.GetValue(comp);
+            var comp = getCompGuestInfo.Invoke(pawn, new object[] { });
+            Building_Bed bed = (Building_Bed)getCompGuestBed(comp);
+
             //Log.Message("Calculated GetGuestBed is " + bed.ToString());
             return (comp != null) ? bed : null;
         }

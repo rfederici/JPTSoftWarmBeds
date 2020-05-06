@@ -18,6 +18,10 @@ namespace SoftWarmBeds
         public SoftWarmBedsMod(ModContentPack content) : base(content)
         {
             settings = GetSettings<SoftWarmBedsSettings>();
+            if (LoadedModManager.RunningModsListForReading.Any(x => x.Name == "Hospitality"))
+            {
+                ApplyBedThoughts_Patch.InitializeHospitalityReflections();
+            }
         }
 
         public override void DoSettingsWindowContents(Rect inRect)
