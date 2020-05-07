@@ -5,6 +5,7 @@
     <mods>
       <li>Sparkling Worlds - Full Mod</li>
       <li>Sparkling Worlds - Core Mod</li>
+      <li>Sparkling Worlds - Modular Core - Reduced features</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>
@@ -34,12 +35,6 @@
                 </categories>
               </filter>
             </defaultStorageSettings>
-          </value>
-        </li>
-        <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName = "GlitterworldHospitalBedSW"]</xpath>
-          <value>
-            <tickerType>Normal</tickerType>
           </value>
         </li>
         <li Class="PatchOperationAdd">

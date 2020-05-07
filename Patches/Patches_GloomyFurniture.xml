@@ -37,12 +37,6 @@
             </defaultStorageSettings>
           </value>
         </li>
-        <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName = "RGK_bedSingle" or defName = "RGK_bedSingleB" or defName = "RGK_bedDouble" or defName = "RGK_bedDoubleB" or defName = "GL_ClassyDoubleBed"]</xpath>
-          <value>
-            <tickerType>Normal</tickerType>
-          </value>
-        </li>
 
         <!--Graphic Modifications-->
         <li Class="PatchOperationReplace">

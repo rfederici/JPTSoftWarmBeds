@@ -37,12 +37,6 @@
             </defaultStorageSettings>
           </value>
         </li>
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName = "Ogre_NanoTech_Bed" or defName = "Ogre_NanoTech_DoubleBed" or defName = "Ogre_NanoTech_HospitalBed" or defName = "Ogre_NanoTech_RoyalBed"]/tickerType</xpath>
-          <value>
-            <tickerType>Normal</tickerType>
-          </value>
-        </li>
 
         <!--Graphic Modifications-->
         <li Class="PatchOperationReplace">

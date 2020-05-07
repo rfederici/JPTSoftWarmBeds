@@ -54,22 +54,20 @@ namespace SoftWarmBeds
     public class ApplyBedThoughts_Patch
     {
         static bool isHospitalityLoaded = false;
+
         // reflection cache
         static Type compGuestType;
         static MethodInfo getCompGuestInfo;
         static MethodInfo isGuestInfo;
         static Func<object, object> getCompGuestBed;
 
-        public static void InitializeHospitalityReflections() {
-            if (isHospitalityLoaded) {
-                return;
-            }
-
+        public static void InitializeHospitalityReflections() 
+        {
+            if (isHospitalityLoaded) return;
             isHospitalityLoaded = true;
             compGuestType = AccessTools.TypeByName("Hospitality.CompGuest");
             getCompGuestInfo = AccessTools.Method(typeof(ThingWithComps), "GetComp").MakeGenericMethod(compGuestType);
             isGuestInfo = AccessTools.Method("Hospitality.GuestUtility:IsGuest", new[] { typeof(Pawn), typeof(bool) });
-
             var param = Expression.Parameter(typeof(object));
             var fieldExp = Expression.Field(
                 Expression.Convert(param, compGuestType),
@@ -188,17 +186,22 @@ namespace SoftWarmBeds
     {
         public static void Postfix(Pawn p, ref FloatRange __result)
         {
-            if (p.RaceProps.Humanlike && p.InBed())
+            if (p.InBed())
             {
-                ThingDef raceDef = p.kindDef.race;
                 Building_Bed bed = p.CurrentBed();
-                FloatRange altResult = new FloatRange(raceDef.GetStatValueAbstract(StatDefOf.ComfyTemperatureMin, null), raceDef.GetStatValueAbstract(StatDefOf.ComfyTemperatureMax, null));
-                altResult.min -= bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true);
-                altResult.max += bed.GetStatValue(BedInsulationHeat.Bed_Insulation_Heat, true);
-                if (__result.min > altResult.min) __result.min = altResult.min;
-                if (__result.max < altResult.max) __result.max = altResult.max;
-                //Log.Message(bed+" insulation cold is "+bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true));
-                //Log.Message("comfortable range modified for " + p + " by bed" + bed + ": " + __result.ToString());
+                float InsulationCold = bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true);
+                float InsulationHeat = bed.GetStatValue(BedInsulationHeat.Bed_Insulation_Heat, true);
+                if (InsulationCold != 0 || InsulationHeat != 0)
+                {
+                    ThingDef raceDef = p.kindDef.race;
+                    FloatRange altResult = new FloatRange(raceDef.GetStatValueAbstract(StatDefOf.ComfyTemperatureMin, null), raceDef.GetStatValueAbstract(StatDefOf.ComfyTemperatureMax, null));
+                    altResult.min -= InsulationCold;
+                    altResult.max += InsulationHeat;
+                    if (__result.min > altResult.min) __result.min = altResult.min;
+                    if (__result.max < altResult.max) __result.max = altResult.max;
+                    //Log.Message(bed+" insulation cold is "+bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold, true));
+                    //Log.Message("comfortable range modified for " + p + " by bed" + bed + ": " + __result.ToString());
+                }
             }
         }
     }

@@ -36,12 +36,6 @@
             </defaultStorageSettings>
           </value>
         </li>
-        <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="SNOREGGSingle" or defName="SNOREGGDouble" or defName="KRUDNEPPSingle" or defName="SLABNEPPDouble"]</xpath>
-          <value>
-            <tickerType>Normal</tickerType>
-          </value>
-        </li>
         <!--Graphic Modifications Place Holder-->
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="SNOREGGSingle"]/graphicData/texPath</xpath>

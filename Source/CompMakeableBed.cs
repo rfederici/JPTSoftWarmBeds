@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace SoftWarmBeds
 {
-    public class CompMakeableBed : CompFlickable /*: ThingComp*/, IStoreSettingsParent
+    public class CompMakeableBed : CompFlickable , IStoreSettingsParent
     {
         public ThingDef allowedBedding;
         public Thing bedding = null;
@@ -17,9 +17,7 @@ namespace SoftWarmBeds
         public bool loaded = false;
         public ThingDef loadedBedding;
         public bool NotTheBlanket = true;
-
         public StorageSettings settings;
-
         private float curRotationInt;
 
         private FieldInfo baseWantSwitchInfo = AccessTools.Field(typeof(CompFlickable), "wantSwitchOn");
@@ -48,7 +46,6 @@ namespace SoftWarmBeds
                 baseWantSwitchInfo.SetValue(this, value);
             }
         }
-
 
         public bool Loaded
         {
@@ -162,7 +159,7 @@ namespace SoftWarmBeds
                 bool act = true;
                 if (SoftWarmBedsSettings.manuallyUnmakeBed)
                 {
-                    Log.Warning("Comptick should act now! switchOnInt is "+switchOnInt+ ", wantSwitchOn"+ wantSwitchOn);
+                    //Log.Warning("Comptick should act now! switchOnInt is "+switchOnInt+ ", wantSwitchOn"+ wantSwitchOn);
                     act = switchOnInt && wantSwitchOn;
                 }
                 if (act) Unmake();
@@ -265,7 +262,7 @@ namespace SoftWarmBeds
 
         public override void PostSplitOff(Thing bedding)
         {
-            if (blanketDef != null)
+            if (blanketDef != null && this.bedding != null)
             {
                 Building_Blanket blanket = this.bedding as Building_Blanket;
                 //if (blanket.hasColor)
@@ -306,7 +303,7 @@ namespace SoftWarmBeds
 
         public override void ReceiveCompSignal(string signal)
         {
-            if (Loaded) DoUnmake();
+            if (SoftWarmBedsSettings.manuallyUnmakeBed && Loaded && !wantSwitchOn) DoUnmake();
         }
 
         public void DoUnmake()

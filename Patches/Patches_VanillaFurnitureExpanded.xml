@@ -37,12 +37,6 @@
             </defaultStorageSettings>
           </value>
         </li>
-        <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Bed_Kingsize" or defName="Bed_Ergonomic" or defName="Bed_DoubleErgonomic"]</xpath>
-          <value>
-            <tickerType>Normal</tickerType>
-          </value>
-        </li>
         <!--Graphic Modifications Place Holder-->
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="Bed_Kingsize"]/graphicData/texPath</xpath>

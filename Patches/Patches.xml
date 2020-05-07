@@ -67,12 +67,6 @@
           </defaultStorageSettings>
         </value>
       </li>
-      <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "HospitalBed" or defName = "RoyalBed"]</xpath>
-        <value>
-          <tickerType>Normal</tickerType>
-        </value>
-      </li>
 
       <!--Graphic Modifications-->
       <li Class="PatchOperationReplace">
@@ -215,7 +209,7 @@
 
       <!--Insulation Settings-->
       <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName = "Bedroll" or defName = "BedrollDouble"]/statBases</xpath>
+        <xpath>/Defs/ThingDef[defName = "Bedroll" or defName = "BedrollDouble" or defName = "AnimalBed"]/statBases</xpath>
         <value>
           <BedStuffEffectMultiplierInsulation_Cold>0.2</BedStuffEffectMultiplierInsulation_Cold>
         </value>
