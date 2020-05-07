@@ -63,6 +63,6 @@ If any other unforseen issues arise, please let me know in the comments.
 
 <h2>Acknowledgements</h2>
 This mod was clearly based on gadjung's <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1416581883">RealBeds</a>. Many thanks for his coolness in letting me use some of his code on the first version! 
-The textures for Gloomy Furniture & Gloomy Vanilla compatibility were created by Drawer based on the originals by Gloomylynx, with his authorization. RIMkea and Vanilla Furniture Expanded compatibility by the great <a href="https://steamcommunity.com/profiles/76561198062060169/myworkshopfiles/?appid=294100">Dr. Zhivago</a>, with textures by <a href="https://steamcommunity.com/profiles/76561198084132616/">Oskar Potocki</a>. Code was also improved with the collaboration of @yanolja. Awesome work, guys!
+The textures for Gloomy Furniture & Gloomy Vanilla compatibility were created by Drawer based on the originals by Gloomylynx, with his authorization. RIMkea and Vanilla Furniture Expanded compatibility by the great <a href="https://steamcommunity.com/profiles/76561198062060169/myworkshopfiles/?appid=294100">Dr. Zhivago</a>, with textures by <a href="https://steamcommunity.com/profiles/76561198084132616/">Oskar Potocki</a>. Code was also improved with the collaboration of <a href="https://github.com/yjongryul">@yanolja</a>. Awesome work, guys!
 Also, this mod wouldn't be possible without the invaluable help of Nuka Frog, Mehni, Zamu and the folks at the RimWorld Discord channel.
 
