@@ -14,6 +14,7 @@ But blankets, of course, can't help with the heat. For those playing on tropical
 This is how it works, in detail:
 
 <h2>First, all beds get more complicated</h2>
+
 When you load the mod, all vanilla game beds are modified. First, their comfort and rest effectiveness stats are drastically reduced, to the point that a poor bed might not be much more confortable than sleeping on the ground (check the table for the numbers). To accommodate for that, the sleeping spot is downgraded as well: zero comfort and reduced rest effectiveness, down to 30%. <b>This means that if your pawns are forced to sleep on the floor and you don't assign proper work hours for them, they will be useless for the better part of the day!</b> That makes it even more important to build beds as soon as possible.
 
 But in order to get really comfy ones, you must equip them with beddings. They come in two sizes - single and double - and can be made out of textiles on the crafting spot or tailor benches after researching complex furniture. You select which goes on what bed on the new "make bed" button. They not only provide a bed color to your interior design efforts, but also add some cold insulation and bump up comfort and rest effectiveness. That's based on the material they're made of and the bed quality.
