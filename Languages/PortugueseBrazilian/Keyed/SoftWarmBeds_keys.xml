@@ -14,7 +14,6 @@
   <PleaseReload>Favor recarregar.</PleaseReload>
   <manuallyUnmakeBed>Requerer um colono para desfazer a cama (modo Miyuri)</manuallyUnmakeBed>
   <manuallyUnmakeBedTooltip>Quando selecionado, o comando para desfazer camas acrescentará um marcador ao invés de simplesmente remover a roupa de cama automaticamente.</manuallyUnmakeBedTooltip>
-  <manuallyUnmakeBedNanoRepairWarning>ATENÇÃO: com Nano Repair Tech ativo, isto vai fazer com que aquelas camas sejam desfeitas automaticamentethis will cause powered beds to drop their beddings when power is cut off.</manuallyUnmakeBedNanoRepairWarning>
 
   <!--ui-->
   <TabBedding>Fazer Cama</TabBedding>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!--settings-->
+  <SoftWarmBeds>溫暖舒適的床</SoftWarmBeds>
+  <RoleColorHeader>床配色方案：</RoleColorHeader>
+  <ColorDisplayOptionPillowLabel>選定枕頭配色&amp;床單、毯子等床上用品配色</ColorDisplayOptionPillowLabel>
+  <ColorDisplayOptionPillowTooltip>凸顯使用的床上用品。</ColorDisplayOptionPillowTooltip>
+  <ColorDisplayOptionBlanketLabel>選定毯子、枕頭等床上用品配色&amp;床單</ColorDisplayOptionBlanketLabel>
+  <ColorDisplayOptionBlanketTooltip>凸顯床位種類配色。殖民者使用的床的基色。</ColorDisplayOptionBlanketTooltip>
+  <ColorWashLevel>枕頭上的水印顏色&amp;床單</ColorWashLevel>
+  <ColorWashNone>單色織物</ColorWashNone>
+  <ColorWashNormal>與毯子形成最佳對比</ColorWashNormal>
+  <ColorWashTotal>純白織物</ColorWashTotal>
+  <PleaseReload>請從新加載遊戲。</PleaseReload>
+  <!--ui-->
+  <TabBedding>造床</TabBedding>
+  <BedMade>此床由{1_label}製造。</BedMade>
+  <BedNotMade>此床未製成。</BedNotMade>
+  <NoBeddings>沒有床上用品</NoBeddings>
+  <CommandUnmakeBed>替換</CommandUnmakeBed>
+  <CommandUnmakeBedDesc>取下當前的床上用品以替換其他的。</CommandUnmakeBedDesc>
+  <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort}找不到附近為製造{BED_label}準備的床上用品。</MessageOutOfNearbyBeddingsFor>
+  <StatsReport_BedInsulation>在當前床上</StatsReport_BedInsulation>
+
+</LanguageData>

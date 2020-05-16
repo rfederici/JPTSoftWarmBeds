@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <BedStuffEffectMultiplierInsulation_Cold.label>材料「隔溫 - 寒冷」屬性偏移</BedStuffEffectMultiplierInsulation_Cold.label>
+  <BedStuffEffectMultiplierInsulation_Heat.label>材料「隔溫 - 炎熱」屬性偏移</BedStuffEffectMultiplierInsulation_Heat.label>
+
+  <Bed_Insulation_Cold.label>隔溫 - 寒冷</Bed_Insulation_Cold.label>
+  <Bed_Insulation_Cold.description>這張床對使用者最低舒適溫度的修改偏移量。\n\n更高的數值允許殖民者在更冷的溫度下睡眠。</Bed_Insulation_Cold.description>
+
+  <Bed_Insulation_Heat.label>隔溫 - 炎熱</Bed_Insulation_Heat.label>
+  <Bed_Insulation_Heat.description>這張床對使用者最高舒適溫度的修改偏移量。\n\n更高的數值允許殖民者在更熱的溫度下睡眠。</Bed_Insulation_Heat.description>
+
+  <Textile_Softness.label>柔軟度</Textile_Softness.label>
+  <Textile_Softness.description>用這種材料製成的物品對使用者舒適感的提升。 當用於製作床上用品時，它會影響床的休息效率。</Textile_Softness.description>
+
+</LanguageData>

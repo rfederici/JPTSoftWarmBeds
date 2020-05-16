@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Rede.label>吊床</Rede.label>
+  <Rede.description>有史以来最简单、实用的床，是由一些布或皮革和细绳制成的。您可以将其挂在任何地方，甚至在旅行时随身带上一个以便小憩片刻。吊床悬挂在空中，可以保持凉爽，非常适合热带天气！但是，它不如普通床舒适。</Rede.description>
+  <Rede_Blueprint.label>吊床（蓝图）</Rede_Blueprint.label>
+  <Rede_Blueprint_Install.label>吊床（蓝图）</Rede_Blueprint_Install.label>
+  <Rede_Frame.label>吊床（建造中）</Rede_Frame.label>
+  <Rede_Frame.description>有史以来最简单、实用的床，是由一些布或皮革和细绳制成的。您可以将其挂在任何地方，甚至在旅行时随身带上一个以便小憩片刻。吊床悬挂在空中，可以保持凉爽，非常适合热带天气！但是，它不如普通床舒适。</Rede_Frame.description>
+
+  <SingleBlanket.label>单人毯</SingleBlanket.label>
+  <SingleBlanket.description>保暖</SingleBlanket.description>
+
+  <HospitalBlanket.label>医院毯</HospitalBlanket.label>
+  <DoubleBlanket.label>双人毯</DoubleBlanket.label>
+  <RoyalBlanket.label>皇家毯</RoyalBlanket.label>
+
+  <SingleBedding.label>床上用品单人套装</SingleBedding.label>
+  <SingleBedding.description>包括一套单人用的床垫、枕、纺织物和毯子。让使用者倍感舒适，还能保温隔热。</SingleBedding.description>
+
+  <DoubleBedding.label>床上用品双人套装</DoubleBedding.label>
+  <DoubleBedding.description>包括一套双人用的床垫、枕、纺织物和毯子。让使用者倍感舒适，还能保温隔热。</DoubleBedding.description>
+
+
+  <SimpleOpenWindow.label>简易窗</SimpleOpenWindow.label>
+  <SimpleOpenWindow.description>简单的窗，打开时可以通风采光。即使关上也无法很好地隔热。有对外视角。</SimpleOpenWindow.description>
+  <SimpleOpenWindow_Blueprint.label>简易窗户（蓝图）</SimpleOpenWindow_Blueprint.label>
+  <SimpleOpenWindow_Frame.label>简易窗户（建造中）</SimpleOpenWindow_Frame.label>
+  <SimpleOpenWindow_Frame.description>简单的窗，打开时可以通风采光。即使关上也无法很好地隔热。有对外视角。</SimpleOpenWindow_Frame.description>
+
+  <OpenWindow.label>窗</OpenWindow.label>
+  <OpenWindow.description>配备玻璃的百叶窗，通风和采光可以分别调整。有对外视角。</OpenWindow.description>
+  <OpenWindow_Blueprint.label>窗（蓝图）</OpenWindow_Blueprint.label>
+  <OpenWindow_Frame.label>窗（建造中）</OpenWindow_Frame.label>
+  <OpenWindow_Frame.description>配备玻璃的百叶窗，通风和采光可以分别调整。有对外视角。</OpenWindow_Frame.description>
+
+  <LargeOpenWindow.label>大窗</LargeOpenWindow.label>
+  <LargeOpenWindow.description>配备玻璃的大型百叶窗，可以大量通风和采光，视野也很开阔。</LargeOpenWindow.description>
+  <LargeOpenWindow_Blueprint.label>大窗（蓝图）</LargeOpenWindow_Blueprint.label>
+  <LargeOpenWindow_Frame.label>大窗（建造中）</LargeOpenWindow_Frame.label>
+  <LargeOpenWindow_Frame.description>配备玻璃的大型百叶窗，可以大量通风和采光，视野也很开阔。</LargeOpenWindow_Frame.description>
+
+  <ReinforcedOpenWindow.label>加固窗</ReinforcedOpenWindow.label>
+  <ReinforcedOpenWindow.description>配备玻璃的加固百叶窗，通风和采光可以分别调整。</ReinforcedOpenWindow.description>
+  <ReinforcedOpenWindow_Blueprint.label>加固窗（蓝图）</ReinforcedOpenWindow_Blueprint.label>
+  <ReinforcedOpenWindow_Frame.label>加固窗（建造中）</ReinforcedOpenWindow_Frame.label>
+  <ReinforcedOpenWindow_Frame.description>配备玻璃的加固百叶窗，通风和采光可以分别调整。</ReinforcedOpenWindow_Frame.description>
+
+  <LargeReinforcedOpenWindow.label>大型加固窗</LargeReinforcedOpenWindow.label>
+  <LargeReinforcedOpenWindow.description>配备玻璃的大型加固百叶窗，可以大量通风和采光，视野也很开阔。</LargeReinforcedOpenWindow.description>
+  <LargeReinforcedOpenWindow_Blueprint.label>大型加固窗（蓝图）</LargeReinforcedOpenWindow_Blueprint.label>
+  <LargeReinforcedOpenWindow_Frame.label>大型加固窗（建造中）</LargeReinforcedOpenWindow_Frame.label>
+  <LargeReinforcedOpenWindow_Frame.description>配备玻璃的大型加固百叶窗，可以大量通风和采光，视野也很开阔。</LargeReinforcedOpenWindow_Frame.description>
+
+  <BurnItForFuel.label>作为燃料</BurnItForFuel.label>
+
+</LanguageData>

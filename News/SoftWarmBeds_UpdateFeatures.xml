@@ -4,7 +4,7 @@
     <modNameReadable>Soft Warm Beds</modNameReadable>
     <modIdentifier>JPT_SoftWarmBeds</modIdentifier>
     <!--<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1713295858</linkUrl>-->
-    <linkUrl>https://ko-fi.com/jptrrs</linkUrl>
+    <linkUrl>https://steamcommunity.com/workshop/filedetails/discussion/1713295858/4224884861032346247/</linkUrl>
   </HugsLib.UpdateFeatureDef>
 
   <HugsLib.UpdateFeatureDef ParentName="SoftWarmBeds.UpdateFeatureBase">
@@ -30,12 +30,25 @@ To activate this, open the mod settings panel (Options > Mod Settings) and selec
       |Other improvements on this version:
       |- The rest effectiveness for the Animal Bed was adjusted so it doesn't get too powerful once the textile softness bonus is applied.
       |- The report window for a sleeping pawn takes the bed into account for the min/max comfortable temperature calculation once again (it was missing on RW 1.1).
-      |
-      |img:Quarantine|caption:The new settings feature was a request by one of our earliest supporters on our Ko-fi page. However small, the fact he decided to turn his appreciation into a material contribution meant a lot to me back then. Having this level of support is what fuels mod development! Now, because of the COVID-19 lockdown, those contributions became even more important. So I've put up this one-time campaign as an incentive for those who are able to help me get through this period.
-      |&lt;b&gt;I have three brand new mods that are ready to go&lt;/b&gt;, and I'll release them as donations reach their goals. If only a fraction of &lt;i&gt;Soft Warm Beds&lt;/i&gt; subscribers decide to take action, these mods will be out before we know it!
-      |Follow the link above or go to https://ko-fi.com/jptrrs to contribute &amp; check more details.
-      |You can contact me anytime, on Ko-Fi or on Steam. Many, many thanks for your support!
     </content>
   </HugsLib.UpdateFeatureDef>  
+  
+  <HugsLib.UpdateFeatureDef ParentName="SoftWarmBeds.UpdateFeatureBase">
+    <defName>SoftWarmBeds_2_6</defName>
+    <assemblyVersion>2.6.1</assemblyVersion>
+	<content>
+      &lt;b&gt;I want your opinion!&lt;/b&gt;
+      |I'm conducting a survey on what textile materials added by other mods turn up with a weird softness value. This information could help us improve the formula that generates it. If you use a mod that adds textiles and its softness number feels odd to you, drop me a line! Just follow the link above or look for the discussion on our steam page.
+	  |Thank you!
+
+      |&lt;b&gt;Improvements on this version:&lt;/b&gt;
+	  |- New languages added: Italian &amp; Chinese (courtesy of Sergio di Napoli &amp; leafzxg respectively).
+	  |- Improved performance on Hospitality integration (courtesy of Lannan).
+	  |- Animal Beds now provide cold insulation to your pets, same as bedrolls.
+	  |- Fixed error when adding beds to caravans.
+	  |- Updated load order rules for various mods.
+    </content>
+  </HugsLib.UpdateFeatureDef>  
+  
   
 </Defs>

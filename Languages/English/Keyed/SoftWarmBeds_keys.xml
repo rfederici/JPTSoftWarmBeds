@@ -15,7 +15,6 @@
   <PleaseReload>Please reload.</PleaseReload>
   <manuallyUnmakeBed>Require a colonist to unmake beds (Miyuri mode)</manuallyUnmakeBed>
   <manuallyUnmakeBedTooltip>If checked, the unmake bed command will add a designator instead of dropping the bedding automatically.</manuallyUnmakeBedTooltip>
-  <manuallyUnmakeBedNanoRepairWarning>WARNING: with Nano Repair Tech enabled, this will cause powered beds to drop their beddings when power is cut off.</manuallyUnmakeBedNanoRepairWarning>
   
   <!--ui-->
   <TabBedding>Make Bed</TabBedding>
