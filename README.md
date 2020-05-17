@@ -69,5 +69,5 @@ This mod was clearly based on gadjung's <a href="https://steamcommunity.com/shar
 Textures for Gloomy Furniture & Gloomy Vanilla compatibility were created by Drawer based on the originals by Gloomylynx, with his authorization. RIMkea and Vanilla Furniture Expanded compatibility by the great Dr. Zhivago, with textures by Oskar Potocki.
 Code improved with the collaboration of [@yanolja](https://github.com/yjongryul).
 Chinese translation by leafzxg. Italian translation by Sergio di Napoli.
-**Thank you!**
+<b>Thank you!</b>
 
