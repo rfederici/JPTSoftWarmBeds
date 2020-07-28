@@ -4,6 +4,7 @@
   <Operation Class="PatchOperationFindMod">
     <mods>
       <li>Baby and Children</li>
+      <li>Children and Pregnancy</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>
