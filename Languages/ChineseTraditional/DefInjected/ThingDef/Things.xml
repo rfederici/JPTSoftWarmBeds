@@ -1,24 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+  <!--EN: Hammock-->
   <Rede.label>吊床</Rede.label>
-  <Rede.description>有史以來最簡單、實用的床，是由一些布或皮革和細繩製成的。您可以將其掛在任何地方，甚至在旅行時隨身帶上一個以便小憩片刻。吊床懸掛在空中，可以保持涼爽，非常適合熱帶天氣！但是，它不如普通床舒適。</Rede.description>
-  <Rede_Blueprint.label>吊床（藍圖）</Rede_Blueprint.label>
-  <Rede_Blueprint_Install.label>吊床（藍圖）</Rede_Blueprint_Install.label>
-  <Rede_Frame.label>吊床（建造中）</Rede_Frame.label>
-  <Rede_Frame.description>有史以來最簡單、實用的床，是由一些布或皮革和細繩製成的。您可以將其掛在任何地方，甚至在旅行時隨身帶上一個以便小憩片刻。吊床懸掛在空中，可以保持涼爽，非常適合熱帶天氣！但是，它不如普通床舒適。</Rede_Frame.description>
+  <!--EN: The simplest and most practical bed ever invented, made from just some cloth or leather and strings. You can hang it anywhere, even take it with you for a good nap when travelling. Hanging in the air, it keeps you cool, which is perfect for a tropical weather! Not as comfortable as a regular bed, though.-->
+  <Rede.description>有史以來最簡單、最實用的床。原材料僅僅是一張布料或皮革，再加上幾條繩索。您可以將其掛在任何地方，甚至可以在旅行時隨身帶上一個以便小憩片刻。吊床懸掛在空中，可以保持身體涼爽，非常適合熱帶天氣！然而它在舒適度上不如普通床。</Rede.description>
 
-  <SingleBlanket.label>單人毯</SingleBlanket.label>
-  <SingleBlanket.description>保暖</SingleBlanket.description>
+  <!--Warning: DO NOT TRANSLATE anything about Blanket
+  <SingleBlanket.label></SingleBlanket.label>
+  <HospitalBlanket.label></HospitalBlanket.label>
+  <DoubleBlanket.label></DoubleBlanket.label>
+  <RoyalBlanket.label></RoyalBlanket.label>
+  -->
 
-  <HospitalBlanket.label>醫院毯</HospitalBlanket.label>
-  <DoubleBlanket.label>雙人毯</DoubleBlanket.label>
-  <RoyalBlanket.label>皇家毯</RoyalBlanket.label>
+  <!--EN: single bedding set-->
+  <SingleBedding.label>單人寢具套裝</SingleBedding.label>
+  <!--EN: A set of mattress, pillows, linen and blanket for a single bed. Provides comfort and insulates the user while in bed.-->
+  <SingleBedding.description>包括一套單人用的床墊、枕頭、織物和毯子。讓使用者倍感舒適，還能保持體溫。</SingleBedding.description>
 
-  <SingleBedding.label>床上用品單人套裝</SingleBedding.label>
-  <SingleBedding.description>包括一套單人用的床墊、枕、紡織物和毯子。讓使用者倍感舒適，還能保溫隔熱。</SingleBedding.description>
-
-  <DoubleBedding.label>床上用品雙人套裝</DoubleBedding.label>
-  <DoubleBedding.description>包括一套雙人用的床墊、枕、紡織物和毯子。讓使用者倍感舒適，還能保溫隔熱。</DoubleBedding.description>
+  <!--EN: double bedding set-->
+  <DoubleBedding.label>雙人寢具套裝</DoubleBedding.label>
+  <!--EN: A set of mattress, pillows, linen and blanket for a double bed. Provides comfort and insulates the users while in bed.-->
+  <DoubleBedding.description>包括一套雙人用的床墊、枕頭、織物和毯子。讓使用者倍感舒適，還能保持體溫。</DoubleBedding.description>
 
 </LanguageData>

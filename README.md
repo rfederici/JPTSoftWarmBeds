@@ -61,13 +61,14 @@ If any other unforseen issues arise, please let me know in the comments.
 </li></ol>
 
 ## Available Languages
-English, Chinese, Italian and Portuguese.
+English, Chinese, Italian, Portuguese and Japanese.
 (looking for volunteers for more languages) 
 
 <h2>Acknowledgements</h2>
+
 This mod was clearly based on gadjung's <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1416581883">RealBeds</a>. Many thanks for his coolness in letting me use some of his code on the first version! Also, it wouldn't be possible without the invaluable help of Nuka Frog, Mehni, Zamu and the folks at the RimWorld Discord channel.
 Textures for Gloomy Furniture & Gloomy Vanilla compatibility were created by Drawer based on the originals by Gloomylynx, with his authorization. RIMkea and Vanilla Furniture Expanded compatibility by the great Dr. Zhivago, with textures by Oskar Potocki.
 Code improved with the collaboration of <a href="https://github.com/yjongryul">@yanolja</a>.
-Chinese translation by leafzxg. Italian translation by Sergio di Napoli.
+Chinese translation by leafzxg and Miyuri. Italian translation by Sergio di Napoli. Japanese translation by Miyuri.
 <b>Thank you!</b>
 

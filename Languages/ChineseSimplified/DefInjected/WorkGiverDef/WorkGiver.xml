@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <MakeBeds.label>造床</MakeBeds.label>
-  <MakeBeds.verb>制造</MakeBeds.verb>
-  <MakeBeds.gerund>制造</MakeBeds.gerund>
+  <!--EN: make beds-->
+  <MakeBeds.label>铺设寝具</MakeBeds.label>
+  <!--EN: make-->
+  <MakeBeds.verb>铺设</MakeBeds.verb>
+  <!--EN: making-->
+  <MakeBeds.gerund>铺设</MakeBeds.gerund>
 
 </LanguageData>
