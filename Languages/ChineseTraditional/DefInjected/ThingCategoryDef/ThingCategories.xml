@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <Beddings.label>床</Beddings.label>
+  <!--EN: beddings-->
+  <Beddings.label>寢具</Beddings.label>
+
 
 </LanguageData>

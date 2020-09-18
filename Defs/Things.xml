@@ -156,7 +156,7 @@
   <ThingDef ParentName="BeddingBase">
     <defName>SingleBedding</defName>
     <label>single bedding set</label>
-    <description>A set of matress, pillows, linen and blanket for a single bed. Provides comfort and insulates the user while in bed.</description>
+    <description>A set of mattress, pillows, linen and blanket for a single bed. Provides comfort and insulates the user while in bed.</description>
     <graphicData>
       <texPath>Things/Beddings/beddingSingle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -188,7 +188,7 @@
   <ThingDef ParentName="BeddingBase">
     <defName>DoubleBedding</defName>
     <label>double bedding set</label>
-    <description>A set of matress, pillows, linen and blanket for a double bed. Provides comfort and insulates the users while in bed.</description>
+    <description>A set of mattress, pillows, linen and blanket for a double bed. Provides comfort and insulates the users while in bed.</description>
     <graphicData>
       <texPath>Things/Beddings/beddingDouble</texPath>
       <graphicClass>Graphic_Single</graphicClass>

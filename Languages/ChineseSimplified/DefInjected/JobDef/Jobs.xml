@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <MakeBed.reportString>正在制作TargetA.</MakeBed.reportString>
+  <!--EN: making TargetA.-->
+  <MakeBed.reportString>正在铺设 TargetA。</MakeBed.reportString>
 
 </LanguageData>
