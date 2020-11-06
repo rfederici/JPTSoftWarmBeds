@@ -490,4 +490,35 @@ namespace SoftWarmBeds
             return true;
         }
     }
+	
+	//Patchs for thingwithcomps that are not apparel that exist in recipes with apparel
+	[HarmonyPatch(typeof(SpecialThingFilterWorker_NonDeadmansApparel), "Matches")]
+	public static class Patch_SpecialThingFilterWorkerMatches
+	{
+		//Defaults all ThingWithComp objects to return true if the special filter is called for Non-DeadmansApparel. Used for niche situations when
+		//an ThingWithComp is put in the Apparel Category which causes these items to appear in recipes that use the Apparel category tag. 
+		//ex: Recyling Apparel mods
+		public static void Postfix(ref bool __result, ref Thing t)
+		{
+			if(t != null && t is ThingWithComps && !(t is Apparel))
+			{
+				__result = true;
+			}
+		}
+	}
+
+	[HarmonyPatch(typeof(SpecialThingFilterWorker_DeadmansApparel), "Matches")]
+	public static class Patch_SpecialThingFilterWorker_DeadmansApparel
+	{
+		//Defaults all ThingWithComp objects to return true if the special filter is called for Deadmans Apparel. Used for niche situations when
+		//an ThingWithComp is put in the Apparel Category which causes these items to appear in recipes that use the Apparel category tag. 
+		//ex: Recyling Apparel mods
+		public static void Postfix(ref bool __result, ref Thing t)
+		{
+			if (t != null && t is ThingWithComps && !(t is Apparel))
+			{
+				__result = false;
+			}
+		}
+	}
 }
