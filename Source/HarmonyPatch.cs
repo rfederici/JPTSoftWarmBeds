@@ -500,7 +500,7 @@ namespace SoftWarmBeds
 		//ex: Recyling Apparel mods
 		public static void Postfix(ref bool __result, ref Thing t)
 		{
-			if(t != null && t is ThingWithComps && !(t is Apparel))
+			if(t != null && t is Bedding)
 			{
 				__result = true;
 			}
@@ -515,7 +515,7 @@ namespace SoftWarmBeds
 		//ex: Recyling Apparel mods
 		public static void Postfix(ref bool __result, ref Thing t)
 		{
-			if (t != null && t is ThingWithComps && !(t is Apparel))
+			if (t != null && t is Bedding)
 			{
 				__result = false;
 			}
