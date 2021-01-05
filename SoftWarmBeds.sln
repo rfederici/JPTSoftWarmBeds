@@ -30,19 +30,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UpdateFeatureDefs", "Update
 		Defs\UpdateFeatureDefs\UpdateFeatures.xml = Defs\UpdateFeatureDefs\UpdateFeatures.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{24D48765-C33C-4B3D-8E18-4FDB6184A046}"
-	ProjectSection(SolutionItems) = preProject
-		Patches\Patches.xml = Patches\Patches.xml
-		Patches\Patches_BabyAndChildren.xml = Patches\Patches_BabyAndChildren.xml
-		Patches\Patches_GloomyFurniture.xml = Patches\Patches_GloomyFurniture.xml
-		Patches\Patches_GloomyVanilla.xml = Patches\Patches_GloomyVanilla.xml
-		Patches\Patches_NanoRepairTech.xml = Patches\Patches_NanoRepairTech.xml
-		Patches\Patches_RiceCultivatingCivilization.xml = Patches\Patches_RiceCultivatingCivilization.xml
-		Patches\Patches_RIMkea.xml = Patches\Patches_RIMkea.xml
-		Patches\Patches_SparklingWorlds.xml = Patches\Patches_SparklingWorlds.xml
-		Patches\Patches_VanillaFurnitureExpanded.xml = Patches\Patches_VanillaFurnitureExpanded.xml
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Textures", "Textures", "{76363F98-EFB5-43B6-8BDB-7E896CE46D5F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Things", "Things", "{2B97C313-2B70-45E3-97CB-10253F2F8BC4}"
@@ -517,6 +504,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{0B56EEFE-C3E6-4977-8146-F2569259A394}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\PortugueseBrazilian\Keyed\SoftWarmBeds_keys.xml = Languages\PortugueseBrazilian\Keyed\SoftWarmBeds_keys.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{F39B9746-429E-4ADE-AC98-6D937A294755}"
+	ProjectSection(SolutionItems) = preProject
+		Patches\Patches.xml = Patches\Patches.xml
+		Patches\Patches_BabyAndChildren.xml = Patches\Patches_BabyAndChildren.xml
+		Patches\Patches_GloomyFurniture.xml = Patches\Patches_GloomyFurniture.xml
+		Patches\Patches_GloomyVanilla.xml = Patches\Patches_GloomyVanilla.xml
+		Patches\Patches_NanoRepairTech.xml = Patches\Patches_NanoRepairTech.xml
+		Patches\Patches_RiceCultivatingCivilization.xml = Patches\Patches_RiceCultivatingCivilization.xml
+		Patches\Patches_RIMkea.xml = Patches\Patches_RIMkea.xml
+		Patches\Patches_SparklingWorlds.xml = Patches\Patches_SparklingWorlds.xml
+		Patches\Patches_VanillaFactionExpandedVikings.xml = Patches\Patches_VanillaFactionExpandedVikings.xml
+		Patches\Patches_VanillaFurnitureExpanded.xml = Patches\Patches_VanillaFurnitureExpanded.xml
 	EndProjectSection
 EndProject
 Global
