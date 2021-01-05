@@ -217,4 +217,67 @@
       </recipeUsers>
     </recipeMaker>
   </ThingDef>
+
+<!--Don't foret to update tex paths when we get the new textures-->
+  <ThingDef ParentName="BeddingBase">
+    <defName>SingleTribalBedding</defName>
+    <label>single tribal bedding set</label>
+    <description>A pile of leather blankets with a rudimentary pillow. Not very comfortable but much better than nothing and insulates the user while in bed.</description>
+    <graphicData>
+      <texPath>Things/Beddings/beddingSingle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>55</costStuffCount>
+    <stuffCategories>
+      <li>Leathery</li>
+    </stuffCategories>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToMake>400</WorkToMake>
+      <Mass>10</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Beddings</li>
+    </thingCategories>
+    <recipeMaker>
+      <researchPrerequisite>CarpetMaking</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+        <li>CraftingSpot</li>
+      </recipeUsers>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef ParentName="BeddingBase">
+    <defName>DoubleTribalBedding</defName>
+    <label>double tribal bedding set</label>
+    <description>A pile of leather blankets with a rudimentary pillow. Not very comfortable but much better than nothing and insulates the users while in bed.</description>
+    <graphicData>
+      <texPath>Things/Beddings/beddingDouble</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <costStuffCount>90</costStuffCount>
+    <stuffCategories>
+      <li>Leathery</li>
+    </stuffCategories>
+    <tradeability>Sellable</tradeability>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToMake>800</WorkToMake>
+      <Mass>18</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Beddings</li>
+    </thingCategories>
+    <recipeMaker>
+      <researchPrerequisite>CarpetMaking</researchPrerequisite>
+      <recipeUsers>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+        <li>CraftingSpot</li>
+      </recipeUsers>
+    </recipeMaker>
+  </ThingDef>
 </Defs>
