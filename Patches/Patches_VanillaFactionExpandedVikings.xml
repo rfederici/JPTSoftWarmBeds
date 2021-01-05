@@ -56,19 +56,7 @@
               <li>Vanilla Furniture Expanded</li>
           </mods>     
           <match Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName="SingleTribalBedding"]/recipeMaker/researchPrerequisite</xpath>
-            <value>
-              <researchPrerequisite>MF_BasicFurniture</researchPrerequisite>
-            </value>
-          </match>
-        </li>
-
-        <li Class="PatchOperationFindMod">
-          <mods>
-              <li>Vanilla Furniture Expanded</li>
-          </mods>   
-          <match Class="PatchOperationReplace">
-            <xpath>Defs/ThingDef[defName="DoubleTribalBedding"]/recipeMaker/researchPrerequisite</xpath>
+            <xpath>Defs/ThingDef[defName="SingleTribalBedding" or defName="DoubleTribalBedding"]/recipeMaker/researchPrerequisite</xpath>
             <value>
               <researchPrerequisite>MF_BasicFurniture</researchPrerequisite>
             </value>
@@ -106,7 +94,7 @@
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/statBases/Comfort</xpath>
           <value>
-            <Comfort>0.15</Comfort>
+            <Comfort>0.20</Comfort>
           </value>
         </li>
         <!--Insulation Settings-->
