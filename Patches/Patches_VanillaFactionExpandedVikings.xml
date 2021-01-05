@@ -94,7 +94,7 @@
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/statBases/Comfort</xpath>
           <value>
-            <Comfort>0.15</Comfort>
+            <Comfort>0.20</Comfort>
           </value>
         </li>
         <!--Insulation Settings-->
