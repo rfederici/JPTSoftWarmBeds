@@ -218,13 +218,13 @@
     </recipeMaker>
   </ThingDef>
 
-<!--Don't foret to update tex paths when we get the new textures-->
+<!--Tribal Beddings-->
   <ThingDef ParentName="BeddingBase">
     <defName>SingleTribalBedding</defName>
     <label>single tribal bedding set</label>
     <description>A pile of leather blankets with a rudimentary pillow. Not very comfortable but much better than nothing and insulates the user while in bed.</description>
     <graphicData>
-      <texPath>Things/Beddings/beddingSingle</texPath>
+      <texPath>Things/Beddings/TribalBeddingSingle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <costStuffCount>55</costStuffCount>
@@ -255,7 +255,7 @@
     <label>double tribal bedding set</label>
     <description>A pile of leather blankets with a rudimentary pillow. Not very comfortable but much better than nothing and insulates the users while in bed.</description>
     <graphicData>
-      <texPath>Things/Beddings/beddingDouble</texPath>
+      <texPath>Things/Beddings/TribalBeddingDouble</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <costStuffCount>90</costStuffCount>
