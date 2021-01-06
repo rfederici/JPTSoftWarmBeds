@@ -220,8 +220,8 @@
 <!--Tribal Beddings-->
   <ThingDef ParentName="BeddingBase">
     <defName>SingleTribalBedding</defName>
-    <label>fur blankets</label>
-    <description>A pile fur blankets and a rudimentary pillow. Not very comfortable but much better than nothing and insulates the user while in bed.</description>
+    <label>fur blanket</label>
+    <description>A pile of fur to use as a blanket and a rudimentary pillow. Not very comfortable but much better than nothing and insulates the user while in bed.</description>
     <graphicData>
       <texPath>Things/Beddings/TribalBeddingSingle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -251,8 +251,8 @@
 
   <ThingDef ParentName="BeddingBase">
     <defName>DoubleTribalBedding</defName>
-    <label>large fur blanket set</label>
-    <description>A big pile of fur blankets with two makeshift pillows. Not very comfortable but much better than nothing and insulates the users while in bed.</description>
+    <label>large fur blanket</label>
+    <description>A big pile of fur to use as a blanket with two makeshift pillows. Not very comfortable but much better than nothing and insulates the users while in bed.</description>
     <graphicData>
       <texPath>Things/Beddings/TribalBeddingDouble</texPath>
       <graphicClass>Graphic_Single</graphicClass>
