@@ -240,7 +240,6 @@
       <li>Beddings</li>
     </thingCategories>
     <recipeMaker>
-      <researchPrerequisite>CarpetMaking</researchPrerequisite>
       <recipeUsers>
         <li>ElectricTailoringBench</li>
         <li>HandTailoringBench</li>
@@ -271,7 +270,6 @@
       <li>Beddings</li>
     </thingCategories>
     <recipeMaker>
-      <researchPrerequisite>CarpetMaking</researchPrerequisite>
       <recipeUsers>
         <li>ElectricTailoringBench</li>
         <li>HandTailoringBench</li>

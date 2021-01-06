@@ -55,7 +55,7 @@
           <mods>
               <li>Vanilla Furniture Expanded</li>
           </mods>     
-          <match Class="PatchOperationReplace">
+          <match Class="PatchOperationAdd">
             <xpath>Defs/ThingDef[defName="SingleTribalBedding" or defName="DoubleTribalBedding"]/recipeMaker/researchPrerequisite</xpath>
             <value>
               <researchPrerequisite>MF_BasicFurniture</researchPrerequisite>
