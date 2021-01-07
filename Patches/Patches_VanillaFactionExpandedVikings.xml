@@ -105,6 +105,29 @@
           </value>
         </li>
       </operations>
+
+      <!--Bed Recipe Changes-->
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/stuffCategories</xpath>
+        <stuffCategories>
+            <li>Woody</li>
+        </stuffCategories>
+      </li>
+
+      <li Class="PatchOperationRemove">
+        <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/costList</xpath>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/costStuffCount</xpath>
+        <costStuffCount>25</costStuffCount>
+      </li>
+
+      <li Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/costStuffCount</xpath>
+        <costStuffCount>45</costStuffCount>
+      </li>
+
     </match>
   </Operation>
 
