@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Rede.label>Hamaca</Rede.label>
+  <!--The simplest and most practical bed ever invented, made from just some cloth or leather and strings. You can hang it anywhere, even take it with you for a good nap when travelling. Hanging in the air, it keeps you cool, which is perfect for a tropical weather! Not as comfortable as a regular bed, though.-->
+  <Rede.description>La cama más simple y práctica jamás inventada, hecha con un poco de tela o cuero, y un par de hilos. Puedes colgarla donde sea, e inclusive llevarla contigo para echar una buena siesta al viajar. Tendida en el aire te mantiene fresco, y es perfecta para el clima tropical. Sin embargo, no es tan cómoda como una cama convencional.</Rede.description>
+
+  <SingleBlanket.label>sábana individual</SingleBlanket.label>
+  <SingleBlanket.description>Te mantiene caliente.</SingleBlanket.description>
+
+  <HospitalBlanket.label>sábana de hospital</HospitalBlanket.label>
+  <DoubleBlanket.label>sábana doble</DoubleBlanket.label>
+  <RoyalBlanket.label>sábana imperial</RoyalBlanket.label>
+
+  <SingleBedding.label>juego de camas individual</SingleBedding.label>
+  <SingleBedding.description>Un conjunto de colchones, almohadas y sábanas para una cama individual. Provee comodidad e insulación al usuario al estar en cama.</SingleBedding.description>
+
+  <DoubleBedding.label>juego de camas doble</DoubleBedding.label>
+  <DoubleBedding.description>Un conjunto de colchones, almohadas y sábanas para una cama doble. Provee comodidad e insulación al usuario al estar en cama.</DoubleBedding.description>
+
+</LanguageData>
