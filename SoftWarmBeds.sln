@@ -17,17 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Defs", "Defs", "{5112442D-F
 	ProjectSection(SolutionItems) = preProject
 		Defs\Defs_GloomyFurniture.xml = Defs\Defs_GloomyFurniture.xml
 		Defs\Defs_RIMkea.xml = Defs\Defs_RIMkea.xml
+		Defs\Defs_VanillaFactionsExpandedVikings.xml = Defs\Defs_VanillaFactionsExpandedVikings.xml
 		Defs\Defs_VanillaFurnitureExpanded.xml = Defs\Defs_VanillaFurnitureExpanded.xml
 		Defs\Jobs.xml = Defs\Jobs.xml
 		Defs\Stats.xml = Defs\Stats.xml
 		Defs\ThingCategories.xml = Defs\ThingCategories.xml
 		Defs\Things.xml = Defs\Things.xml
 		Defs\WorkGiver.xml = Defs\WorkGiver.xml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UpdateFeatureDefs", "UpdateFeatureDefs", "{B1487B6E-4833-4A17-B2E8-20AED7181289}"
-	ProjectSection(SolutionItems) = preProject
-		Defs\UpdateFeatureDefs\UpdateFeatures.xml = Defs\UpdateFeatureDefs\UpdateFeatures.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{24D48765-C33C-4B3D-8E18-4FDB6184A046}"
@@ -40,6 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{24D4
 		Patches\Patches_RiceCultivatingCivilization.xml = Patches\Patches_RiceCultivatingCivilization.xml
 		Patches\Patches_RIMkea.xml = Patches\Patches_RIMkea.xml
 		Patches\Patches_SparklingWorlds.xml = Patches\Patches_SparklingWorlds.xml
+		Patches\Patches_VanillaFactionExpandedVikings.xml = Patches\Patches_VanillaFactionExpandedVikings.xml
 		Patches\Patches_VanillaFurnitureExpanded.xml = Patches\Patches_VanillaFurnitureExpanded.xml
 	EndProjectSection
 EndProject
@@ -609,7 +606,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B1487B6E-4833-4A17-B2E8-20AED7181289} = {5112442D-F6EE-4658-82D5-C2DCF9CFAB8F}
 		{5F69B790-4B0F-45EF-92F4-FBAB696121BB} = {083E1096-5587-491F-BE8F-0126126B012F}
 		{6E030C35-6A0B-47C9-9DFC-59EBA0D02780} = {5F69B790-4B0F-45EF-92F4-FBAB696121BB}
 		{420F45EC-2105-4D31-8296-76C7EC371CD5} = {5F69B790-4B0F-45EF-92F4-FBAB696121BB}

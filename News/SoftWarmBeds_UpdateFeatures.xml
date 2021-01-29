@@ -4,7 +4,7 @@
     <modNameReadable>Soft Warm Beds</modNameReadable>
     <modIdentifier>JPT_SoftWarmBeds</modIdentifier>
     <!--<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=1713295858</linkUrl>-->
-    <linkUrl>https://steamcommunity.com/workshop/filedetails/discussion/1713295858/4224884861032346247/</linkUrl>
+    <linkUrl>https://ko-fi.com/jptrrs</linkUrl>
   </HugsLib.UpdateFeatureDef>
 
   <HugsLib.UpdateFeatureDef ParentName="SoftWarmBeds.UpdateFeatureBase">
@@ -48,7 +48,19 @@ To activate this, open the mod settings panel (Options > Mod Settings) and selec
 	  |- Fixed error when adding beds to caravans.
 	  |- Updated load order rules for various mods.
     </content>
-  </HugsLib.UpdateFeatureDef>  
-  
-  
+  </HugsLib.UpdateFeatureDef>
+
+  <HugsLib.UpdateFeatureDef ParentName="SoftWarmBeds.UpdateFeatureBase">
+    <defName>SoftWarmBeds_2_7</defName>
+    <assemblyVersion>2.7</assemblyVersion>
+    <content>&lt;b&gt;Improved integration with Vanilla Factions Expanded - Vikings!&lt;/b&gt;
+    |img:../Textures/Things/Beddings/FurBeddingSingle,../Textures/Things/Beddings/FurBeddingDouble
+    |If you're playing with that mod, we have some news for you. Now the fur beds will also require the use of separate beddings for them to achieve their full potential!
+    |The new &lt;b&gt;Fur Beddings&lt;/b&gt; can be made at the &lt;i&gt;Crafting Spot&lt;/i&gt; or the &lt;i&gt;Tailoring Bech&lt;/i&gt; just like the regular ones. They require more material to be produced, but become available before the regular beddings, alongside the fur beds themselves (unless you're also using &lt;i&gt;Vanilla Furniture Expanded&lt;/i&gt;, in which case they will require the research of &lt;i&gt;Basic Furniture&lt;/i&gt;). Thanks to JupiterLily for this awesome addition!
+    |This version also includes new translations for Spanish and Russian (courtesy of Chivalry Dark &amp; Stalin).
+    |Enjoy!
+    |img:Ko-fi|caption:Making mods is fun, mantaining them takes a lot of work! If you like what we did here, please consider supporting us with a cup of coffee. Follow the link above or go to ko-fi.com/jptrrs. Thank you!
+    </content>
+  </HugsLib.UpdateFeatureDef>
+
 </Defs>
