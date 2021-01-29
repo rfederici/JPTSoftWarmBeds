@@ -6,11 +6,11 @@
       <li>Vanilla Factions Expanded - Vikings</li>
     </mods>
     <match Class="PatchOperationSequence">
-      <success>Always</success>
+      <success>Normal</success>
       <operations>
         <!-- Function Extension-->
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]</xpath>
+          <xpath>Defs/ThingDef[defName = "VFEV_FurBed" or defName = "VFEV_DoubleFurBed"]</xpath>
           <value>
             <inspectorTabs>
               <li>SoftWarmBeds.ITab_Bedding</li>
@@ -18,7 +18,7 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/building</xpath>
+          <xpath>Defs/ThingDef[defName = "VFEV_FurBed" or defName = "VFEV_DoubleFurBed"]/building</xpath>
           <value>
             <fixedStorageSettings>
               <filter>
@@ -56,7 +56,7 @@
               <li>Vanilla Furniture Expanded</li>
           </mods>     
           <match Class="PatchOperationAdd">
-            <xpath>Defs/ThingDef[defName="SingleTribalBedding" or defName="DoubleTribalBedding"]/recipeMaker/researchPrerequisite</xpath>
+            <xpath>Defs/ThingDef[defName="SingleTribalBedding" or defName="DoubleTribalBedding"]/recipeMaker</xpath>
             <value>
               <researchPrerequisite>MF_BasicFurniture</researchPrerequisite>
             </value>
@@ -74,7 +74,7 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/comps</xpath>
+          <xpath>Defs/ThingDef[defName="VFEV_DoubleFurBed"]/comps</xpath>
           <value>
             <li Class="SoftWarmBeds.CompProperties_MakeableBed">
               <blanketDef>FurDoubleBedBlanket</blanketDef>
@@ -104,29 +104,42 @@
             <BedStuffEffectMultiplierInsulation_Cold>0.2</BedStuffEffectMultiplierInsulation_Cold>
           </value>
         </li>
+
+
+        <!--Bed Recipe Changes-->
+
+        <li Class="PatchOperationRemove">
+          <xpath>Defs/ThingDef[defName="VFEV_DoubleFurBed"]/stuffCategories</xpath>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]</xpath>
+          <value>
+          <stuffCategories>
+              <li>Woody</li>
+          </stuffCategories>
+          </value>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/costList</xpath>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/costStuffCount</xpath>
+          <value>
+            <costStuffCount>25</costStuffCount>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="VFEV_DoubleFurBed"]/costStuffCount</xpath>
+          <value>
+            <costStuffCount>45</costStuffCount>
+          </value>
+        </li>
+
       </operations>
-
-      <!--Bed Recipe Changes-->
-      <li Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/stuffCategories</xpath>
-        <stuffCategories>
-            <li>Woody</li>
-        </stuffCategories>
-      </li>
-
-      <li Class="PatchOperationRemove">
-        <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/costList</xpath>
-      </li>
-
-      <li Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/costStuffCount</xpath>
-        <costStuffCount>25</costStuffCount>
-      </li>
-
-      <li Class="PatchOperationReplace">
-        <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/costStuffCount</xpath>
-        <costStuffCount>45</costStuffCount>
-      </li>
 
     </match>
   </Operation>
