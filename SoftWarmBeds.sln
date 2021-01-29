@@ -520,6 +520,48 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{F39B
 		Patches\Patches_VanillaFurnitureExpanded.xml = Patches\Patches_VanillaFurnitureExpanded.xml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Russian", "Russian", "{9F0E446E-7B39-4662-9A8E-2D7B5B48C682}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{57369928-650C-4A4D-A1E6-1D57E3F8897A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{FD0AE3FB-BB8B-4C51-860B-BA6AE551DC37}"
+	ProjectSection(SolutionItems) = preProject
+		Languages\Russian\DefInjected\JobDef\Jobs.xml = Languages\Russian\DefInjected\JobDef\Jobs.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RecipeDef", "RecipeDef", "{E04913D4-1097-4876-BC9F-8B5816FB6B7C}"
+	ProjectSection(SolutionItems) = preProject
+		Languages\Russian\DefInjected\RecipeDef\Recipes_Add_Make.xml = Languages\Russian\DefInjected\RecipeDef\Recipes_Add_Make.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{32964BD0-437D-4D35-9130-817213EE3900}"
+	ProjectSection(SolutionItems) = preProject
+		Languages\Russian\DefInjected\StatDef\Stats.xml = Languages\Russian\DefInjected\StatDef\Stats.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{09EDE8A6-BFF4-4C3E-9904-C755F1BCA5DF}"
+	ProjectSection(SolutionItems) = preProject
+		Languages\Russian\DefInjected\ThingCategoryDef\ThingCategories.xml = Languages\Russian\DefInjected\ThingCategoryDef\ThingCategories.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{AD13B388-085C-4D4B-8303-B8D197D15D83}"
+	ProjectSection(SolutionItems) = preProject
+		Languages\Russian\DefInjected\ThingDef\Defs_GloomyFurniture.xml = Languages\Russian\DefInjected\ThingDef\Defs_GloomyFurniture.xml
+		Languages\Russian\DefInjected\ThingDef\Defs_RIMkea.xml = Languages\Russian\DefInjected\ThingDef\Defs_RIMkea.xml
+		Languages\Russian\DefInjected\ThingDef\Defs_VanillaFurnitureExpanded.xml = Languages\Russian\DefInjected\ThingDef\Defs_VanillaFurnitureExpanded.xml
+		Languages\Russian\DefInjected\ThingDef\Things.xml = Languages\Russian\DefInjected\ThingDef\Things.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{3F7FCC30-AFA3-45B3-8223-77B1549F4259}"
+	ProjectSection(SolutionItems) = preProject
+		Languages\Russian\DefInjected\WorkGiverDef\WorkGiver.xml = Languages\Russian\DefInjected\WorkGiverDef\WorkGiver.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{3FE5DF19-BF94-4A16-AEF3-D4E9C640199B}"
+	ProjectSection(SolutionItems) = preProject
+		Languages\Russian\Keyed\SoftWarmBeds_keys.xml = Languages\Russian\Keyed\SoftWarmBeds_keys.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		1.0|Any CPU = 1.0|Any CPU
@@ -596,6 +638,15 @@ Global
 		{ECF7207D-B6D2-4BF0-B3B1-B8FE0C2C7547} = {32FABFE4-F990-4FF2-B738-3B10EB657D0B}
 		{22AA7D78-85E6-48C4-A57A-EEE80BEA3C45} = {32FABFE4-F990-4FF2-B738-3B10EB657D0B}
 		{0B56EEFE-C3E6-4977-8146-F2569259A394} = {5832F41A-FEDA-4BA3-9E3B-0D401C57FE8E}
+		{9F0E446E-7B39-4662-9A8E-2D7B5B48C682} = {D1888E31-6895-4E92-9488-8CA04CFE0BF6}
+		{57369928-650C-4A4D-A1E6-1D57E3F8897A} = {9F0E446E-7B39-4662-9A8E-2D7B5B48C682}
+		{FD0AE3FB-BB8B-4C51-860B-BA6AE551DC37} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
+		{E04913D4-1097-4876-BC9F-8B5816FB6B7C} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
+		{32964BD0-437D-4D35-9130-817213EE3900} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
+		{09EDE8A6-BFF4-4C3E-9904-C755F1BCA5DF} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
+		{AD13B388-085C-4D4B-8303-B8D197D15D83} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
+		{3F7FCC30-AFA3-45B3-8223-77B1549F4259} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
+		{3FE5DF19-BF94-4A16-AEF3-D4E9C640199B} = {9F0E446E-7B39-4662-9A8E-2D7B5B48C682}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28CF9A73-5333-4EB3-BFCC-3FBEDDA19200}
