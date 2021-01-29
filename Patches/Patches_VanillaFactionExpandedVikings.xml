@@ -36,7 +36,7 @@
             </defaultStorageSettings>
           </value>
         </li>
-                <!--Graphic Modifications Place Holder-->
+        <!--Graphic Modifications Place Holder-->
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/graphicData/texPath</xpath>
           <value>
@@ -49,8 +49,7 @@
             <texPath>Things/Building/VFEVikings/DoubleFurBed</texPath>
           </value>
         </li>
-
-             <!--Research Changer-->
+        <!--Research Changer-->
         <li Class="PatchOperationFindMod">
           <mods>
               <li>Vanilla Furniture Expanded</li>
@@ -62,8 +61,7 @@
             </value>
           </match>
         </li>
-
-                <!--Beddings Settings-->
+        <!--Beddings Settings-->
         <li Class="PatchOperationAdd">
           <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/comps</xpath>
           <value>
@@ -107,17 +105,12 @@
 
 
         <!--Bed Recipe Changes-->
-
-        <li Class="PatchOperationRemove">
-          <xpath>Defs/ThingDef[defName="VFEV_DoubleFurBed"]/stuffCategories</xpath>
-        </li>
-
-        <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]</xpath>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/stuffCategories</xpath>
           <value>
-          <stuffCategories>
-              <li>Woody</li>
-          </stuffCategories>
+            <stuffCategories>
+                <li>Woody</li>
+            </stuffCategories>
           </value>
         </li>
 
