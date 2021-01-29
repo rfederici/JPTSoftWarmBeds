@@ -30,17 +30,39 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UpdateFeatureDefs", "Update
 		Defs\UpdateFeatureDefs\UpdateFeatures.xml = Defs\UpdateFeatureDefs\UpdateFeatures.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Textures", "Textures", "{76363F98-EFB5-43B6-8BDB-7E896CE46D5F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{24D48765-C33C-4B3D-8E18-4FDB6184A046}"
+	ProjectSection(SolutionItems) = preProject
+		Patches\Patches.xml = Patches\Patches.xml
+		Patches\Patches_BabyAndChildren.xml = Patches\Patches_BabyAndChildren.xml
+		Patches\Patches_GloomyFurniture.xml = Patches\Patches_GloomyFurniture.xml
+		Patches\Patches_GloomyVanilla.xml = Patches\Patches_GloomyVanilla.xml
+		Patches\Patches_NanoRepairTech.xml = Patches\Patches_NanoRepairTech.xml
+		Patches\Patches_RiceCultivatingCivilization.xml = Patches\Patches_RiceCultivatingCivilization.xml
+		Patches\Patches_RIMkea.xml = Patches\Patches_RIMkea.xml
+		Patches\Patches_SparklingWorlds.xml = Patches\Patches_SparklingWorlds.xml
+		Patches\Patches_VanillaFurnitureExpanded.xml = Patches\Patches_VanillaFurnitureExpanded.xml
+	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Things", "Things", "{2B97C313-2B70-45E3-97CB-10253F2F8BC4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "News", "News", "{2EF2EBAD-6419-434A-963F-D0EF22EF4164}"
+	ProjectSection(SolutionItems) = preProject
+		News\MiyuriMode.png = News\MiyuriMode.png
+		News\Quarantine.png = News\Quarantine.png
+		News\SoftWarmBeds_UpdateFeatures.xml = News\SoftWarmBeds_UpdateFeatures.xml
+	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Beddings", "Beddings", "{A0464DC2-84B5-48EB-97E0-EBEA4499B91C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Textures", "Textures", "{083E1096-5587-491F-BE8F-0126126B012F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Things", "Things", "{5F69B790-4B0F-45EF-92F4-FBAB696121BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Beddings", "Beddings", "{6E030C35-6A0B-47C9-9DFC-59EBA0D02780}"
 	ProjectSection(SolutionItems) = preProject
 		Textures\Things\Beddings\beddingDouble.png = Textures\Things\Beddings\beddingDouble.png
 		Textures\Things\Beddings\beddingSingle.png = Textures\Things\Beddings\beddingSingle.png
+		Textures\Things\Beddings\TribalBeddingDouble.png = Textures\Things\Beddings\TribalBeddingDouble.png
+		Textures\Things\Beddings\TribalBeddingSingle.png = Textures\Things\Beddings\TribalBeddingSingle.png
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Building", "Building", "{52A0F0EB-51F5-44C7-810B-96BCB4A83A26}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Building", "Building", "{420F45EC-2105-4D31-8296-76C7EC371CD5}"
 	ProjectSection(SolutionItems) = preProject
 		Textures\Things\Building\Bed_east.png = Textures\Things\Building\Bed_east.png
 		Textures\Things\Building\Bed_eastm.png = Textures\Things\Building\Bed_eastm.png
@@ -100,7 +122,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Building", "Building", "{52
 		Textures\Things\Building\SingleBlanket_southm.png = Textures\Things\Building\SingleBlanket_southm.png
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GloomyFurniture", "GloomyFurniture", "{0E032E44-017B-456E-9DB0-DFEC17AE4904}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GloomyFurniture", "GloomyFurniture", "{D3C02DAD-F228-479B-A1EA-81866A6B7077}"
 	ProjectSection(SolutionItems) = preProject
 		Textures\Things\Building\GloomyFurniture\GL_ClassyDoubleBed_east.png = Textures\Things\Building\GloomyFurniture\GL_ClassyDoubleBed_east.png
 		Textures\Things\Building\GloomyFurniture\GL_ClassyDoubleBed_eastm.png = Textures\Things\Building\GloomyFurniture\GL_ClassyDoubleBed_eastm.png
@@ -164,7 +186,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GloomyFurniture", "GloomyFu
 		Textures\Things\Building\GloomyFurniture\RGK_SingleBlanket_southm.png = Textures\Things\Building\GloomyFurniture\RGK_SingleBlanket_southm.png
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RIMkea", "RIMkea", "{76AD0EC8-40D1-4BFC-96C7-434185B28270}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RIMkea", "RIMkea", "{DC1C07CC-DD52-45B0-9A37-83AA7B3DF948}"
 	ProjectSection(SolutionItems) = preProject
 		Textures\Things\Building\RIMkea\KRUDNEPPSingle_east.png = Textures\Things\Building\RIMkea\KRUDNEPPSingle_east.png
 		Textures\Things\Building\RIMkea\KRUDNEPPSingle_eastm.png = Textures\Things\Building\RIMkea\KRUDNEPPSingle_eastm.png
@@ -216,7 +238,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RIMkea", "RIMkea", "{76AD0E
 		Textures\Things\Building\RIMkea\SNOREGGSingleBlanket_southm.png = Textures\Things\Building\RIMkea\SNOREGGSingleBlanket_southm.png
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VanillaFurnitureExpanded", "VanillaFurnitureExpanded", "{217418E9-18C0-4C92-A234-4C97AB5E975F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VanillaFurnitureExpanded", "VanillaFurnitureExpanded", "{964EBF8F-3FF9-4FE3-9EB3-A92AC1F939D9}"
 	ProjectSection(SolutionItems) = preProject
 		Textures\Things\Building\VanillaFurnitureExpanded\AdvancedBed_east.png = Textures\Things\Building\VanillaFurnitureExpanded\AdvancedBed_east.png
 		Textures\Things\Building\VanillaFurnitureExpanded\AdvancedBed_eastm.png = Textures\Things\Building\VanillaFurnitureExpanded\AdvancedBed_eastm.png
@@ -280,286 +302,293 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VanillaFurnitureExpanded", 
 		Textures\Things\Building\VanillaFurnitureExpanded\SpacerDoubleBedBlanket_southm.png = Textures\Things\Building\VanillaFurnitureExpanded\SpacerDoubleBedBlanket_southm.png
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{4AD8FBE0-E50A-4247-8751-0827BB5DE043}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VFEVikings", "VFEVikings", "{3CF50FE2-38D0-4E6C-A037-87BE8CF9B2D3}"
+	ProjectSection(SolutionItems) = preProject
+		Textures\Things\Building\VFEVikings\DoubleFurBed_east.png = Textures\Things\Building\VFEVikings\DoubleFurBed_east.png
+		Textures\Things\Building\VFEVikings\DoubleFurBed_eastm.png = Textures\Things\Building\VFEVikings\DoubleFurBed_eastm.png
+		Textures\Things\Building\VFEVikings\DoubleFurBed_north.png = Textures\Things\Building\VFEVikings\DoubleFurBed_north.png
+		Textures\Things\Building\VFEVikings\DoubleFurBed_northm.png = Textures\Things\Building\VFEVikings\DoubleFurBed_northm.png
+		Textures\Things\Building\VFEVikings\DoubleFurBed_south.png = Textures\Things\Building\VFEVikings\DoubleFurBed_south.png
+		Textures\Things\Building\VFEVikings\DoubleFurBed_southm.png = Textures\Things\Building\VFEVikings\DoubleFurBed_southm.png
+		Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_east.png = Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_east.png
+		Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_eastm.png = Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_eastm.png
+		Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_north.png = Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_north.png
+		Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_northm.png = Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_northm.png
+		Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_south.png = Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_south.png
+		Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_southm.png = Textures\Things\Building\VFEVikings\DoubleFurBedBlanket_southm.png
+		Textures\Things\Building\VFEVikings\FurBed_east.png = Textures\Things\Building\VFEVikings\FurBed_east.png
+		Textures\Things\Building\VFEVikings\FurBed_eastm.png = Textures\Things\Building\VFEVikings\FurBed_eastm.png
+		Textures\Things\Building\VFEVikings\FurBed_north.png = Textures\Things\Building\VFEVikings\FurBed_north.png
+		Textures\Things\Building\VFEVikings\FurBed_northm.png = Textures\Things\Building\VFEVikings\FurBed_northm.png
+		Textures\Things\Building\VFEVikings\FurBed_south.png = Textures\Things\Building\VFEVikings\FurBed_south.png
+		Textures\Things\Building\VFEVikings\FurBed_southm.png = Textures\Things\Building\VFEVikings\FurBed_southm.png
+		Textures\Things\Building\VFEVikings\SingleFurBedBlanket_east.png = Textures\Things\Building\VFEVikings\SingleFurBedBlanket_east.png
+		Textures\Things\Building\VFEVikings\SingleFurBedBlanket_eastm.png = Textures\Things\Building\VFEVikings\SingleFurBedBlanket_eastm.png
+		Textures\Things\Building\VFEVikings\SingleFurBedBlanket_north.png = Textures\Things\Building\VFEVikings\SingleFurBedBlanket_north.png
+		Textures\Things\Building\VFEVikings\SingleFurBedBlanket_northm.png = Textures\Things\Building\VFEVikings\SingleFurBedBlanket_northm.png
+		Textures\Things\Building\VFEVikings\SingleFurBedBlanket_south.png = Textures\Things\Building\VFEVikings\SingleFurBedBlanket_south.png
+		Textures\Things\Building\VFEVikings\SingleFurBedBlanket_southm.png = Textures\Things\Building\VFEVikings\SingleFurBedBlanket_southm.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{1AC7186C-4E19-40BF-94FE-BE47807F9BC6}"
 	ProjectSection(SolutionItems) = preProject
 		Textures\UI\beddingDouble.png = Textures\UI\beddingDouble.png
 		Textures\UI\beddingSingle.png = Textures\UI\beddingSingle.png
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "News", "News", "{2EF2EBAD-6419-434A-963F-D0EF22EF4164}"
-	ProjectSection(SolutionItems) = preProject
-		News\MiyuriMode.png = News\MiyuriMode.png
-		News\Quarantine.png = News\Quarantine.png
-		News\SoftWarmBeds_UpdateFeatures.xml = News\SoftWarmBeds_UpdateFeatures.xml
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Languages", "Languages", "{0865A500-32C5-4061-9692-25B9B7D9D87C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Languages", "Languages", "{D1888E31-6895-4E92-9488-8CA04CFE0BF6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChineseSimplified", "ChineseSimplified", "{DA23EA4F-A4CF-4BB6-99EA-947C3C574296}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChineseSimplified", "ChineseSimplified", "{F8625815-E8DA-41C7-9349-C9F27FC4747D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{9F17C6DF-F791-458B-A7F1-2A1765D91720}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{95148DA6-E757-4706-85C5-2FB9F4B2E3CA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{29824FE1-74C9-4138-91A6-194435D413A5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{D4F46FBD-1254-4E92-BE0D-E13A601BEAC4}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseSimplified\DefInjected\JobDef\Jobs.xml = Languages\ChineseSimplified\DefInjected\JobDef\Jobs.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{3FEFA431-3608-4284-9312-A98D3FBC04B2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{D880953E-DB6A-450C-AEC1-7007E6AD690E}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseSimplified\DefInjected\StatDef\Stats.xml = Languages\ChineseSimplified\DefInjected\StatDef\Stats.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{097768D8-E15D-4ECD-8053-2EB76801871B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{E317F65F-A755-4EEA-A5C0-1DD5BC452677}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseSimplified\DefInjected\ThingCategoryDef\ThingCategories.xml = Languages\ChineseSimplified\DefInjected\ThingCategoryDef\ThingCategories.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{9ACB9304-0D6E-476F-9D33-96179652A115}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{AF96A263-A884-4919-AC27-E5772EFFB102}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseSimplified\DefInjected\ThingDef\Things.xml = Languages\ChineseSimplified\DefInjected\ThingDef\Things.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{6B714770-7906-429D-9FB5-F84653E8B6EF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{C18D37BC-5B6A-446E-9873-AE8B7757558E}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseSimplified\DefInjected\WorkGiverDef\WorkGiver.xml = Languages\ChineseSimplified\DefInjected\WorkGiverDef\WorkGiver.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{672A2F3D-ECA9-4D6B-A5FA-FD89B2FFB488}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{C066F3F8-CADC-4952-B25C-E06186D1F424}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseSimplified\Keyed\SoftWarmBeds_keys.xml = Languages\ChineseSimplified\Keyed\SoftWarmBeds_keys.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChineseTraditional", "ChineseTraditional", "{1D344C1A-5A7F-479B-BD76-C112ECAD5701}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChineseTraditional", "ChineseTraditional", "{C750AD3E-B46C-476F-BF2B-920897641670}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{3C46118A-9E69-4FAC-9790-2D2D09C2A00A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{17993365-1D9E-4472-BD76-107357EE4C59}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{3422C9ED-901E-49F1-ADCD-6DE43FAB2833}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{34C61DAA-1B38-4474-84BC-D5D402E6C779}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseTraditional\DefInjected\JobDef\Jobs.xml = Languages\ChineseTraditional\DefInjected\JobDef\Jobs.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{2EF610C3-4C69-4365-9567-EF3327C3F71C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{399EBF22-E0D8-4A66-B35E-7F82C1FBAD02}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseTraditional\DefInjected\StatDef\Stats.xml = Languages\ChineseTraditional\DefInjected\StatDef\Stats.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{58EF4D59-130E-4E0F-8D7F-7386AF1CBC65}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{65DCDFBE-2261-4169-A9BF-48A76F3D47F9}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseTraditional\DefInjected\ThingCategoryDef\ThingCategories.xml = Languages\ChineseTraditional\DefInjected\ThingCategoryDef\ThingCategories.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{53322A21-410B-477F-922B-A722B05D8CF2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{668F689F-D2C4-463D-848C-E020AD0D7427}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseTraditional\DefInjected\ThingDef\Things.xml = Languages\ChineseTraditional\DefInjected\ThingDef\Things.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{72B33794-9DD9-4612-B780-A06CE3FE8B15}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{76A6DB57-AD3D-4702-A046-335D8A57A6FD}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseTraditional\DefInjected\WorkGiverDef\WorkGiver.xml = Languages\ChineseTraditional\DefInjected\WorkGiverDef\WorkGiver.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{998FEE11-DF90-4059-A399-555CE5B67CB2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{710AE77E-8B42-4D7D-BBCC-CF5482B98A2F}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\ChineseTraditional\Keyed\SoftWarmBeds_keys.xml = Languages\ChineseTraditional\Keyed\SoftWarmBeds_keys.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "English", "English", "{A14EFB1F-1AA8-4F29-AC31-99E86A34BF7B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "English", "English", "{05050268-0ED4-44D3-82EC-5311576ABFDA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{BA77D5F0-931E-4626-9A2B-2ED18F47A488}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{D262F197-CBC4-4A5F-9539-E8F02B72F4D0}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\English\Keyed\SoftWarmBeds_keys.xml = Languages\English\Keyed\SoftWarmBeds_keys.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Italian", "Italian", "{9E1E2689-DE05-4B02-84B0-8A5EE6C83FDD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Italian", "Italian", "{9196D4C7-F28F-43EF-B567-639DDCC6448E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{7ED79F34-AB24-46D6-8602-122F739B68FA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{CF88F76C-C628-4089-AF1D-F52BD3EABB46}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{FF95142C-E74C-4B35-A249-D5A962F23DCF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{696B2934-B57B-4DCD-8A0B-E08ED540BC43}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Italian\DefInjected\JobDef\TranslateJobs.xml = Languages\Italian\DefInjected\JobDef\TranslateJobs.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{B554FE20-62F4-4FBE-84A2-FD9B2AE2F897}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{83693272-04B5-47EE-8D3D-3D82E94FA157}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Italian\DefInjected\StatDef\TranslateStats.xml = Languages\Italian\DefInjected\StatDef\TranslateStats.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{DA05E191-2843-4F6A-BB66-110F423A17E9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{577F784C-CE73-4EAB-BA6F-ED979373CB98}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Italian\DefInjected\ThingCategoryDef\TranslateThingCategories.xml = Languages\Italian\DefInjected\ThingCategoryDef\TranslateThingCategories.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{5551FDAE-D767-434D-8565-116B7B8811C1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{F37B2667-9548-45B4-8134-48ED1742A427}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Italian\DefInjected\ThingDef\TranslateThings.xml = Languages\Italian\DefInjected\ThingDef\TranslateThings.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{ACB9D737-7C98-44A3-932A-9494D2816AE0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{FB74943A-9F87-4C0D-BD21-99A9C1241E61}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Italian\DefInjected\WorkGiverDef\TranslateWorkGiver.xml = Languages\Italian\DefInjected\WorkGiverDef\TranslateWorkGiver.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{A7135132-C1C8-485F-A584-5309A91B9420}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{D668D42C-C05F-46C6-B213-4CEB8FE86524}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Italian\Keyed\SoftWarmBeds_keys.xml = Languages\Italian\Keyed\SoftWarmBeds_keys.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Japanese", "Japanese", "{EC97BAA4-E606-4A0C-840F-3B6C3F6657CF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Japanese", "Japanese", "{6C5311F1-8548-4095-8B0D-8B3687873AB4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{8C69D6B4-1CF6-4D05-8370-71569B65B02A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{09723434-4047-4FD2-8765-063DD4672A01}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{9A2434A6-E097-494D-89AA-4A2E1FCEB068}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{60CBC7BB-EBCB-4C06-B0B3-682F0D04F816}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Japanese\DefInjected\JobDef\Jobs.xml = Languages\Japanese\DefInjected\JobDef\Jobs.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{5E423A38-01B4-485C-B8DF-7120F9489D9F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{FD9B5AFB-3D2D-46C9-83F3-23266BED2693}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Japanese\DefInjected\StatDef\Stats.xml = Languages\Japanese\DefInjected\StatDef\Stats.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{81BA7DBF-9B90-4466-BC08-EC64B9257CFD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{2B09D32F-40ED-42C5-87FD-6851B1451B8B}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Japanese\DefInjected\ThingCategoryDef\ThingCategories.xml = Languages\Japanese\DefInjected\ThingCategoryDef\ThingCategories.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{CD4E238A-6CFC-4A7E-83B7-7D5A954680F1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{E379996C-CA7E-432E-A3E0-F3B48D321C6C}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Japanese\DefInjected\ThingDef\Things.xml = Languages\Japanese\DefInjected\ThingDef\Things.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{43AAF638-8EA7-44B6-8B45-51C4ABFE13FE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{BFBE70EB-CEF7-4BF4-8732-6D12837399AB}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Japanese\DefInjected\WorkGiverDef\WorkGiver.xml = Languages\Japanese\DefInjected\WorkGiverDef\WorkGiver.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{D3FC0335-D756-44FC-9038-511972E006E1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{519BD4B9-D88D-4E73-BE8B-258E29F57ED6}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Japanese\Keyed\SoftWarmBeds_keys.xml = Languages\Japanese\Keyed\SoftWarmBeds_keys.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Portuguese", "Portuguese", "{AEDF6BA6-7803-4110-AEA4-79ECBF3D5DE8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Portuguese", "Portuguese", "{39760CC7-B2F0-44E0-AED9-C2416F95D2FC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{D8C2B577-46F3-4467-AAF6-BE48733C4E90}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{82D03410-8816-4C40-9204-5CCC9BB697C5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{43C169D2-0191-4AC8-8CCB-51A344C417CB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{5856EE4C-18E1-434A-AAB0-45D3F8AFDD8E}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Portuguese\DefInjected\JobDef\TranslateJobs.xml = Languages\Portuguese\DefInjected\JobDef\TranslateJobs.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{81554FF3-DF00-40E1-BF29-00919140D06A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{840D7E14-9AEC-4F7C-BD16-24B6FCCBB5CE}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Portuguese\DefInjected\StatDef\TranslateStats.xml = Languages\Portuguese\DefInjected\StatDef\TranslateStats.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{8608C9E5-EEE6-4739-94A3-2E971265E94F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{3B015C11-E4EF-45D6-810B-1840E5EC7D29}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Portuguese\DefInjected\ThingCategoryDef\TranslateThingCategories.xml = Languages\Portuguese\DefInjected\ThingCategoryDef\TranslateThingCategories.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{4A8B23F6-4311-469D-B57D-74D97814D178}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{DA070D42-38AB-4348-A9F8-6B4A4C2C7A3B}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Portuguese\DefInjected\ThingDef\TranslateThings.xml = Languages\Portuguese\DefInjected\ThingDef\TranslateThings.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{A362DAB4-C3D9-429F-BE5E-5E4F2A977614}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{F95F057D-4E08-4965-8D2F-7DD96B9FE9B5}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Portuguese\DefInjected\WorkGiverDef\TranslateWorkGivers.xml = Languages\Portuguese\DefInjected\WorkGiverDef\TranslateWorkGivers.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{6962AC98-AE4E-4F03-B1F8-0B1C04A989AD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{DAE52B23-EE49-44E2-8160-76F04205AE2D}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\Portuguese\Keyed\SoftWarmBeds_keys.xml = Languages\Portuguese\Keyed\SoftWarmBeds_keys.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PortugueseBrazilian", "PortugueseBrazilian", "{5832F41A-FEDA-4BA3-9E3B-0D401C57FE8E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PortugueseBrazilian", "PortugueseBrazilian", "{D4A89639-D23D-45C4-B142-52AE1E896093}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{32FABFE4-F990-4FF2-B738-3B10EB657D0B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{29C50CB4-81B7-4ACB-8AE3-DA493F3F58BE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{775F26CD-8739-4DA5-A42F-6A527E84EE5C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{7A3EDE29-C1DB-4047-9B73-4BAC518F2073}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\PortugueseBrazilian\DefInjected\JobDef\TranslateJobs.xml = Languages\PortugueseBrazilian\DefInjected\JobDef\TranslateJobs.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{08828864-507C-424A-9387-6B1C19F35B91}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{DB03F25F-245A-4F26-AB15-A477DBC0B94D}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\PortugueseBrazilian\DefInjected\StatDef\TranslateStats.xml = Languages\PortugueseBrazilian\DefInjected\StatDef\TranslateStats.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{58627FDC-AF67-4238-8364-30775F0F70AF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{A49F84D1-BA8E-4C86-9AAB-A42E2833A1E1}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\PortugueseBrazilian\DefInjected\ThingCategoryDef\TranslateThingCategories.xml = Languages\PortugueseBrazilian\DefInjected\ThingCategoryDef\TranslateThingCategories.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{ECF7207D-B6D2-4BF0-B3B1-B8FE0C2C7547}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{F4AE9FBA-CD26-4925-8CCC-96E67DC3A741}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\PortugueseBrazilian\DefInjected\ThingDef\TranslateThings.xml = Languages\PortugueseBrazilian\DefInjected\ThingDef\TranslateThings.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{22AA7D78-85E6-48C4-A57A-EEE80BEA3C45}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{8EF4485E-7A72-4C26-9F3A-4169E90A8D23}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\PortugueseBrazilian\DefInjected\WorkGiverDef\TranslateWorkGiver.xml = Languages\PortugueseBrazilian\DefInjected\WorkGiverDef\TranslateWorkGiver.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{0B56EEFE-C3E6-4977-8146-F2569259A394}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{3FB0E806-432E-4229-ABF3-08BBE9D5097E}"
 	ProjectSection(SolutionItems) = preProject
 		Languages\PortugueseBrazilian\Keyed\SoftWarmBeds_keys.xml = Languages\PortugueseBrazilian\Keyed\SoftWarmBeds_keys.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{F39B9746-429E-4ADE-AC98-6D937A294755}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpanishLatin", "SpanishLatin", "{FD568CC5-B73D-428D-BC2B-A4E5727B3470}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{72B4D987-0302-4E9D-BA2C-B8BD3ECAF329}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{EBFEF50B-BA2D-4D85-8F92-DE9B8280B593}"
 	ProjectSection(SolutionItems) = preProject
-		Patches\Patches.xml = Patches\Patches.xml
-		Patches\Patches_BabyAndChildren.xml = Patches\Patches_BabyAndChildren.xml
-		Patches\Patches_GloomyFurniture.xml = Patches\Patches_GloomyFurniture.xml
-		Patches\Patches_GloomyVanilla.xml = Patches\Patches_GloomyVanilla.xml
-		Patches\Patches_NanoRepairTech.xml = Patches\Patches_NanoRepairTech.xml
-		Patches\Patches_RiceCultivatingCivilization.xml = Patches\Patches_RiceCultivatingCivilization.xml
-		Patches\Patches_RIMkea.xml = Patches\Patches_RIMkea.xml
-		Patches\Patches_SparklingWorlds.xml = Patches\Patches_SparklingWorlds.xml
-		Patches\Patches_VanillaFactionExpandedVikings.xml = Patches\Patches_VanillaFactionExpandedVikings.xml
-		Patches\Patches_VanillaFurnitureExpanded.xml = Patches\Patches_VanillaFurnitureExpanded.xml
+		Languages\SpanishLatin\DefInjected\JobDef\Jobs.xml = Languages\SpanishLatin\DefInjected\JobDef\Jobs.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Russian", "Russian", "{9F0E446E-7B39-4662-9A8E-2D7B5B48C682}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DefInjected", "DefInjected", "{57369928-650C-4A4D-A1E6-1D57E3F8897A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JobDef", "JobDef", "{FD0AE3FB-BB8B-4C51-860B-BA6AE551DC37}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RecipeDef", "RecipeDef", "{9DBD360D-5118-443F-8690-1CE3008F93B6}"
 	ProjectSection(SolutionItems) = preProject
-		Languages\Russian\DefInjected\JobDef\Jobs.xml = Languages\Russian\DefInjected\JobDef\Jobs.xml
+		Languages\SpanishLatin\DefInjected\RecipeDef\Recipes_Add_Make.xml = Languages\SpanishLatin\DefInjected\RecipeDef\Recipes_Add_Make.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RecipeDef", "RecipeDef", "{E04913D4-1097-4876-BC9F-8B5816FB6B7C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{13823508-146D-4DCE-8319-996DE8538A33}"
 	ProjectSection(SolutionItems) = preProject
-		Languages\Russian\DefInjected\RecipeDef\Recipes_Add_Make.xml = Languages\Russian\DefInjected\RecipeDef\Recipes_Add_Make.xml
+		Languages\SpanishLatin\DefInjected\StatDef\Stats.xml = Languages\SpanishLatin\DefInjected\StatDef\Stats.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatDef", "StatDef", "{32964BD0-437D-4D35-9130-817213EE3900}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{1C6FFBD0-EC91-49E6-8F71-64260B57ECE7}"
 	ProjectSection(SolutionItems) = preProject
-		Languages\Russian\DefInjected\StatDef\Stats.xml = Languages\Russian\DefInjected\StatDef\Stats.xml
+		Languages\SpanishLatin\DefInjected\ThingCategoryDef\ThingCategories.xml = Languages\SpanishLatin\DefInjected\ThingCategoryDef\ThingCategories.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingCategoryDef", "ThingCategoryDef", "{09EDE8A6-BFF4-4C3E-9904-C755F1BCA5DF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{C69B4C1C-0CD7-4E56-8121-DF9E6460C5CC}"
 	ProjectSection(SolutionItems) = preProject
-		Languages\Russian\DefInjected\ThingCategoryDef\ThingCategories.xml = Languages\Russian\DefInjected\ThingCategoryDef\ThingCategories.xml
+		Languages\SpanishLatin\DefInjected\ThingDef\Defs_GloomyFurniture.xml = Languages\SpanishLatin\DefInjected\ThingDef\Defs_GloomyFurniture.xml
+		Languages\SpanishLatin\DefInjected\ThingDef\Defs_RIMkea.xml = Languages\SpanishLatin\DefInjected\ThingDef\Defs_RIMkea.xml
+		Languages\SpanishLatin\DefInjected\ThingDef\Defs_VanillaFurnitureExpanded.xml = Languages\SpanishLatin\DefInjected\ThingDef\Defs_VanillaFurnitureExpanded.xml
+		Languages\SpanishLatin\DefInjected\ThingDef\Things.xml = Languages\SpanishLatin\DefInjected\ThingDef\Things.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThingDef", "ThingDef", "{AD13B388-085C-4D4B-8303-B8D197D15D83}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{329DB32E-F2AB-4813-990D-621F6798DECE}"
 	ProjectSection(SolutionItems) = preProject
-		Languages\Russian\DefInjected\ThingDef\Defs_GloomyFurniture.xml = Languages\Russian\DefInjected\ThingDef\Defs_GloomyFurniture.xml
-		Languages\Russian\DefInjected\ThingDef\Defs_RIMkea.xml = Languages\Russian\DefInjected\ThingDef\Defs_RIMkea.xml
-		Languages\Russian\DefInjected\ThingDef\Defs_VanillaFurnitureExpanded.xml = Languages\Russian\DefInjected\ThingDef\Defs_VanillaFurnitureExpanded.xml
-		Languages\Russian\DefInjected\ThingDef\Things.xml = Languages\Russian\DefInjected\ThingDef\Things.xml
+		Languages\SpanishLatin\DefInjected\WorkGiverDef\WorkGiver.xml = Languages\SpanishLatin\DefInjected\WorkGiverDef\WorkGiver.xml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkGiverDef", "WorkGiverDef", "{3F7FCC30-AFA3-45B3-8223-77B1549F4259}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{663E258C-7B2E-4848-A65D-1D37738487E9}"
 	ProjectSection(SolutionItems) = preProject
-		Languages\Russian\DefInjected\WorkGiverDef\WorkGiver.xml = Languages\Russian\DefInjected\WorkGiverDef\WorkGiver.xml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Keyed", "Keyed", "{3FE5DF19-BF94-4A16-AEF3-D4E9C640199B}"
-	ProjectSection(SolutionItems) = preProject
-		Languages\Russian\Keyed\SoftWarmBeds_keys.xml = Languages\Russian\Keyed\SoftWarmBeds_keys.xml
+		Languages\SpanishLatin\Keyed\SoftWarmBeds_keys.xml = Languages\SpanishLatin\Keyed\SoftWarmBeds_keys.xml
 	EndProjectSection
 EndProject
 Global
@@ -581,72 +610,73 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B1487B6E-4833-4A17-B2E8-20AED7181289} = {5112442D-F6EE-4658-82D5-C2DCF9CFAB8F}
-		{2B97C313-2B70-45E3-97CB-10253F2F8BC4} = {76363F98-EFB5-43B6-8BDB-7E896CE46D5F}
-		{A0464DC2-84B5-48EB-97E0-EBEA4499B91C} = {2B97C313-2B70-45E3-97CB-10253F2F8BC4}
-		{52A0F0EB-51F5-44C7-810B-96BCB4A83A26} = {2B97C313-2B70-45E3-97CB-10253F2F8BC4}
-		{0E032E44-017B-456E-9DB0-DFEC17AE4904} = {52A0F0EB-51F5-44C7-810B-96BCB4A83A26}
-		{76AD0EC8-40D1-4BFC-96C7-434185B28270} = {52A0F0EB-51F5-44C7-810B-96BCB4A83A26}
-		{217418E9-18C0-4C92-A234-4C97AB5E975F} = {52A0F0EB-51F5-44C7-810B-96BCB4A83A26}
-		{4AD8FBE0-E50A-4247-8751-0827BB5DE043} = {76363F98-EFB5-43B6-8BDB-7E896CE46D5F}
-		{F8625815-E8DA-41C7-9349-C9F27FC4747D} = {D1888E31-6895-4E92-9488-8CA04CFE0BF6}
-		{95148DA6-E757-4706-85C5-2FB9F4B2E3CA} = {F8625815-E8DA-41C7-9349-C9F27FC4747D}
-		{29824FE1-74C9-4138-91A6-194435D413A5} = {95148DA6-E757-4706-85C5-2FB9F4B2E3CA}
-		{3FEFA431-3608-4284-9312-A98D3FBC04B2} = {95148DA6-E757-4706-85C5-2FB9F4B2E3CA}
-		{097768D8-E15D-4ECD-8053-2EB76801871B} = {95148DA6-E757-4706-85C5-2FB9F4B2E3CA}
-		{9ACB9304-0D6E-476F-9D33-96179652A115} = {95148DA6-E757-4706-85C5-2FB9F4B2E3CA}
-		{6B714770-7906-429D-9FB5-F84653E8B6EF} = {95148DA6-E757-4706-85C5-2FB9F4B2E3CA}
-		{672A2F3D-ECA9-4D6B-A5FA-FD89B2FFB488} = {F8625815-E8DA-41C7-9349-C9F27FC4747D}
-		{1D344C1A-5A7F-479B-BD76-C112ECAD5701} = {D1888E31-6895-4E92-9488-8CA04CFE0BF6}
-		{3C46118A-9E69-4FAC-9790-2D2D09C2A00A} = {1D344C1A-5A7F-479B-BD76-C112ECAD5701}
-		{3422C9ED-901E-49F1-ADCD-6DE43FAB2833} = {3C46118A-9E69-4FAC-9790-2D2D09C2A00A}
-		{2EF610C3-4C69-4365-9567-EF3327C3F71C} = {3C46118A-9E69-4FAC-9790-2D2D09C2A00A}
-		{58EF4D59-130E-4E0F-8D7F-7386AF1CBC65} = {3C46118A-9E69-4FAC-9790-2D2D09C2A00A}
-		{53322A21-410B-477F-922B-A722B05D8CF2} = {3C46118A-9E69-4FAC-9790-2D2D09C2A00A}
-		{72B33794-9DD9-4612-B780-A06CE3FE8B15} = {3C46118A-9E69-4FAC-9790-2D2D09C2A00A}
-		{998FEE11-DF90-4059-A399-555CE5B67CB2} = {1D344C1A-5A7F-479B-BD76-C112ECAD5701}
-		{A14EFB1F-1AA8-4F29-AC31-99E86A34BF7B} = {D1888E31-6895-4E92-9488-8CA04CFE0BF6}
-		{BA77D5F0-931E-4626-9A2B-2ED18F47A488} = {A14EFB1F-1AA8-4F29-AC31-99E86A34BF7B}
-		{9E1E2689-DE05-4B02-84B0-8A5EE6C83FDD} = {D1888E31-6895-4E92-9488-8CA04CFE0BF6}
-		{7ED79F34-AB24-46D6-8602-122F739B68FA} = {9E1E2689-DE05-4B02-84B0-8A5EE6C83FDD}
-		{FF95142C-E74C-4B35-A249-D5A962F23DCF} = {7ED79F34-AB24-46D6-8602-122F739B68FA}
-		{B554FE20-62F4-4FBE-84A2-FD9B2AE2F897} = {7ED79F34-AB24-46D6-8602-122F739B68FA}
-		{DA05E191-2843-4F6A-BB66-110F423A17E9} = {7ED79F34-AB24-46D6-8602-122F739B68FA}
-		{5551FDAE-D767-434D-8565-116B7B8811C1} = {7ED79F34-AB24-46D6-8602-122F739B68FA}
-		{ACB9D737-7C98-44A3-932A-9494D2816AE0} = {7ED79F34-AB24-46D6-8602-122F739B68FA}
-		{A7135132-C1C8-485F-A584-5309A91B9420} = {9E1E2689-DE05-4B02-84B0-8A5EE6C83FDD}
-		{EC97BAA4-E606-4A0C-840F-3B6C3F6657CF} = {D1888E31-6895-4E92-9488-8CA04CFE0BF6}
-		{8C69D6B4-1CF6-4D05-8370-71569B65B02A} = {EC97BAA4-E606-4A0C-840F-3B6C3F6657CF}
-		{9A2434A6-E097-494D-89AA-4A2E1FCEB068} = {8C69D6B4-1CF6-4D05-8370-71569B65B02A}
-		{5E423A38-01B4-485C-B8DF-7120F9489D9F} = {8C69D6B4-1CF6-4D05-8370-71569B65B02A}
-		{81BA7DBF-9B90-4466-BC08-EC64B9257CFD} = {8C69D6B4-1CF6-4D05-8370-71569B65B02A}
-		{CD4E238A-6CFC-4A7E-83B7-7D5A954680F1} = {8C69D6B4-1CF6-4D05-8370-71569B65B02A}
-		{43AAF638-8EA7-44B6-8B45-51C4ABFE13FE} = {8C69D6B4-1CF6-4D05-8370-71569B65B02A}
-		{D3FC0335-D756-44FC-9038-511972E006E1} = {EC97BAA4-E606-4A0C-840F-3B6C3F6657CF}
-		{AEDF6BA6-7803-4110-AEA4-79ECBF3D5DE8} = {D1888E31-6895-4E92-9488-8CA04CFE0BF6}
-		{D8C2B577-46F3-4467-AAF6-BE48733C4E90} = {AEDF6BA6-7803-4110-AEA4-79ECBF3D5DE8}
-		{43C169D2-0191-4AC8-8CCB-51A344C417CB} = {D8C2B577-46F3-4467-AAF6-BE48733C4E90}
-		{81554FF3-DF00-40E1-BF29-00919140D06A} = {D8C2B577-46F3-4467-AAF6-BE48733C4E90}
-		{8608C9E5-EEE6-4739-94A3-2E971265E94F} = {D8C2B577-46F3-4467-AAF6-BE48733C4E90}
-		{4A8B23F6-4311-469D-B57D-74D97814D178} = {D8C2B577-46F3-4467-AAF6-BE48733C4E90}
-		{A362DAB4-C3D9-429F-BE5E-5E4F2A977614} = {D8C2B577-46F3-4467-AAF6-BE48733C4E90}
-		{6962AC98-AE4E-4F03-B1F8-0B1C04A989AD} = {AEDF6BA6-7803-4110-AEA4-79ECBF3D5DE8}
-		{5832F41A-FEDA-4BA3-9E3B-0D401C57FE8E} = {D1888E31-6895-4E92-9488-8CA04CFE0BF6}
-		{32FABFE4-F990-4FF2-B738-3B10EB657D0B} = {5832F41A-FEDA-4BA3-9E3B-0D401C57FE8E}
-		{775F26CD-8739-4DA5-A42F-6A527E84EE5C} = {32FABFE4-F990-4FF2-B738-3B10EB657D0B}
-		{08828864-507C-424A-9387-6B1C19F35B91} = {32FABFE4-F990-4FF2-B738-3B10EB657D0B}
-		{58627FDC-AF67-4238-8364-30775F0F70AF} = {32FABFE4-F990-4FF2-B738-3B10EB657D0B}
-		{ECF7207D-B6D2-4BF0-B3B1-B8FE0C2C7547} = {32FABFE4-F990-4FF2-B738-3B10EB657D0B}
-		{22AA7D78-85E6-48C4-A57A-EEE80BEA3C45} = {32FABFE4-F990-4FF2-B738-3B10EB657D0B}
-		{0B56EEFE-C3E6-4977-8146-F2569259A394} = {5832F41A-FEDA-4BA3-9E3B-0D401C57FE8E}
-		{9F0E446E-7B39-4662-9A8E-2D7B5B48C682} = {D1888E31-6895-4E92-9488-8CA04CFE0BF6}
-		{57369928-650C-4A4D-A1E6-1D57E3F8897A} = {9F0E446E-7B39-4662-9A8E-2D7B5B48C682}
-		{FD0AE3FB-BB8B-4C51-860B-BA6AE551DC37} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
-		{E04913D4-1097-4876-BC9F-8B5816FB6B7C} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
-		{32964BD0-437D-4D35-9130-817213EE3900} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
-		{09EDE8A6-BFF4-4C3E-9904-C755F1BCA5DF} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
-		{AD13B388-085C-4D4B-8303-B8D197D15D83} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
-		{3F7FCC30-AFA3-45B3-8223-77B1549F4259} = {57369928-650C-4A4D-A1E6-1D57E3F8897A}
-		{3FE5DF19-BF94-4A16-AEF3-D4E9C640199B} = {9F0E446E-7B39-4662-9A8E-2D7B5B48C682}
+		{5F69B790-4B0F-45EF-92F4-FBAB696121BB} = {083E1096-5587-491F-BE8F-0126126B012F}
+		{6E030C35-6A0B-47C9-9DFC-59EBA0D02780} = {5F69B790-4B0F-45EF-92F4-FBAB696121BB}
+		{420F45EC-2105-4D31-8296-76C7EC371CD5} = {5F69B790-4B0F-45EF-92F4-FBAB696121BB}
+		{D3C02DAD-F228-479B-A1EA-81866A6B7077} = {420F45EC-2105-4D31-8296-76C7EC371CD5}
+		{DC1C07CC-DD52-45B0-9A37-83AA7B3DF948} = {420F45EC-2105-4D31-8296-76C7EC371CD5}
+		{964EBF8F-3FF9-4FE3-9EB3-A92AC1F939D9} = {420F45EC-2105-4D31-8296-76C7EC371CD5}
+		{3CF50FE2-38D0-4E6C-A037-87BE8CF9B2D3} = {420F45EC-2105-4D31-8296-76C7EC371CD5}
+		{1AC7186C-4E19-40BF-94FE-BE47807F9BC6} = {083E1096-5587-491F-BE8F-0126126B012F}
+		{DA23EA4F-A4CF-4BB6-99EA-947C3C574296} = {0865A500-32C5-4061-9692-25B9B7D9D87C}
+		{9F17C6DF-F791-458B-A7F1-2A1765D91720} = {DA23EA4F-A4CF-4BB6-99EA-947C3C574296}
+		{D4F46FBD-1254-4E92-BE0D-E13A601BEAC4} = {9F17C6DF-F791-458B-A7F1-2A1765D91720}
+		{D880953E-DB6A-450C-AEC1-7007E6AD690E} = {9F17C6DF-F791-458B-A7F1-2A1765D91720}
+		{E317F65F-A755-4EEA-A5C0-1DD5BC452677} = {9F17C6DF-F791-458B-A7F1-2A1765D91720}
+		{AF96A263-A884-4919-AC27-E5772EFFB102} = {9F17C6DF-F791-458B-A7F1-2A1765D91720}
+		{C18D37BC-5B6A-446E-9873-AE8B7757558E} = {9F17C6DF-F791-458B-A7F1-2A1765D91720}
+		{C066F3F8-CADC-4952-B25C-E06186D1F424} = {DA23EA4F-A4CF-4BB6-99EA-947C3C574296}
+		{C750AD3E-B46C-476F-BF2B-920897641670} = {0865A500-32C5-4061-9692-25B9B7D9D87C}
+		{17993365-1D9E-4472-BD76-107357EE4C59} = {C750AD3E-B46C-476F-BF2B-920897641670}
+		{34C61DAA-1B38-4474-84BC-D5D402E6C779} = {17993365-1D9E-4472-BD76-107357EE4C59}
+		{399EBF22-E0D8-4A66-B35E-7F82C1FBAD02} = {17993365-1D9E-4472-BD76-107357EE4C59}
+		{65DCDFBE-2261-4169-A9BF-48A76F3D47F9} = {17993365-1D9E-4472-BD76-107357EE4C59}
+		{668F689F-D2C4-463D-848C-E020AD0D7427} = {17993365-1D9E-4472-BD76-107357EE4C59}
+		{76A6DB57-AD3D-4702-A046-335D8A57A6FD} = {17993365-1D9E-4472-BD76-107357EE4C59}
+		{710AE77E-8B42-4D7D-BBCC-CF5482B98A2F} = {C750AD3E-B46C-476F-BF2B-920897641670}
+		{05050268-0ED4-44D3-82EC-5311576ABFDA} = {0865A500-32C5-4061-9692-25B9B7D9D87C}
+		{D262F197-CBC4-4A5F-9539-E8F02B72F4D0} = {05050268-0ED4-44D3-82EC-5311576ABFDA}
+		{9196D4C7-F28F-43EF-B567-639DDCC6448E} = {0865A500-32C5-4061-9692-25B9B7D9D87C}
+		{CF88F76C-C628-4089-AF1D-F52BD3EABB46} = {9196D4C7-F28F-43EF-B567-639DDCC6448E}
+		{696B2934-B57B-4DCD-8A0B-E08ED540BC43} = {CF88F76C-C628-4089-AF1D-F52BD3EABB46}
+		{83693272-04B5-47EE-8D3D-3D82E94FA157} = {CF88F76C-C628-4089-AF1D-F52BD3EABB46}
+		{577F784C-CE73-4EAB-BA6F-ED979373CB98} = {CF88F76C-C628-4089-AF1D-F52BD3EABB46}
+		{F37B2667-9548-45B4-8134-48ED1742A427} = {CF88F76C-C628-4089-AF1D-F52BD3EABB46}
+		{FB74943A-9F87-4C0D-BD21-99A9C1241E61} = {CF88F76C-C628-4089-AF1D-F52BD3EABB46}
+		{D668D42C-C05F-46C6-B213-4CEB8FE86524} = {9196D4C7-F28F-43EF-B567-639DDCC6448E}
+		{6C5311F1-8548-4095-8B0D-8B3687873AB4} = {0865A500-32C5-4061-9692-25B9B7D9D87C}
+		{09723434-4047-4FD2-8765-063DD4672A01} = {6C5311F1-8548-4095-8B0D-8B3687873AB4}
+		{60CBC7BB-EBCB-4C06-B0B3-682F0D04F816} = {09723434-4047-4FD2-8765-063DD4672A01}
+		{FD9B5AFB-3D2D-46C9-83F3-23266BED2693} = {09723434-4047-4FD2-8765-063DD4672A01}
+		{2B09D32F-40ED-42C5-87FD-6851B1451B8B} = {09723434-4047-4FD2-8765-063DD4672A01}
+		{E379996C-CA7E-432E-A3E0-F3B48D321C6C} = {09723434-4047-4FD2-8765-063DD4672A01}
+		{BFBE70EB-CEF7-4BF4-8732-6D12837399AB} = {09723434-4047-4FD2-8765-063DD4672A01}
+		{519BD4B9-D88D-4E73-BE8B-258E29F57ED6} = {6C5311F1-8548-4095-8B0D-8B3687873AB4}
+		{39760CC7-B2F0-44E0-AED9-C2416F95D2FC} = {0865A500-32C5-4061-9692-25B9B7D9D87C}
+		{82D03410-8816-4C40-9204-5CCC9BB697C5} = {39760CC7-B2F0-44E0-AED9-C2416F95D2FC}
+		{5856EE4C-18E1-434A-AAB0-45D3F8AFDD8E} = {82D03410-8816-4C40-9204-5CCC9BB697C5}
+		{840D7E14-9AEC-4F7C-BD16-24B6FCCBB5CE} = {82D03410-8816-4C40-9204-5CCC9BB697C5}
+		{3B015C11-E4EF-45D6-810B-1840E5EC7D29} = {82D03410-8816-4C40-9204-5CCC9BB697C5}
+		{DA070D42-38AB-4348-A9F8-6B4A4C2C7A3B} = {82D03410-8816-4C40-9204-5CCC9BB697C5}
+		{F95F057D-4E08-4965-8D2F-7DD96B9FE9B5} = {82D03410-8816-4C40-9204-5CCC9BB697C5}
+		{DAE52B23-EE49-44E2-8160-76F04205AE2D} = {39760CC7-B2F0-44E0-AED9-C2416F95D2FC}
+		{D4A89639-D23D-45C4-B142-52AE1E896093} = {0865A500-32C5-4061-9692-25B9B7D9D87C}
+		{29C50CB4-81B7-4ACB-8AE3-DA493F3F58BE} = {D4A89639-D23D-45C4-B142-52AE1E896093}
+		{7A3EDE29-C1DB-4047-9B73-4BAC518F2073} = {29C50CB4-81B7-4ACB-8AE3-DA493F3F58BE}
+		{DB03F25F-245A-4F26-AB15-A477DBC0B94D} = {29C50CB4-81B7-4ACB-8AE3-DA493F3F58BE}
+		{A49F84D1-BA8E-4C86-9AAB-A42E2833A1E1} = {29C50CB4-81B7-4ACB-8AE3-DA493F3F58BE}
+		{F4AE9FBA-CD26-4925-8CCC-96E67DC3A741} = {29C50CB4-81B7-4ACB-8AE3-DA493F3F58BE}
+		{8EF4485E-7A72-4C26-9F3A-4169E90A8D23} = {29C50CB4-81B7-4ACB-8AE3-DA493F3F58BE}
+		{3FB0E806-432E-4229-ABF3-08BBE9D5097E} = {D4A89639-D23D-45C4-B142-52AE1E896093}
+		{FD568CC5-B73D-428D-BC2B-A4E5727B3470} = {0865A500-32C5-4061-9692-25B9B7D9D87C}
+		{72B4D987-0302-4E9D-BA2C-B8BD3ECAF329} = {FD568CC5-B73D-428D-BC2B-A4E5727B3470}
+		{EBFEF50B-BA2D-4D85-8F92-DE9B8280B593} = {72B4D987-0302-4E9D-BA2C-B8BD3ECAF329}
+		{9DBD360D-5118-443F-8690-1CE3008F93B6} = {72B4D987-0302-4E9D-BA2C-B8BD3ECAF329}
+		{13823508-146D-4DCE-8319-996DE8538A33} = {72B4D987-0302-4E9D-BA2C-B8BD3ECAF329}
+		{1C6FFBD0-EC91-49E6-8F71-64260B57ECE7} = {72B4D987-0302-4E9D-BA2C-B8BD3ECAF329}
+		{C69B4C1C-0CD7-4E56-8121-DF9E6460C5CC} = {72B4D987-0302-4E9D-BA2C-B8BD3ECAF329}
+		{329DB32E-F2AB-4813-990D-621F6798DECE} = {72B4D987-0302-4E9D-BA2C-B8BD3ECAF329}
+		{663E258C-7B2E-4848-A65D-1D37738487E9} = {FD568CC5-B73D-428D-BC2B-A4E5727B3470}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28CF9A73-5333-4EB3-BFCC-3FBEDDA19200}

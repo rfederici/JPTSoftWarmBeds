@@ -6,30 +6,134 @@
       <li>Vanilla Factions Expanded - Vikings</li>
     </mods>
     <match Class="PatchOperationSequence">
-      <success>Always</success>
+      <success>Normal</success>
       <operations>
+        <!-- Function Extension-->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName = "VFEV_FurBed" or defName = "VFEV_DoubleFurBed"]</xpath>
+          <value>
+            <inspectorTabs>
+              <li>SoftWarmBeds.ITab_Bedding</li>
+            </inspectorTabs>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName = "VFEV_FurBed" or defName = "VFEV_DoubleFurBed"]/building</xpath>
+          <value>
+            <fixedStorageSettings>
+              <filter>
+                <categories>
+                  <li>Textiles</li>
+                </categories>
+              </filter>
+            </fixedStorageSettings>
+            <defaultStorageSettings>
+              <filter>
+                <categories>
+                  <li>Textiles</li>
+                </categories>
+              </filter>
+            </defaultStorageSettings>
+          </value>
+        </li>
+        <!--Graphic Modifications Place Holder-->
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/graphicData/texPath</xpath>
+          <value>
+            <texPath>Things/Building/VFEVikings/FurBed</texPath>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="VFEV_DoubleFurBed"]/graphicData/texPath</xpath>
+          <value>
+            <texPath>Things/Building/VFEVikings/DoubleFurBed</texPath>
+          </value>
+        </li>
+        <!--Research Changer-->
+        <li Class="PatchOperationFindMod">
+          <mods>
+              <li>Vanilla Furniture Expanded</li>
+          </mods>     
+          <match Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="SingleTribalBedding" or defName="DoubleTribalBedding"]/recipeMaker</xpath>
+            <value>
+              <researchPrerequisite>MF_BasicFurniture</researchPrerequisite>
+            </value>
+          </match>
+        </li>
+        <!--Beddings Settings-->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/comps</xpath>
+          <value>
+            <li Class="SoftWarmBeds.CompProperties_MakeableBed">
+              <blanketDef>FurSingleBedBlanket</blanketDef>
+              <beddingDef>SingleTribalBedding</beddingDef>
+            </li>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="VFEV_DoubleFurBed"]/comps</xpath>
+          <value>
+            <li Class="SoftWarmBeds.CompProperties_MakeableBed">
+              <blanketDef>FurDoubleBedBlanket</blanketDef>
+              <beddingDef>DoubleTribalBedding</beddingDef>
+            </li>
+          </value>
+        </li>
+
         <!--BedRestEffectiveness Settings-->
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/statBases/BedRestEffectiveness</xpath>
           <value>
-            <BedRestEffectiveness>0.47</BedRestEffectiveness>
+            <BedRestEffectiveness>0.42</BedRestEffectiveness>
           </value>
         </li>
         <!--Comfort Settings-->
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/statBases/Comfort</xpath>
           <value>
-            <Comfort>0.21</Comfort>
+            <Comfort>0.20</Comfort>
           </value>
         </li>
         <!--Insulation Settings-->
         <li Class="PatchOperationAdd">
           <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/statBases</xpath>
           <value>
-            <BedStuffEffectMultiplierInsulation_Cold>0.3</BedStuffEffectMultiplierInsulation_Cold>
+            <BedStuffEffectMultiplierInsulation_Cold>0.2</BedStuffEffectMultiplierInsulation_Cold>
           </value>
         </li>
+
+
+        <!--Bed Recipe Changes-->
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/stuffCategories</xpath>
+          <value>
+            <stuffCategories>
+                <li>Woody</li>
+            </stuffCategories>
+          </value>
+        </li>
+
+        <li Class="PatchOperationRemove">
+          <xpath>Defs/ThingDef[defName="VFEV_FurBed" or defName="VFEV_DoubleFurBed"]/costList</xpath>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="VFEV_FurBed"]/costStuffCount</xpath>
+          <value>
+            <costStuffCount>25</costStuffCount>
+          </value>
+        </li>
+
+        <li Class="PatchOperationReplace">
+          <xpath>Defs/ThingDef[defName="VFEV_DoubleFurBed"]/costStuffCount</xpath>
+          <value>
+            <costStuffCount>45</costStuffCount>
+          </value>
+        </li>
+
       </operations>
+
     </match>
   </Operation>
 
