@@ -12,12 +12,10 @@
   <DoubleBedding.label>Lenzuola per letto matrimoniale</DoubleBedding.label>
   <DoubleBedding.description>Insieme di copriletto, coperta, lenzuolo e cuscini per un letto matrimoniale. Offre comodità e isolamento termico per chi occupa il letto.</DoubleBedding.description>
 
-  <!--NEW!-->
-  <SingleTribalBedding.label>fur bedding</SingleTribalBedding.label>
-  <SingleTribalBedding.description>A pile of fur to use as a blanket and a rudimentary pillow. Not very comfortable but much better than nothing and insulates the user while in bed.</SingleTribalBedding.description>
-
-  <DoubleTribalBedding.label>large fur bedding</DoubleTribalBedding.label>
-  <DoubleTribalBedding.description>A big pile of fur to use as a blanket with two makeshift pillows. Not very comfortable but much better than nothing and insulates the users while in bed.</DoubleTribalBedding.description>
-
+  <SingleTribalBedding.label>coperte di pelliccia</SingleTribalBedding.label>
+  <SingleTribalBedding.description>Un mucchio di pellicce da usare come coperte, con un cuscino rudimentale. Non molto comodo, ma decisamente meglio che non usare niente. Offre isolamento termico per chi occupa il letto.</SingleTribalBedding.description>
+  
+  <DoubleTribalBedding.label>ampie coperte di pelliccia</DoubleTribalBedding.label>
+  <DoubleTribalBedding.description>Un grande mucchio di pellicce da usare come coperte, con due cuscini improvvisati. Non molto comodo, ma decisamente meglio che non usare niente. Offre isolamento termico per chi occupa il letto.</DoubleTribalBedding.description>
 
 </LanguageData>
