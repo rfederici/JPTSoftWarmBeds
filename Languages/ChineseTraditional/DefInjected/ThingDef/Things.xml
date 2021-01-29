@@ -23,4 +23,12 @@
   <!--EN: A set of mattress, pillows, linen and blanket for a double bed. Provides comfort and insulates the users while in bed.-->
   <DoubleBedding.description>包括一套雙人用的床墊、枕頭、織物和毯子。讓使用者倍感舒適，還能保持體溫。</DoubleBedding.description>
 
+  <!--NEW!-->
+  <SingleTribalBedding.label>fur bedding</SingleTribalBedding.label>
+  <SingleTribalBedding.description>A pile of fur to use as a blanket and a rudimentary pillow. Not very comfortable but much better than nothing and insulates the user while in bed.</SingleTribalBedding.description>
+
+  <DoubleTribalBedding.label>large fur bedding</DoubleTribalBedding.label>
+  <DoubleTribalBedding.description>A big pile of fur to use as a blanket with two makeshift pillows. Not very comfortable but much better than nothing and insulates the users while in bed.</DoubleTribalBedding.description>
+
+
 </LanguageData>

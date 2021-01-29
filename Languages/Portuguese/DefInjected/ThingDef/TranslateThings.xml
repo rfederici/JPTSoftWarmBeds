@@ -12,4 +12,10 @@
   <DoubleBedding.label>roupa de cama de casal</DoubleBedding.label>
   <DoubleBedding.description>Conjunto de colchão, travesseiros, lençóis e cobertor para uma cama de casal. Fornece conforto e isolamento térmico para quem estiver na cama.</DoubleBedding.description>
 
+  <SingleTribalBedding.label>peles para cama de solteiro</SingleTribalBedding.label>
+  <SingleTribalBedding.description>Um cobertor rústico de peles para usar em uma cama de solteiro. Não muito confortável, mas é melhor que nada e pelo menos fornece isolamento térmico para quem estiver na cama.</SingleTribalBedding.description>
+
+  <DoubleTribalBedding.label>peles para cama de casal</DoubleTribalBedding.label>
+  <DoubleTribalBedding.description>Um cobertor rústico de peles para usar em uma cama de casal. Não muito confortável, mas é melhor que nada e pelo menos fornece isolamento térmico para quem estiver na cama.</DoubleTribalBedding.description>
+
 </LanguageData>
