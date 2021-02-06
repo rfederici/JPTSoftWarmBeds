@@ -56,7 +56,22 @@
     <Compile Include="CompMakeableBed.cs" />
     <Compile Include="CompProperties_MakeableBed.cs" />
     <Compile Include="DefOfs.cs" />
-    <Compile Include="HarmonyPatch.cs" />
+    <Compile Include="Harmony\TryGainMemory_Patch.cs" />
+    <Compile Include="Harmony\VFEV_Patch.cs" />
+    <Compile Include="Harmony\Patch_SpecialThingFilterWorker_DeadmansApparel.cs" />
+    <Compile Include="Harmony\Patch_SpecialThingFilterWorkerMatches.cs" />
+    <Compile Include="Harmony\Need_Rest_Patch.cs" />
+    <Compile Include="Harmony\Hospitality_Patch.cs" />
+    <Compile Include="Harmony\Notify_ColorChanged_Patch.cs" />
+    <Compile Include="Harmony\DrawColorTwo_Patch.cs" />
+    <Compile Include="Harmony\DeSpawn_Patch.cs" />
+    <Compile Include="Harmony\Draw_Patch.cs" />
+    <Compile Include="Harmony\GetInspectString_Patch.cs" />
+    <Compile Include="Harmony\GetInfoCardHyperlinks_Patch.cs" />
+    <Compile Include="Harmony\StatsToDraw_Patch.cs" />
+    <Compile Include="Harmony\ExplanationPart_Patch.cs" />
+    <Compile Include="Harmony\ComfortableTemperatureRange_Patch.cs" />
+    <Compile Include="Harmony\PawnOnBedRenderer_Patch.cs" />
     <Compile Include="ITab_bedding.cs" />
     <Compile Include="JobDriver_MakeBed.cs" />
     <Compile Include="ModBaseSoftWarmBeds.cs" />
@@ -67,9 +82,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.0.0.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lib.Harmony.2.0.0.8\lib\net472\0Harmony.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="0Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.2.0.4\lib\net472\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>

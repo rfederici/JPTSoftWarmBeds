@@ -9,7 +9,92 @@
       <success>Always</success>
       <operations>
 
-        <!--Function Extension-->
+        <!--Extra Defs-->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            
+            <ThingDef ParentName="BlanketBase">
+              <defName>RGK_SingleBlanket</defName>
+              <label>gloomy single blanket</label>
+              <description>Keeps you warm</description>
+              <graphicData>
+                <texPath>Things/Building/GloomyFurniture/RGK_SingleBlanket</texPath>
+                <graphicClass>Graphic_Multi</graphicClass>
+                <shaderType>CutoutComplex</shaderType>
+                <drawSize>(3,4)</drawSize>
+                <damageData>
+                  <rect>(0,0.05,1,1.95)</rect>
+                </damageData>
+              </graphicData>
+              <size>(1,2)</size>
+            </ThingDef>
+
+            <ThingDef ParentName="BlanketBase">
+              <defName>RGK_SingleBlanketB</defName>
+              <label>gloomy single blanket</label>
+              <description>Keeps you warm</description>
+              <graphicData>
+                <texPath>Things/Building/GloomyFurniture/RGK_SingleBlanket2</texPath>
+                <graphicClass>Graphic_Multi</graphicClass>
+                <shaderType>CutoutComplex</shaderType>
+                <drawSize>(3,4)</drawSize>
+                <damageData>
+                  <rect>(0,0.05,1,1.95)</rect>
+                </damageData>
+              </graphicData>
+              <size>(1,2)</size>
+            </ThingDef>
+
+            <ThingDef ParentName="BlanketBase">
+              <defName>RGK_DoubleBlanket</defName>
+              <label>gloomy double blanket</label>
+              <graphicData>
+                <texPath>Things/Building/GloomyFurniture/RGK_DoubleBlanket</texPath>
+                <graphicClass>Graphic_Multi</graphicClass>
+                <shaderType>CutoutComplex</shaderType>
+                <drawSize>(4.05,4.05)</drawSize>
+                <damageData>
+                  <rect>(0,0.05,1,1.95)</rect>
+                </damageData>
+              </graphicData>
+              <size>(2,2)</size>
+            </ThingDef>
+
+            <ThingDef ParentName="BlanketBase">
+              <defName>RGK_DoubleBlanketB</defName>
+              <label>gloomy double blanket</label>
+              <graphicData>
+                <texPath>Things/Building/GloomyFurniture/RGK_DoubleBlanket2</texPath>
+                <graphicClass>Graphic_Multi</graphicClass>
+                <shaderType>CutoutComplex</shaderType>
+                <drawSize>(4.05,4.05)</drawSize>
+                <damageData>
+                  <rect>(0,0.05,1,1.95)</rect>
+                </damageData>
+              </graphicData>
+              <size>(2,2)</size>
+            </ThingDef>
+
+            <ThingDef ParentName="BlanketBase">
+              <defName>GL_ClassyDoubleBlanket</defName>
+              <label>gloomy classy blanket</label>
+              <graphicData>
+                <texPath>Things/Building/GloomyFurniture/GL_ClassyDoubleBlanket</texPath>
+                <graphicClass>Graphic_Multi</graphicClass>
+                <shaderType>CutoutComplex</shaderType>
+                <drawSize>(4,4)</drawSize>
+                <damageData>
+                  <rect>(0,0.05,1,1.95)</rect>
+                </damageData>
+              </graphicData>
+              <size>(2,2)</size>
+            </ThingDef>
+            
+          </value>
+        </li>
+
+            <!--Function Extension-->
         <li Class="PatchOperationAdd">
           <xpath>Defs/ThingDef[defName = "RGK_bedSingle" or defName = "RGK_bedSingleB" or defName = "RGK_bedDouble" or defName = "RGK_bedDoubleB" or defName = "GL_ClassyDoubleBed"]</xpath>
           <value>

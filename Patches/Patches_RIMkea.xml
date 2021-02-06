@@ -8,7 +8,79 @@
     <match Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
-        <!--Function Extension-->
+
+        <!--Extra Defs-->
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            
+            <ThingDef ParentName="BlanketBase">
+              <defName>SNOREGGSingleBlanket</defName>
+              <label>RIMkea single blanket</label>
+              <description>Keeps you warm</description>
+              <graphicData>
+                <texPath>Things/Building/RIMkea/SNOREGGSingleBlanket</texPath>
+                <graphicClass>Graphic_Multi</graphicClass>
+                <shaderType>CutoutComplex</shaderType>
+                <drawSize>(3,4)</drawSize>
+                <damageData>
+                  <rect>(0,0.05,1,1.95)</rect>
+                </damageData>
+              </graphicData>
+              <size>(1,2)</size>
+            </ThingDef>
+
+            <ThingDef ParentName="BlanketBase">
+              <defName>SNOREGGDoubleBlanket</defName>
+              <label>RIMkea double blanket</label>
+              <graphicData>
+                <texPath>Things/Building/RIMkea/SNOREGGDoubleBlanket</texPath>
+                <graphicClass>Graphic_Multi</graphicClass>
+                <shaderType>CutoutComplex</shaderType>
+                <drawSize>(4.05,4.05)</drawSize>
+                <damageData>
+                  <rect>(0,0.05,1,1.95)</rect>
+                </damageData>
+              </graphicData>
+              <size>(2,2)</size>
+            </ThingDef>
+
+            <ThingDef ParentName="BlanketBase">
+              <defName>KRUDNEPPSingleBlanket</defName>
+              <label>RIMkea single blanket</label>
+              <description>Keeps you warm</description>
+              <graphicData>
+                <texPath>Things/Building/RIMkea/KRUDNEPPSingleBlanket</texPath>
+                <graphicClass>Graphic_Multi</graphicClass>
+                <shaderType>CutoutComplex</shaderType>
+                <drawSize>(3,4)</drawSize>
+                <damageData>
+                  <rect>(0,0.05,1,1.95)</rect>
+                </damageData>
+              </graphicData>
+              <size>(1,2)</size>
+            </ThingDef>
+
+            <ThingDef ParentName="BlanketBase">
+              <defName>SLABNEPPDoubleBlanket</defName>
+              <label>RIMkea double blanket</label>
+              <graphicData>
+                <texPath>Things/Building/RIMkea/SLABNEPPDoubleBlanket</texPath>
+                <graphicClass>Graphic_Multi</graphicClass>
+                <shaderType>CutoutComplex</shaderType>
+                <drawSize>(4.05,4.05)</drawSize>
+                <damageData>
+                  <rect>(0,0.05,1,1.95)</rect>
+                </damageData>
+              </graphicData>
+              <size>(2,2)</size>
+            </ThingDef>
+
+          </value>
+        </li>
+
+
+            <!--Function Extension-->
         <li Class="PatchOperationAdd">
           <xpath>Defs/ThingDef[defName="SNOREGGSingle" or defName="SNOREGGDouble" or defName="KRUDNEPPSingle" or defName="SLABNEPPDouble"]</xpath>
           <value>

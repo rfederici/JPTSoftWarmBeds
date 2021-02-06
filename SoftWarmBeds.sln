@@ -15,10 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{0A658597
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Defs", "Defs", "{5112442D-F6EE-4658-82D5-C2DCF9CFAB8F}"
 	ProjectSection(SolutionItems) = preProject
-		Defs\Defs_GloomyFurniture.xml = Defs\Defs_GloomyFurniture.xml
-		Defs\Defs_RIMkea.xml = Defs\Defs_RIMkea.xml
-		Defs\Defs_VanillaFactionsExpandedVikings.xml = Defs\Defs_VanillaFactionsExpandedVikings.xml
-		Defs\Defs_VanillaFurnitureExpanded.xml = Defs\Defs_VanillaFurnitureExpanded.xml
 		Defs\Jobs.xml = Defs\Jobs.xml
 		Defs\Stats.xml = Defs\Stats.xml
 		Defs\ThingCategories.xml = Defs\ThingCategories.xml
