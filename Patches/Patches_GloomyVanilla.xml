@@ -10,7 +10,15 @@
 			<success>Always</success>
 			<operations>
 
-			  <!--Graphic Modifications-->
+        <!--Peserving Menu Icon-->
+       <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "RoyalBed"]/uiIconScale</xpath>
+          <value>
+            <uiIconScale>1.66</uiIconScale>
+          </value>
+        </li>
+
+        <!--Graphic Modifications-->
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/ThingDef[defName="Bed"]/graphicData/texPath</xpath>
 					<value>

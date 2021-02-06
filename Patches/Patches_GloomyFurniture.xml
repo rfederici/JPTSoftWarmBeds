@@ -94,7 +94,7 @@
           </value>
         </li>
 
-            <!--Function Extension-->
+        <!--Function Extension-->
         <li Class="PatchOperationAdd">
           <xpath>Defs/ThingDef[defName = "RGK_bedSingle" or defName = "RGK_bedSingleB" or defName = "RGK_bedDouble" or defName = "RGK_bedDoubleB" or defName = "GL_ClassyDoubleBed"]</xpath>
           <value>
@@ -121,6 +121,45 @@
               </filter>
             </defaultStorageSettings>
           </value>
+        </li>
+
+        <!--Peserving Menu Icon-->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName = "RGK_bedSingle" or defName = "RGK_bedSingleB" or defName = "RGK_bedDouble" or defName = "RGK_bedDoubleB" or defName = "GL_ClassyDoubleBed"]</xpath>
+          <value>
+            <uiIconPath/>
+          </value>
+        </li>
+        <li Class="PatchOperationReplace">
+          <xpath>/Defs/ThingDef[defName = "RGK_bedSingle" or defName = "RGK_bedSingleB" or defName = "RGK_bedDouble" or defName = "RGK_bedDoubleB" or defName = "GL_ClassyDoubleBed"]/uiIconScale</xpath>
+          <value>
+            <uiIconScale>1.66</uiIconScale>
+          </value>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "RGK_bedSingle"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "RGK_bedSingle"]/uiIconPath</toXpath>
+          <append>_south</append>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "RGK_bedSingleB"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "RGK_bedSingleB"]/uiIconPath</toXpath>
+          <append>_south</append>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "RGK_bedDouble"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "RGK_bedDouble"]/uiIconPath</toXpath>
+          <append>_south</append>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "RGK_bedDoubleB"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "RGK_bedDoubleB"]/uiIconPath</toXpath>
+          <append>_south</append>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "GL_ClassyDoubleBed"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "GL_ClassyDoubleBed"]/uiIconPath</toXpath>
+          <append>_south</append>
         </li>
 
         <!--Graphic Modifications-->

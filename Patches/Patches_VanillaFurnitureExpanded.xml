@@ -91,6 +91,30 @@
             </defaultStorageSettings>
           </value>
         </li>
+        
+        <!--Peserving Menu Icon-->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName = "Bed_Kingsize" or defName = "Bed_Ergonomic" or defName = "Bed_DoubleErgonomic"]</xpath>
+          <value>
+            <uiIconPath/>
+          </value>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "Bed_Kingsize"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "Bed_Kingsize"]/uiIconPath</toXpath>
+          <append>_south</append>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "Bed_Ergonomic"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "Bed_Ergonomic"]/uiIconPath</toXpath>
+          <append>_south</append>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "Bed_DoubleErgonomic"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "Bed_DoubleErgonomic"]/uiIconPath</toXpath>
+          <append>_south</append>
+        </li>
+
         <!--Graphic Modifications Place Holder-->
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="Bed_Kingsize"]/graphicData/texPath</xpath>
@@ -332,6 +356,25 @@
             </defaultStorageSettings>
           </value>
         </li>
+        
+        <!--Peserving Menu Icon-->
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName = "Bed_AdvBed" or defName = "Bed_AdvDoubleBed"]</xpath>
+          <value>
+            <uiIconPath/>
+          </value>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "Bed_AdvBed"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "Bed_AdvBed"]/uiIconPath</toXpath>
+          <append>_south</append>
+        </li>
+        <li Class="SoftWarmBeds.PatchOperationCopy">
+          <xpath>/Defs/ThingDef[defName = "Bed_AdvDoubleBed"]/graphicData/texPath</xpath>
+          <toXpath>/Defs/ThingDef[defName = "Bed_AdvDoubleBed"]/uiIconPath</toXpath>
+          <append>_south</append>
+        </li>
+
         <!--Graphic Modifications Place Holder-->
         <li Class="PatchOperationReplace">
           <xpath>Defs/ThingDef[defName="Bed_AdvBed"]/graphicData/texPath</xpath>

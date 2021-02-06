@@ -67,8 +67,37 @@
           </defaultStorageSettings>
         </value>
       </li>
+      
+      <!--Peserving Menu Icon-->
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName = "Bed" or defName = "DoubleBed" or defName = "HospitalBed" or defName = "RoyalBed"]</xpath>
+        <value>
+          <uiIconPath/>
+        </value>
+      </li>
+      <li Class="SoftWarmBeds.PatchOperationCopy">
+        <xpath>/Defs/ThingDef[defName = "Bed"]/graphicData/texPath</xpath>
+        <toXpath>/Defs/ThingDef[defName = "Bed"]/uiIconPath</toXpath>
+        <append>_south</append>
+      </li>
+      <li Class="SoftWarmBeds.PatchOperationCopy">
+        <xpath>/Defs/ThingDef[defName = "DoubleBed"]/graphicData/texPath</xpath>
+        <toXpath>/Defs/ThingDef[defName = "DoubleBed"]/uiIconPath</toXpath>
+        <append>_south</append>
+      </li>
+      <li Class="SoftWarmBeds.PatchOperationCopy">
+        <xpath>/Defs/ThingDef[defName = "HospitalBed"]/graphicData/texPath</xpath>
+        <toXpath>/Defs/ThingDef[defName = "HospitalBed"]/uiIconPath</toXpath>
+        <append>_south</append>
+      </li>
+      <li Class="SoftWarmBeds.PatchOperationCopy">
+        <xpath>/Defs/ThingDef[defName = "RoyalBed"]/graphicData/texPath</xpath>
+        <toXpath>/Defs/ThingDef[defName = "RoyalBed"]/uiIconPath</toXpath>
+        <append>_south</append>
+      </li>
 
       <!--Graphic Modifications-->
+
       <li Class="PatchOperationReplace">
         <xpath>/Defs/ThingDef[defName = "Bed"]/graphicData/texPath</xpath>
         <value>
