@@ -58,7 +58,6 @@ namespace SoftWarmBeds
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            //Log.Message("Toil start:" + this.pawn +" is taking " + Bedding + " to " + Bed);
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             base.AddEndCondition(() => (!bedComp.Loaded) ? JobCondition.Ongoing : JobCondition.Succeeded);
             job.count = 1;
@@ -73,8 +72,7 @@ namespace SoftWarmBeds
             makeTheBed.initAction = delegate
             {
                 Pawn actor = makeTheBed.actor;
-                bedComp.LoadBedding(actor.CurJob.targetB.Thing.def, actor.CurJob.targetB.Thing);//, 1);
-                //Building_SoftWarmBed SoftWarmBed = Bed as Building_SoftWarmBed;
+                bedComp.LoadBedding(actor.CurJob.targetB.Thing);
                 actor.carryTracker.innerContainer.ClearAndDestroyContents(DestroyMode.Vanish);
             };
             makeTheBed.defaultCompleteMode = ToilCompleteMode.Instant;

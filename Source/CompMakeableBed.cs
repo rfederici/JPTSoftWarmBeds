@@ -215,10 +215,10 @@ namespace SoftWarmBeds
         }
 
         //modified from CompChangeableProjectiles
-        public void LoadBedding(ThingDef beddingDef, Thing bedding)
+        public void LoadBedding(Thing bedding)
         {
             loaded = true;
-            loadedBedding = beddingDef;
+            loadedBedding = bedding.def;
             blanketStuff = bedding.Stuff;
             //if (this.bedding.TryGetComp<CompColorable>().Active) //test
             //{
@@ -239,6 +239,12 @@ namespace SoftWarmBeds
             parent.Notify_ColorChanged();
             wantSwitchOn = true;
             switchOnInt = true;
+        }
+
+        public void LoadBedding(ThingDef stuff)
+        {
+            Thing bedding = ThingMaker.MakeThing(Props.beddingDef, stuff);
+            LoadBedding(bedding);
         }
 
         public override void PostExposeData()

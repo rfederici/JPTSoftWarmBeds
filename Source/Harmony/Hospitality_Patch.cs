@@ -41,13 +41,11 @@ namespace SoftWarmBeds
 
         public static void Swap(object __instance, Building_Bed bed, StorageSettings settings, CompMakeableBed compMakeable)
         {
-            ThingDef bedLoadedBedding = null;
             Thing bedBedding = null;
             if (compMakeable != null)
             {
                 if (compMakeable.Loaded)
                 {
-                    bedLoadedBedding = compMakeable.loadedBedding;
                     bedBedding = compMakeable.bedding;
                 }
             }
@@ -77,9 +75,9 @@ namespace SoftWarmBeds
             if (SpawnedCompMakeable != null)
             {
                 SpawnedCompMakeable.settings = settings;
-                if (bedLoadedBedding != null)
+                if (bedBedding != null)
                 {
-                    SpawnedCompMakeable.LoadBedding(bedLoadedBedding, bedBedding);
+                    SpawnedCompMakeable.LoadBedding(bedBedding);
                 }
             }
             Find.Selector.Select(spawnedBed, false, true);

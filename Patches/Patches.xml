@@ -97,7 +97,6 @@
       </li>
 
       <!--Graphic Modifications-->
-
       <li Class="PatchOperationReplace">
         <xpath>/Defs/ThingDef[defName = "Bed"]/graphicData/texPath</xpath>
         <value>

@@ -60,10 +60,8 @@ namespace SoftWarmBeds
             Building_Bed bed = req.Thing as Building_Bed;
             if (req.HasThing && bed != null)
             {
-                //Log.Message(bed + " is calculating stats. (value " + value + ")");
                 float addend = (additiveStat != null) ? SelectValue(req, additiveStat) : 0f;
                 float factor = (multiplierStat != null) ? SelectValue(req, multiplierStat) : 0f;
-                //Log.Message("defined: factor: " + (double)factor + " addend: " + (double)addend);
                 if (multiplierStat != null)
                 {
                     if (additiveStat != null)
@@ -100,7 +98,6 @@ namespace SoftWarmBeds
                     {
                         if (stat == additiveStat)
                         {
-                            //Log.Message(stat + " is +zero for no bedding at " + req.Thing);
                             return 0f; // unmade bed = additive zero
                         }
                     }
@@ -115,7 +112,6 @@ namespace SoftWarmBeds
                     {
                         if (stat == additiveStat)
                         {
-                            //Log.Message(stat + " is +zero for no comp at " + req.Thing);
                             return 0f; // no comp, no stuff (SleepingSpot)
                         }
                     }
@@ -125,23 +121,18 @@ namespace SoftWarmBeds
                 {
                     if (stat == additiveStat)
                     {
-                        //Log.Message(stat + " is " + stuff.GetStatValueAbstract(stat, null) + " on " + stuff + " (case 1)");
                         return stuff.GetStatValueAbstract(stat, null); // if additive = get it from bed/bedding stuff
                     }
-                    //Log.Message(stat + " is " + req.Def.GetStatValueAbstract(stat, null) + " on " + req.Def + " (case 2)");
                     //return req.Def.GetStatValueAbstract(stat, null); // Changed on 1.1: method transfered to a Def child:
                     return req.BuildableDef.GetStatValueAbstract(stat, null); // if multiplier = get it from bed
                 }
                 if (stat == additiveStat)
                 {
-                    //Log.Message(stat + " is " + stuff.GetStatValueAbstract(stat, null) + " on " + stuff + " (case 3)");
                     return stuff.GetStatValueAbstract(stat, null); // just additive = get it from bed/bedding stuff
                 }
-                //Log.Message(stat + " is " + req.Def.GetStatValueAbstract(stat, null) + " on " + req.Def + " (case 4)");
                 //return req.Def.GetStatValueAbstract(stat, null); // Changed on 1.1: method transfered to a Def child:
                 return req.BuildableDef.GetStatValueAbstract(stat, null); // just multiplier (just in case) = get from bed
             }
-            //Log.Message(stat + " tried selecting without target");
             return 0f;
         }
     }

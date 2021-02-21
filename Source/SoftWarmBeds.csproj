@@ -53,6 +53,7 @@
     <Compile Include="Bedding.cs" />
     <Compile Include="BedMakingWorkGiverUtility.cs" />
     <Compile Include="Building_Blanket.cs" />
+    <Compile Include="Harmony\SymbolResolver_SingleThing+ThingMaker_MakeThing.cs" />
     <Compile Include="PatchOperationCopy.cs" />
     <Compile Include="CompMakeableBed.cs" />
     <Compile Include="CompProperties_MakeableBed.cs" />
