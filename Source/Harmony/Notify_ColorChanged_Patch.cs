@@ -15,7 +15,7 @@ namespace SoftWarmBeds
                 CompMakeableBed bedComp = bed.TryGetComp<CompMakeableBed>();
                 if (bedComp != null && bedComp.loaded && bedComp.blanketDef != null)
                 {
-                    bedComp.bedding.Notify_ColorChanged();
+                    bedComp.blanket.Notify_ColorChanged();
                 }
             }
         }

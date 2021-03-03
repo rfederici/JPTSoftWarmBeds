@@ -12,8 +12,8 @@ namespace SoftWarmBeds
         public static Faction cachedFaction;
         public static void Prefix(ResolveParams rp)
         {
-            ThingMaker_MakeThing.Act = true;
             cachedFaction = rp.faction ?? null;
+            ThingMaker_MakeThing.Act = cachedFaction != null;
         }
     }
 
@@ -28,7 +28,8 @@ namespace SoftWarmBeds
                 var comp = __result.TryGetComp<CompMakeableBed>();
                 if (comp != null)
                 {
-                    comp.LoadBedding(GenStuff.RandomStuffInexpensiveFor(comp.Props.beddingDef, SymbolResolver_SingleThing_Resolve.cachedFaction, null));
+                    ThingDef stuff = GenStuff.RandomStuffInexpensiveFor(comp.Props.beddingDef, SymbolResolver_SingleThing_Resolve.cachedFaction, null);
+                    if (stuff != null) comp.LoadBedding(stuff);
                 }
             }
             Act = false;

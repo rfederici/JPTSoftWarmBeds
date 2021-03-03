@@ -41,14 +41,6 @@ namespace SoftWarmBeds
 
         public static void Swap(object __instance, Building_Bed bed, StorageSettings settings, CompMakeableBed compMakeable)
         {
-            Thing bedBedding = null;
-            if (compMakeable != null)
-            {
-                if (compMakeable.Loaded)
-                {
-                    bedBedding = compMakeable.bedding;
-                }
-            }
             //reflection info
             Type guestBed = AccessTools.TypeByName("Hospitality.Building_GuestBed");
             MethodInfo makeBedinfo = AccessTools.Method(guestBed, "MakeBed", new[] { typeof(Building_Bed), typeof(string) });
@@ -69,17 +61,14 @@ namespace SoftWarmBeds
             var spawnedBed = (Building_Bed)GenSpawn.Spawn(newBed, bed.Position, bed.Map, bed.Rotation);
             spawnedBed.HitPoints = bed.HitPoints;
             spawnedBed.ForPrisoners = bed.ForPrisoners;
-            var SpawnedCompQuality = spawnedBed.TryGetComp<CompQuality>();
-            if (SpawnedCompQuality != null) SpawnedCompQuality.SetQuality(bed.GetComp<CompQuality>().Quality, ArtGenerationContext.Outsider);
-            var SpawnedCompMakeable = spawnedBed.TryGetComp<CompMakeableBed>();
-            if (SpawnedCompMakeable != null)
+            // This should be on Hospitality, Orion! 
+            spawnedBed.AllComps.Clear();
+            spawnedBed.AllComps.AddRange(bed.AllComps);
+            foreach (ThingComp comp in spawnedBed.AllComps)
             {
-                SpawnedCompMakeable.settings = settings;
-                if (bedBedding != null)
-                {
-                    SpawnedCompMakeable.LoadBedding(bedBedding);
-                }
+                comp.parent = spawnedBed;
             }
+            compMakeable.parent.Notify_ColorChanged();
             Find.Selector.Select(spawnedBed, false, true);
         }
     }

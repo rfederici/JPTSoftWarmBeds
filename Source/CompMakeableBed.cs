@@ -10,7 +10,7 @@ namespace SoftWarmBeds
     public class CompMakeableBed : CompFlickable , IStoreSettingsParent
     {
         public ThingDef allowedBedding;
-        public Thing bedding = null;
+        public Thing blanket = null;
         public ThingDef blanketDef = null;
         public Color BlanketDefaultColor = new Color(1f, 1f, 1f);
         public ThingDef blanketStuff = null;
@@ -159,7 +159,6 @@ namespace SoftWarmBeds
                 bool act = true;
                 if (SoftWarmBedsSettings.manuallyUnmakeBed)
                 {
-                    //Log.Warning("Comptick should act now! switchOnInt is "+switchOnInt+ ", wantSwitchOn"+ wantSwitchOn);
                     act = switchOnInt && wantSwitchOn;
                 }
                 if (act) Unmake();
@@ -169,9 +168,9 @@ namespace SoftWarmBeds
         //not present in CompChangeableProjectiles
         public void DrawBed()
         {
-            if (blanketDef != null)
+            if (blanketDef != null && blanket != null)
             {
-                Building_Blanket blanket = bedding as Building_Blanket;
+                Building_Blanket blanket = this.blanket as Building_Blanket;
                 bool invertedColorDisplay = (SoftWarmBedsSettings.colorDisplayOption == ColorDisplayOption.Blanket);
                 if (invertedColorDisplay)
                 {
@@ -190,7 +189,7 @@ namespace SoftWarmBeds
                         blanket.colorTwo = parent.Graphic.colorTwo;
                     }
                 }
-                bedding.Graphic.Draw(parent.DrawPos + Altitudes.AltIncVect, parent.Rotation, bedding);
+                this.blanket.Graphic.Draw(parent.DrawPos + Altitudes.AltIncVect, parent.Rotation, this.blanket);
             }
         }
 
@@ -230,11 +229,11 @@ namespace SoftWarmBeds
             //}
             if (blanketDef != null)
             {
-                this.bedding = ThingMaker.MakeThing(blanketDef, blanketStuff);
-                Building_Blanket blanket = this.bedding as Building_Blanket;
+                this.blanket = ThingMaker.MakeThing(blanketDef, blanketStuff);
+                //Building_Blanket blanket = this.bedding as Building_Blanket;
                 //blanket.TryGetComp<CompColorable>().Color = blanketColor;
                 //blanket.hasColor = true;
-                DrawBed();
+                if (BaseBed.Faction != null) DrawBed();
             }
             parent.Notify_ColorChanged();
             wantSwitchOn = true;
@@ -251,14 +250,13 @@ namespace SoftWarmBeds
         {
             Scribe_Values.Look<bool>(ref loaded, "loaded", false, false);
             Scribe_Defs.Look<ThingDef>(ref loadedBedding, "loadedBedding");
-            Scribe_Deep.Look<Thing>(ref bedding, "bedding", new object[0]);
+            Scribe_Deep.Look<Thing>(ref blanket, "bedding", new object[0]);
             Scribe_Defs.Look<ThingDef>(ref blanketStuff, "blanketStuff");
-            if (loaded && blanketDef != null)
-            {
-                Building_Blanket blanket = bedding as Building_Blanket;
-                //Scribe_Values.Look<bool>(ref blanket.hasColor, "hasColor", false, false);
-            }
-
+            //if (loaded && blanketDef != null)
+            //{
+            //    Building_Blanket blanket = this.blanket as Building_Blanket;
+            //    //Scribe_Values.Look<bool>(ref blanket.hasColor, "hasColor", false, false);
+            //}
             Scribe_Deep.Look<StorageSettings>(ref settings, "settings", new object[] { this });
             if (settings == null)
             {
@@ -268,9 +266,9 @@ namespace SoftWarmBeds
 
         public override void PostSplitOff(Thing bedding)
         {
-            if (blanketDef != null && this.bedding != null)
+            if (blanketDef != null && this.blanket != null)
             {
-                Building_Blanket blanket = this.bedding as Building_Blanket;
+                Building_Blanket blanket = this.blanket as Building_Blanket;
                 //if (blanket.hasColor)
                 //{
                 blanket.colorTwo = parent.Graphic.colorTwo;
