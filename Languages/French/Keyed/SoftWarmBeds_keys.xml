@@ -2,7 +2,7 @@
 <LanguageData>
   
   <!--settings-->
-  <SoftWarmBeds>Literie</SoftWarmBeds>
+  <SoftWarmBeds>Soft Warm Beds</SoftWarmBeds>
   <ColorDisplayOptionPillowLabel>La couleur de l'oreiller et du drap indique la fonction du lit; la couleur du couvre-lit indique le matériau des draps</ColorDisplayOptionPillowLabel>
   <ColorDisplayOptionPillowTooltip>Mettre en évidence le matériau utilisé.</ColorDisplayOptionPillowTooltip>
   <ColorDisplayOptionBlanketLabel>La couleur du couvre-lit indique la fonction du lit; la couleur de l'oreiller et du drap indique le matériau des draps</ColorDisplayOptionBlanketLabel>
