@@ -2,7 +2,7 @@
 <LanguageData>
 
   <Rede.label>Гамак</Rede.label>
-  <Rede.description>Простейшая кровать из когда-либо избретённых. Длеается из верёвок, а также ткани или кожи. Можно повесить почти везде, а также взять с собой в дорогу. Обеспечивает дополнительное охлаждение, что может пригодиться в жарких районах.</Rede.description>
+  <Rede.description>Простейшая кровать из когда-либо избретённых. Делается из верёвок, а также ткани или кожи. Можно повесить почти везде, а также взять с собой в дорогу. Обеспечивает дополнительное охлаждение, что может пригодиться в жарких районах.</Rede.description>
 
   <SingleBlanket.label>Малое одеяло</SingleBlanket.label>
   <SingleBlanket.description>Поможет согреться одному человеку</SingleBlanket.description>
@@ -17,11 +17,10 @@
   <DoubleBedding.label>Комплект постельного белья на двоих</DoubleBedding.label>
   <DoubleBedding.description>Комплект из матраса, подушек, одеяла и простыни для двуспальной кровати. Обеспечивает комфорт в постели.</DoubleBedding.description>
 
-  <!--NEW!-->
-  <SingleTribalBedding.label>fur bedding</SingleTribalBedding.label>
-  <SingleTribalBedding.description>A pile of fur to use as a blanket and a rudimentary pillow. Not very comfortable but much better than nothing and insulates the user while in bed.</SingleTribalBedding.description>
+  <SingleTribalBedding.label>меховая подстилка</SingleTribalBedding.label>
+  <SingleTribalBedding.description>Куча меха, которую можно использовать как одеяло и простую подушку. Не очень удобно, но гораздо лучше, чем ничего, плюс согревает колонистов в постели.</SingleTribalBedding.description>
 
-  <DoubleTribalBedding.label>large fur bedding</DoubleTribalBedding.label>
-  <DoubleTribalBedding.description>A big pile of fur to use as a blanket with two makeshift pillows. Not very comfortable but much better than nothing and insulates the users while in bed.</DoubleTribalBedding.description>
+  <DoubleTribalBedding.label>большая меховая подстилка</DoubleTribalBedding.label>
+  <DoubleTribalBedding.description>Большая куча меха, которую можно использовать как одеяло с двумя самодельными подушками. Не очень удобно, но гораздо лучше, чем ничего, плюс согревает колонистов в постели.</DoubleTribalBedding.description>
 
 </LanguageData>
