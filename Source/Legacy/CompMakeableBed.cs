@@ -7,6 +7,7 @@ using System.Reflection;
 
 namespace SoftWarmBeds
 {
+    //Changed on RW 1.3: added PostDraw
     public class CompMakeableBed : CompFlickable , IStoreSettingsParent
     {
         public ThingDef allowedBedding;
@@ -191,12 +192,6 @@ namespace SoftWarmBeds
                 }
                 this.blanket.Graphic.Draw(parent.DrawPos + Altitudes.AltIncVect, parent.Rotation, this.blanket);
             }
-        }
-
-        public override void PostDraw()
-        {
-            base.PostDraw();
-            if (Loaded) DrawBed();
         }
 
         public StorageSettings GetParentStoreSettings()

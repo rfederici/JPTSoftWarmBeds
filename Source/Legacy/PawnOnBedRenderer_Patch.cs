@@ -7,7 +7,8 @@ using Verse;
 
 namespace SoftWarmBeds
 {
-    //Instruction to draw pawn body when on a bed that's unmade
+    //Replaced by GetBodyPos_Patch on RW 1.3
+    //Instruction to draw pawn body when on a bed that's unmade ()
     [HarmonyPatch(typeof(PawnRenderer), "RenderPawnAt", new Type[] { typeof(Vector3) })]
     public static class PawnOnBedRenderer_Patch
     {

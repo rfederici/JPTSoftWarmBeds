@@ -36,7 +36,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.0|AnyCPU'">
-    <OutputPath>..\1.1\Assemblies\</OutputPath>
+    <OutputPath>..\1.3\Assemblies\</OutputPath>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,6 +44,13 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.1|AnyCPU'">
+    <OutputPath>bin\1.1\</OutputPath>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\Languages\Portuguese\Keyed\SoftWarmBeds_keys.xml" />
@@ -53,12 +60,15 @@
     <Compile Include="Bedding.cs" />
     <Compile Include="BedMakingWorkGiverUtility.cs" />
     <Compile Include="Building_Blanket.cs" />
+    <Compile Include="Harmony\GetBodyPos_Patch.cs" />
     <Compile Include="Harmony\SymbolResolver_SingleThing+ThingMaker_MakeThing.cs" />
+    <Compile Include="Harmony\TryGainMemory_Patch.cs" />
+    <None Include="Legacy\CompMakeableBed.cs" />
     <Compile Include="PatchOperationCopy.cs" />
     <Compile Include="CompMakeableBed.cs" />
     <Compile Include="CompProperties_MakeableBed.cs" />
     <Compile Include="DefOfs.cs" />
-    <Compile Include="Harmony\TryGainMemory_Patch.cs" />
+    <None Include="Legacy\TryGainMemory_Patch.cs" />
     <Compile Include="Harmony\VFEV_Patch.cs" />
     <Compile Include="Harmony\Patch_SpecialThingFilterWorker_DeadmansApparel.cs" />
     <Compile Include="Harmony\Patch_SpecialThingFilterWorkerMatches.cs" />
@@ -67,13 +77,13 @@
     <Compile Include="Harmony\Notify_ColorChanged_Patch.cs" />
     <Compile Include="Harmony\DrawColorTwo_Patch.cs" />
     <Compile Include="Harmony\DeSpawn_Patch.cs" />
-    <Compile Include="Harmony\Draw_Patch.cs" />
+    <None Include="Legacy\Draw_Patch.cs" />
     <Compile Include="Harmony\GetInspectString_Patch.cs" />
     <Compile Include="Harmony\GetInfoCardHyperlinks_Patch.cs" />
     <Compile Include="Harmony\StatsToDraw_Patch.cs" />
     <Compile Include="Harmony\ExplanationPart_Patch.cs" />
     <Compile Include="Harmony\ComfortableTemperatureRange_Patch.cs" />
-    <Compile Include="Harmony\PawnOnBedRenderer_Patch.cs" />
+    <None Include="Legacy\PawnOnBedRenderer_Patch.cs" />
     <Compile Include="ITab_bedding.cs" />
     <Compile Include="JobDriver_MakeBed.cs" />
     <Compile Include="ModBaseSoftWarmBeds.cs" />
@@ -84,15 +94,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lib.Harmony.2.0.4\lib\net472\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.2.1.1\lib\net472\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="HugsLib">
-      <HintPath>..\..\..\..\..\workshop\content\294100\818773962\v1.1\Assemblies\HugsLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\workshop\content\294100\818773962\v1.3\Assemblies\HugsLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />

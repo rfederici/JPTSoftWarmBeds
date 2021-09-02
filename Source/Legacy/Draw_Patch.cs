@@ -4,7 +4,8 @@ using Verse;
 
 namespace SoftWarmBeds
 {
-    //Command to draw the blanket
+    //Replaced by CompMakeableBed.PostDraw on RW 1.3
+    //Command to draw the blanket ()
     [HarmonyPatch(typeof(Building), "Draw")]
     public class Draw_Patch
     {
