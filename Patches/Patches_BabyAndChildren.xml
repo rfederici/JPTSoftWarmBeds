@@ -75,7 +75,7 @@
             <uiIconScale>1.66</uiIconScale>
           </value>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "Crib"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "Crib"]/uiIconPath</toXpath>
           <append>_south</append>

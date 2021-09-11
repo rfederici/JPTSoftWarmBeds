@@ -116,22 +116,22 @@
             <uiIconScale>1.66</uiIconScale>
           </value>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "SNOREGGSingle"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "SNOREGGSingle"]/uiIconPath</toXpath>
           <append>_south</append>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "SNOREGGDouble"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "SNOREGGDouble"]/uiIconPath</toXpath>
           <append>_south</append>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "KRUDNEPPSingle"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "KRUDNEPPSingle"]/uiIconPath</toXpath>
           <append>_south</append>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "SLABNEPPDouble"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "SLABNEPPDouble"]/uiIconPath</toXpath>
           <append>_south</append>

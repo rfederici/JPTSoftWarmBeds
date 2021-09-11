@@ -136,27 +136,27 @@
             <uiIconScale>1.66</uiIconScale>
           </value>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "RGK_bedSingle"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "RGK_bedSingle"]/uiIconPath</toXpath>
           <append>_south</append>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "RGK_bedSingleB"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "RGK_bedSingleB"]/uiIconPath</toXpath>
           <append>_south</append>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "RGK_bedDouble"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "RGK_bedDouble"]/uiIconPath</toXpath>
           <append>_south</append>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "RGK_bedDoubleB"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "RGK_bedDoubleB"]/uiIconPath</toXpath>
           <append>_south</append>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "GL_ClassyDoubleBed"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "GL_ClassyDoubleBed"]/uiIconPath</toXpath>
           <append>_south</append>

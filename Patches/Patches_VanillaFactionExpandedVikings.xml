@@ -142,12 +142,12 @@
             <uiIconPath/>
           </value>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "VFEV_FurBed"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "VFEV_FurBed"]/uiIconPath</toXpath>
           <append>_south</append>
         </li>
-        <li Class="SoftWarmBeds.PatchOperationCopy">
+        <li Class="JPTools.PatchOperationCopy">
           <xpath>/Defs/ThingDef[defName = "VFEV_DoubleFurBed"]/graphicData/texPath</xpath>
           <toXpath>/Defs/ThingDef[defName = "VFEV_DoubleFurBed"]/uiIconPath</toXpath>
           <append>_south</append>

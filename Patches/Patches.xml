@@ -75,22 +75,22 @@
           <uiIconPath/>
         </value>
       </li>
-      <li Class="SoftWarmBeds.PatchOperationCopy">
+      <li Class="JPTools.PatchOperationCopy">
         <xpath>/Defs/ThingDef[defName = "Bed"]/graphicData/texPath</xpath>
         <toXpath>/Defs/ThingDef[defName = "Bed"]/uiIconPath</toXpath>
         <append>_south</append>
       </li>
-      <li Class="SoftWarmBeds.PatchOperationCopy">
+      <li Class="JPTools.PatchOperationCopy">
         <xpath>/Defs/ThingDef[defName = "DoubleBed"]/graphicData/texPath</xpath>
         <toXpath>/Defs/ThingDef[defName = "DoubleBed"]/uiIconPath</toXpath>
         <append>_south</append>
       </li>
-      <li Class="SoftWarmBeds.PatchOperationCopy">
+      <li Class="JPTools.PatchOperationCopy">
         <xpath>/Defs/ThingDef[defName = "HospitalBed"]/graphicData/texPath</xpath>
         <toXpath>/Defs/ThingDef[defName = "HospitalBed"]/uiIconPath</toXpath>
         <append>_south</append>
       </li>
-      <li Class="SoftWarmBeds.PatchOperationCopy">
+      <li Class="JPTools.PatchOperationCopy">
         <xpath>/Defs/ThingDef[defName = "RoyalBed"]/graphicData/texPath</xpath>
         <toXpath>/Defs/ThingDef[defName = "RoyalBed"]/uiIconPath</toXpath>
         <append>_south</append>
