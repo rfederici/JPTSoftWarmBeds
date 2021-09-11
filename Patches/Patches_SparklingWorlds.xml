@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <Operation Class="PatchOperationFindMod">
+  <!--Sparkling Worlds-->
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>Sparkling Worlds - Full Mod</li>
-      <li>Sparkling Worlds - Core Mod</li>
-      <li>Sparkling Worlds - Modular Core - Reduced features</li>
+      <li>Albion.SparklingWorlds.Full</li>
+      <li>Albion.SparklingWorlds.Core</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>

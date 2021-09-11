@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Patch>
 
+  <!--Vanilla Furniture Expanded-->
+
   <!--Core Module-->
-  <Operation Class="PatchOperationFindMod">
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>Vanilla Furniture Expanded</li>
+      <li>VanillaExpanded.VFECore</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>
@@ -236,9 +238,9 @@
   </Operation>
 
   <!--Medical Module-->
-  <Operation Class="PatchOperationFindMod">
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>Vanilla Furniture Expanded - Medical Module</li>
+      <li>VanillaExpanded.VFEMedical</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>
@@ -281,9 +283,9 @@
   </Operation>
 
   <!--Spacer Module-->
-  <Operation Class="PatchOperationFindMod">
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>Vanilla Furniture Expanded - Spacer Module</li>
+      <li>VanillaExpanded.VFESpacer</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>

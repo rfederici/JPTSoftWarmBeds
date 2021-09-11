@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <Operation Class="PatchOperationFindMod">
+  <!--Baby And Children Crib-->
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>Baby and Children</li>
-      <li>Children and Pregnancy</li>
+      <li>thiritevhcompilationhnyaamz899.babyhandhchildren</li>
+      <li>children.and.pregnancy</li>
+      <li>babies.and.children.continued</li>
+      <li>babies.and.children.continued.13</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>

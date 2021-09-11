@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
+  <!--Gloomy Vanilla-->
 	<Operation Class="PatchOperationFindMod">
 		<mods>
 			<li>Gloomy Vanilla</li>

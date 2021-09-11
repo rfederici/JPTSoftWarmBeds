@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <Operation Class="PatchOperationFindMod">
+  <!--GloomyFurniture-->
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>GloomyFurniture</li>
+      <li>Solaris.FurnitureBase</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>
@@ -13,7 +14,7 @@
         <li Class="PatchOperationAdd">
           <xpath>Defs</xpath>
           <value>
-            
+
             <ThingDef ParentName="BlanketBase">
               <defName>RGK_SingleBlanket</defName>
               <label>gloomy single blanket</label>
@@ -90,7 +91,6 @@
               </graphicData>
               <size>(2,2)</size>
             </ThingDef>
-            
           </value>
         </li>
 
@@ -127,7 +127,7 @@
         <li Class="PatchOperationAdd">
           <xpath>/Defs/ThingDef[defName = "RGK_bedSingle" or defName = "RGK_bedSingleB" or defName = "RGK_bedDouble" or defName = "RGK_bedDoubleB" or defName = "GL_ClassyDoubleBed"]</xpath>
           <value>
-            <uiIconPath/>
+            <uiIconPath />
           </value>
         </li>
         <li Class="PatchOperationReplace">

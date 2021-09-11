@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-  <Operation Class="PatchOperationFindMod">
+  <!--【ZP】Rice cultivating civilization-->
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>【ZP】Rice cultivating civilization【1.0】</li>
-      <li>【ZP】Rice cultivating civilization【1.1】</li>
+      <li>tosenbo.Ricecultivatingcivilization</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-  <Operation Class="PatchOperationFindMod">
+  <!--Nano Repair Tech-->
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>Nano Repair Tech</li>
+      <li>Ogre.NanoRepairTech</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Normal</success>

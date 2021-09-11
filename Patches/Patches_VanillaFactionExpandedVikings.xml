@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patch>
 
-  <Operation Class="PatchOperationFindMod">
+  <!--Vanilla Factions Expanded - Vikings-->
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>Vanilla Factions Expanded - Vikings</li>
+      <li>OskarPotocki.VFE.Vikings</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Normal</success>

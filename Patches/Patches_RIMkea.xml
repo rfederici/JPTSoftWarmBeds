@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Patch>
-  <!--Alter all beds from RIMkea to keep them in-line with Soft Warm Beds-->
-  <Operation Class="PatchOperationFindMod">
+  
+  <!--RIMkea-->
+  <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
-      <li>RIMkea</li>
+      <li>spoonshortage.rimkea</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>
