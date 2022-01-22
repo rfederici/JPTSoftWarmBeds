@@ -58,6 +58,15 @@
     <RimWorldPath>..\..\References\RimWorld 1.1\Assembly-CSharp.dll</RimWorldPath>
     <HugsLibPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\818773962\v1.1\Assemblies\HugsLib.dll</HugsLibPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.2|AnyCPU'">
+    <OutputPath>..\1.2\Assemblies\</OutputPath>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <RimWorldPath>..\..\References\RimWorld 1.2\Assembly-CSharp.dll</RimWorldPath>
+    <HugsLibPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\818773962\v1.2\Assemblies\HugsLib.dll</HugsLibPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Lib.Harmony.2.1.1\lib\net472\0Harmony.dll</HintPath>
@@ -138,12 +147,12 @@
   <ItemGroup Condition="'$(Configuration)' != '1.0'">
     <Compile Include="Harmony\GetInfoCardHyperlinks_Patch.cs" />
   </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' != '1.0' AND '$(Configuration)' != '1.1'">
+  <ItemGroup Condition="'$(Configuration)' != '1.0' AND '$(Configuration)' != '1.1' AND '$(Configuration)' != '1.2'">
     <Compile Include="CompMakeableBed.cs" />
     <Compile Include="Harmony\TryGainMemory_Patch.cs" />
     <Compile Include="Harmony\GetBodyPos_Patch.cs" />
   </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' == '1.0' OR '$(Configuration)' == '1.1'">
+  <ItemGroup Condition="'$(Configuration)' == '1.0' OR '$(Configuration)' == '1.1' OR '$(Configuration)' == '1.2'">
     <Compile Include="Legacy\CompMakeableBed.cs" />
     <Compile Include="Legacy\Draw_Patch.cs" />
     <Compile Include="Legacy\PawnOnBedRenderer_Patch.cs" />
