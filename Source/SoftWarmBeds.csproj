@@ -123,11 +123,11 @@
     <Compile Include="CompProperties_MakeableBed.cs" />
     <Compile Include="DefOfs.cs" />
     <Compile Include="Harmony\ComfortableTemperatureRange_Patch.cs" />
+    <Compile Include="Harmony\Compatibility\Hospitality_Patch_1.3.cs" />
     <Compile Include="Harmony\DeSpawn_Patch.cs" />
     <Compile Include="Harmony\DrawColorTwo_Patch.cs" />
     <Compile Include="Harmony\ExplanationPart_Patch.cs" />
     <Compile Include="Harmony\GetInspectString_Patch.cs" />
-    <Compile Include="Harmony\Compatibility\Hospitality_Patch.cs" />
     <Compile Include="Harmony\Need_Rest_Patch.cs" />
     <Compile Include="Harmony\Notify_ColorChanged_Patch.cs" />
     <Compile Include="Harmony\Patch_SpecialThingFilterWorker_DeadmansApparel.cs" />

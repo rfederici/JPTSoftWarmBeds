@@ -57,83 +57,51 @@ namespace SoftWarmBeds
 
         public override void TransformValue(StatRequest req, ref float value)
         {
-            Building_Bed bed = req.Thing as Building_Bed;
-            if (req.HasThing && bed != null)
+            if (!req.HasThing || !(req.Thing is Building_Bed bed)) return;
+            float addend = (additiveStat != null) ? SelectValue(req, additiveStat) : 0f;
+            float factor = (multiplierStat != null) ? SelectValue(req, multiplierStat) : 0f;
+            if (multiplierStat != null)
             {
-                float addend = (additiveStat != null) ? SelectValue(req, additiveStat) : 0f;
-                float factor = (multiplierStat != null) ? SelectValue(req, multiplierStat) : 0f;
-                if (multiplierStat != null)
+                if (additiveStat != null)
                 {
-                    if (additiveStat != null)
-                    {
-                        value += factor * addend;
-                        goto Done;
-                    };
-                    value *= factor;
+                    value += factor * addend;
                     goto Done;
-                }
-                value += addend;
-
-                Done:
+                };
+                value *= factor;
+                goto Done;
+            }
+            value += addend;
+            Done:
                 Factor = factor;
                 Addend = addend;
                 return;
-            }
-            return;
         }
 
         private float SelectValue(StatRequest req, StatDef stat)
         {
-            if (stat != null)
+            if (stat == null) return 0f;
+            CompMakeableBed bedComp = req.Thing.TryGetComp<CompMakeableBed>();
+            ThingDef stuff = null;
+            if (bedComp == null)
             {
-                CompMakeableBed bedComp = req.Thing.TryGetComp<CompMakeableBed>();
-                ThingDef stuff = null;
-                if (bedComp != null)
-                {
-                    if (bedComp.Loaded)
-                    {
-                        stuff = bedComp.blanketStuff; // comp = stuff from bedding
-                    }
-                    else
-                    {
-                        if (stat == additiveStat)
-                        {
-                            return 0f; // unmade bed = additive zero
-                        }
-                    }
-                }
-                else
-                {
-                    if (req.StuffDef != null)
-                    {
-                        stuff = req.StuffDef; // no comp (Bedroll)
-                    }
-                    else
-                    {
-                        if (stat == additiveStat)
-                        {
-                            return 0f; // no comp, no stuff (SleepingSpot)
-                        }
-                    }
-                }
-                bool both = additiveStat != null && multiplierStat != null;
-                if (both)
-                {
-                    if (stat == additiveStat)
-                    {
-                        return stuff.GetStatValueAbstract(stat, null); // if additive = get it from bed/bedding stuff
-                    }
-                    //return req.Def.GetStatValueAbstract(stat, null); // Changed on 1.1: method transfered to a Def child:
-                    return req.BuildableDef.GetStatValueAbstract(stat, null); // if multiplier = get it from bed
-                }
-                if (stat == additiveStat)
-                {
-                    return stuff.GetStatValueAbstract(stat, null); // just additive = get it from bed/bedding stuff
-                }
-                //return req.Def.GetStatValueAbstract(stat, null); // Changed on 1.1: method transfered to a Def child:
-                return req.BuildableDef.GetStatValueAbstract(stat, null); // just multiplier (just in case) = get from bed
+                if (req.StuffDef != null) stuff = req.StuffDef; // no comp (Bedroll)
+                else if (stat == additiveStat) return 0f; // no comp, no stuff (SleepingSpot)
             }
-            return 0f;
+            else
+            {
+                if (bedComp.Loaded) stuff = bedComp.blanketStuff; // comp = stuff from bedding
+                else if (stat == additiveStat) return 0f; // unmade bed = additive zero
+            }
+            bool both = additiveStat != null && multiplierStat != null;
+            if (both)
+            {
+                if (stat == additiveStat) return stuff.GetStatValueAbstract(stat, null); // if additive = get it from bed/bedding stuff
+                //return req.Def.GetStatValueAbstract(stat, null); // Changed on 1.1: method transfered to a Def child:
+                return req.BuildableDef.GetStatValueAbstract(stat, null); // if multiplier = get it from bed
+            }
+            if (stat == additiveStat) return stuff.GetStatValueAbstract(stat, null); // just additive = get it from bed/bedding stuff
+            //return req.Def.GetStatValueAbstract(stat, null); // Changed on 1.1: method transfered to a Def child:
+            return req.BuildableDef.GetStatValueAbstract(stat, null); // just multiplier (just in case) = get from bed
         }
     }
 }

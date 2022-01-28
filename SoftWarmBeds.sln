@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "About", "About", "{0A658597
 		About\About.xml = About\About.xml
 		About\Preview.png = About\Preview.png
 		About\PublishedFileId.txt = About\PublishedFileId.txt
-		About\Version.xml = About\Version.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Defs", "Defs", "{5112442D-F6EE-4658-82D5-C2DCF9CFAB8F}"
@@ -28,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patches", "Patches", "{24D4
 		Patches\Patches_BabyAndChildren.xml = Patches\Patches_BabyAndChildren.xml
 		Patches\Patches_GloomyFurniture.xml = Patches\Patches_GloomyFurniture.xml
 		Patches\Patches_GloomyVanilla.xml = Patches\Patches_GloomyVanilla.xml
+		Patches\Patches_Ideology.xml = Patches\Patches_Ideology.xml
 		Patches\Patches_NanoRepairTech.xml = Patches\Patches_NanoRepairTech.xml
 		Patches\Patches_RiceCultivatingCivilization.xml = Patches\Patches_RiceCultivatingCivilization.xml
 		Patches\Patches_RIMkea.xml = Patches\Patches_RIMkea.xml
