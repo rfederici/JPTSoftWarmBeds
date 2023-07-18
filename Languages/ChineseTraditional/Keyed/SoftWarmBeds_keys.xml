@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <!--settings-->
   <!--EN: Soft Warm Beds-->
   <SoftWarmBeds>溫暖舒適的床</SoftWarmBeds>
@@ -26,7 +25,6 @@
   <manuallyUnmakeBed>需要殖民者手動撤去寢具（Miyuri模式）</manuallyUnmakeBed>
   <!--EN: If checked, the unmake bed command will add a designator instead of dropping the bedding automatically.-->
   <manuallyUnmakeBedTooltip>若勾選，點選“撤去寢具”按鈕將會新增一個指示，等待某位殖民者前來手動撤去寢具。若不勾選，點選“撤去寢具”按鈕，寢具會直接掉落在地面上。</manuallyUnmakeBedTooltip>
-  
   <!--ui-->
   <!--EN: Make Bed-->
   <TabBedding>鋪設寢具</TabBedding>
@@ -46,5 +44,4 @@
   <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort} 試圖在附近找到未被佔用的寢具來鋪設 {BED_label}，但是失敗了。</MessageOutOfNearbyBeddingsFor>
   <!--EN: While in current bed-->
   <StatsReport_BedInsulation>在當前床上</StatsReport_BedInsulation>
-
 </LanguageData>

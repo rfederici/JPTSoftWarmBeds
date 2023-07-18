@@ -1,0 +1,34 @@
+﻿using System.Text;
+using HarmonyLib;
+using RimWorld;
+using Verse;
+
+namespace SoftWarmBeds;
+
+//Adjusts the info report on comfortable temperatures - explanation part
+[HarmonyPatch(typeof(StatPart_ApparelStatOffset), "ExplanationPart")]
+public class ExplanationPart_Patch
+{
+    public static string Postfix(string original, StatRequest req, StatDef ___apparelStat)
+    {
+        if (!req.HasThing || req.Thing == null)
+        {
+            return original;
+        }
+
+        if (req.Thing is not Pawn pawn || !pawn.InBed())
+        {
+            return original;
+        }
+
+        var alteredText = new StringBuilder();
+        var subtract = ___apparelStat == StatDefOf.Insulation_Cold;
+        var modifier = subtract ? BedInsulationCold.Bed_Insulation_Cold : BedInsulationHeat.Bed_Insulation_Heat;
+        var bedStatValue = pawn.CurrentBed().GetStatValue(modifier);
+        var bedOffset = subtract ? bedStatValue * -1 : bedStatValue;
+        var signal = subtract ? null : "+";
+        alteredText.AppendLine("StatsReport_BedInsulation".Translate() + ": " + signal +
+                               bedOffset.ToStringTemperature());
+        return alteredText.ToString();
+    }
+}

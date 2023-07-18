@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <!--settings-->
   <SoftWarmBeds>Soft Warm Beds</SoftWarmBeds>
   <RoleColorHeader>Opciones para el color de las camas:</RoleColorHeader>
@@ -23,7 +22,6 @@
   <manuallyUnmakeBed>Requisita a un colono para deshacer las camas (A lo Miyuri)</manuallyUnmakeBed>
   <!--If checked, the unmake bed command will add a designator instead of dropping the bedding automatically.-->
   <manuallyUnmakeBedTooltip>Si se acepta, el commando para deshacer camas añadirá un designado, en lugar de tirar los conjuntos de forma automática.</manuallyUnmakeBedTooltip>
-
   <!--ui-->
   <TabBedding>Tender la cama</TabBedding>
   <BedMade>Esta cama está tendida {1_label}.</BedMade>
@@ -34,5 +32,4 @@
   <CommandUnmakeBedDesc>Quita el conjunto actual para que pueda ser reemplazado de forma automática por otro.</CommandUnmakeBedDesc>
   <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort} no encontró ningún conjunto sin reservar para {BED_label}.</MessageOutOfNearbyBeddingsFor>
   <StatsReport_BedInsulation>Mientras esté en la cama actual</StatsReport_BedInsulation>
-
 </LanguageData>

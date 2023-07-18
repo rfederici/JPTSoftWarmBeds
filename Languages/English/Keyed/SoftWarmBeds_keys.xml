@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  
   <!--settings-->
   <SoftWarmBeds>Soft Warm Beds</SoftWarmBeds>
   <RoleColorHeader>Bed Color Scheme Options:</RoleColorHeader>
@@ -14,10 +13,10 @@
   <ColorWashTotal>Pure white linen. Who needs color clues?</ColorWashTotal>
   <manuallyUnmakeBed>Require a colonist to unmake beds (Miyuri mode)</manuallyUnmakeBed>
   <manuallyUnmakeBedTooltip>If checked, the unmake bed command will add a designator instead of dropping the bedding automatically.</manuallyUnmakeBedTooltip>
-  
   <!--ui-->
   <TabBedding>Make Bed</TabBedding>
   <BedMade>This bed is made in {1_label}.</BedMade>
+  <CurrentModVersion_Label>Installed mod-version: {0}</CurrentModVersion_Label>
   <BedNotMade>This bed isn't made.</BedNotMade>
   <NoBeddings>No Beddings</NoBeddings>
   <NoSuitableBedding>There are no suitable beddings available.</NoSuitableBedding>
@@ -25,5 +24,4 @@
   <CommandUnmakeBedDesc>Take current bedding off so it can be replaced by another one.</CommandUnmakeBedDesc>
   <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort} found no nearby unreserved beddings for {BED_label}.</MessageOutOfNearbyBeddingsFor>
   <StatsReport_BedInsulation>While in current bed</StatsReport_BedInsulation>
-  
 </LanguageData>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  
   <!--settings-->
   <SoftWarmBeds>Soft Warm Beds</SoftWarmBeds>
   <ColorDisplayOptionPillowLabel>Cor da função da cama no travesseiro e lençol; cor do material da roupa de cama na colcha</ColorDisplayOptionPillowLabel>
@@ -13,7 +12,6 @@
   <ColorWashTotal>Lençóis branquinhos. Quem precisa de indicações coloridas?</ColorWashTotal>
   <manuallyUnmakeBed>Requerer um colono para desfazer a cama (modo Miyuri)</manuallyUnmakeBed>
   <manuallyUnmakeBedTooltip>Quando selecionado, o comando para desfazer camas acrescentará um marcador ao invés de simplesmente remover a roupa de cama automaticamente.</manuallyUnmakeBedTooltip>
-
   <!--ui-->
   <TabBedding>Fazer Cama</TabBedding>
   <BedMade>Esta cama está feita em {1_label}.</BedMade>
@@ -24,5 +22,4 @@
   <CommandUnmakeBedDesc>Remover a roupa de cama atual para que ela seja substituída por outra.</CommandUnmakeBedDesc>
   <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort} não encontrou nenhuma roupa de cama livre por perto para {BED_label}.</MessageOutOfNearbyBeddingsFor>
   <StatsReport_BedInsulation>Enquanto na cama atual</StatsReport_BedInsulation>
-  
 </LanguageData>
