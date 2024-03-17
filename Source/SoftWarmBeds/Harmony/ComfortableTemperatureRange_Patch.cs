@@ -16,8 +16,8 @@ public class ComfortableTemperatureRange_Patch
         }
 
         var bed = p.CurrentBed();
-        var InsulationCold = bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold);
-        var InsulationHeat = bed.GetStatValue(BedInsulationHeat.Bed_Insulation_Heat);
+        var InsulationCold = bed.GetStatValue(BedStatDefOf.Bed_Insulation_Cold);
+        var InsulationHeat = bed.GetStatValue(BedStatDefOf.Bed_Insulation_Heat);
         if (InsulationCold == 0 && InsulationHeat == 0)
         {
             return;

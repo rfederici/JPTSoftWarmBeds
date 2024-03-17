@@ -55,11 +55,6 @@ public static class BedMakingWorkGiverUtility
         beddingFilter.SetAllow(bed.TryGetComp<CompMakeableBed>().allowedBedding, true);
         var stuffFilter = bed.TryGetComp<CompMakeableBed>().settings.filter;
 
-        bool Predicate(Thing x)
-        {
-            return !x.IsForbidden(pawn) && pawn.CanReserve(x) && beddingFilter.Allows(x) && stuffFilter.Allows(x.Stuff);
-        }
-
         var position = pawn.Position;
         var map = pawn.Map;
         var bestThingRequest = beddingFilter.BestThingRequest;
@@ -68,5 +63,10 @@ public static class BedMakingWorkGiverUtility
         var validator = (Predicate<Thing>)Predicate;
         return GenClosest.ClosestThingReachable(position, map, bestThingRequest, peMode, traverseParams, 9999f,
             validator);
+
+        bool Predicate(Thing x)
+        {
+            return !x.IsForbidden(pawn) && pawn.CanReserve(x) && beddingFilter.Allows(x) && stuffFilter.Allows(x.Stuff);
+        }
     }
 }

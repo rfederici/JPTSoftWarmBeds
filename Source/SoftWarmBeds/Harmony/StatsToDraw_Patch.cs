@@ -28,8 +28,8 @@ public class StatsToDraw_Patch
                 var statValue = statDef.Worker.GetValueUnfinalized(StatRequest.For(thing));
                 var subtract = statDef == StatDefOf.ComfyTemperatureMin;
                 var modifier = subtract
-                    ? BedInsulationCold.Bed_Insulation_Cold
-                    : BedInsulationHeat.Bed_Insulation_Heat;
+                    ? BedStatDefOf.Bed_Insulation_Cold
+                    : BedStatDefOf.Bed_Insulation_Heat;
                 var bedStatValue = pawn.CurrentBed().GetStatValue(modifier);
                 var bedOffset = subtract ? bedStatValue * -1 : bedStatValue;
                 statValue += bedOffset;

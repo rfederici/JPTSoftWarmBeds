@@ -6,7 +6,7 @@ using Verse;
 namespace SoftWarmBeds;
 
 //Adjusts the info report on comfortable temperatures - explanation part
-[HarmonyPatch(typeof(StatPart_ApparelStatOffset), "ExplanationPart")]
+[HarmonyPatch(typeof(StatPart_GearStatOffset), "ExplanationPart")]
 public class ExplanationPart_Patch
 {
     public static string Postfix(string original, StatRequest req, StatDef ___apparelStat)
@@ -23,7 +23,7 @@ public class ExplanationPart_Patch
 
         var alteredText = new StringBuilder();
         var subtract = ___apparelStat == StatDefOf.Insulation_Cold;
-        var modifier = subtract ? BedInsulationCold.Bed_Insulation_Cold : BedInsulationHeat.Bed_Insulation_Heat;
+        var modifier = subtract ? BedStatDefOf.Bed_Insulation_Cold : BedStatDefOf.Bed_Insulation_Heat;
         var bedStatValue = pawn.CurrentBed().GetStatValue(modifier);
         var bedOffset = subtract ? bedStatValue * -1 : bedStatValue;
         var signal = subtract ? null : "+";

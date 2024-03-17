@@ -24,7 +24,7 @@ internal class TryGainMemory_Patch
         if (def == ThoughtDefOf.SleptInCold)
         {
             var minTempInBed = ___pawn.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMin) -
-                               bed.GetStatValue(BedInsulationCold.Bed_Insulation_Cold);
+                               bed.GetStatValue(BedStatDefOf.Bed_Insulation_Cold);
             return ___pawn.AmbientTemperature < minTempInBed;
         }
 
@@ -34,7 +34,7 @@ internal class TryGainMemory_Patch
         }
 
         var maxTempInBed = ___pawn.def.GetStatValueAbstract(StatDefOf.ComfyTemperatureMax) +
-                           bed.GetStatValue(BedInsulationHeat.Bed_Insulation_Heat);
+                           bed.GetStatValue(BedStatDefOf.Bed_Insulation_Heat);
         return ___pawn.AmbientTemperature > maxTempInBed;
     }
 }

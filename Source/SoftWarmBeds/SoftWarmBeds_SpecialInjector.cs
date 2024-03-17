@@ -53,7 +53,7 @@ public sealed class SoftWarmBeds_SpecialInjector
         {
             var statModifier = new StatModifier
             {
-                stat = Softness.Textile_Softness,
+                stat = BedStatDefOf.Textile_Softness,
                 value = CalculateSoftness(thingDef)
             };
             thingDef.statBases.Add(statModifier);

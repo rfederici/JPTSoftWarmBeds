@@ -13,13 +13,13 @@ public class PatchOperationCopy : PatchOperationPathed
     protected override bool ApplyWorker(XmlDocument xml)
     {
         var result = false;
-        var enumerable = xml.SelectNodes(toXpath).Cast<XmlNode>();
+        var enumerable = xml.SelectNodes(toXpath)!.Cast<XmlNode>();
         if (enumerable.EnumerableNullOrEmpty())
         {
             return false;
         }
 
-        foreach (var xmlNode in xml.SelectNodes(xpath).Cast<XmlNode>().ToArray())
+        foreach (var xmlNode in xml.SelectNodes(xpath)!.Cast<XmlNode>().ToArray())
         {
             foreach (var xmlNode2 in enumerable)
             {

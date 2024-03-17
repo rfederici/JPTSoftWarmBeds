@@ -12,11 +12,11 @@ public class JobDriver_MakeBed : JobDriver
 
     private const int MakingDuration = 180;
 
-    protected Thing Bed => job.GetTarget(TargetIndex.A).Thing;
+    protected Thing Bed => job.GetTarget(MakeableInd).Thing;
 
     protected CompMakeableBed bedComp => Bed.TryGetComp<CompMakeableBed>();
 
-    protected Thing Bedding => job.GetTarget(TargetIndex.B).Thing;
+    protected Thing Bedding => job.GetTarget(BeddingInd).Thing;
 
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {
@@ -41,20 +41,20 @@ public class JobDriver_MakeBed : JobDriver
 
     protected override IEnumerable<Toil> MakeNewToils()
     {
-        this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
+        this.FailOnDespawnedNullOrForbidden(MakeableInd);
         AddEndCondition(() => !bedComp.Loaded ? JobCondition.Ongoing : JobCondition.Succeeded);
         job.count = 1;
-        var reserveBedding = Toils_Reserve.Reserve(TargetIndex.B);
+        var reserveBedding = Toils_Reserve.Reserve(BeddingInd);
         yield return reserveBedding;
-        yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch)
-            .FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
-        yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, true)
-            .FailOnDestroyedNullOrForbidden(TargetIndex.B);
-        yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveBedding, TargetIndex.B, TargetIndex.None, true);
-        yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-        yield return Toils_General.Wait(MakingDuration).FailOnDestroyedNullOrForbidden(TargetIndex.B)
-            .FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch)
-            .WithProgressBarToilDelay(TargetIndex.A);
+        yield return Toils_Goto.GotoThing(BeddingInd, PathEndMode.ClosestTouch)
+            .FailOnDespawnedNullOrForbidden(BeddingInd).FailOnSomeonePhysicallyInteracting(BeddingInd);
+        yield return Toils_Haul.StartCarryThing(BeddingInd, false, true)
+            .FailOnDestroyedNullOrForbidden(BeddingInd);
+        yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveBedding, BeddingInd, TargetIndex.None, true);
+        yield return Toils_Goto.GotoThing(MakeableInd, PathEndMode.Touch);
+        yield return Toils_General.Wait(MakingDuration).FailOnDestroyedNullOrForbidden(BeddingInd)
+            .FailOnDestroyedNullOrForbidden(MakeableInd).FailOnCannotTouch(MakeableInd, PathEndMode.Touch)
+            .WithProgressBarToilDelay(MakeableInd);
         var makeTheBed = new Toil();
         makeTheBed.initAction = delegate
         {
@@ -63,7 +63,7 @@ public class JobDriver_MakeBed : JobDriver
             actor.carryTracker.innerContainer.ClearAndDestroyContents();
         };
         makeTheBed.defaultCompleteMode = ToilCompleteMode.Instant;
-        makeTheBed.FailOnDespawnedOrNull(TargetIndex.A);
+        makeTheBed.FailOnDespawnedOrNull(MakeableInd);
         yield return makeTheBed;
     }
 }

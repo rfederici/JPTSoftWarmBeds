@@ -22,7 +22,7 @@ public static class Hospitality_Patch
         Log.Message("[SoftWarmBeds] Hospitality detected! Adapting...");
 
         harmonyInstance.Patch(
-            AccessTools.Method("Hospitality.Building_GuestBed:Swap", new[] { typeof(Building_Bed) }),
+            AccessTools.Method("Hospitality.Building_GuestBed:Swap", [typeof(Building_Bed)]),
             new HarmonyMethod(typeof(Hospitality_Patch), nameof(SwapPatch)));
 
         harmonyInstance.Patch(AccessTools.Method("Hospitality.Building_GuestBed:GetInspectString"),
@@ -46,23 +46,17 @@ public static class Hospitality_Patch
     {
         //reflection info
         var guestBed = AccessTools.TypeByName("Hospitality.Building_GuestBed");
-        var makeBedinfo = AccessTools.Method(guestBed, "MakeBed", new[] { typeof(Building_Bed), typeof(string) });
+        var makeBedinfo = AccessTools.Method(guestBed, "MakeBed", [typeof(Building_Bed), typeof(string)]);
         //
-        string newName;
-        if (bed.GetType() == guestBed)
-        {
-            newName = bed.def.defName.Split(new[] { "Guest" }, StringSplitOptions.RemoveEmptyEntries)[0];
-        }
-        else
-        {
-            newName = $"{bed.def.defName}Guest";
-        }
+        var newName = bed.GetType() == guestBed
+            ? bed.def.defName.Split(["Guest"], StringSplitOptions.RemoveEmptyEntries)[0]
+            : $"{bed.def.defName}Guest";
 
         //var compArt = bed.TryGetComp<CompArt>();
         //var art = compArt?.Active != null && compArt.taleRef != null ? new { authorName = compArt.authorNameInt, title = compArt.titleInt, taleRef = new TaleReference { tale = compArt.taleRef.tale, seed = compArt.taleRef.seed } } : null;
         //compArt?.taleRef?.tale?.Notify_NewlyUsed();
         // Thanks again to @Zamu for figuring out it was actually very simple!
-        var newBed = (Building_Bed)makeBedinfo.Invoke(__instance, new object[] { bed, newName });
+        var newBed = (Building_Bed)makeBedinfo.Invoke(__instance, [bed, newName]);
         newBed.SetFactionDirect(bed.Faction);
         var spawnedBed = (Building_Bed)GenSpawn.Spawn(newBed, bed.Position, bed.Map, bed.Rotation);
         spawnedBed.HitPoints = bed.HitPoints;

@@ -9,6 +9,7 @@
     <li>1.2</li>
     <li>1.3</li>
     <li>1.4</li>
+    <li>1.5</li>
   </supportedVersions>
   <modDependencies>
     <li>
@@ -51,7 +52,6 @@ Update of jptrrss mod https://steamcommunity.com/sharedfiles/filedetails/?id=171
 [/table]
 	
 [img]https://i.imgur.com/Z4GOv8H.png[/img]
-[img]https://i.imgur.com/p7Fv1Z6.gif[/img]
 
 Have you ever wondered why is it that we just need stone blocks or steel to build a bed, while wool and furs pile up in the warehouse, unused? Do you get a feeling it would be way more comfortable to lay down on something soft? And what if that cozy bed could also help with the freezing cold? Well, that's what this mod is all about!
 
@@ -68,27 +68,22 @@ The result is that hard leathers and space-age synthetic fabrics, which are usua
 
 Read how exactly the mod changes the beds' stats [url=https://github.com/jptrrs/SoftWarmBeds#first-all-beds-get-more-complicated]here[/url].
 
-[h2][b]Like what you see?[/b] Consider supporting the mod![/h2]
-Making and maintaining mods takes a lot of work! Contribute however it suits you:
-
-[url=https://www.patreon.com/jptrrs][img]https://imgur.com/DSHGDU0.png[/img][/url]
-[url=http://ko-fi.com/jptrrs][img]https://i.imgur.com/DGq6so3.png[/img][/url]
 
 [h2]Compatibility[/h2]
 You can safely add this to your saved game. Beware: all existing beds will get a lot less effective until you craft appropriate beddings. If you wish to remove it, just delete any bedding bills on tailor benches or crafting spots before you do it.
 
 Compatible with:
 [list]
-[*][url=steamcommunity.com/sharedfiles/filedetails/?id=1641239442]Baby &amp;amp; Children[/url]
+[*][url=steamcommunity.com/sharedfiles/filedetails/?id=1641239442]Baby and Children[/url]
 [*][url=steamcommunity.com/sharedfiles/filedetails/?id=2077704445]Children and Pregnancy[/url]
-[*][url=steamcommunity.com/sharedfiles/filedetails/?id=1558635181]GloomyFurniture[/url], [url=steamcommunity.com/sharedfiles/filedetails/?id=1697864590]Gloomy Vanilla[/url] &amp;amp; [url=steamcommunity.com/sharedfiles/filedetails/?id=1883678698]Gloomy Vanilla Overhaul[/url] (please, unmake and redo all previous beds for the new textures to roll out.)
+[*][url=steamcommunity.com/sharedfiles/filedetails/?id=1558635181]GloomyFurniture[/url], [url=steamcommunity.com/sharedfiles/filedetails/?id=1697864590]Gloomy Vanilla[/url] and [url=steamcommunity.com/sharedfiles/filedetails/?id=1883678698]Gloomy Vanilla Overhaul[/url] (please, unmake and redo all previous beds for the new textures to roll out.)
 [*][url=steamcommunity.com/sharedfiles/filedetails/?id=1447372624]Nano Repair Tech[/url]
 [*][url=steamcommunity.com/sharedfiles/filedetails/?id=753498552]Orion's Hospitality[/url] (from version 1.0.34)
 [*][url=steamcommunity.com/sharedfiles/filedetails/?id=2008138191]Polyamory Beds[/url] (on their side, thanks to Meltup)
 [*][url=steamcommunity.com/sharedfiles/filedetails/?id=1610302046]Rice Cultivating Civilization[/url]
 [*][url=steamcommunity.com/sharedfiles/filedetails/?id=769201959]RIMkea[/url] 
-[*][url=steamcommunity.com/sharedfiles/filedetails/?id=1123043922]Sparkling Worlds[/url] (Full &amp;amp; Core) 
-[*][url=steamcommunity.com/sharedfiles/filedetails/?id=1718190143]Vanilla Furniture Expanded[/url] (Core, Medical &amp;amp; Spacer modules).
+[*][url=steamcommunity.com/sharedfiles/filedetails/?id=1123043922]Sparkling Worlds[/url] (Full and Core) 
+[*][url=steamcommunity.com/sharedfiles/filedetails/?id=1718190143]Vanilla Furniture Expanded[/url] (Core, Medical and Spacer modules).
 [/list]
 
 If you are using [url=steamcommunity.com/sharedfiles/filedetails/?id=1552507180]Psychology[/url], watch out for insomniac colonists. Since they're already wired to get less rest from sleep, these beds with reduced effectiveness can be especially destructive for them. Make sure they get a well equipped bed or they'll be sleeping all day long.
@@ -107,15 +102,20 @@ EN, ES, FR, IT, PT, PT-BR, RU, ZH
 
 [h2]Acknowledgements[/h2]
 This mod was clearly based on gadjung's [url=steamcommunity.com/sharedfiles/filedetails/?id=1416581883]RealBeds[/url]. Many thanks for his coolness in letting me use some of his code on the first version! Also, it wouldn't be possible without the invaluable help of Nuka Frog, Mehni, Zamu and the folks at the RimWorld Discord channel.
-Textures for Gloomy Furniture &amp;amp; Gloomy Vanilla compatibility were created by Drawer based on the originals by Gloomylynx, with his authorization. RIMkea and Vanilla Furniture Expanded compatibility by the great Dr. Zhivago, with textures by Oskar Potocki. VFE - Vikings compatibility by Oken and jupiterLILY. Textures for 
+Textures for Gloomy Furniture and Gloomy Vanilla compatibility were created by Drawer based on the originals by Gloomylynx, with his authorization. RIMkea and Vanilla Furniture Expanded compatibility by the great Dr. Zhivago, with textures by Oskar Potocki. VFE - Vikings compatibility by Oken and jupiterLILY. Textures for 
 
 [img]https://i.imgur.com/PwoNOj4.png[/img]
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
-[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader[/url] and command Ctrl+F12
 [*] For best support, please use the Discord-channel for error-reporting.
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
-[/list]</description>
+[*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
+[/list]
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/3006469889][img]https://img.shields.io/github/v/release/emipa606/JPTSoftWarmBeds?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url]</description>
+  <modIconPath IgnoreIfNoMatchingField="True">ModIcon/JPTSoftWarmBeds</modIconPath>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.0</modVersion>
 </ModMetaData>
