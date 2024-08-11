@@ -5,7 +5,7 @@ using RimWorld.BaseGen;
 namespace SoftWarmBeds;
 
 //Generates beddings for beds on generated bases.
-[HarmonyPatch(typeof(SymbolResolver_SingleThing), "Resolve")]
+[HarmonyPatch(typeof(SymbolResolver_SingleThing), nameof(SymbolResolver_SingleThing.Resolve))]
 public class SymbolResolver_SingleThing_Resolve
 {
     public static Faction cachedFaction;

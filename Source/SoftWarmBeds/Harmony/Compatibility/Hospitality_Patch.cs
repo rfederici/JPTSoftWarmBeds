@@ -26,7 +26,8 @@ public static class Hospitality_Patch
             new HarmonyMethod(typeof(Hospitality_Patch), nameof(SwapPatch)));
 
         harmonyInstance.Patch(AccessTools.Method("Hospitality.Building_GuestBed:GetInspectString"),
-            null, new HarmonyMethod(typeof(GetInspectString_Patch), nameof(GetInspectString_Patch.Postfix)));
+            null,
+            new HarmonyMethod(typeof(Building_Bed_GetInspectString), nameof(Building_Bed_GetInspectString.Postfix)));
     }
 
     public static bool SwapPatch(object __instance, Building_Bed bed)

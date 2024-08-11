@@ -6,8 +6,8 @@ using Verse;
 namespace SoftWarmBeds;
 
 //Tweak to the bed's secondary color
-[HarmonyPatch(typeof(Building_Bed), "DrawColorTwo", MethodType.Getter)] // Wait for a Harmony fix!
-public class DrawColorTwo_Patch
+[HarmonyPatch(typeof(Building_Bed), nameof(Building_Bed.DrawColorTwo), MethodType.Getter)] // Wait for a Harmony fix!
+public class Building_Bed_DrawColorTwo
 {
     public static void Postfix(object __instance, ref Color __result)
     {

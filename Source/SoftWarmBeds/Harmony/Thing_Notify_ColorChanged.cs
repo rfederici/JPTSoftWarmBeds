@@ -5,8 +5,8 @@ using Verse;
 namespace SoftWarmBeds;
 
 //Command to update the blanket color when needed
-[HarmonyPatch(typeof(Thing), "Notify_ColorChanged")]
-public class Notify_ColorChanged_Patch
+[HarmonyPatch(typeof(Thing), nameof(Thing.Notify_ColorChanged))]
+public class Thing_Notify_ColorChanged
 {
     public static void Postfix(object __instance)
     {

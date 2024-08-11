@@ -7,7 +7,7 @@ namespace SoftWarmBeds;
 
 //Adjusts the info report on comfortable temperatures - final value
 [HarmonyPatch(typeof(StatsReportUtility), "StatsToDraw", typeof(Thing))]
-public class StatsToDraw_Patch
+public class StatsReportUtility_StatsToDraw
 {
     public static IEnumerable<StatDrawEntry> Postfix(IEnumerable<StatDrawEntry> original, Thing thing)
     {

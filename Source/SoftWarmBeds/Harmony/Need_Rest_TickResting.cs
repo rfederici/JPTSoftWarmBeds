@@ -5,8 +5,8 @@ using Verse;
 namespace SoftWarmBeds;
 
 //Preventing people without beds from using the default BedRestEffectiveness value (80%). Switching to the minimun value instead. 
-[HarmonyPatch(typeof(Need_Rest), "TickResting")]
-public class Need_Rest_Patch
+[HarmonyPatch(typeof(Need_Rest), nameof(Need_Rest.TickResting))]
+public class Need_Rest_TickResting
 {
     public static bool Prefix(float restEffectiveness, Pawn ___pawn)
     {

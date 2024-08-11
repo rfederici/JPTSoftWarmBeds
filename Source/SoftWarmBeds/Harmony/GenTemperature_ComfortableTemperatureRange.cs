@@ -5,8 +5,8 @@ using Verse;
 namespace SoftWarmBeds;
 
 //Makes the bed stats cover for a possible lack of apparel when calculating comfortable temperature range for pawns in bed
-[HarmonyPatch(typeof(GenTemperature), "ComfortableTemperatureRange", typeof(Pawn))]
-public class ComfortableTemperatureRange_Patch
+[HarmonyPatch(typeof(GenTemperature), nameof(GenTemperature.ComfortableTemperatureRange), typeof(Pawn))]
+public class GenTemperature_ComfortableTemperatureRange
 {
     public static void Postfix(Pawn p, ref FloatRange __result)
     {

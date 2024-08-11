@@ -4,7 +4,7 @@ using Verse;
 
 namespace SoftWarmBeds;
 
-[HarmonyPatch(typeof(ThingMaker), "MakeThing")]
+[HarmonyPatch(typeof(ThingMaker), nameof(ThingMaker.MakeThing))]
 public class ThingMaker_MakeThing
 {
     public static bool Act;

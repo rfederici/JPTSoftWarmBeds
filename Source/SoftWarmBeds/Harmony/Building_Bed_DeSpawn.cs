@@ -5,8 +5,8 @@ using Verse;
 namespace SoftWarmBeds;
 
 //Instructions to deal with the used bedding on de-spawn
-[HarmonyPatch(typeof(Building_Bed), "DeSpawn")]
-public class DeSpawn_Patch
+[HarmonyPatch(typeof(Building_Bed), nameof(Building_Bed.DeSpawn))]
+public class Building_Bed_DeSpawn
 {
     public static void Prefix(object __instance)
     {

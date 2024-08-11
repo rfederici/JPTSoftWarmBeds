@@ -8,7 +8,7 @@ namespace SoftWarmBeds;
 //Instruction to draw pawn body when on a bed that's unmade (RW 1.3 only)
 [HarmonyPatch(typeof(PawnRenderer), "GetBodyPos", [typeof(Vector3), typeof(PawnPosture), typeof(bool)],
     [ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Out])]
-public static class GetBodyPos_Patch
+public static class PawnRenderer_GetBodyPos
 {
     public static void Postfix(Pawn ___pawn, ref bool showBody)
     {

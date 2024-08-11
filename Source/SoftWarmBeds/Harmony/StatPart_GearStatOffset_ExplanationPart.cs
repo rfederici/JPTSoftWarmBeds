@@ -6,8 +6,8 @@ using Verse;
 namespace SoftWarmBeds;
 
 //Adjusts the info report on comfortable temperatures - explanation part
-[HarmonyPatch(typeof(StatPart_GearStatOffset), "ExplanationPart")]
-public class ExplanationPart_Patch
+[HarmonyPatch(typeof(StatPart_GearStatOffset), nameof(StatPart_GearStatOffset.ExplanationPart))]
+public class StatPart_GearStatOffset_ExplanationPart
 {
     public static string Postfix(string original, StatRequest req, StatDef ___apparelStat)
     {

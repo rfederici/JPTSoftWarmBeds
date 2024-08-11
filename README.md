@@ -1,16 +1,15 @@
-# JPTSoftWarmBeds
+# [[JPT] Soft Warm Beds (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3006469889)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
 Update of jptrrss mod https://steamcommunity.com/sharedfiles/filedetails/?id=1713295858
 
 - Removed HugsLib dependency
+- cyanobot made a [mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3211326812) to enable patching of the softness
 
 ![Image](https://i.imgur.com/pufA0kM.png)
-
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
-
 
 Have you ever wondered why is it that we just need stone blocks or steel to build a bed, while wool and furs pile up in the warehouse, unused? Do you get a feeling it would be way more comfortable to lay down on something soft? And what if that cozy bed could also help with the freezing cold? Well, that's what this mod is all about!
 
@@ -28,7 +27,7 @@ To measure how much a material can contribute to a bed's comfort and rest effect
 
 The result is that hard leathers and space-age synthetic fabrics, which are usually good for armor, are not that desirable to put on your bed. On the other hand, those weak fabrics that have a tendency to pile up as the game progresses, such as cloth and wool, make the best beddings. Check the table for the softness of vanilla textiles.
 
-Read how exactly the mod changes the beds' stats https://github.com/jptrrs/SoftWarmBeds#first-all-beds-get-more-complicated]here.
+Read how exactly the mod changes the beds' stats [here](https://github.com/jptrrs/SoftWarmBeds#first-all-beds-get-more-complicated).
 
 
 ## Compatibility
@@ -38,22 +37,22 @@ You can safely add this to your saved game. Beware: all existing beds will get a
 Compatible with:
 
 
-- steamcommunity.com/sharedfiles/filedetails/?id=1641239442]Baby and Children
-- steamcommunity.com/sharedfiles/filedetails/?id=2077704445]Children and Pregnancy
-- steamcommunity.com/sharedfiles/filedetails/?id=1558635181]GloomyFurniture, steamcommunity.com/sharedfiles/filedetails/?id=1697864590]Gloomy Vanilla and steamcommunity.com/sharedfiles/filedetails/?id=1883678698]Gloomy Vanilla Overhaul (please, unmake and redo all previous beds for the new textures to roll out.)
-- steamcommunity.com/sharedfiles/filedetails/?id=1447372624]Nano Repair Tech
-- steamcommunity.com/sharedfiles/filedetails/?id=753498552]Orion's Hospitality (from version 1.0.34)
-- steamcommunity.com/sharedfiles/filedetails/?id=2008138191]Polyamory Beds (on their side, thanks to Meltup)
-- steamcommunity.com/sharedfiles/filedetails/?id=1610302046]Rice Cultivating Civilization
-- steamcommunity.com/sharedfiles/filedetails/?id=769201959]RIMkea 
-- steamcommunity.com/sharedfiles/filedetails/?id=1123043922]Sparkling Worlds (Full and Core) 
-- steamcommunity.com/sharedfiles/filedetails/?id=1718190143]Vanilla Furniture Expanded (Core, Medical and Spacer modules).
+- [Baby and Children](steamcommunity.com/sharedfiles/filedetails/?id=1641239442)
+- [Children and Pregnancy](steamcommunity.com/sharedfiles/filedetails/?id=2077704445)
+- [GloomyFurniture](steamcommunity.com/sharedfiles/filedetails/?id=1558635181), [Gloomy Vanilla](steamcommunity.com/sharedfiles/filedetails/?id=1697864590) and [Gloomy Vanilla Overhaul](steamcommunity.com/sharedfiles/filedetails/?id=1883678698) (please, unmake and redo all previous beds for the new textures to roll out.)
+- [Nano Repair Tech](steamcommunity.com/sharedfiles/filedetails/?id=1447372624)
+- [Orion's Hospitality](steamcommunity.com/sharedfiles/filedetails/?id=753498552) (from version 1.0.34)
+- [Polyamory Beds](steamcommunity.com/sharedfiles/filedetails/?id=2008138191) (on their side, thanks to Meltup)
+- [Rice Cultivating Civilization](steamcommunity.com/sharedfiles/filedetails/?id=1610302046)
+- [RIMkea](steamcommunity.com/sharedfiles/filedetails/?id=769201959) 
+- [Sparkling Worlds](steamcommunity.com/sharedfiles/filedetails/?id=1123043922) (Full and Core) 
+- [Vanilla Furniture Expanded](steamcommunity.com/sharedfiles/filedetails/?id=1718190143) (Core, Medical and Spacer modules).
 
 
 
-If you are using steamcommunity.com/sharedfiles/filedetails/?id=1552507180]Psychology, watch out for insomniac colonists. Since they're already wired to get less rest from sleep, these beds with reduced effectiveness can be especially destructive for them. Make sure they get a well equipped bed or they'll be sleeping all day long.
+If you are using [Psychology](steamcommunity.com/sharedfiles/filedetails/?id=1552507180), watch out for insomniac colonists. Since they're already wired to get less rest from sleep, these beds with reduced effectiveness can be especially destructive for them. Make sure they get a well equipped bed or they'll be sleeping all day long.
 
-Please report issues with steamcommunity.com/sharedfiles/filedetails/?id=1631756268]Combat Extended to its authors, as it is too hard to patch for.
+Please report issues with [Combat Extended](steamcommunity.com/sharedfiles/filedetails/?id=1631756268) to its authors, as it is too hard to patch for.
 
 **The latest version has been designed for maximum compatibility**. Unpredicted modded beds should work normally, but you might run into issues if using another mod that changes the vanilla beds.
 
@@ -68,7 +67,7 @@ EN, ES, FR, IT, PT, PT-BR, RU, ZH
 
 ## Acknowledgements
 
-This mod was clearly based on gadjung's steamcommunity.com/sharedfiles/filedetails/?id=1416581883]RealBeds. Many thanks for his coolness in letting me use some of his code on the first version! Also, it wouldn't be possible without the invaluable help of Nuka Frog, Mehni, Zamu and the folks at the RimWorld Discord channel.
+This mod was clearly based on gadjung's [RealBeds](steamcommunity.com/sharedfiles/filedetails/?id=1416581883). Many thanks for his coolness in letting me use some of his code on the first version! Also, it wouldn't be possible without the invaluable help of Nuka Frog, Mehni, Zamu and the folks at the RimWorld Discord channel.
 Textures for Gloomy Furniture and Gloomy Vanilla compatibility were created by Drawer based on the originals by Gloomylynx, with his authorization. RIMkea and Vanilla Furniture Expanded compatibility by the great Dr. Zhivago, with textures by Oskar Potocki. VFE - Vikings compatibility by Oken and jupiterLILY. Textures for 
 
 ![Image](https://i.imgur.com/PwoNOj4.png)
@@ -77,13 +76,12 @@ Textures for Gloomy Furniture and Gloomy Vanilla compatibility were created by D
 
 -  See if the the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
--  Post your error-log using https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib or the standalone https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader and command Ctrl+F12
+-  Post your error-log using [HugsLib](https://steamcommunity.com/workshop/filedetails/?id=818773962) or the standalone [Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) and command Ctrl+F12
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
--  Use https://github.com/RimSort/RimSort/releases/latest]RimSort to sort your mods
+-  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
 
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/3006469889]![Image](https://img.shields.io/github/v/release/emipa606/JPTSoftWarmBeds?label=latest%20version&style=plastic&color=9f1111&labelColor=black)
-
+[![Image](https://img.shields.io/github/v/release/emipa606/JPTSoftWarmBeds?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3006469889)
