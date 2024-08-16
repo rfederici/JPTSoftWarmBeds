@@ -1,5 +1,8 @@
 # Changelog for JPTSoftWarmBeds
 
+1.5.2 - Removed redundant comment that could cause issues
+
+
 1.5.1 - Fixed invisible body when usign unmade bed
 
 

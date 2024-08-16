@@ -57,7 +57,6 @@ public sealed class SoftWarmBeds_SpecialInjector
                 value = CalculateSoftness(thingDef)
             };
             thingDef.statBases.Add(statModifier);
-            //stringBuilder.Append(thingDef.defName + ","+ ArmorGrade(thingDef) + "," + FurFactor(thingDef) + "," + ValueFactor(thingDef) + "," + statModifier.value+ ",");
             stringBuilder.Append($"{thingDef.defName} ({statModifier.value.ToStringPercent()}), ");
         }
 

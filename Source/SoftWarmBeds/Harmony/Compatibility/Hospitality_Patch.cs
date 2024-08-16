@@ -68,13 +68,6 @@ public static class Hospitality_Patch
         foreach (var comp in spawnedBed.AllComps)
         {
             comp.parent = spawnedBed;
-            if ( /*art != null && */comp is CompArt newArt)
-            {
-                Log.Message($"New art for bed: {newArt.Title}");
-                //newArt.authorNameInt = art.authorName;
-                //newArt.titleInt = art.title;
-                //newArt.taleRef = art.taleRef;
-            }
         }
 
         compMakeable.parent.Notify_ColorChanged();
