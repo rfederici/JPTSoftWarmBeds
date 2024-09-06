@@ -1,5 +1,8 @@
 # Changelog for JPTSoftWarmBeds
 
+1.5.3 - Added patchsupport for the continued version of rimkea
+
+
 1.5.2 - Removed redundant comment that could cause issues
 
 

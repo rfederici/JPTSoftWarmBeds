@@ -4,6 +4,7 @@
   <Operation Class="JPTools.PatchOperationFindModById">
     <mods>
       <li>spoonshortage.rimkea</li>
+      <li>zal.rimkea</li>
     </mods>
     <match Class="PatchOperationSequence">
       <success>Always</success>
