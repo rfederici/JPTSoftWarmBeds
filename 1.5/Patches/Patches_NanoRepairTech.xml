@@ -112,8 +112,8 @@
           </value>
         </li>
         <!--Comfort Settings-->
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName = "Ogre_NanoTech_Bed" or defName = "Ogre_NanoTech_DoubleBed"]/statBases/Comfort</xpath>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName = "Ogre_NanoTech_Bed" or defName = "Ogre_NanoTech_DoubleBed"]/statBases</xpath>
           <value>
             <Comfort>0.25</Comfort>
           </value>
