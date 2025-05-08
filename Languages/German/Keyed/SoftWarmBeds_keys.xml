@@ -24,4 +24,5 @@
   <CommandUnmakeBedDesc>Ziehen Sie das aktuelle Bettzeug ab, damit es durch ein anderes ersetzt werden kann.</CommandUnmakeBedDesc>
   <MessageOutOfNearbyBeddingsFor>{PAWN_labelShort} hat für {BED_label} keine unreservierten Betten in der Nähe gefunden.</MessageOutOfNearbyBeddingsFor>
   <StatsReport_BedInsulation>Während im aktuellen Bett</StatsReport_BedInsulation>
+  <!--ui-->
 </LanguageData>
