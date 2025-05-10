@@ -1,5 +1,8 @@
 # Changelog for JPTSoftWarmBeds
 
+1.5.5 - Fixed the Vanilla Furniture Expanded patch
+
+
 1.5.4 - Fixed patch for Nano Repair Tech, thanks rfederici
 Used DeepL to update translations for German
 

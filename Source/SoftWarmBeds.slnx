@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="JPTools/JPTools.csproj" />
+  <Project Path="SoftWarmBeds/SoftWarmBeds.csproj">
+    <BuildType Project="Release" />
+  </Project>
+</Solution>

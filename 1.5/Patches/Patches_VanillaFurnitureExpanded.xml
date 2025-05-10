@@ -68,7 +68,7 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Bed_Kingsize" or defName="Bed_Ergonomic" or defName="Bed_DoubleErgonomic"]/building</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Kingsize"]/building</xpath>
           <value>
             <fixedStorageSettings>
               <filter>
@@ -84,6 +84,27 @@
                 </categories>
               </filter>
             </defaultStorageSettings>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Bed_Ergonomic" or defName="Bed_DoubleErgonomic"]</xpath>
+          <value>
+            <building>
+              <fixedStorageSettings>
+                <filter>
+                  <categories>
+                    <li>Textiles</li>
+                  </categories>
+                </filter>
+              </fixedStorageSettings>
+              <defaultStorageSettings>
+                <filter>
+                  <categories>
+                    <li>Textiles</li>
+                  </categories>
+                </filter>
+              </defaultStorageSettings>
+            </building>
           </value>
         </li>
         <!--Peserving Menu Icon-->
@@ -138,26 +159,30 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Bed_Ergonomic"]/comps</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Ergonomic"]</xpath>
           <value>
-            <li Class="SoftWarmBeds.CompProperties_MakeableBed">
-              <blanketDef>SpacerBedBlanket</blanketDef>
-              <beddingDef>SingleBedding</beddingDef>
-            </li>
+            <comps>
+              <li Class="SoftWarmBeds.CompProperties_MakeableBed">
+                <blanketDef>SpacerBedBlanket</blanketDef>
+                <beddingDef>SingleBedding</beddingDef>
+              </li>
+            </comps>
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Bed_DoubleErgonomic"]/comps</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_DoubleErgonomic"]</xpath>
           <value>
-            <li Class="SoftWarmBeds.CompProperties_MakeableBed">
-              <blanketDef>SpacerDoubleBedBlanket</blanketDef>
-              <beddingDef>DoubleBedding</beddingDef>
-            </li>
+            <comps>
+              <li Class="SoftWarmBeds.CompProperties_MakeableBed">
+                <blanketDef>SpacerDoubleBedBlanket</blanketDef>
+                <beddingDef>DoubleBedding</beddingDef>
+              </li>
+            </comps>
           </value>
         </li>
         <!--BedRestEffectiveness Settings-->
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName="Bed_Ergonomic" or defName="Bed_DoubleErgonomic"]/statBases/BedRestEffectiveness</xpath>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Bed_Ergonomic" or defName="Bed_DoubleErgonomic"]/statBases</xpath>
           <value>
             <BedRestEffectiveness>0.65</BedRestEffectiveness>
           </value>
@@ -168,21 +193,21 @@
             <BedRestEffectiveness>0.6</BedRestEffectiveness>
           </value>
         </li>
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName="Bed_Simple"]/statBases/BedRestEffectiveness</xpath>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Bed_Simple"]/statBases</xpath>
           <value>
             <BedRestEffectiveness>0.45</BedRestEffectiveness>
           </value>
         </li>
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName="Bed_StoneSlab"]/statBases/BedRestEffectiveness</xpath>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Bed_StoneSlab"]/statBases</xpath>
           <value>
             <BedRestEffectiveness>0.4</BedRestEffectiveness>
           </value>
         </li>
         <!--Comfort Settings-->
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName="Bed_Ergonomic" or defName="Bed_DoubleErgonomic"]/statBases/Comfort</xpath>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Bed_Ergonomic" or defName="Bed_DoubleErgonomic"]/statBases</xpath>
           <value>
             <Comfort>0.5</Comfort>
           </value>
@@ -193,14 +218,14 @@
             <Comfort>0.45</Comfort>
           </value>
         </li>
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName="Bed_Simple"]/statBases/Comfort</xpath>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Bed_Simple"]/statBases</xpath>
           <value>
             <Comfort>0.15</Comfort>
           </value>
         </li>
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName="Bed_StoneSlab"]/statBases/Comfort</xpath>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Bed_StoneSlab"]/statBases</xpath>
           <value>
             <Comfort>0.1</Comfort>
           </value>
