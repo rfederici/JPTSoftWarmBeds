@@ -7,11 +7,11 @@ namespace SoftWarmBeds;
 
 public class WorkGiver_MakeBeds : WorkGiver_Scanner
 {
-    public virtual JobDef JobStandard => SoftWarmBeds_JobDefOf.MakeBed;
+    protected virtual JobDef JobStandard => SoftWarmBeds_JobDefOf.MakeBed;
 
     public override PathEndMode PathEndMode => PathEndMode.Touch;
 
-    public virtual bool CanMakeBedThing(Thing t)
+    protected virtual bool CanMakeBedThing(Thing t)
     {
         return t is Building_Bed;
     }

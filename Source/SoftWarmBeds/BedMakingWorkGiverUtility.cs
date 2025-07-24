@@ -9,8 +9,8 @@ public static class BedMakingWorkGiverUtility
 {
     public static bool CanMakeBed(Pawn pawn, Building_Bed t, bool forced = false)
     {
-        var CompMakeableBed = t.TryGetComp<CompMakeableBed>();
-        if (CompMakeableBed == null || CompMakeableBed.Loaded)
+        var compMakeableBed = t.TryGetComp<CompMakeableBed>();
+        if (compMakeableBed == null || compMakeableBed.Loaded)
         {
             return false;
         }
@@ -31,7 +31,7 @@ public static class BedMakingWorkGiverUtility
             return false;
         }
 
-        if (FindBestBedding(pawn, t) != null)
+        if (findBestBedding(pawn, t) != null)
         {
             return true;
         }
@@ -44,11 +44,11 @@ public static class BedMakingWorkGiverUtility
 
     public static Job BedMakingJob(Pawn pawn, Building_Bed t, bool forced = false, JobDef customJob = null)
     {
-        var t2 = FindBestBedding(pawn, t);
+        var t2 = findBestBedding(pawn, t);
         return new Job(customJob ?? SoftWarmBeds_JobDefOf.MakeBed, t, t2);
     }
 
-    private static Thing FindBestBedding(Pawn pawn, Building_Bed bed)
+    private static Thing findBestBedding(Pawn pawn, Building_Bed bed)
     {
         //Log.Message(pawn + " is looking for a bedding type " + bed.TryGetComp<CompMakeableBed>().blanketDef + " for " + bed);
         var beddingFilter = new ThingFilter();
@@ -60,11 +60,11 @@ public static class BedMakingWorkGiverUtility
         var bestThingRequest = beddingFilter.BestThingRequest;
         var peMode = PathEndMode.ClosestTouch;
         var traverseParams = TraverseParms.For(pawn);
-        var validator = (Predicate<Thing>)Predicate;
+        var validator = (Predicate<Thing>)predicate;
         return GenClosest.ClosestThingReachable(position, map, bestThingRequest, peMode, traverseParams, 9999f,
             validator);
 
-        bool Predicate(Thing x)
+        bool predicate(Thing x)
         {
             return !x.IsForbidden(pawn) && pawn.CanReserve(x) && beddingFilter.Allows(x) && stuffFilter.Allows(x.Stuff);
         }

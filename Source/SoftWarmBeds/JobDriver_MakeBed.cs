@@ -12,11 +12,11 @@ public class JobDriver_MakeBed : JobDriver
 
     private const int MakingDuration = 180;
 
-    protected Thing Bed => job.GetTarget(MakeableInd).Thing;
+    private Thing Bed => job.GetTarget(MakeableInd).Thing;
 
-    protected CompMakeableBed bedComp => Bed.TryGetComp<CompMakeableBed>();
+    private CompMakeableBed bedComp => Bed.TryGetComp<CompMakeableBed>();
 
-    protected Thing Bedding => job.GetTarget(BeddingInd).Thing;
+    private Thing Bedding => job.GetTarget(BeddingInd).Thing;
 
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {

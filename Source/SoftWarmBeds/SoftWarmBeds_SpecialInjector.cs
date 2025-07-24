@@ -9,11 +9,11 @@ namespace SoftWarmBeds;
 
 public sealed class SoftWarmBeds_SpecialInjector
 {
-    public readonly double adjust = 0.25;
+    private readonly double adjust = 0.25;
 
-    public float CalculateSoftness(ThingDef def)
+    private float calculateSoftness(ThingDef def)
     {
-        return 1 - (ArmorGrade(def) / ((1 + (FurFactor(def) * 2) + (ValueFactor(def) / 2)) / 2)) - (float)adjust;
+        return 1 - (armorGrade(def) / ((1 + (furFactor(def) * 2) + (valueFactor(def) / 2)) / 2)) - (float)adjust;
     }
 
     public void Inject()
@@ -21,17 +21,17 @@ public sealed class SoftWarmBeds_SpecialInjector
         var texDefs = DefDatabase<ThingDef>.AllDefsListForReading.Where(x =>
             x.stuffProps != null && (x.stuffProps.categories.Contains(StuffCategoryDefOf.Leathery) ||
                                      x.stuffProps.categories.Contains(StuffCategoryDefOf.Fabric)));
-        InjectStatBase(texDefs);
+        injectStatBase(texDefs);
     }
 
-    private float ArmorGrade(ThingDef def)
+    private static float armorGrade(ThingDef def)
     {
         var blunt = Math.Min(1, def.statBases.GetStatValueFromList(StatDefOf.StuffPower_Armor_Blunt, 0f));
         var sharp = Math.Min(1, def.statBases.GetStatValueFromList(StatDefOf.StuffPower_Armor_Sharp, 0f));
         return (blunt + sharp) / 2;
     }
 
-    private float FurFactor(ThingDef def)
+    private static float furFactor(ThingDef def)
     {
         var heat = def.statBases.GetStatValueFromList(StatDefOf.StuffPower_Insulation_Heat, 0f);
         var cold = def.statBases.GetStatValueFromList(StatDefOf.StuffPower_Insulation_Cold, 0f);
@@ -40,13 +40,13 @@ public sealed class SoftWarmBeds_SpecialInjector
         return Math.Max(delta, reach) / 10;
     }
 
-    private float ValueFactor(ThingDef def)
+    private static float valueFactor(ThingDef def)
     {
         var val = def.statBases.GetStatValueFromList(StatDefOf.MarketValue, 0f);
         return (float)Math.Pow(val, 1.0 / 3.0);
     }
 
-    private void InjectStatBase(IEnumerable<ThingDef> list)
+    private void injectStatBase(IEnumerable<ThingDef> list)
     {
         var stringBuilder = new StringBuilder("[SoftWarmBeds] Added softness stat to: ");
         foreach (var thingDef in list)
@@ -54,7 +54,7 @@ public sealed class SoftWarmBeds_SpecialInjector
             var statModifier = new StatModifier
             {
                 stat = BedStatDefOf.Textile_Softness,
-                value = CalculateSoftness(thingDef)
+                value = calculateSoftness(thingDef)
             };
             thingDef.statBases.Add(statModifier);
             stringBuilder.Append($"{thingDef.defName} ({statModifier.value.ToStringPercent()}), ");

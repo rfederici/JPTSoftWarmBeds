@@ -24,7 +24,7 @@ public class Building_Bed_DrawColorTwo
 
         var forPrisoners = bed.ForPrisoners;
         var medical = bed.Medical;
-        var invertedColorDisplay = SoftWarmBedsSettings.colorDisplayOption == ColorDisplayOption.Blanket;
+        var invertedColorDisplay = SoftWarmBedsSettings.ColorDisplayOption == ColorDisplayOption.Blanket;
         if (forPrisoners || medical || invertedColorDisplay)
         {
             return;

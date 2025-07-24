@@ -17,7 +17,7 @@ public class PatchOperationFindModById : PatchOperation
         var foundMod = false;
         foreach (var identifier in mods)
         {
-            if (ModLister.GetActiveModWithIdentifier(identifier) == null)
+            if (ModLister.GetActiveModWithIdentifier(identifier, true) == null)
             {
                 continue;
             }

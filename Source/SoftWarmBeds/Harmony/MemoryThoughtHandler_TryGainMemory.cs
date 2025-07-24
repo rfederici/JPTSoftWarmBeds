@@ -7,7 +7,7 @@ namespace SoftWarmBeds;
 //Makes bed thoughts consider the bed stats when judging confortable temperature (new, more direct & mod-friendly approach)
 [HarmonyPatch(typeof(MemoryThoughtHandler), nameof(MemoryThoughtHandler.TryGainMemory), typeof(ThoughtDef),
     typeof(Pawn), typeof(Precept))]
-internal class TryGainMemory_Patch
+internal class MemoryThoughtHandler_TryGainMemory
 {
     public static bool Prefix(ThoughtDef def, Pawn ___pawn)
     {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Insulation - Cold -->
+  <Bed_Insulation_Cold.label>Insulation - Cold</Bed_Insulation_Cold.label>
+  <!-- EN: How much this bed improves minimum comfortable temperature. Greater values allow surviving in colder temperatures. -->
+  <Bed_Insulation_Cold.description>How much this bed improves minimum comfortable temperature. Greater values allow surviving in colder temperatures.</Bed_Insulation_Cold.description>
+  <!-- EN: Insulation - Heat -->
+  <Bed_Insulation_Heat.label>Insulation - Heat</Bed_Insulation_Heat.label>
+  <!-- EN: How much this bed improves maximum comfortable temperature. Greater values allow surviving in warmer temperatures. -->
+  <Bed_Insulation_Heat.description>How much this bed improves maximum comfortable temperature. Greater values allow surviving in warmer temperatures.</Bed_Insulation_Heat.description>
+  <!-- EN: Insulation material effect multiplier for cold -->
+  <BedStuffEffectMultiplierInsulation_Cold.label>Insulation material effect multiplier for cold</BedStuffEffectMultiplierInsulation_Cold.label>
+  <!-- EN: Insulation material effect multiplier for heat -->
+  <BedStuffEffectMultiplierInsulation_Heat.label>Insulation material effect multiplier for heat</BedStuffEffectMultiplierInsulation_Heat.label>
+  <!-- EN: Softness -->
+  <Textile_Softness.label>Softness</Textile_Softness.label>
+  <!-- EN: Determines how comfortable something made out of this can be. When used in beddings, it affects how much rest the bed provides. -->
+  <Textile_Softness.description>Determines how comfortable something made out of this can be. When used in beddings, it affects how much rest the bed provides.</Textile_Softness.description>
+</LanguageData>

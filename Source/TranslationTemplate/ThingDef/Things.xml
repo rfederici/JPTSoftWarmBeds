@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: double bedding set -->
+  <DoubleBedding.label>double bedding set</DoubleBedding.label>
+  <!-- EN: A set of mattress, pillows, linen and blanket for a double bed. Provides comfort and insulates the users while in bed. -->
+  <DoubleBedding.description>A set of mattress, pillows, linen and blanket for a double bed. Provides comfort and insulates the users while in bed.</DoubleBedding.description>
+  <!-- EN: double blanket -->
+  <DoubleBlanket.label>double blanket</DoubleBlanket.label>
+  <!-- EN: hospital blanket -->
+  <HospitalBlanket.label>hospital blanket</HospitalBlanket.label>
+  <!-- EN: Hammock -->
+  <Rede.label>Hammock</Rede.label>
+  <!-- EN: The simplest and most practical bed ever invented, made from just some cloth or leather and strings. You can hang it anywhere, even take it with you for a good nap when travelling. Hanging in the air, it keeps you cool, which is perfect for a tropical weather! Not as comfortable as a regular bed, though. -->
+  <Rede.description>The simplest and most practical bed ever invented, made from just some cloth or leather and strings. You can hang it anywhere, even take it with you for a good nap when travelling. Hanging in the air, it keeps you cool, which is perfect for a tropical weather! Not as comfortable as a regular bed, though.</Rede.description>
+  <!-- EN: royal blanket -->
+  <RoyalBlanket.label>royal blanket</RoyalBlanket.label>
+  <!-- EN: single bedding set -->
+  <SingleBedding.label>single bedding set</SingleBedding.label>
+  <!-- EN: A set of mattress, pillows, linen and blanket for a single bed. Provides comfort and insulates the user while in bed. -->
+  <SingleBedding.description>A set of mattress, pillows, linen and blanket for a single bed. Provides comfort and insulates the user while in bed.</SingleBedding.description>
+  <!-- EN: single blanket -->
+  <SingleBlanket.label>single blanket</SingleBlanket.label>
+  <!-- EN: Keeps you warm -->
+  <SingleBlanket.description>Keeps you warm</SingleBlanket.description>
+</LanguageData>

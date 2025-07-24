@@ -27,8 +27,8 @@ public class StatPart_BedStuff : StatPart
         {
             if (bedComp.Loaded)
             {
-                var BedStuff = bedComp.blanketStuff;
-                material = BedStuff.label;
+                var bedStuff = bedComp.blanketStuff;
+                material = bedStuff.label;
             }
             else
             {
@@ -67,8 +67,8 @@ public class StatPart_BedStuff : StatPart
             return;
         }
 
-        var addend = additiveStat != null ? SelectValue(req, additiveStat) : 0f;
-        var factor = multiplierStat != null ? SelectValue(req, multiplierStat) : 0f;
+        var addend = additiveStat != null ? selectValue(req, additiveStat) : 0f;
+        var factor = multiplierStat != null ? selectValue(req, multiplierStat) : 0f;
         if (multiplierStat != null)
         {
             if (additiveStat != null)
@@ -87,7 +87,7 @@ public class StatPart_BedStuff : StatPart
         Addend = addend;
     }
 
-    private float SelectValue(StatRequest req, StatDef stat)
+    private float selectValue(StatRequest req, StatDef stat)
     {
         if (stat == null)
         {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: make beds -->
+  <MakeBeds.label>make beds</MakeBeds.label>
+  <!-- EN: making -->
+  <MakeBeds.gerund>making</MakeBeds.gerund>
+  <!-- EN: make -->
+  <MakeBeds.verb>make</MakeBeds.verb>
+</LanguageData>

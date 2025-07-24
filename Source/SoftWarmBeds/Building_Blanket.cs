@@ -5,10 +5,10 @@ namespace SoftWarmBeds;
 
 public class Building_Blanket : ThingWithComps
 {
-    private readonly Color linenDelta = new Color(1f, 1f, 1f);
+    private readonly Color linenDelta = new(1f, 1f, 1f);
     public Color colorTwo;
 
-    public float deltaFactor => Mathf.Round(SoftWarmBedsSettings.colorWash * 10) / 10;
+    private static float DeltaFactor => Mathf.Round(SoftWarmBedsSettings.ColorWash * 10) / 10;
 
-    public override Color DrawColorTwo => Color.Lerp(colorTwo, linenDelta, deltaFactor);
+    public override Color DrawColorTwo => Color.Lerp(colorTwo, linenDelta, DeltaFactor);
 }

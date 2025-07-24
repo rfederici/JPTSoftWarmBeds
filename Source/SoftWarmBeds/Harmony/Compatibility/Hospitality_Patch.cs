@@ -39,15 +39,16 @@ public static class Hospitality_Patch
         }
 
         bedComp.NotTheBlanket = false;
-        Swap(__instance, bed, bedComp.settings, bedComp);
+        swap(__instance, bed, bedComp.settings, bedComp);
         return false;
     }
 
-    public static void Swap(object __instance, Building_Bed bed, StorageSettings settings, CompMakeableBed compMakeable)
+    private static void swap(object __instance, Building_Bed bed, StorageSettings settings,
+        CompMakeableBed compMakeable)
     {
         //reflection info
         var guestBed = AccessTools.TypeByName("Hospitality.Building_GuestBed");
-        var makeBedinfo = AccessTools.Method(guestBed, "MakeBed", [typeof(Building_Bed), typeof(string)]);
+        var makeBedInfo = AccessTools.Method(guestBed, "MakeBed", [typeof(Building_Bed), typeof(string)]);
         //
         var newName = bed.GetType() == guestBed
             ? bed.def.defName.Split(["Guest"], StringSplitOptions.RemoveEmptyEntries)[0]
@@ -57,7 +58,7 @@ public static class Hospitality_Patch
         //var art = compArt?.Active != null && compArt.taleRef != null ? new { authorName = compArt.authorNameInt, title = compArt.titleInt, taleRef = new TaleReference { tale = compArt.taleRef.tale, seed = compArt.taleRef.seed } } : null;
         //compArt?.taleRef?.tale?.Notify_NewlyUsed();
         // Thanks again to @Zamu for figuring out it was actually very simple!
-        var newBed = (Building_Bed)makeBedinfo.Invoke(__instance, [bed, newName]);
+        var newBed = (Building_Bed)makeBedInfo.Invoke(__instance, [bed, newName]);
         newBed.SetFactionDirect(bed.Faction);
         var spawnedBed = (Building_Bed)GenSpawn.Spawn(newBed, bed.Position, bed.Map, bed.Rotation);
         spawnedBed.HitPoints = bed.HitPoints;
