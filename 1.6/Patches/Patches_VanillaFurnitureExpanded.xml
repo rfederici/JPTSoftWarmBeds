@@ -194,7 +194,7 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Bed_Simple"]/statBases</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Simple" or defName="VFE_Bed_SimpleDouble"]/statBases</xpath>
           <value>
             <BedRestEffectiveness>0.45</BedRestEffectiveness>
           </value>
@@ -219,7 +219,7 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Bed_Simple"]/statBases</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Simple" or defName="VFE_Bed_SimpleDouble"]/statBases</xpath>
           <value>
             <Comfort>0.15</Comfort>
           </value>
@@ -244,7 +244,7 @@
           </value>
         </li>
         <li Class="PatchOperationAdd">
-          <xpath>Defs/ThingDef[defName="Bed_Simple" or defName="Bed_StoneSlab"]/statBases</xpath>
+          <xpath>Defs/ThingDef[defName="Bed_Simple" or defName="VFE_Bed_SimpleDouble" or defName="Bed_StoneSlab"]/statBases</xpath>
           <value>
             <BedStuffEffectMultiplierInsulation_Cold>0.1</BedStuffEffectMultiplierInsulation_Cold>
           </value>
