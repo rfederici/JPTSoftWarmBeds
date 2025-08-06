@@ -423,17 +423,17 @@
           </value>
         </li>
         <!--BedRestEffectiveness Settings-->
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName="Bed_AdvBed" or defName="Bed_AdvDoubleBed"]/statBases/BedRestEffectiveness</xpath>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Bed_AdvBed" or defName="Bed_AdvDoubleBed"]/statBases</xpath>
           <value>
-            <BedRestEffectiveness>0.7</BedRestEffectiveness>
+            <BedRestEffectiveness Inherit="False">0.7</BedRestEffectiveness>
           </value>
         </li>
         <!--Comfort Settings-->
-        <li Class="PatchOperationReplace">
-          <xpath>Defs/ThingDef[defName="Bed_AdvBed" or defName="Bed_AdvDoubleBed"]/statBases/Comfort</xpath>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Bed_AdvBed" or defName="Bed_AdvDoubleBed"]/statBases</xpath>
           <value>
-            <Comfort>0.55</Comfort>
+            <Comfort Inherit="False">0.55</Comfort>
           </value>
         </li>
         <!--Insulation Settings-->
