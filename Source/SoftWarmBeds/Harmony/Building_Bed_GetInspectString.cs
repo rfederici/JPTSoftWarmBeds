@@ -25,7 +25,7 @@ public class Building_Bed_GetInspectString
         var stringBuilder = new StringBuilder();
         stringBuilder.AppendLine();
         stringBuilder.AppendLine(bedComp.Loaded
-            ? "BedMade".Translate(bedComp.blanketStuff.LabelCap, bedComp.blanketStuff)
+                            ? "BedMade".Translate(bedComp.BlanketStuff.LabelCap, bedComp.BlanketStuff)
             : "BedNotMade".Translate());
 
         __result += stringBuilder.ToString().TrimEndNewlines();

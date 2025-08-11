@@ -13,15 +13,15 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
 
     private readonly FieldInfo baseWantSwitchInfo = AccessTools.Field(typeof(CompFlickable), "wantSwitchOn");
     private readonly Color blanketDefaultColor = new(1f, 1f, 1f);
-    public ThingDef allowedBedding;
-    public Thing blanket;
-    public ThingDef blanketDef;
-    public ThingDef blanketStuff;
+    private ThingDef allowedBedding;
+    private Thing blanket;
+    private ThingDef blanketDef;
+    private ThingDef blanketStuff;
     private float curRotationInt;
-    public bool loaded;
+    private bool loaded;
     private ThingDef loadedBedding;
-    public bool NotTheBlanket = true;
-    public StorageSettings settings;
+    private bool notTheBlanket = true;
+    private StorageSettings settings;
 
     private bool SwitchOnInt
     {
@@ -35,9 +35,28 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
         set => baseWantSwitchInfo.SetValue(this, value);
     }
 
-    public bool Loaded => LoadedBedding != null;
+    public bool Loaded => loaded;
+    
+    // Additional properties for external access
+    public bool IsLoaded => loaded;
 
     private ThingDef LoadedBedding => loadedBedding;
+    
+    // Public properties for external access
+    public ThingDef AllowedBedding => allowedBedding;
+    public Thing Blanket => blanket;
+    public ThingDef BlanketDef => blanketDef;
+    public ThingDef BlanketStuff => blanketStuff;
+    public bool NotTheBlanket 
+    { 
+        get => notTheBlanket; 
+        set => notTheBlanket = value; 
+    }
+    public StorageSettings Settings => settings;
+    
+    // Public properties for Odyssey compatibility
+    public ThingDef LoadedBeddingDef => loadedBedding;
+    public ThingDef BlanketStuffDef => blanketStuff;
 
     public CompProperties_MakeableBed Props => (CompProperties_MakeableBed)props;
 
@@ -49,15 +68,8 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
         set
         {
             curRotationInt = value;
-            if (curRotationInt > 360f)
-            {
-                curRotationInt -= 360f;
-            }
-
-            if (curRotationInt < 0f)
-            {
-                curRotationInt += 360f;
-            }
+            if (curRotationInt > 360f) curRotationInt -= 360f;
+            if (curRotationInt < 0f) curRotationInt += 360f;
         }
     }
 
@@ -81,23 +93,14 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
 
     public override IEnumerable<Gizmo> CompGetGizmosExtra()
     {
-        foreach (var gizmo in StorageSettingsClipboard.CopyPasteGizmosFor(settings))
-        {
-            yield return gizmo;
-        }
+        foreach (var gizmo in StorageSettingsClipboard.CopyPasteGizmosFor(settings)) yield return gizmo;
 
-        if (!loaded)
-        {
-            yield break;
-        }
+        if (!loaded) yield break;
 
         if (SoftWarmBedsSettings.ManuallyUnmakeBed)
         {
             Props.commandTexture = Props.beddingDef.graphicData.texPath;
-            foreach (var gizmo in base.CompGetGizmosExtra())
-            {
-                yield return gizmo;
-            }
+            foreach (var gizmo in base.CompGetGizmosExtra()) yield return gizmo;
         }
         else
         {
@@ -117,35 +120,18 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
 
     public override void CompTick()
     {
-        if (!Loaded || settings.filter.Allows(blanketStuff))
-        {
-            return;
-        }
-
-        var act = true;
-        if (SoftWarmBedsSettings.ManuallyUnmakeBed)
-        {
-            act = SwitchOnInt && WantSwitchOn;
-        }
-
-        if (act)
-        {
-            Unmake();
-        }
+        if (!Loaded || settings.filter.Allows(blanketStuff)) return;
+        if (!SoftWarmBedsSettings.ManuallyUnmakeBed || (SwitchOnInt && WantSwitchOn)) Unmake();
     }
 
     //not present in CompChangeableProjectiles
     private void drawBed()
     {
-        if (blanketDef == null || blanket == null)
-        {
-            return;
-        }
+        if (blanketDef == null || blanket == null) return;
 
         if (blanket is Building_Blanket buildingBlanket)
         {
-            var invertedColorDisplay = SoftWarmBedsSettings.ColorDisplayOption == ColorDisplayOption.Blanket;
-            if (invertedColorDisplay)
+            if (SoftWarmBedsSettings.ColorDisplayOption == ColorDisplayOption.Blanket)
             {
                 buildingBlanket.DrawColor = parent.Graphic.colorTwo;
                 buildingBlanket.colorTwo = blanketStuff.stuffProps.color;
@@ -165,18 +151,13 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
     public override void PostDraw()
     {
         base.PostDraw();
-        if (Loaded)
-        {
-            drawBed();
-        }
+        if (Loaded) drawBed();
     }
 
     public override void Initialize(CompProperties props)
     {
         base.Initialize(props);
-        allowedBedding = new ThingDef();
         allowedBedding = Props.beddingDef;
-        blanketDef = new ThingDef();
         blanketDef = Props.blanketDef;
         setUpStorageSettings();
     }
@@ -190,10 +171,7 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
         if (blanketDef != null)
         {
             blanket = ThingMaker.MakeThing(blanketDef, blanketStuff);
-            if (BaseBed.Faction != null)
-            {
-                drawBed();
-            }
+            if (BaseBed.Faction != null) drawBed();
         }
 
         parent.Notify_ColorChanged();
@@ -207,6 +185,20 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
         LoadBedding(bedding);
     }
 
+    public void LoadBedding(ThingDef beddingDef, ThingDef stuff)
+    {
+            blanket = ThingMaker.MakeThing(blanketDef, blanketStuff);
+            if (BaseBed.Faction != null)
+            {
+                drawBed();
+            }
+        }
+
+        parent.Notify_ColorChanged();
+        WantSwitchOn = true;
+        SwitchOnInt = true;
+    }
+
     public override void PostExposeData()
     {
         Scribe_Values.Look(ref loaded, "loaded");
@@ -214,23 +206,19 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
         Scribe_Deep.Look(ref blanket, "bedding");
         Scribe_Defs.Look(ref blanketStuff, "blanketStuff");
         Scribe_Deep.Look(ref settings, "settings", this);
-        if (settings == null)
-        {
-            setUpStorageSettings();
-        }
+        if (settings == null) setUpStorageSettings();
     }
 
     public override void PostSplitOff(Thing bedding)
     {
         if (blanketDef == null || blanket == null)
-        {
-            return;
-        }
+        if (blanketDef == null || blanket == null) return;
 
         if (blanket is not Building_Blanket buildingBlanket)
         {
             return;
         }
+        if (blanket is not Building_Blanket buildingBlanket) return;
 
         buildingBlanket.colorTwo = parent.Graphic.colorTwo;
         parent.Notify_ColorChanged();
@@ -247,10 +235,7 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
 
     private void setUpStorageSettings()
     {
-        if (GetParentStoreSettings() == null)
-        {
-            return;
-        }
+        if (GetParentStoreSettings() == null) return;
 
         settings = new StorageSettings(this);
         settings.CopyFrom(GetParentStoreSettings());
@@ -263,24 +248,19 @@ public class CompMakeableBed : CompFlickable, IStoreSettingsParent
             WantSwitchOn = !WantSwitchOn;
             FlickUtility.UpdateFlickDesignation(parent);
         }
-        else
-        {
-            doUnmake();
-        }
+        else doUnmake();
     }
 
     public override void ReceiveCompSignal(string signal)
     {
         if (SoftWarmBedsSettings.ManuallyUnmakeBed && Loaded && !WantSwitchOn)
-        {
-            doUnmake();
-        }
+        if (SoftWarmBedsSettings.ManuallyUnmakeBed && Loaded && !WantSwitchOn) doUnmake();
     }
 
     private void doUnmake()
     {
         var stuff = blanketStuff;
-        GenPlace.TryPlaceThing(removeBedding(stuff), BaseBed.Position, BaseBed.Map, ThingPlaceMode.Near);
+        GenPlace.TryPlaceThing(removeBedding(blanketStuff), BaseBed.Position, BaseBed.Map, ThingPlaceMode.Near);
         BaseBed.Notify_ColorChanged();
     }
 }

@@ -16,9 +16,9 @@ public class Thing_Notify_ColorChanged
         }
 
         var bedComp = bed.TryGetComp<CompMakeableBed>();
-        if (bedComp is { loaded: true, blanketDef: not null })
+        if (bedComp is { Loaded: true, BlanketDef: not null })
         {
-            bedComp.blanket.Notify_ColorChanged();
+            bedComp.Blanket.Notify_ColorChanged();
         }
     }
 }

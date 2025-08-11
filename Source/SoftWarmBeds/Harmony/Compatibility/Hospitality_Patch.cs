@@ -39,7 +39,7 @@ public static class Hospitality_Patch
         }
 
         bedComp.NotTheBlanket = false;
-        swap(__instance, bed, bedComp.settings, bedComp);
+        swap(__instance, bed, bedComp.Settings, bedComp);
         return false;
     }
 

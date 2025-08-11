@@ -39,7 +39,7 @@ public static class VFEV_Patch
         var bedComp = bed.TryGetComp<CompMakeableBed>();
         if (bedComp != null)
         {
-            return !bedComp.loaded;
+            return !bedComp.Loaded;
         }
 
         return true;

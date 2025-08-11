@@ -37,7 +37,7 @@ public static class BedMakingWorkGiverUtility
         }
 
         var beddingFilter = new ThingFilter();
-        beddingFilter.SetAllow(t.TryGetComp<CompMakeableBed>().allowedBedding, true);
+        beddingFilter.SetAllow(t.TryGetComp<CompMakeableBed>().AllowedBedding, true);
         JobFailReason.Is("NoSuitableBedding".Translate(beddingFilter.Summary));
         return false;
     }
@@ -52,8 +52,8 @@ public static class BedMakingWorkGiverUtility
     {
         //Log.Message(pawn + " is looking for a bedding type " + bed.TryGetComp<CompMakeableBed>().blanketDef + " for " + bed);
         var beddingFilter = new ThingFilter();
-        beddingFilter.SetAllow(bed.TryGetComp<CompMakeableBed>().allowedBedding, true);
-        var stuffFilter = bed.TryGetComp<CompMakeableBed>().settings.filter;
+        beddingFilter.SetAllow(bed.TryGetComp<CompMakeableBed>().AllowedBedding, true);
+        var stuffFilter = bed.TryGetComp<CompMakeableBed>().Settings.filter;
 
         var position = pawn.Position;
         var map = pawn.Map;

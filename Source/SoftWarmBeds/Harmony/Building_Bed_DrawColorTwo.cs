@@ -30,9 +30,9 @@ public class Building_Bed_DrawColorTwo
             return;
         }
 
-        if (bedComp is { loaded: true, blanketDef: null }) // bedding color for beds that are made
+        if (bedComp is { Loaded: true, BlanketDef: null }) // bedding color for beds that are made
         {
-            __result = bedComp.blanketStuff.stuffProps.color;
+            __result = bedComp.BlanketStuff.stuffProps.color;
         }
         else if (bed.def.MadeFromStuff) // stuff color for umade beds & bedrolls
         {

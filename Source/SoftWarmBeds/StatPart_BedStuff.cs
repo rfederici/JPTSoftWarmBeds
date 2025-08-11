@@ -27,7 +27,7 @@ public class StatPart_BedStuff : StatPart
         {
             if (bedComp.Loaded)
             {
-                var bedStuff = bedComp.blanketStuff;
+                var bedStuff = bedComp.BlanketStuff;
                 material = bedStuff.label;
             }
             else
@@ -111,7 +111,7 @@ public class StatPart_BedStuff : StatPart
         {
             if (bedComp.Loaded)
             {
-                stuff = bedComp.blanketStuff; // comp = stuff from bedding
+                stuff = bedComp.BlanketStuff; // comp = stuff from bedding
             }
             else if (stat == additiveStat)
             {
