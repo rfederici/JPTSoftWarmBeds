@@ -4,7 +4,7 @@
   "CanRemove": "2",
   "PreviewVersion": "1.6",
   "SocialImageSet": true,
-  "LastXmlCleaning": "2025-07-27T16:49:01.5719005+02:00",
+  "LastXmlCleaning": "2025-08-06T23:32:13.5465381+02:00",
   "SearchTags": [
     " blankets",
     " softness"
@@ -13,6 +13,6 @@
   "Defs": true,
   "Assemblies": true,
   "LinesOfCode": 64813,
-  "LinesOfXML": 98016,
+  "LinesOfXML": 98169,
   "CodeBaseSize": 82
 }
